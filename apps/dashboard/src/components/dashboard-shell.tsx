@@ -71,7 +71,12 @@ export function DashboardShell() {
 function Dashboard() {
   const { data, isLoading, error } = useSnapshot();
   const [selectedRunId, setSelectedRunId] = useState<string | null>(null);
-  const selectedRun = data?.runs.find((run) => run.id === selectedRunId) ?? data?.runs[0] ?? null;
+  const defaultRun =
+    data?.runs.find((run) => Object.keys(run.latestMetrics).length > 0) ??
+    data?.runs.find((run) => run.status === "completed") ??
+    data?.runs[0] ??
+    null;
+  const selectedRun = data?.runs.find((run) => run.id === selectedRunId) ?? defaultRun;
 
   if (isLoading) {
     return (
