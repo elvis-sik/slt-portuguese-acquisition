@@ -17,7 +17,9 @@ tar \
   --exclude='*.pyc' \
   --exclude='.cache' \
   --exclude='wandb' \
+  --exclude='.env.local' \
   --exclude='infra/gcp/.env' \
+  --exclude='infra/gcp/.env.local' \
   -C "$ROOT" -czf "$ARCHIVE" .
 
 gcloud compute ssh "$VM_NAME" --project="$PROJECT_ID" --zone="$ZONE" --quiet \
