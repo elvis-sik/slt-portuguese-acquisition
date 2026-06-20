@@ -6,6 +6,7 @@ import {
   Activity,
   AlertTriangle,
   Box,
+  ChartSpline,
   CheckCircle2,
   CirclePause,
   GitBranch,
@@ -24,8 +25,10 @@ import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-quer
 import { useEffect, useMemo, useState } from "react";
 import {
   CartesianGrid,
+  Legend,
   Line,
   LineChart,
+  ReferenceLine,
   ResponsiveContainer,
   Tooltip as ChartTooltip,
   XAxis,
@@ -108,6 +111,7 @@ function Dashboard() {
           <Tabs.Root defaultValue="runs" className="rounded-md border border-line bg-white">
             <Tabs.List className="flex border-b border-line bg-panel">
               <Tab value="runs" icon={<Workflow className="h-4 w-4" />} label="Runs" />
+              <Tab value="figures" icon={<ChartSpline className="h-4 w-4" />} label="Figures" />
               <Tab value="metrics" icon={<Activity className="h-4 w-4" />} label="Metrics" />
               <Tab value="logs" icon={<Terminal className="h-4 w-4" />} label="Logs" />
               <Tab value="artifacts" icon={<Box className="h-4 w-4" />} label="Artifacts" />
@@ -115,6 +119,9 @@ function Dashboard() {
             <Tabs.Content value="runs" className="p-4">
               <RunTable runs={data.runs} selected={selectedRun?.id ?? null} onSelect={setSelectedRunId} />
               {selectedRun ? <RunDetail run={selectedRun} snapshot={data} /> : null}
+            </Tabs.Content>
+            <Tabs.Content value="figures" className="p-4">
+              <FigureDeck snapshot={data} selectedRun={selectedRun} />
             </Tabs.Content>
             <Tabs.Content value="metrics" className="p-4">
               <MetricGrid metrics={data.metrics} selectedRun={selectedRun} />
@@ -357,6 +364,279 @@ function RunDetail({ run, snapshot }: { run: RunRecord; snapshot: Snapshot }) {
       </div>
     </div>
   );
+}
+
+type FigureSpec = {
+  id: string;
+  title: string;
+  family: string;
+  yLabel: string;
+  keys: string[];
+  colors: string[];
+};
+
+type FigureSeries = {
+  key: string;
+  label: string;
+  color: string;
+  metricName: string;
+  points: Array<{ x: number; value: number }>;
+};
+
+const FIGURE_SPECS: FigureSpec[] = [
+  {
+    id: "loss",
+    title: "Figure 1a target loss and BPB",
+    family: "behavior",
+    yLabel: "loss / BPB",
+    keys: [
+      "target_validation_bits_per_byte",
+      "validation_bits_per_byte",
+      "eval_bpb",
+      "val_bpb",
+      "bpb",
+      "validation_loss",
+      "eval_loss",
+      "train_loss",
+      "loss",
+      "last_loss"
+    ],
+    colors: ["#006d77", "#d97706", "#53745c", "#6d28d9"]
+  },
+  {
+    id: "grammar",
+    title: "Figure 1b grammar and lexical probes",
+    family: "behavior",
+    yLabel: "margin / accuracy",
+    keys: [
+      "grammar_logprob_margin",
+      "grammar_margin",
+      "grammar_minimal_pair_accuracy_percent",
+      "grammar_accuracy",
+      "lexical_probe_accuracy_percent",
+      "lexical_accuracy"
+    ],
+    colors: ["#0f766e", "#be123c", "#7c3aed", "#ca8a04"]
+  },
+  {
+    id: "llc",
+    title: "Figure 1c LLC trajectory",
+    family: "geometry",
+    yLabel: "LLC diagnostic",
+    keys: ["normalized_llc_ratio_to_start", "llc_mean", "llc", "local_learning_coefficient", "llc_std"],
+    colors: ["#1d4ed8", "#0891b2", "#9333ea", "#475569"]
+  },
+  {
+    id: "sampler",
+    title: "Figure S1 sampler diagnostics",
+    family: "diagnostic",
+    yLabel: "localized loss / trace",
+    keys: [
+      "sampling_loss",
+      "sampling_loss_micro",
+      "chain_loss",
+      "init_loss",
+      "center_loss",
+      "seconds_per_chain_step_estimate",
+      "peak_memory_bytes"
+    ],
+    colors: ["#b45309", "#0f766e", "#dc2626", "#2563eb"]
+  }
+];
+
+function FigureDeck({ snapshot, selectedRun }: { snapshot: Snapshot; selectedRun: RunRecord | null }) {
+  const selectedRunIds = useMemo(() => {
+    const ids = new Set<string>();
+    if (selectedRun) ids.add(selectedRun.id);
+    for (const run of snapshot.runs) {
+      if (run.status === "completed" && Object.keys(run.latestMetrics).length > 0) ids.add(run.id);
+    }
+    return ids;
+  }, [snapshot.runs, selectedRun]);
+  const selectedMetrics = useMemo(
+    () => snapshot.metrics.filter((metric) => selectedRunIds.has(metric.runId)),
+    [snapshot.metrics, selectedRunIds]
+  );
+  const figureCards = useMemo(
+    () => FIGURE_SPECS.map((spec) => buildFigureSeries(spec, selectedMetrics, snapshot.runs)),
+    [selectedMetrics, snapshot.runs]
+  );
+  return (
+    <div className="space-y-4">
+      <div className="grid gap-3 lg:grid-cols-4">
+        {FIGURE_SPECS.map((spec) => (
+          <div key={spec.id} className="rounded-md border border-line bg-panel p-3">
+            <div className="text-xs uppercase text-moss">{spec.family}</div>
+            <div className="mt-1 text-sm font-semibold">{spec.title}</div>
+          </div>
+        ))}
+      </div>
+      <div className="grid gap-4 xl:grid-cols-2">
+        {FIGURE_SPECS.map((spec, index) => (
+          <ReportFigureCard
+            key={spec.id}
+            spec={spec}
+            series={figureCards[index]}
+            selectedRun={selectedRun}
+            fallbackNames={spec.keys.slice(0, 5)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function buildFigureSeries(spec: FigureSpec, metrics: MetricPoint[], runs: RunRecord[]): FigureSeries[] {
+  const runLabels = new Map(runs.map((run) => [run.id, shortRunLabel(run)]));
+  const out: FigureSeries[] = [];
+  for (const key of spec.keys) {
+    const pointsByRun = new Map<string, MetricPoint[]>();
+    for (const metric of metrics) {
+      if (!metricNameMatches(metric.name, key)) continue;
+      if (!pointsByRun.has(metric.runId)) pointsByRun.set(metric.runId, []);
+      pointsByRun.get(metric.runId)!.push(metric);
+    }
+    for (const [runId, points] of pointsByRun) {
+      if (!points.length) continue;
+      const color = spec.colors[out.length % spec.colors.length];
+      const cleanPoints = downsample(
+        points
+          .map((point, i) => ({ x: point.step ?? i, value: point.value }))
+          .filter((point) => Number.isFinite(point.x) && Number.isFinite(point.value))
+          .sort((a, b) => a.x - b.x),
+        220
+      );
+      if (!cleanPoints.length) continue;
+      out.push({
+        key: `s${out.length}`,
+        label: `${runLabels.get(runId) ?? runId} · ${key}`,
+        color,
+        metricName: key,
+        points: cleanPoints
+      });
+      if (out.length >= 6) return out;
+    }
+  }
+  return out;
+}
+
+function ReportFigureCard({
+  spec,
+  series,
+  selectedRun,
+  fallbackNames
+}: {
+  spec: FigureSpec;
+  series: FigureSeries[];
+  selectedRun: RunRecord | null;
+  fallbackNames: string[];
+}) {
+  const chartData = useMemo(() => toChartData(series), [series]);
+  const referenceX = useMemo(() => estimatedTransitionX(series), [series]);
+  return (
+    <section className="rounded-md border border-line bg-white p-4">
+      <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <div className="text-xs uppercase text-moss">live real-data figure</div>
+          <h3 className="mt-1 text-base font-semibold text-ink">{spec.title}</h3>
+        </div>
+        <span className="rounded border border-line bg-panel px-2 py-1 font-mono text-xs text-moss">
+          {selectedRun?.id ?? "all runs"}
+        </span>
+      </div>
+      <div className="h-[330px] rounded-md border border-line bg-panel p-3">
+        {series.length ? (
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={chartData} margin={{ top: 10, right: 18, left: 0, bottom: 0 }}>
+              <CartesianGrid stroke="#d8ded5" strokeDasharray="3 3" />
+              <XAxis
+                dataKey="x"
+                tick={{ fontSize: 11 }}
+                tickFormatter={(value) => compactNumber(Number(value))}
+                type="number"
+                domain={["dataMin", "dataMax"]}
+              />
+              <YAxis tick={{ fontSize: 11 }} width={74} label={{ value: spec.yLabel, angle: -90, position: "insideLeft", fontSize: 11 }} />
+              <ChartTooltip formatter={(value, name) => [compactNumber(Number(value)), String(name)]} labelFormatter={(value) => `step ${compactNumber(Number(value))}`} />
+              <Legend wrapperStyle={{ fontSize: 11 }} />
+              {referenceX !== null ? <ReferenceLine x={referenceX} stroke="#b45309" strokeDasharray="4 4" /> : null}
+              {series.map((item) => (
+                <Line
+                  key={item.key}
+                  dataKey={item.key}
+                  name={item.label}
+                  type="monotone"
+                  stroke={item.color}
+                  strokeWidth={2.4}
+                  dot={item.points.length < 16}
+                  connectNulls
+                  isAnimationActive={false}
+                />
+              ))}
+            </LineChart>
+          </ResponsiveContainer>
+        ) : (
+          <div className="grid h-full place-items-center text-center">
+            <div>
+              <div className="text-sm font-medium text-ink">Waiting for {spec.family} metrics</div>
+              <div className="mt-2 max-w-md font-mono text-xs text-moss">{fallbackNames.join(", ")}</div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function toChartData(series: FigureSeries[]): Array<Record<string, number | null>> {
+  const rows = new Map<number, Record<string, number | null>>();
+  for (const item of series) {
+    for (const point of item.points) {
+      const x = Number(point.x.toFixed(6));
+      const row = rows.get(x) ?? { x };
+      row[item.key] = point.value;
+      rows.set(x, row);
+    }
+  }
+  return [...rows.entries()]
+    .sort(([a], [b]) => a - b)
+    .map(([, row]) => row);
+}
+
+function metricNameMatches(actual: string, wanted: string): boolean {
+  const a = actual.toLowerCase();
+  const w = wanted.toLowerCase();
+  return a === w || a.endsWith(`_${w}`) || (w.length > 6 && a.includes(w));
+}
+
+function shortRunLabel(run: RunRecord): string {
+  if (run.condition) return run.condition.replace(/_/g, " ");
+  return run.id.length > 28 ? `${run.id.slice(0, 25)}...` : run.id;
+}
+
+function downsample<T>(points: T[], limit: number): T[] {
+  if (points.length <= limit) return points;
+  const stride = Math.ceil(points.length / limit);
+  return points.filter((_, index) => index % stride === 0 || index === points.length - 1);
+}
+
+function estimatedTransitionX(series: FigureSeries[]): number | null {
+  const grammar = series.find((item) => item.metricName.includes("grammar") && item.points.length >= 4);
+  if (!grammar) return null;
+  let bestX: number | null = null;
+  let bestSlope = -Infinity;
+  for (let i = 1; i < grammar.points.length; i += 1) {
+    const prev = grammar.points[i - 1];
+    const current = grammar.points[i];
+    const dx = current.x - prev.x;
+    if (dx <= 0) continue;
+    const slope = (current.value - prev.value) / dx;
+    if (slope > bestSlope) {
+      bestSlope = slope;
+      bestX = current.x;
+    }
+  }
+  return bestX;
 }
 
 function MetricGrid({ metrics, selectedRun }: { metrics: MetricPoint[]; selectedRun: RunRecord | null }) {
@@ -630,6 +910,18 @@ function num(value: number | null | undefined): string {
 
 function dollars(value: number | null | undefined): string {
   return typeof value === "number" && Number.isFinite(value) ? `$${value.toFixed(2)}` : "n/a";
+}
+
+function compactNumber(value: number): string {
+  if (!Number.isFinite(value)) return "n/a";
+  const abs = Math.abs(value);
+  if (abs >= 1_000_000_000) return `${(value / 1_000_000_000).toFixed(2)}B`;
+  if (abs >= 1_000_000) return `${(value / 1_000_000).toFixed(2)}M`;
+  if (abs >= 10_000) return `${(value / 1_000).toFixed(1)}k`;
+  if (abs >= 100) return value.toFixed(0);
+  if (abs >= 10) return value.toFixed(2);
+  if (abs >= 1) return value.toFixed(3);
+  return value.toPrecision(3);
 }
 
 function bytes(value: number): string {
