@@ -29,6 +29,7 @@ for sfw_root in "$SFW_ROOT" "$(npm root -g)/sfw" /usr/local/lib/node_modules/sfw
   fi
 done
 sfw pip install --user --upgrade pip uv
+sudo ln -sf "$HOME/.local/bin/uv" /usr/local/bin/uv
 export PATH="$HOME/.local/bin:$PATH"
 if ! grep -q 'HOME/.local/bin' "$HOME/.profile"; then
   echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.profile"
