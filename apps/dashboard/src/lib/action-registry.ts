@@ -11,7 +11,10 @@ export const syncNowSchema = z.object({
 export const startBoundedJobSchema = z.object({
   jobName: safeName,
   templateId: z.enum(["harmless-status", "remote-probe"]),
-  maxHours: z.coerce.number().positive().max(2).default(0.25)
+  maxHours: z.coerce.number().positive().max(2).default(0.25),
+  maxEpochs: z.coerce.number().int().positive().max(1000).optional(),
+  maxSteps: z.coerce.number().int().positive().max(10_000_000).optional(),
+  maxTokens: z.coerce.number().int().positive().max(1_000_000_000).optional()
 });
 export const stopJobSchema = z.object({ jobName: safeName });
 export const runControlSchema = z.object({
@@ -87,7 +90,10 @@ export const actionDefinitions: ActionDefinition[] = [
           { label: "Remote probe", value: "remote-probe" }
         ]
       },
-      { name: "maxHours", label: "Max hours", type: "number", required: true, placeholder: "0.25" }
+      { name: "maxHours", label: "Max wall-clock hours", type: "number", required: true, placeholder: "0.25" },
+      { name: "maxEpochs", label: "Max epochs", type: "number", placeholder: "optional" },
+      { name: "maxSteps", label: "Max steps", type: "number", placeholder: "optional" },
+      { name: "maxTokens", label: "Max tokens", type: "number", placeholder: "optional" }
     ]
   },
   {

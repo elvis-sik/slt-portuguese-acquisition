@@ -12,7 +12,7 @@ usage() {
   cat >&2 <<'EOF'
 Usage:
   dashboard_action.sh probe
-  dashboard_action.sh start-bounded-job --template TEMPLATE --name NAME --max-hours HOURS
+  dashboard_action.sh start-bounded-job --template TEMPLATE --name NAME --max-hours HOURS [--max-epochs N] [--max-steps N] [--max-tokens N]
   dashboard_action.sh write-control --type TYPE --run-id RUN_ID [--checkpoint-id ID] [--new-run-id ID] [--note NOTE]
 EOF
 }
@@ -33,11 +33,17 @@ case "$cmd" in
     template=""
     name=""
     max_hours=""
+    max_epochs=""
+    max_steps=""
+    max_tokens=""
     while [[ $# -gt 0 ]]; do
       case "$1" in
         --template) template="$2"; shift 2 ;;
         --name) name="$2"; shift 2 ;;
         --max-hours) max_hours="$2"; shift 2 ;;
+        --max-epochs) max_epochs="$2"; shift 2 ;;
+        --max-steps) max_steps="$2"; shift 2 ;;
+        --max-tokens) max_tokens="$2"; shift 2 ;;
         *) echo "Unknown option: $1" >&2; exit 2 ;;
       esac
     done
@@ -45,11 +51,13 @@ case "$cmd" in
     safe_name "$name" || { echo "Unsafe job name" >&2; exit 2; }
     case "$template" in
       harmless-status)
-        exec "$SCRIPT_DIR/run_bounded_job.sh" --name "$name" --max-hours "$max_hours" --auto-stop-vm no -- \
-          bash -lc 'date -u; git status --short --branch; nvidia-smi --query-gpu=name,utilization.gpu,memory.used,memory.total --format=csv,noheader,nounits || true'
+        exec env DASHBOARD_MAX_EPOCHS="$max_epochs" DASHBOARD_MAX_STEPS="$max_steps" DASHBOARD_MAX_TOKENS="$max_tokens" \
+          "$SCRIPT_DIR/run_bounded_job.sh" --name "$name" --max-hours "$max_hours" --auto-stop-vm no -- \
+          bash -lc 'date -u; git status --short --branch; printf "limits: epochs=%s steps=%s tokens=%s\n" "${DASHBOARD_MAX_EPOCHS:-}" "${DASHBOARD_MAX_STEPS:-}" "${DASHBOARD_MAX_TOKENS:-}"; nvidia-smi --query-gpu=name,utilization.gpu,memory.used,memory.total --format=csv,noheader,nounits || true'
         ;;
       remote-probe)
-        exec "$SCRIPT_DIR/run_bounded_job.sh" --name "$name" --max-hours "$max_hours" --auto-stop-vm no -- \
+        exec env DASHBOARD_MAX_EPOCHS="$max_epochs" DASHBOARD_MAX_STEPS="$max_steps" DASHBOARD_MAX_TOKENS="$max_tokens" \
+          "$SCRIPT_DIR/run_bounded_job.sh" --name "$name" --max-hours "$max_hours" --auto-stop-vm no -- \
           "$SCRIPT_DIR/dashboard_probe.sh"
         ;;
       *)

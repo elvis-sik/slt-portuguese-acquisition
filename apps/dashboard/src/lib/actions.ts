@@ -138,19 +138,27 @@ function buildSpawnAction(type: ActionType, args: Record<string, unknown>): Comm
   }
   if (!config.sshHost) throw new Error("DASHBOARD_SSH_HOST or VM_NAME/ZONE/PROJECT_ID is required");
   if (type === "startBoundedJob") {
+    const jobArgs = [
+      config.sshHost,
+      `${config.remoteRepoPath}/infra/remote/dashboard_action.sh`,
+      "start-bounded-job",
+      "--template",
+      String(args.templateId),
+      "--name",
+      String(args.jobName),
+      "--max-hours",
+      String(args.maxHours)
+    ];
+    for (const [flag, value] of [
+      ["--max-epochs", args.maxEpochs],
+      ["--max-steps", args.maxSteps],
+      ["--max-tokens", args.maxTokens]
+    ] as const) {
+      if (value !== undefined && value !== null && value !== "") jobArgs.push(flag, String(value));
+    }
     return {
       command: "ssh",
-      args: [
-        config.sshHost,
-        `${config.remoteRepoPath}/infra/remote/dashboard_action.sh`,
-        "start-bounded-job",
-        "--template",
-        String(args.templateId),
-        "--name",
-        String(args.jobName),
-        "--max-hours",
-        String(args.maxHours)
-      ],
+      args: jobArgs,
       timeoutMs: 30000
     };
   }

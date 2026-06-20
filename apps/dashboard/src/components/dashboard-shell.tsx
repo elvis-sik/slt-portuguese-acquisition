@@ -34,7 +34,7 @@ import {
   XAxis,
   YAxis
 } from "recharts";
-import type { ArtifactRecord, HealthRecord, JobRecord, MetricPoint, RunRecord, Snapshot } from "@/lib/types";
+import type { ActionDefinition, ArtifactRecord, HealthRecord, JobRecord, MetricPoint, RunRecord, Snapshot } from "@/lib/types";
 
 const queryClient = new QueryClient();
 
@@ -755,10 +755,24 @@ function ControlCenter({ snapshot, selectedRun }: { snapshot: Snapshot; selected
       <div className="grid gap-2">
         <ActionForm
           title="Bounded job"
+          description="Wall-clock is the hard safety cap; epochs, steps, and tokens are optional runner limits."
           fields={[
-            { name: "jobName", placeholder: "dashboard-probe", defaultValue: `dashboard-probe-${Date.now()}` },
-            { name: "templateId", placeholder: "harmless-status", defaultValue: "harmless-status" },
-            { name: "maxHours", placeholder: "0.25", defaultValue: "0.25" }
+            { name: "jobName", label: "Job name", type: "text", required: true, placeholder: "dashboard-probe", defaultValue: `dashboard-probe-${Date.now()}` },
+            {
+              name: "templateId",
+              label: "Job template",
+              type: "select",
+              required: true,
+              defaultValue: "harmless-status",
+              options: [
+                { label: "Harmless status probe", value: "harmless-status" },
+                { label: "Remote health probe", value: "remote-probe" }
+              ]
+            },
+            { name: "maxHours", label: "Max wall-clock hours", type: "number", required: true, placeholder: "0.25", defaultValue: "0.25" },
+            { name: "maxEpochs", label: "Max epochs", type: "number", placeholder: "optional" },
+            { name: "maxSteps", label: "Max training steps", type: "number", placeholder: "optional" },
+            { name: "maxTokens", label: "Max tokens", type: "number", placeholder: "optional" }
           ]}
           icon={<Play className="h-4 w-4" />}
           disabled={pending !== null}
@@ -766,7 +780,8 @@ function ControlCenter({ snapshot, selectedRun }: { snapshot: Snapshot; selected
         />
         <ActionForm
           title="Stop job"
-          fields={[{ name: "jobName", placeholder: "job name", defaultValue: firstJob }]}
+          description="Sends TERM to a bounded job by job name."
+          fields={[{ name: "jobName", label: "Job name", type: "text", required: true, placeholder: "job name", defaultValue: firstJob }]}
           icon={<Square className="h-4 w-4" />}
           disabled={pending !== null}
           onSubmit={(args) => submit("stopJob", args)}
@@ -778,10 +793,11 @@ function ControlCenter({ snapshot, selectedRun }: { snapshot: Snapshot; selected
         </div>
         <ActionForm
           title="Fork"
+          description="Creates a new non-destructive lineage from a checkpoint."
           fields={[
-            { name: "runId", placeholder: "run id", defaultValue: runId },
-            { name: "checkpointId", placeholder: "checkpoint id", defaultValue: "latest" },
-            { name: "newRunId", placeholder: "optional new id", defaultValue: "" }
+            { name: "runId", label: "Run id", type: "text", placeholder: "run id", required: true, defaultValue: runId },
+            { name: "checkpointId", label: "Checkpoint id", type: "text", placeholder: "checkpoint id", required: true, defaultValue: "latest" },
+            { name: "newRunId", label: "New run id", type: "text", placeholder: "optional new id", defaultValue: "" }
           ]}
           icon={<GitBranch className="h-4 w-4" />}
           disabled={pending !== null}
@@ -795,13 +811,15 @@ function ControlCenter({ snapshot, selectedRun }: { snapshot: Snapshot; selected
 
 function ActionForm({
   title,
+  description,
   fields,
   icon,
   disabled,
   onSubmit
 }: {
   title: string;
-  fields: Array<{ name: string; placeholder: string; defaultValue: string }>;
+  description?: string;
+  fields: Array<ActionDefinition["fields"][number] & { defaultValue?: string }>;
   icon: React.ReactNode;
   disabled?: boolean;
   onSubmit: (args: Record<string, unknown>) => void;
@@ -812,19 +830,47 @@ function ActionForm({
       onSubmit={(event) => {
         event.preventDefault();
         const form = new FormData(event.currentTarget);
-        onSubmit(Object.fromEntries(fields.map((field) => [field.name, form.get(field.name) ?? ""])));
+        onSubmit(
+          Object.fromEntries(
+            fields.flatMap((field) => {
+              const value = form.get(field.name);
+              if (!field.required && (value === null || value === "")) return [];
+              return [[field.name, value ?? ""]];
+            })
+          )
+        );
       }}
     >
       <div className="mb-2 flex items-center gap-2 text-xs uppercase text-moss">{icon}{title}</div>
+      {description ? <p className="mb-2 text-xs leading-relaxed text-moss">{description}</p> : null}
       <div className="grid gap-2">
         {fields.map((field) => (
-          <input
-            key={field.name}
-            className="focus-ring h-9 rounded border border-line bg-white px-2 text-sm"
-            name={field.name}
-            placeholder={field.placeholder}
-            defaultValue={field.defaultValue}
-          />
+          <label key={field.name} className="grid gap-1">
+            <span className="text-xs uppercase text-moss">{field.label}</span>
+            {field.type === "select" ? (
+              <select
+                className="focus-ring h-9 rounded border border-line bg-white px-2 text-sm"
+                name={field.name}
+                defaultValue={field.defaultValue ?? field.options?.[0]?.value ?? ""}
+                required={field.required}
+              >
+                {field.options?.map((option) => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            ) : (
+              <input
+                className="focus-ring h-9 rounded border border-line bg-white px-2 text-sm"
+                name={field.name}
+                type={field.type}
+                min={field.type === "number" ? "0" : undefined}
+                step={field.type === "number" ? "any" : undefined}
+                placeholder={field.placeholder}
+                defaultValue={field.defaultValue}
+                required={field.required}
+              />
+            )}
+          </label>
         ))}
         <button className="focus-ring h-9 rounded-md bg-signal px-3 text-sm font-medium text-white disabled:opacity-50" disabled={disabled} type="submit">
           Queue
