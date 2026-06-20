@@ -452,9 +452,10 @@ function ControlCenter({ snapshot, selectedRun }: { snapshot: Snapshot; selected
           disabled={pending !== null}
           onSubmit={(args) => submit("stopJob", args)}
         />
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-3 gap-2">
           <IconButton label="Checkpoint run" icon={<Zap className="h-4 w-4" />} onClick={() => submit("checkpointNow", { runId })} disabled={!runId || pending !== null} />
           <IconButton label="Pause run" icon={<Pause className="h-4 w-4" />} onClick={() => submit("pauseRun", { runId })} disabled={!runId || pending !== null} />
+          <IconButton label="Resume run" icon={<Play className="h-4 w-4" />} onClick={() => submit("resumeRun", { runId })} disabled={!runId || pending !== null} />
         </div>
         <ActionForm
           title="Fork"
