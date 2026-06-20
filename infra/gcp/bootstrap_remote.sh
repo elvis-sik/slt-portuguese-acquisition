@@ -6,6 +6,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
   python3-venv rsync tmux unzip zip
 
 if ! node -e 'process.exit(Number(process.versions.node.split(".")[0]) >= 20 ? 0 : 1)' >/dev/null 2>&1; then
+  sudo DEBIAN_FRONTEND=noninteractive apt-get remove -y npm nodejs libnode-dev libnode72 || true
+  sudo DEBIAN_FRONTEND=noninteractive apt-get -f install -y || true
   sudo mkdir -p /etc/apt/keyrings
   curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key |
     sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
