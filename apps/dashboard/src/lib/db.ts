@@ -8,8 +8,9 @@ export function getDb(): DatabaseSync {
   if (db) return db;
   const config = getConfig();
   ensureDir(config.dataDir);
-  db = new DatabaseSync(config.dbPath);
+  db = new DatabaseSync(config.dbPath, { timeout: 5000 });
   db.exec(`
+    PRAGMA busy_timeout = 5000;
     PRAGMA journal_mode = WAL;
     CREATE TABLE IF NOT EXISTS meta (
       key TEXT PRIMARY KEY,

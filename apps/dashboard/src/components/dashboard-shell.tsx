@@ -546,7 +546,7 @@ function ReportFigureCard({
       </div>
       <div className="h-[330px] rounded-md border border-line bg-panel p-3">
         {series.length ? (
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" minWidth={240} minHeight={240}>
             <LineChart data={chartData} margin={{ top: 10, right: 18, left: 0, bottom: 0 }}>
               <CartesianGrid stroke="#d8ded5" strokeDasharray="3 3" />
               <XAxis
@@ -659,7 +659,7 @@ function MetricGrid({ metrics, selectedRun }: { metrics: MetricPoint[]; selected
       {grouped.map((group) => (
         <div key={group.name} className="h-72 rounded-md border border-line bg-panel p-3">
           <div className="mb-3 text-sm font-medium">{group.name}</div>
-          <ResponsiveContainer width="100%" height="85%">
+          <ResponsiveContainer width="100%" height="85%" minWidth={240} minHeight={200}>
             <LineChart data={group.points}>
               <CartesianGrid stroke="#d8ded5" strokeDasharray="3 3" />
               <XAxis dataKey="x" tick={{ fontSize: 11 }} />
