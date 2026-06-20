@@ -20,9 +20,14 @@ fi
 if ! command -v sfw >/dev/null 2>&1; then
   sudo npm install -g sfw
 fi
-SFW_ROOT="$(npm root -g)/sfw"
-sudo mkdir -p "$SFW_ROOT/.sfw-cache"
-sudo chown -R "$USER:$USER" "$SFW_ROOT/.sfw-cache"
+SFW_PATH="$(readlink -f "$(command -v sfw)")"
+SFW_ROOT="$(cd "$(dirname "$SFW_PATH")/.." && pwd)"
+for sfw_root in "$SFW_ROOT" "$(npm root -g)/sfw" /usr/local/lib/node_modules/sfw /usr/lib/node_modules/sfw; do
+  if [[ -d "$sfw_root" ]]; then
+    sudo mkdir -p "$sfw_root/.sfw-cache"
+    sudo chown -R "$USER:$USER" "$sfw_root/.sfw-cache"
+  fi
+done
 sfw pip install --user --upgrade pip uv
 export PATH="$HOME/.local/bin:$PATH"
 if ! grep -q 'HOME/.local/bin' "$HOME/.profile"; then
