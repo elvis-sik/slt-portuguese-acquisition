@@ -1,0 +1,12 @@
+{
+  "name": "slt-portuguese-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.26.2",
+  "scripts": {
+    "dashboard:dev": "pnpm --dir apps/dashboard dashboard:dev",
+    "dashboard:worker": "pnpm --dir apps/dashboard dashboard:worker",
+    "dashboard:test": "pnpm --dir apps/dashboard test",
+    "dashboard:typecheck": "pnpm --dir apps/dashboard typecheck",
+    "dashboard:build": "pnpm --dir apps/dashboard build"
+  }
+}
