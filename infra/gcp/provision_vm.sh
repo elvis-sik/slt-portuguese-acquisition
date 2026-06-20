@@ -23,7 +23,7 @@ cmd=(gcloud compute instances create "$VM_NAME"
 if [[ -n "${SERVICE_ACCOUNT:-}" ]]; then
   cmd+=(--service-account="$SERVICE_ACCOUNT")
 else
-  cmd+=(--no-service-account)
+  cmd+=(--no-service-account --no-scopes)
 fi
 
 printf 'Command to run:\n'
