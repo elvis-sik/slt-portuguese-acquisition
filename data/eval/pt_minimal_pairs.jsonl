@@ -1,0 +1,538 @@
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o lobo.", "ungrammatical": "Eu vejo a lobo.", "gender": "m", "number": "sg", "id": 1}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a porta.", "ungrammatical": "Eu vejo o porta.", "gender": "f", "number": "sg", "id": 2}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o sapato.", "ungrammatical": "Eu vejo a sapato.", "gender": "m", "number": "sg", "id": 3}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a vaca.", "ungrammatical": "Eu vejo o vaca.", "gender": "f", "number": "sg", "id": 4}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o livro.", "ungrammatical": "Eu vejo a livro.", "gender": "m", "number": "sg", "id": 5}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o pássaro.", "ungrammatical": "Eu vejo a pássaro.", "gender": "m", "number": "sg", "id": 6}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o amigo.", "ungrammatical": "Eu vejo a amigo.", "gender": "m", "number": "sg", "id": 7}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o pato.", "ungrammatical": "Eu vejo a pato.", "gender": "m", "number": "sg", "id": 8}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o bolo.", "ungrammatical": "Eu vejo a bolo.", "gender": "m", "number": "sg", "id": 9}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o copo.", "ungrammatical": "Eu vejo a copo.", "gender": "m", "number": "sg", "id": 10}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a sopa.", "ungrammatical": "Eu vejo o sopa.", "gender": "f", "number": "sg", "id": 11}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a cadeira.", "ungrammatical": "Eu vejo o cadeira.", "gender": "f", "number": "sg", "id": 12}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o tijolo.", "ungrammatical": "Eu vejo a tijolo.", "gender": "m", "number": "sg", "id": 13}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o dado.", "ungrammatical": "Eu vejo a dado.", "gender": "m", "number": "sg", "id": 14}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a caixa.", "ungrammatical": "Eu vejo o caixa.", "gender": "f", "number": "sg", "id": 15}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a camisa.", "ungrammatical": "Eu vejo o camisa.", "gender": "f", "number": "sg", "id": 16}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a caneta.", "ungrammatical": "Eu vejo o caneta.", "gender": "f", "number": "sg", "id": 17}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a janela.", "ungrammatical": "Eu vejo o janela.", "gender": "f", "number": "sg", "id": 18}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a fruta.", "ungrammatical": "Eu vejo o fruta.", "gender": "f", "number": "sg", "id": 19}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a gata.", "ungrammatical": "Eu vejo o gata.", "gender": "f", "number": "sg", "id": 20}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a mesa.", "ungrammatical": "Eu vejo o mesa.", "gender": "f", "number": "sg", "id": 21}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a amiga.", "ungrammatical": "Eu vejo o amiga.", "gender": "f", "number": "sg", "id": 22}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a pata.", "ungrammatical": "Eu vejo o pata.", "gender": "f", "number": "sg", "id": 23}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a rosa.", "ungrammatical": "Eu vejo o rosa.", "gender": "f", "number": "sg", "id": 24}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o cachorro.", "ungrammatical": "Eu vejo a cachorro.", "gender": "m", "number": "sg", "id": 25}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a bola.", "ungrammatical": "Eu vejo o bola.", "gender": "f", "number": "sg", "id": 26}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o menino.", "ungrammatical": "Eu vejo a menino.", "gender": "m", "number": "sg", "id": 27}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o carro.", "ungrammatical": "Eu vejo a carro.", "gender": "m", "number": "sg", "id": 28}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o prato.", "ungrammatical": "Eu vejo a prato.", "gender": "m", "number": "sg", "id": 29}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o ovo.", "ungrammatical": "Eu vejo a ovo.", "gender": "m", "number": "sg", "id": 30}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a uva.", "ungrammatical": "Eu vejo o uva.", "gender": "f", "number": "sg", "id": 31}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o rato.", "ungrammatical": "Eu vejo a rato.", "gender": "m", "number": "sg", "id": 32}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a vela.", "ungrammatical": "Eu vejo o vela.", "gender": "f", "number": "sg", "id": 33}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o barco.", "ungrammatical": "Eu vejo a barco.", "gender": "m", "number": "sg", "id": 34}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o galo.", "ungrammatical": "Eu vejo a galo.", "gender": "m", "number": "sg", "id": 35}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o pano.", "ungrammatical": "Eu vejo a pano.", "gender": "m", "number": "sg", "id": 36}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o vaso.", "ungrammatical": "Eu vejo a vaso.", "gender": "m", "number": "sg", "id": 37}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o gato.", "ungrammatical": "Eu vejo a gato.", "gender": "m", "number": "sg", "id": 38}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o sapo.", "ungrammatical": "Eu vejo a sapo.", "gender": "m", "number": "sg", "id": 39}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a escola.", "ungrammatical": "Eu vejo o escola.", "gender": "f", "number": "sg", "id": 40}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a tartaruga.", "ungrammatical": "Eu vejo o tartaruga.", "gender": "f", "number": "sg", "id": 41}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a capa.", "ungrammatical": "Eu vejo o capa.", "gender": "f", "number": "sg", "id": 42}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a casa.", "ungrammatical": "Eu vejo o casa.", "gender": "f", "number": "sg", "id": 43}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o espelho.", "ungrammatical": "Eu vejo a espelho.", "gender": "m", "number": "sg", "id": 44}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo o quarto.", "ungrammatical": "Eu vejo a quarto.", "gender": "m", "number": "sg", "id": 45}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a menina.", "ungrammatical": "Eu vejo o menina.", "gender": "f", "number": "sg", "id": 46}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a fita.", "ungrammatical": "Eu vejo o fita.", "gender": "f", "number": "sg", "id": 47}
+{"phenomenon": "article_noun_gender", "grammatical": "Eu vejo a boneca.", "ungrammatical": "Eu vejo o boneca.", "gender": "f", "number": "sg", "id": 48}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os ratos.", "ungrammatical": "Eu vejo o ratos.", "gender": "m", "number": "pl", "id": 49}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as gatas.", "ungrammatical": "Eu vejo a gatas.", "gender": "f", "number": "pl", "id": 50}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as bolas.", "ungrammatical": "Eu vejo a bolas.", "gender": "f", "number": "pl", "id": 51}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as capas.", "ungrammatical": "Eu vejo a capas.", "gender": "f", "number": "pl", "id": 52}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os copos.", "ungrammatical": "Eu vejo o copos.", "gender": "m", "number": "pl", "id": 53}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as casas.", "ungrammatical": "Eu vejo a casas.", "gender": "f", "number": "pl", "id": 54}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as mesas.", "ungrammatical": "Eu vejo a mesas.", "gender": "f", "number": "pl", "id": 55}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as amigas.", "ungrammatical": "Eu vejo a amigas.", "gender": "f", "number": "pl", "id": 56}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os tijolos.", "ungrammatical": "Eu vejo o tijolos.", "gender": "m", "number": "pl", "id": 57}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as bonecas.", "ungrammatical": "Eu vejo a bonecas.", "gender": "f", "number": "pl", "id": 58}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os pratos.", "ungrammatical": "Eu vejo o pratos.", "gender": "m", "number": "pl", "id": 59}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as cadeiras.", "ungrammatical": "Eu vejo a cadeiras.", "gender": "f", "number": "pl", "id": 60}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as caixas.", "ungrammatical": "Eu vejo a caixas.", "gender": "f", "number": "pl", "id": 61}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os quartos.", "ungrammatical": "Eu vejo o quartos.", "gender": "m", "number": "pl", "id": 62}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as escolas.", "ungrammatical": "Eu vejo a escolas.", "gender": "f", "number": "pl", "id": 63}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as portas.", "ungrammatical": "Eu vejo a portas.", "gender": "f", "number": "pl", "id": 64}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as vacas.", "ungrammatical": "Eu vejo a vacas.", "gender": "f", "number": "pl", "id": 65}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os meninos.", "ungrammatical": "Eu vejo o meninos.", "gender": "m", "number": "pl", "id": 66}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as meninas.", "ungrammatical": "Eu vejo a meninas.", "gender": "f", "number": "pl", "id": 67}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os pássaros.", "ungrammatical": "Eu vejo o pássaros.", "gender": "m", "number": "pl", "id": 68}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os patos.", "ungrammatical": "Eu vejo o patos.", "gender": "m", "number": "pl", "id": 69}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as fitas.", "ungrammatical": "Eu vejo a fitas.", "gender": "f", "number": "pl", "id": 70}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os espelhos.", "ungrammatical": "Eu vejo o espelhos.", "gender": "m", "number": "pl", "id": 71}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as frutas.", "ungrammatical": "Eu vejo a frutas.", "gender": "f", "number": "pl", "id": 72}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os sapatos.", "ungrammatical": "Eu vejo o sapatos.", "gender": "m", "number": "pl", "id": 73}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as camisas.", "ungrammatical": "Eu vejo a camisas.", "gender": "f", "number": "pl", "id": 74}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as rosas.", "ungrammatical": "Eu vejo a rosas.", "gender": "f", "number": "pl", "id": 75}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os barcos.", "ungrammatical": "Eu vejo o barcos.", "gender": "m", "number": "pl", "id": 76}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os cachorros.", "ungrammatical": "Eu vejo o cachorros.", "gender": "m", "number": "pl", "id": 77}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os sapos.", "ungrammatical": "Eu vejo o sapos.", "gender": "m", "number": "pl", "id": 78}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os amigos.", "ungrammatical": "Eu vejo o amigos.", "gender": "m", "number": "pl", "id": 79}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as uvas.", "ungrammatical": "Eu vejo a uvas.", "gender": "f", "number": "pl", "id": 80}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os ovos.", "ungrammatical": "Eu vejo o ovos.", "gender": "m", "number": "pl", "id": 81}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os livros.", "ungrammatical": "Eu vejo o livros.", "gender": "m", "number": "pl", "id": 82}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os dados.", "ungrammatical": "Eu vejo o dados.", "gender": "m", "number": "pl", "id": 83}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os lobos.", "ungrammatical": "Eu vejo o lobos.", "gender": "m", "number": "pl", "id": 84}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as janelas.", "ungrammatical": "Eu vejo a janelas.", "gender": "f", "number": "pl", "id": 85}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os bolos.", "ungrammatical": "Eu vejo o bolos.", "gender": "m", "number": "pl", "id": 86}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os galos.", "ungrammatical": "Eu vejo o galos.", "gender": "m", "number": "pl", "id": 87}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as tartarugas.", "ungrammatical": "Eu vejo a tartarugas.", "gender": "f", "number": "pl", "id": 88}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os vasos.", "ungrammatical": "Eu vejo o vasos.", "gender": "m", "number": "pl", "id": 89}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as velas.", "ungrammatical": "Eu vejo a velas.", "gender": "f", "number": "pl", "id": 90}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as sopas.", "ungrammatical": "Eu vejo a sopas.", "gender": "f", "number": "pl", "id": 91}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as canetas.", "ungrammatical": "Eu vejo a canetas.", "gender": "f", "number": "pl", "id": 92}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os gatos.", "ungrammatical": "Eu vejo o gatos.", "gender": "m", "number": "pl", "id": 93}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo as patas.", "ungrammatical": "Eu vejo a patas.", "gender": "f", "number": "pl", "id": 94}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os carros.", "ungrammatical": "Eu vejo o carros.", "gender": "m", "number": "pl", "id": 95}
+{"phenomenon": "article_noun_number", "grammatical": "Eu vejo os panos.", "ungrammatical": "Eu vejo o panos.", "gender": "m", "number": "pl", "id": 96}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o cachorro novo.", "ungrammatical": "Eu vejo o cachorro nova.", "gender": "m", "number": "sg", "id": 97}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o espelho velho.", "ungrammatical": "Eu vejo o espelho velha.", "gender": "m", "number": "sg", "id": 98}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a fita pequena.", "ungrammatical": "Eu vejo a fita pequeno.", "gender": "f", "number": "sg", "id": 99}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o quarto bonito.", "ungrammatical": "Eu vejo o quarto bonita.", "gender": "m", "number": "sg", "id": 100}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a bola velha.", "ungrammatical": "Eu vejo a bola velho.", "gender": "f", "number": "sg", "id": 101}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o copo magro.", "ungrammatical": "Eu vejo o copo magra.", "gender": "m", "number": "sg", "id": 102}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a janela bonita.", "ungrammatical": "Eu vejo a janela bonito.", "gender": "f", "number": "sg", "id": 103}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a caneta pequena.", "ungrammatical": "Eu vejo a caneta pequeno.", "gender": "f", "number": "sg", "id": 104}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o galo magro.", "ungrammatical": "Eu vejo o galo magra.", "gender": "m", "number": "sg", "id": 105}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a pata alta.", "ungrammatical": "Eu vejo a pata alto.", "gender": "f", "number": "sg", "id": 106}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a vaca magra.", "ungrammatical": "Eu vejo a vaca magro.", "gender": "f", "number": "sg", "id": 107}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o menino magro.", "ungrammatical": "Eu vejo o menino magra.", "gender": "m", "number": "sg", "id": 108}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o lobo branco.", "ungrammatical": "Eu vejo o lobo branca.", "gender": "m", "number": "sg", "id": 109}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o ovo branco.", "ungrammatical": "Eu vejo o ovo branca.", "gender": "m", "number": "sg", "id": 110}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o pássaro novo.", "ungrammatical": "Eu vejo o pássaro nova.", "gender": "m", "number": "sg", "id": 111}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a tartaruga magra.", "ungrammatical": "Eu vejo a tartaruga magro.", "gender": "f", "number": "sg", "id": 112}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a amiga gorda.", "ungrammatical": "Eu vejo a amiga gordo.", "gender": "f", "number": "sg", "id": 113}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o barco amarelo.", "ungrammatical": "Eu vejo o barco amarela.", "gender": "m", "number": "sg", "id": 114}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o tijolo branco.", "ungrammatical": "Eu vejo o tijolo branca.", "gender": "m", "number": "sg", "id": 115}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a vela vermelha.", "ungrammatical": "Eu vejo a vela vermelho.", "gender": "f", "number": "sg", "id": 116}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a rosa vermelha.", "ungrammatical": "Eu vejo a rosa vermelho.", "gender": "f", "number": "sg", "id": 117}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o sapato pequeno.", "ungrammatical": "Eu vejo o sapato pequena.", "gender": "m", "number": "sg", "id": 118}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o bolo alto.", "ungrammatical": "Eu vejo o bolo alta.", "gender": "m", "number": "sg", "id": 119}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o dado branco.", "ungrammatical": "Eu vejo o dado branca.", "gender": "m", "number": "sg", "id": 120}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o pano branco.", "ungrammatical": "Eu vejo o pano branca.", "gender": "m", "number": "sg", "id": 121}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o pato alto.", "ungrammatical": "Eu vejo o pato alta.", "gender": "m", "number": "sg", "id": 122}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o sapo novo.", "ungrammatical": "Eu vejo o sapo nova.", "gender": "m", "number": "sg", "id": 123}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a boneca velha.", "ungrammatical": "Eu vejo a boneca velho.", "gender": "f", "number": "sg", "id": 124}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o livro molhado.", "ungrammatical": "Eu vejo o livro molhada.", "gender": "m", "number": "sg", "id": 125}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o carro gordo.", "ungrammatical": "Eu vejo o carro gorda.", "gender": "m", "number": "sg", "id": 126}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a casa amarela.", "ungrammatical": "Eu vejo a casa amarelo.", "gender": "f", "number": "sg", "id": 127}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o gato bonito.", "ungrammatical": "Eu vejo o gato bonita.", "gender": "m", "number": "sg", "id": 128}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a gata nova.", "ungrammatical": "Eu vejo a gata novo.", "gender": "f", "number": "sg", "id": 129}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o amigo vermelho.", "ungrammatical": "Eu vejo o amigo vermelha.", "gender": "m", "number": "sg", "id": 130}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a capa velha.", "ungrammatical": "Eu vejo a capa velho.", "gender": "f", "number": "sg", "id": 131}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a uva limpa.", "ungrammatical": "Eu vejo a uva limpo.", "gender": "f", "number": "sg", "id": 132}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a menina gorda.", "ungrammatical": "Eu vejo a menina gordo.", "gender": "f", "number": "sg", "id": 133}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o vaso limpo.", "ungrammatical": "Eu vejo o vaso limpa.", "gender": "m", "number": "sg", "id": 134}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o prato velho.", "ungrammatical": "Eu vejo o prato velha.", "gender": "m", "number": "sg", "id": 135}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a escola branca.", "ungrammatical": "Eu vejo a escola branco.", "gender": "f", "number": "sg", "id": 136}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a porta gorda.", "ungrammatical": "Eu vejo a porta gordo.", "gender": "f", "number": "sg", "id": 137}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a caixa amarela.", "ungrammatical": "Eu vejo a caixa amarelo.", "gender": "f", "number": "sg", "id": 138}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a mesa pequena.", "ungrammatical": "Eu vejo a mesa pequeno.", "gender": "f", "number": "sg", "id": 139}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a camisa vermelha.", "ungrammatical": "Eu vejo a camisa vermelho.", "gender": "f", "number": "sg", "id": 140}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a cadeira nova.", "ungrammatical": "Eu vejo a cadeira novo.", "gender": "f", "number": "sg", "id": 141}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a sopa velha.", "ungrammatical": "Eu vejo a sopa velho.", "gender": "f", "number": "sg", "id": 142}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a fruta molhada.", "ungrammatical": "Eu vejo a fruta molhado.", "gender": "f", "number": "sg", "id": 143}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o rato magro.", "ungrammatical": "Eu vejo o rato magra.", "gender": "m", "number": "sg", "id": 144}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o cachorro bonito.", "ungrammatical": "Eu vejo o cachorro bonita.", "gender": "m", "number": "sg", "id": 145}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o espelho molhado.", "ungrammatical": "Eu vejo o espelho molhada.", "gender": "m", "number": "sg", "id": 146}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a fita bonita.", "ungrammatical": "Eu vejo a fita bonito.", "gender": "f", "number": "sg", "id": 147}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o quarto alto.", "ungrammatical": "Eu vejo o quarto alta.", "gender": "m", "number": "sg", "id": 148}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a bola vermelha.", "ungrammatical": "Eu vejo a bola vermelho.", "gender": "f", "number": "sg", "id": 149}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o copo pequeno.", "ungrammatical": "Eu vejo o copo pequena.", "gender": "m", "number": "sg", "id": 150}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a janela vermelha.", "ungrammatical": "Eu vejo a janela vermelho.", "gender": "f", "number": "sg", "id": 151}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a caneta velha.", "ungrammatical": "Eu vejo a caneta velho.", "gender": "f", "number": "sg", "id": 152}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o galo novo.", "ungrammatical": "Eu vejo o galo nova.", "gender": "m", "number": "sg", "id": 153}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a pata amarela.", "ungrammatical": "Eu vejo a pata amarelo.", "gender": "f", "number": "sg", "id": 154}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo a vaca molhada.", "ungrammatical": "Eu vejo a vaca molhado.", "gender": "f", "number": "sg", "id": 155}
+{"phenomenon": "adjective_noun_gender", "grammatical": "Eu vejo o menino alto.", "ungrammatical": "Eu vejo o menino alta.", "gender": "m", "number": "sg", "id": 156}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as meninas brancas.", "ungrammatical": "Eu vejo as meninas branca.", "gender": "f", "number": "pl", "id": 157}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as mesas vermelhas.", "ungrammatical": "Eu vejo as mesas vermelha.", "gender": "f", "number": "pl", "id": 158}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as patas amarelas.", "ungrammatical": "Eu vejo as patas amarela.", "gender": "f", "number": "pl", "id": 159}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as casas pequenas.", "ungrammatical": "Eu vejo as casas pequena.", "gender": "f", "number": "pl", "id": 160}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os quartos magros.", "ungrammatical": "Eu vejo os quartos magro.", "gender": "m", "number": "pl", "id": 161}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as sopas pequenas.", "ungrammatical": "Eu vejo as sopas pequena.", "gender": "f", "number": "pl", "id": 162}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as escolas gordas.", "ungrammatical": "Eu vejo as escolas gorda.", "gender": "f", "number": "pl", "id": 163}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as vacas pequenas.", "ungrammatical": "Eu vejo as vacas pequena.", "gender": "f", "number": "pl", "id": 164}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as frutas molhadas.", "ungrammatical": "Eu vejo as frutas molhada.", "gender": "f", "number": "pl", "id": 165}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as bonecas gordas.", "ungrammatical": "Eu vejo as bonecas gorda.", "gender": "f", "number": "pl", "id": 166}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os sapatos bonitos.", "ungrammatical": "Eu vejo os sapatos bonito.", "gender": "m", "number": "pl", "id": 167}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as capas vermelhas.", "ungrammatical": "Eu vejo as capas vermelha.", "gender": "f", "number": "pl", "id": 168}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os sapos gordos.", "ungrammatical": "Eu vejo os sapos gordo.", "gender": "m", "number": "pl", "id": 169}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as cadeiras brancas.", "ungrammatical": "Eu vejo as cadeiras branca.", "gender": "f", "number": "pl", "id": 170}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as tartarugas vermelhas.", "ungrammatical": "Eu vejo as tartarugas vermelha.", "gender": "f", "number": "pl", "id": 171}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as fitas bonitas.", "ungrammatical": "Eu vejo as fitas bonita.", "gender": "f", "number": "pl", "id": 172}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as bolas velhas.", "ungrammatical": "Eu vejo as bolas velha.", "gender": "f", "number": "pl", "id": 173}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as canetas magras.", "ungrammatical": "Eu vejo as canetas magra.", "gender": "f", "number": "pl", "id": 174}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os galos novos.", "ungrammatical": "Eu vejo os galos novo.", "gender": "m", "number": "pl", "id": 175}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os amigos vermelhos.", "ungrammatical": "Eu vejo os amigos vermelho.", "gender": "m", "number": "pl", "id": 176}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os patos molhados.", "ungrammatical": "Eu vejo os patos molhado.", "gender": "m", "number": "pl", "id": 177}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os carros molhados.", "ungrammatical": "Eu vejo os carros molhado.", "gender": "m", "number": "pl", "id": 178}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as portas altas.", "ungrammatical": "Eu vejo as portas alta.", "gender": "f", "number": "pl", "id": 179}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os vasos brancos.", "ungrammatical": "Eu vejo os vasos branco.", "gender": "m", "number": "pl", "id": 180}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os livros pequenos.", "ungrammatical": "Eu vejo os livros pequeno.", "gender": "m", "number": "pl", "id": 181}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os barcos magros.", "ungrammatical": "Eu vejo os barcos magro.", "gender": "m", "number": "pl", "id": 182}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os ovos gordos.", "ungrammatical": "Eu vejo os ovos gordo.", "gender": "m", "number": "pl", "id": 183}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os ratos pequenos.", "ungrammatical": "Eu vejo os ratos pequeno.", "gender": "m", "number": "pl", "id": 184}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as velas bonitas.", "ungrammatical": "Eu vejo as velas bonita.", "gender": "f", "number": "pl", "id": 185}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os tijolos pequenos.", "ungrammatical": "Eu vejo os tijolos pequeno.", "gender": "m", "number": "pl", "id": 186}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os bolos gordos.", "ungrammatical": "Eu vejo os bolos gordo.", "gender": "m", "number": "pl", "id": 187}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os dados pequenos.", "ungrammatical": "Eu vejo os dados pequeno.", "gender": "m", "number": "pl", "id": 188}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os cachorros brancos.", "ungrammatical": "Eu vejo os cachorros branco.", "gender": "m", "number": "pl", "id": 189}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os pratos bonitos.", "ungrammatical": "Eu vejo os pratos bonito.", "gender": "m", "number": "pl", "id": 190}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os pássaros magros.", "ungrammatical": "Eu vejo os pássaros magro.", "gender": "m", "number": "pl", "id": 191}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as amigas magras.", "ungrammatical": "Eu vejo as amigas magra.", "gender": "f", "number": "pl", "id": 192}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os meninos magros.", "ungrammatical": "Eu vejo os meninos magro.", "gender": "m", "number": "pl", "id": 193}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os gatos brancos.", "ungrammatical": "Eu vejo os gatos branco.", "gender": "m", "number": "pl", "id": 194}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os espelhos pequenos.", "ungrammatical": "Eu vejo os espelhos pequeno.", "gender": "m", "number": "pl", "id": 195}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as uvas pequenas.", "ungrammatical": "Eu vejo as uvas pequena.", "gender": "f", "number": "pl", "id": 196}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as gatas amarelas.", "ungrammatical": "Eu vejo as gatas amarela.", "gender": "f", "number": "pl", "id": 197}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as camisas pequenas.", "ungrammatical": "Eu vejo as camisas pequena.", "gender": "f", "number": "pl", "id": 198}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os panos molhados.", "ungrammatical": "Eu vejo os panos molhado.", "gender": "m", "number": "pl", "id": 199}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os lobos brancos.", "ungrammatical": "Eu vejo os lobos branco.", "gender": "m", "number": "pl", "id": 200}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os copos gordos.", "ungrammatical": "Eu vejo os copos gordo.", "gender": "m", "number": "pl", "id": 201}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as caixas molhadas.", "ungrammatical": "Eu vejo as caixas molhada.", "gender": "f", "number": "pl", "id": 202}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as janelas pequenas.", "ungrammatical": "Eu vejo as janelas pequena.", "gender": "f", "number": "pl", "id": 203}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as rosas novas.", "ungrammatical": "Eu vejo as rosas nova.", "gender": "f", "number": "pl", "id": 204}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as meninas gordas.", "ungrammatical": "Eu vejo as meninas gorda.", "gender": "f", "number": "pl", "id": 205}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as mesas molhadas.", "ungrammatical": "Eu vejo as mesas molhada.", "gender": "f", "number": "pl", "id": 206}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as patas gordas.", "ungrammatical": "Eu vejo as patas gorda.", "gender": "f", "number": "pl", "id": 207}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as casas amarelas.", "ungrammatical": "Eu vejo as casas amarela.", "gender": "f", "number": "pl", "id": 208}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os quartos bonitos.", "ungrammatical": "Eu vejo os quartos bonito.", "gender": "m", "number": "pl", "id": 209}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as sopas gordas.", "ungrammatical": "Eu vejo as sopas gorda.", "gender": "f", "number": "pl", "id": 210}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as escolas limpas.", "ungrammatical": "Eu vejo as escolas limpa.", "gender": "f", "number": "pl", "id": 211}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as vacas magras.", "ungrammatical": "Eu vejo as vacas magra.", "gender": "f", "number": "pl", "id": 212}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as frutas limpas.", "ungrammatical": "Eu vejo as frutas limpa.", "gender": "f", "number": "pl", "id": 213}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as bonecas brancas.", "ungrammatical": "Eu vejo as bonecas branca.", "gender": "f", "number": "pl", "id": 214}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo os sapatos altos.", "ungrammatical": "Eu vejo os sapatos alto.", "gender": "m", "number": "pl", "id": 215}
+{"phenomenon": "adjective_noun_number", "grammatical": "Eu vejo as capas novas.", "ungrammatical": "Eu vejo as capas nova.", "gender": "f", "number": "pl", "id": 216}
+{"phenomenon": "subject_verb_number", "grammatical": "O pano trabalha.", "ungrammatical": "O pano trabalham.", "gender": "m", "number": "sg", "id": 217}
+{"phenomenon": "subject_verb_number", "grammatical": "As canetas cantam.", "ungrammatical": "As canetas canta.", "gender": "f", "number": "pl", "id": 218}
+{"phenomenon": "subject_verb_number", "grammatical": "A pata trabalha.", "ungrammatical": "A pata trabalham.", "gender": "f", "number": "sg", "id": 219}
+{"phenomenon": "subject_verb_number", "grammatical": "As gatas trabalham.", "ungrammatical": "As gatas trabalha.", "gender": "f", "number": "pl", "id": 220}
+{"phenomenon": "subject_verb_number", "grammatical": "A mesa sobe.", "ungrammatical": "A mesa sobem.", "gender": "f", "number": "sg", "id": 221}
+{"phenomenon": "subject_verb_number", "grammatical": "As camisas voam.", "ungrammatical": "As camisas voa.", "gender": "f", "number": "pl", "id": 222}
+{"phenomenon": "subject_verb_number", "grammatical": "O tijolo brinca.", "ungrammatical": "O tijolo brincam.", "gender": "m", "number": "sg", "id": 223}
+{"phenomenon": "subject_verb_number", "grammatical": "As uvas cantam.", "ungrammatical": "As uvas canta.", "gender": "f", "number": "pl", "id": 224}
+{"phenomenon": "subject_verb_number", "grammatical": "O sapo brinca.", "ungrammatical": "O sapo brincam.", "gender": "m", "number": "sg", "id": 225}
+{"phenomenon": "subject_verb_number", "grammatical": "As cadeiras correm.", "ungrammatical": "As cadeiras corre.", "gender": "f", "number": "pl", "id": 226}
+{"phenomenon": "subject_verb_number", "grammatical": "A porta trabalha.", "ungrammatical": "A porta trabalham.", "gender": "f", "number": "sg", "id": 227}
+{"phenomenon": "subject_verb_number", "grammatical": "Os carros nadam.", "ungrammatical": "Os carros nada.", "gender": "m", "number": "pl", "id": 228}
+{"phenomenon": "subject_verb_number", "grammatical": "O gato sobe.", "ungrammatical": "O gato sobem.", "gender": "m", "number": "sg", "id": 229}
+{"phenomenon": "subject_verb_number", "grammatical": "Os quartos trabalham.", "ungrammatical": "Os quartos trabalha.", "gender": "m", "number": "pl", "id": 230}
+{"phenomenon": "subject_verb_number", "grammatical": "O menino voa.", "ungrammatical": "O menino voam.", "gender": "m", "number": "sg", "id": 231}
+{"phenomenon": "subject_verb_number", "grammatical": "As casas trabalham.", "ungrammatical": "As casas trabalha.", "gender": "f", "number": "pl", "id": 232}
+{"phenomenon": "subject_verb_number", "grammatical": "O cachorro voa.", "ungrammatical": "O cachorro voam.", "gender": "m", "number": "sg", "id": 233}
+{"phenomenon": "subject_verb_number", "grammatical": "As janelas brincam.", "ungrammatical": "As janelas brinca.", "gender": "f", "number": "pl", "id": 234}
+{"phenomenon": "subject_verb_number", "grammatical": "A capa voa.", "ungrammatical": "A capa voam.", "gender": "f", "number": "sg", "id": 235}
+{"phenomenon": "subject_verb_number", "grammatical": "Os pratos andam.", "ungrammatical": "Os pratos anda.", "gender": "m", "number": "pl", "id": 236}
+{"phenomenon": "subject_verb_number", "grammatical": "A caixa corre.", "ungrammatical": "A caixa correm.", "gender": "f", "number": "sg", "id": 237}
+{"phenomenon": "subject_verb_number", "grammatical": "As frutas cantam.", "ungrammatical": "As frutas canta.", "gender": "f", "number": "pl", "id": 238}
+{"phenomenon": "subject_verb_number", "grammatical": "A bola voa.", "ungrammatical": "A bola voam.", "gender": "f", "number": "sg", "id": 239}
+{"phenomenon": "subject_verb_number", "grammatical": "Os vasos cantam.", "ungrammatical": "Os vasos canta.", "gender": "m", "number": "pl", "id": 240}
+{"phenomenon": "subject_verb_number", "grammatical": "O barco dorme.", "ungrammatical": "O barco dormem.", "gender": "m", "number": "sg", "id": 241}
+{"phenomenon": "subject_verb_number", "grammatical": "Os dados dormem.", "ungrammatical": "Os dados dorme.", "gender": "m", "number": "pl", "id": 242}
+{"phenomenon": "subject_verb_number", "grammatical": "A vela dorme.", "ungrammatical": "A vela dormem.", "gender": "f", "number": "sg", "id": 243}
+{"phenomenon": "subject_verb_number", "grammatical": "Os amigos descansam.", "ungrammatical": "Os amigos descansa.", "gender": "m", "number": "pl", "id": 244}
+{"phenomenon": "subject_verb_number", "grammatical": "O bolo voa.", "ungrammatical": "O bolo voam.", "gender": "m", "number": "sg", "id": 245}
+{"phenomenon": "subject_verb_number", "grammatical": "As meninas trabalham.", "ungrammatical": "As meninas trabalha.", "gender": "f", "number": "pl", "id": 246}
+{"phenomenon": "subject_verb_number", "grammatical": "O lobo dorme.", "ungrammatical": "O lobo dormem.", "gender": "m", "number": "sg", "id": 247}
+{"phenomenon": "subject_verb_number", "grammatical": "As sopas choram.", "ungrammatical": "As sopas chora.", "gender": "f", "number": "pl", "id": 248}
+{"phenomenon": "subject_verb_number", "grammatical": "A vaca pula.", "ungrammatical": "A vaca pulam.", "gender": "f", "number": "sg", "id": 249}
+{"phenomenon": "subject_verb_number", "grammatical": "As escolas nadam.", "ungrammatical": "As escolas nada.", "gender": "f", "number": "pl", "id": 250}
+{"phenomenon": "subject_verb_number", "grammatical": "O copo anda.", "ungrammatical": "O copo andam.", "gender": "m", "number": "sg", "id": 251}
+{"phenomenon": "subject_verb_number", "grammatical": "As rosas correm.", "ungrammatical": "As rosas corre.", "gender": "f", "number": "pl", "id": 252}
+{"phenomenon": "subject_verb_number", "grammatical": "A tartaruga brinca.", "ungrammatical": "A tartaruga brincam.", "gender": "f", "number": "sg", "id": 253}
+{"phenomenon": "subject_verb_number", "grammatical": "Os patos correm.", "ungrammatical": "Os patos corre.", "gender": "m", "number": "pl", "id": 254}
+{"phenomenon": "subject_verb_number", "grammatical": "O rato voa.", "ungrammatical": "O rato voam.", "gender": "m", "number": "sg", "id": 255}
+{"phenomenon": "subject_verb_number", "grammatical": "Os pássaros correm.", "ungrammatical": "Os pássaros corre.", "gender": "m", "number": "pl", "id": 256}
+{"phenomenon": "subject_verb_number", "grammatical": "O galo canta.", "ungrammatical": "O galo cantam.", "gender": "m", "number": "sg", "id": 257}
+{"phenomenon": "subject_verb_number", "grammatical": "As bonecas nadam.", "ungrammatical": "As bonecas nada.", "gender": "f", "number": "pl", "id": 258}
+{"phenomenon": "subject_verb_number", "grammatical": "A fita voa.", "ungrammatical": "A fita voam.", "gender": "f", "number": "sg", "id": 259}
+{"phenomenon": "subject_verb_number", "grammatical": "Os livros pulam.", "ungrammatical": "Os livros pula.", "gender": "m", "number": "pl", "id": 260}
+{"phenomenon": "subject_verb_number", "grammatical": "O espelho dorme.", "ungrammatical": "O espelho dormem.", "gender": "m", "number": "sg", "id": 261}
+{"phenomenon": "subject_verb_number", "grammatical": "Os sapatos sobem.", "ungrammatical": "Os sapatos sobe.", "gender": "m", "number": "pl", "id": 262}
+{"phenomenon": "subject_verb_number", "grammatical": "A amiga brinca.", "ungrammatical": "A amiga brincam.", "gender": "f", "number": "sg", "id": 263}
+{"phenomenon": "subject_verb_number", "grammatical": "Os ovos nadam.", "ungrammatical": "Os ovos nada.", "gender": "m", "number": "pl", "id": 264}
+{"phenomenon": "subject_verb_number", "grammatical": "O pano pula.", "ungrammatical": "O pano pulam.", "gender": "m", "number": "sg", "id": 265}
+{"phenomenon": "subject_verb_number", "grammatical": "As canetas dormem.", "ungrammatical": "As canetas dorme.", "gender": "f", "number": "pl", "id": 266}
+{"phenomenon": "subject_verb_number", "grammatical": "A pata corre.", "ungrammatical": "A pata correm.", "gender": "f", "number": "sg", "id": 267}
+{"phenomenon": "subject_verb_number", "grammatical": "As gatas pulam.", "ungrammatical": "As gatas pula.", "gender": "f", "number": "pl", "id": 268}
+{"phenomenon": "subject_verb_number", "grammatical": "A mesa trabalha.", "ungrammatical": "A mesa trabalham.", "gender": "f", "number": "sg", "id": 269}
+{"phenomenon": "subject_verb_number", "grammatical": "As camisas correm.", "ungrammatical": "As camisas corre.", "gender": "f", "number": "pl", "id": 270}
+{"phenomenon": "subject_verb_number", "grammatical": "O tijolo descansa.", "ungrammatical": "O tijolo descansam.", "gender": "m", "number": "sg", "id": 271}
+{"phenomenon": "subject_verb_number", "grammatical": "As uvas correm.", "ungrammatical": "As uvas corre.", "gender": "f", "number": "pl", "id": 272}
+{"phenomenon": "subject_verb_number", "grammatical": "O sapo trabalha.", "ungrammatical": "O sapo trabalham.", "gender": "m", "number": "sg", "id": 273}
+{"phenomenon": "subject_verb_number", "grammatical": "As cadeiras andam.", "ungrammatical": "As cadeiras anda.", "gender": "f", "number": "pl", "id": 274}
+{"phenomenon": "subject_verb_number", "grammatical": "A porta chora.", "ungrammatical": "A porta choram.", "gender": "f", "number": "sg", "id": 275}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta vaca.", "ungrammatical": "Eu quero este vaca.", "gender": "f", "number": "sg", "id": 276}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta pata.", "ungrammatical": "Eu quero este pata.", "gender": "f", "number": "sg", "id": 277}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este pássaro.", "ungrammatical": "Eu quero esta pássaro.", "gender": "m", "number": "sg", "id": 278}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este bolo.", "ungrammatical": "Eu quero esta bolo.", "gender": "m", "number": "sg", "id": 279}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este rato.", "ungrammatical": "Eu quero esta rato.", "gender": "m", "number": "sg", "id": 280}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este quarto.", "ungrammatical": "Eu quero esta quarto.", "gender": "m", "number": "sg", "id": 281}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta sopa.", "ungrammatical": "Eu quero este sopa.", "gender": "f", "number": "sg", "id": 282}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este pato.", "ungrammatical": "Eu quero esta pato.", "gender": "m", "number": "sg", "id": 283}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este pano.", "ungrammatical": "Eu quero esta pano.", "gender": "m", "number": "sg", "id": 284}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta tartaruga.", "ungrammatical": "Eu quero este tartaruga.", "gender": "f", "number": "sg", "id": 285}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este copo.", "ungrammatical": "Eu quero esta copo.", "gender": "m", "number": "sg", "id": 286}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este cachorro.", "ungrammatical": "Eu quero esta cachorro.", "gender": "m", "number": "sg", "id": 287}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta gata.", "ungrammatical": "Eu quero este gata.", "gender": "f", "number": "sg", "id": 288}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta amiga.", "ungrammatical": "Eu quero este amiga.", "gender": "f", "number": "sg", "id": 289}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta caixa.", "ungrammatical": "Eu quero este caixa.", "gender": "f", "number": "sg", "id": 290}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta janela.", "ungrammatical": "Eu quero este janela.", "gender": "f", "number": "sg", "id": 291}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este espelho.", "ungrammatical": "Eu quero esta espelho.", "gender": "m", "number": "sg", "id": 292}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este tijolo.", "ungrammatical": "Eu quero esta tijolo.", "gender": "m", "number": "sg", "id": 293}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta porta.", "ungrammatical": "Eu quero este porta.", "gender": "f", "number": "sg", "id": 294}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta cadeira.", "ungrammatical": "Eu quero este cadeira.", "gender": "f", "number": "sg", "id": 295}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta caneta.", "ungrammatical": "Eu quero este caneta.", "gender": "f", "number": "sg", "id": 296}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta vela.", "ungrammatical": "Eu quero este vela.", "gender": "f", "number": "sg", "id": 297}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este prato.", "ungrammatical": "Eu quero esta prato.", "gender": "m", "number": "sg", "id": 298}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este gato.", "ungrammatical": "Eu quero esta gato.", "gender": "m", "number": "sg", "id": 299}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este dado.", "ungrammatical": "Eu quero esta dado.", "gender": "m", "number": "sg", "id": 300}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta escola.", "ungrammatical": "Eu quero este escola.", "gender": "f", "number": "sg", "id": 301}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta boneca.", "ungrammatical": "Eu quero este boneca.", "gender": "f", "number": "sg", "id": 302}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este ovo.", "ungrammatical": "Eu quero esta ovo.", "gender": "m", "number": "sg", "id": 303}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta mesa.", "ungrammatical": "Eu quero este mesa.", "gender": "f", "number": "sg", "id": 304}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este carro.", "ungrammatical": "Eu quero esta carro.", "gender": "m", "number": "sg", "id": 305}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este sapo.", "ungrammatical": "Eu quero esta sapo.", "gender": "m", "number": "sg", "id": 306}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este amigo.", "ungrammatical": "Eu quero esta amigo.", "gender": "m", "number": "sg", "id": 307}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este galo.", "ungrammatical": "Eu quero esta galo.", "gender": "m", "number": "sg", "id": 308}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta menina.", "ungrammatical": "Eu quero este menina.", "gender": "f", "number": "sg", "id": 309}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este barco.", "ungrammatical": "Eu quero esta barco.", "gender": "m", "number": "sg", "id": 310}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este vaso.", "ungrammatical": "Eu quero esta vaso.", "gender": "m", "number": "sg", "id": 311}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta uva.", "ungrammatical": "Eu quero este uva.", "gender": "f", "number": "sg", "id": 312}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este menino.", "ungrammatical": "Eu quero esta menino.", "gender": "m", "number": "sg", "id": 313}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta bola.", "ungrammatical": "Eu quero este bola.", "gender": "f", "number": "sg", "id": 314}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este livro.", "ungrammatical": "Eu quero esta livro.", "gender": "m", "number": "sg", "id": 315}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este sapato.", "ungrammatical": "Eu quero esta sapato.", "gender": "m", "number": "sg", "id": 316}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta fita.", "ungrammatical": "Eu quero este fita.", "gender": "f", "number": "sg", "id": 317}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero este lobo.", "ungrammatical": "Eu quero esta lobo.", "gender": "m", "number": "sg", "id": 318}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta casa.", "ungrammatical": "Eu quero este casa.", "gender": "f", "number": "sg", "id": 319}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta fruta.", "ungrammatical": "Eu quero este fruta.", "gender": "f", "number": "sg", "id": 320}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta rosa.", "ungrammatical": "Eu quero este rosa.", "gender": "f", "number": "sg", "id": 321}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta capa.", "ungrammatical": "Eu quero este capa.", "gender": "f", "number": "sg", "id": 322}
+{"phenomenon": "demonstrative_gender", "grammatical": "Eu quero esta camisa.", "ungrammatical": "Eu quero este camisa.", "gender": "f", "number": "sg", "id": 323}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes ovos.", "ungrammatical": "Eu quero este ovos.", "gender": "m", "number": "pl", "id": 324}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas bonecas.", "ungrammatical": "Eu quero esta bonecas.", "gender": "f", "number": "pl", "id": 325}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes galos.", "ungrammatical": "Eu quero este galos.", "gender": "m", "number": "pl", "id": 326}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas gatas.", "ungrammatical": "Eu quero esta gatas.", "gender": "f", "number": "pl", "id": 327}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes bolos.", "ungrammatical": "Eu quero este bolos.", "gender": "m", "number": "pl", "id": 328}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas capas.", "ungrammatical": "Eu quero esta capas.", "gender": "f", "number": "pl", "id": 329}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas uvas.", "ungrammatical": "Eu quero esta uvas.", "gender": "f", "number": "pl", "id": 330}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes dados.", "ungrammatical": "Eu quero este dados.", "gender": "m", "number": "pl", "id": 331}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes sapatos.", "ungrammatical": "Eu quero este sapatos.", "gender": "m", "number": "pl", "id": 332}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes gatos.", "ungrammatical": "Eu quero este gatos.", "gender": "m", "number": "pl", "id": 333}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes sapos.", "ungrammatical": "Eu quero este sapos.", "gender": "m", "number": "pl", "id": 334}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas escolas.", "ungrammatical": "Eu quero esta escolas.", "gender": "f", "number": "pl", "id": 335}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes espelhos.", "ungrammatical": "Eu quero este espelhos.", "gender": "m", "number": "pl", "id": 336}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes barcos.", "ungrammatical": "Eu quero este barcos.", "gender": "m", "number": "pl", "id": 337}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes amigos.", "ungrammatical": "Eu quero este amigos.", "gender": "m", "number": "pl", "id": 338}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas mesas.", "ungrammatical": "Eu quero esta mesas.", "gender": "f", "number": "pl", "id": 339}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas casas.", "ungrammatical": "Eu quero esta casas.", "gender": "f", "number": "pl", "id": 340}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas janelas.", "ungrammatical": "Eu quero esta janelas.", "gender": "f", "number": "pl", "id": 341}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes cachorros.", "ungrammatical": "Eu quero este cachorros.", "gender": "m", "number": "pl", "id": 342}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes pássaros.", "ungrammatical": "Eu quero este pássaros.", "gender": "m", "number": "pl", "id": 343}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas frutas.", "ungrammatical": "Eu quero esta frutas.", "gender": "f", "number": "pl", "id": 344}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes livros.", "ungrammatical": "Eu quero este livros.", "gender": "m", "number": "pl", "id": 345}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas fitas.", "ungrammatical": "Eu quero esta fitas.", "gender": "f", "number": "pl", "id": 346}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes panos.", "ungrammatical": "Eu quero este panos.", "gender": "m", "number": "pl", "id": 347}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas camisas.", "ungrammatical": "Eu quero esta camisas.", "gender": "f", "number": "pl", "id": 348}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas bolas.", "ungrammatical": "Eu quero esta bolas.", "gender": "f", "number": "pl", "id": 349}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas portas.", "ungrammatical": "Eu quero esta portas.", "gender": "f", "number": "pl", "id": 350}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas canetas.", "ungrammatical": "Eu quero esta canetas.", "gender": "f", "number": "pl", "id": 351}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes vasos.", "ungrammatical": "Eu quero este vasos.", "gender": "m", "number": "pl", "id": 352}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas sopas.", "ungrammatical": "Eu quero esta sopas.", "gender": "f", "number": "pl", "id": 353}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes pratos.", "ungrammatical": "Eu quero este pratos.", "gender": "m", "number": "pl", "id": 354}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes carros.", "ungrammatical": "Eu quero este carros.", "gender": "m", "number": "pl", "id": 355}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes tijolos.", "ungrammatical": "Eu quero este tijolos.", "gender": "m", "number": "pl", "id": 356}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas meninas.", "ungrammatical": "Eu quero esta meninas.", "gender": "f", "number": "pl", "id": 357}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas patas.", "ungrammatical": "Eu quero esta patas.", "gender": "f", "number": "pl", "id": 358}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes patos.", "ungrammatical": "Eu quero este patos.", "gender": "m", "number": "pl", "id": 359}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas caixas.", "ungrammatical": "Eu quero esta caixas.", "gender": "f", "number": "pl", "id": 360}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes copos.", "ungrammatical": "Eu quero este copos.", "gender": "m", "number": "pl", "id": 361}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas cadeiras.", "ungrammatical": "Eu quero esta cadeiras.", "gender": "f", "number": "pl", "id": 362}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes ratos.", "ungrammatical": "Eu quero este ratos.", "gender": "m", "number": "pl", "id": 363}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas tartarugas.", "ungrammatical": "Eu quero esta tartarugas.", "gender": "f", "number": "pl", "id": 364}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas rosas.", "ungrammatical": "Eu quero esta rosas.", "gender": "f", "number": "pl", "id": 365}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas amigas.", "ungrammatical": "Eu quero esta amigas.", "gender": "f", "number": "pl", "id": 366}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes meninos.", "ungrammatical": "Eu quero este meninos.", "gender": "m", "number": "pl", "id": 367}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes quartos.", "ungrammatical": "Eu quero este quartos.", "gender": "m", "number": "pl", "id": 368}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estes lobos.", "ungrammatical": "Eu quero este lobos.", "gender": "m", "number": "pl", "id": 369}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas vacas.", "ungrammatical": "Eu quero esta vacas.", "gender": "f", "number": "pl", "id": 370}
+{"phenomenon": "demonstrative_number", "grammatical": "Eu quero estas velas.", "ungrammatical": "Eu quero esta velas.", "gender": "f", "number": "pl", "id": 371}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um dado.", "ungrammatical": "Eu tenho uma dado.", "gender": "m", "number": "sg", "id": 372}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um amigo.", "ungrammatical": "Eu tenho uma amigo.", "gender": "m", "number": "sg", "id": 373}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma vaca.", "ungrammatical": "Eu tenho um vaca.", "gender": "f", "number": "sg", "id": 374}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um rato.", "ungrammatical": "Eu tenho uma rato.", "gender": "m", "number": "sg", "id": 375}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma capa.", "ungrammatical": "Eu tenho um capa.", "gender": "f", "number": "sg", "id": 376}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma escola.", "ungrammatical": "Eu tenho um escola.", "gender": "f", "number": "sg", "id": 377}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma fita.", "ungrammatical": "Eu tenho um fita.", "gender": "f", "number": "sg", "id": 378}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um pato.", "ungrammatical": "Eu tenho uma pato.", "gender": "m", "number": "sg", "id": 379}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um copo.", "ungrammatical": "Eu tenho uma copo.", "gender": "m", "number": "sg", "id": 380}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um menino.", "ungrammatical": "Eu tenho uma menino.", "gender": "m", "number": "sg", "id": 381}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um sapo.", "ungrammatical": "Eu tenho uma sapo.", "gender": "m", "number": "sg", "id": 382}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma pata.", "ungrammatical": "Eu tenho um pata.", "gender": "f", "number": "sg", "id": 383}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma bola.", "ungrammatical": "Eu tenho um bola.", "gender": "f", "number": "sg", "id": 384}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um vaso.", "ungrammatical": "Eu tenho uma vaso.", "gender": "m", "number": "sg", "id": 385}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um quarto.", "ungrammatical": "Eu tenho uma quarto.", "gender": "m", "number": "sg", "id": 386}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma casa.", "ungrammatical": "Eu tenho um casa.", "gender": "f", "number": "sg", "id": 387}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um gato.", "ungrammatical": "Eu tenho uma gato.", "gender": "m", "number": "sg", "id": 388}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma gata.", "ungrammatical": "Eu tenho um gata.", "gender": "f", "number": "sg", "id": 389}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um barco.", "ungrammatical": "Eu tenho uma barco.", "gender": "m", "number": "sg", "id": 390}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma uva.", "ungrammatical": "Eu tenho um uva.", "gender": "f", "number": "sg", "id": 391}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um carro.", "ungrammatical": "Eu tenho uma carro.", "gender": "m", "number": "sg", "id": 392}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um pano.", "ungrammatical": "Eu tenho uma pano.", "gender": "m", "number": "sg", "id": 393}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma janela.", "ungrammatical": "Eu tenho um janela.", "gender": "f", "number": "sg", "id": 394}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um ovo.", "ungrammatical": "Eu tenho uma ovo.", "gender": "m", "number": "sg", "id": 395}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma tartaruga.", "ungrammatical": "Eu tenho um tartaruga.", "gender": "f", "number": "sg", "id": 396}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um cachorro.", "ungrammatical": "Eu tenho uma cachorro.", "gender": "m", "number": "sg", "id": 397}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um pássaro.", "ungrammatical": "Eu tenho uma pássaro.", "gender": "m", "number": "sg", "id": 398}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma vela.", "ungrammatical": "Eu tenho um vela.", "gender": "f", "number": "sg", "id": 399}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um espelho.", "ungrammatical": "Eu tenho uma espelho.", "gender": "m", "number": "sg", "id": 400}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma amiga.", "ungrammatical": "Eu tenho um amiga.", "gender": "f", "number": "sg", "id": 401}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma cadeira.", "ungrammatical": "Eu tenho um cadeira.", "gender": "f", "number": "sg", "id": 402}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma rosa.", "ungrammatical": "Eu tenho um rosa.", "gender": "f", "number": "sg", "id": 403}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma boneca.", "ungrammatical": "Eu tenho um boneca.", "gender": "f", "number": "sg", "id": 404}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um prato.", "ungrammatical": "Eu tenho uma prato.", "gender": "m", "number": "sg", "id": 405}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma caixa.", "ungrammatical": "Eu tenho um caixa.", "gender": "f", "number": "sg", "id": 406}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma camisa.", "ungrammatical": "Eu tenho um camisa.", "gender": "f", "number": "sg", "id": 407}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma fruta.", "ungrammatical": "Eu tenho um fruta.", "gender": "f", "number": "sg", "id": 408}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma sopa.", "ungrammatical": "Eu tenho um sopa.", "gender": "f", "number": "sg", "id": 409}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma mesa.", "ungrammatical": "Eu tenho um mesa.", "gender": "f", "number": "sg", "id": 410}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um livro.", "ungrammatical": "Eu tenho uma livro.", "gender": "m", "number": "sg", "id": 411}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um bolo.", "ungrammatical": "Eu tenho uma bolo.", "gender": "m", "number": "sg", "id": 412}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um sapato.", "ungrammatical": "Eu tenho uma sapato.", "gender": "m", "number": "sg", "id": 413}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma menina.", "ungrammatical": "Eu tenho um menina.", "gender": "f", "number": "sg", "id": 414}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma porta.", "ungrammatical": "Eu tenho um porta.", "gender": "f", "number": "sg", "id": 415}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um lobo.", "ungrammatical": "Eu tenho uma lobo.", "gender": "m", "number": "sg", "id": 416}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho uma caneta.", "ungrammatical": "Eu tenho um caneta.", "gender": "f", "number": "sg", "id": 417}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um tijolo.", "ungrammatical": "Eu tenho uma tijolo.", "gender": "m", "number": "sg", "id": 418}
+{"phenomenon": "indefinite_article_gender", "grammatical": "Eu tenho um galo.", "ungrammatical": "Eu tenho uma galo.", "gender": "m", "number": "sg", "id": 419}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O sapato é amarelo.", "ungrammatical": "O sapato é amarela.", "gender": "m", "number": "sg", "id": 420}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O quarto é gordo.", "ungrammatical": "O quarto é gorda.", "gender": "m", "number": "sg", "id": 421}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O tijolo é bonito.", "ungrammatical": "O tijolo é bonita.", "gender": "m", "number": "sg", "id": 422}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A escola é velha.", "ungrammatical": "A escola é velho.", "gender": "f", "number": "sg", "id": 423}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A capa é velha.", "ungrammatical": "A capa é velho.", "gender": "f", "number": "sg", "id": 424}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O cachorro é vermelho.", "ungrammatical": "O cachorro é vermelha.", "gender": "m", "number": "sg", "id": 425}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O sapo é vermelho.", "ungrammatical": "O sapo é vermelha.", "gender": "m", "number": "sg", "id": 426}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O ovo é pequeno.", "ungrammatical": "O ovo é pequena.", "gender": "m", "number": "sg", "id": 427}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O amigo é novo.", "ungrammatical": "O amigo é nova.", "gender": "m", "number": "sg", "id": 428}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O dado é bonito.", "ungrammatical": "O dado é bonita.", "gender": "m", "number": "sg", "id": 429}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A rosa é vermelha.", "ungrammatical": "A rosa é vermelho.", "gender": "f", "number": "sg", "id": 430}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A sopa é bonita.", "ungrammatical": "A sopa é bonito.", "gender": "f", "number": "sg", "id": 431}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A caneta é gorda.", "ungrammatical": "A caneta é gordo.", "gender": "f", "number": "sg", "id": 432}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O gato é alto.", "ungrammatical": "O gato é alta.", "gender": "m", "number": "sg", "id": 433}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O pano é novo.", "ungrammatical": "O pano é nova.", "gender": "m", "number": "sg", "id": 434}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O livro é vermelho.", "ungrammatical": "O livro é vermelha.", "gender": "m", "number": "sg", "id": 435}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A vaca é molhada.", "ungrammatical": "A vaca é molhado.", "gender": "f", "number": "sg", "id": 436}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A pata é limpa.", "ungrammatical": "A pata é limpo.", "gender": "f", "number": "sg", "id": 437}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A bola é alta.", "ungrammatical": "A bola é alto.", "gender": "f", "number": "sg", "id": 438}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A vela é gorda.", "ungrammatical": "A vela é gordo.", "gender": "f", "number": "sg", "id": 439}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A gata é molhada.", "ungrammatical": "A gata é molhado.", "gender": "f", "number": "sg", "id": 440}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A casa é velha.", "ungrammatical": "A casa é velho.", "gender": "f", "number": "sg", "id": 441}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O carro é amarelo.", "ungrammatical": "O carro é amarela.", "gender": "m", "number": "sg", "id": 442}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O lobo é molhado.", "ungrammatical": "O lobo é molhada.", "gender": "m", "number": "sg", "id": 443}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O vaso é velho.", "ungrammatical": "O vaso é velha.", "gender": "m", "number": "sg", "id": 444}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A amiga é branca.", "ungrammatical": "A amiga é branco.", "gender": "f", "number": "sg", "id": 445}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A menina é branca.", "ungrammatical": "A menina é branco.", "gender": "f", "number": "sg", "id": 446}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A camisa é nova.", "ungrammatical": "A camisa é novo.", "gender": "f", "number": "sg", "id": 447}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O espelho é alto.", "ungrammatical": "O espelho é alta.", "gender": "m", "number": "sg", "id": 448}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A cadeira é nova.", "ungrammatical": "A cadeira é novo.", "gender": "f", "number": "sg", "id": 449}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O menino é branco.", "ungrammatical": "O menino é branca.", "gender": "m", "number": "sg", "id": 450}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O copo é pequeno.", "ungrammatical": "O copo é pequena.", "gender": "m", "number": "sg", "id": 451}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A porta é molhada.", "ungrammatical": "A porta é molhado.", "gender": "f", "number": "sg", "id": 452}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A uva é alta.", "ungrammatical": "A uva é alto.", "gender": "f", "number": "sg", "id": 453}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A fruta é pequena.", "ungrammatical": "A fruta é pequeno.", "gender": "f", "number": "sg", "id": 454}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O rato é novo.", "ungrammatical": "O rato é nova.", "gender": "m", "number": "sg", "id": 455}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A fita é magra.", "ungrammatical": "A fita é magro.", "gender": "f", "number": "sg", "id": 456}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O galo é magro.", "ungrammatical": "O galo é magra.", "gender": "m", "number": "sg", "id": 457}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O barco é vermelho.", "ungrammatical": "O barco é vermelha.", "gender": "m", "number": "sg", "id": 458}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A mesa é nova.", "ungrammatical": "A mesa é novo.", "gender": "f", "number": "sg", "id": 459}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A tartaruga é gorda.", "ungrammatical": "A tartaruga é gordo.", "gender": "f", "number": "sg", "id": 460}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A janela é bonita.", "ungrammatical": "A janela é bonito.", "gender": "f", "number": "sg", "id": 461}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O bolo é limpo.", "ungrammatical": "O bolo é limpa.", "gender": "m", "number": "sg", "id": 462}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O prato é alto.", "ungrammatical": "O prato é alta.", "gender": "m", "number": "sg", "id": 463}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A boneca é alta.", "ungrammatical": "A boneca é alto.", "gender": "f", "number": "sg", "id": 464}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O pato é amarelo.", "ungrammatical": "O pato é amarela.", "gender": "m", "number": "sg", "id": 465}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A caixa é nova.", "ungrammatical": "A caixa é novo.", "gender": "f", "number": "sg", "id": 466}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O pássaro é molhado.", "ungrammatical": "O pássaro é molhada.", "gender": "m", "number": "sg", "id": 467}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O sapato é novo.", "ungrammatical": "O sapato é nova.", "gender": "m", "number": "sg", "id": 468}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O quarto é bonito.", "ungrammatical": "O quarto é bonita.", "gender": "m", "number": "sg", "id": 469}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O tijolo é gordo.", "ungrammatical": "O tijolo é gorda.", "gender": "m", "number": "sg", "id": 470}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A escola é bonita.", "ungrammatical": "A escola é bonito.", "gender": "f", "number": "sg", "id": 471}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A capa é vermelha.", "ungrammatical": "A capa é vermelho.", "gender": "f", "number": "sg", "id": 472}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O sapo é alto.", "ungrammatical": "O sapo é alta.", "gender": "m", "number": "sg", "id": 473}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O ovo é vermelho.", "ungrammatical": "O ovo é vermelha.", "gender": "m", "number": "sg", "id": 474}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O amigo é limpo.", "ungrammatical": "O amigo é limpa.", "gender": "m", "number": "sg", "id": 475}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "O dado é novo.", "ungrammatical": "O dado é nova.", "gender": "m", "number": "sg", "id": 476}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A rosa é branca.", "ungrammatical": "A rosa é branco.", "gender": "f", "number": "sg", "id": 477}
+{"phenomenon": "predicative_adjective_gender", "grammatical": "A sopa é limpa.", "ungrammatical": "A sopa é limpo.", "gender": "f", "number": "sg", "id": 478}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os barcos são molhados.", "ungrammatical": "Os barcos são molhado.", "gender": "m", "number": "pl", "id": 479}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As meninas são pequenas.", "ungrammatical": "As meninas são pequena.", "gender": "f", "number": "pl", "id": 480}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os carros são brancos.", "ungrammatical": "Os carros são branco.", "gender": "m", "number": "pl", "id": 481}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As gatas são amarelas.", "ungrammatical": "As gatas são amarela.", "gender": "f", "number": "pl", "id": 482}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os galos são velhos.", "ungrammatical": "Os galos são velho.", "gender": "m", "number": "pl", "id": 483}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As fitas são limpas.", "ungrammatical": "As fitas são limpa.", "gender": "f", "number": "pl", "id": 484}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As rosas são bonitas.", "ungrammatical": "As rosas são bonita.", "gender": "f", "number": "pl", "id": 485}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As cadeiras são novas.", "ungrammatical": "As cadeiras são nova.", "gender": "f", "number": "pl", "id": 486}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As janelas são gordas.", "ungrammatical": "As janelas são gorda.", "gender": "f", "number": "pl", "id": 487}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As tartarugas são vermelhas.", "ungrammatical": "As tartarugas são vermelha.", "gender": "f", "number": "pl", "id": 488}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os tijolos são brancos.", "ungrammatical": "Os tijolos são branco.", "gender": "m", "number": "pl", "id": 489}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As bolas são amarelas.", "ungrammatical": "As bolas são amarela.", "gender": "f", "number": "pl", "id": 490}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As mesas são velhas.", "ungrammatical": "As mesas são velha.", "gender": "f", "number": "pl", "id": 491}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os gatos são gordos.", "ungrammatical": "Os gatos são gordo.", "gender": "m", "number": "pl", "id": 492}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os vasos são velhos.", "ungrammatical": "Os vasos são velho.", "gender": "m", "number": "pl", "id": 493}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os lobos são vermelhos.", "ungrammatical": "Os lobos são vermelho.", "gender": "m", "number": "pl", "id": 494}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os amigos são molhados.", "ungrammatical": "Os amigos são molhado.", "gender": "m", "number": "pl", "id": 495}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os copos são limpos.", "ungrammatical": "Os copos são limpo.", "gender": "m", "number": "pl", "id": 496}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os ratos são amarelos.", "ungrammatical": "Os ratos são amarelo.", "gender": "m", "number": "pl", "id": 497}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As patas são gordas.", "ungrammatical": "As patas são gorda.", "gender": "f", "number": "pl", "id": 498}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As vacas são molhadas.", "ungrammatical": "As vacas são molhada.", "gender": "f", "number": "pl", "id": 499}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os ovos são gordos.", "ungrammatical": "Os ovos são gordo.", "gender": "m", "number": "pl", "id": 500}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os sapos são bonitos.", "ungrammatical": "Os sapos são bonito.", "gender": "m", "number": "pl", "id": 501}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os pássaros são limpos.", "ungrammatical": "Os pássaros são limpo.", "gender": "m", "number": "pl", "id": 502}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As frutas são molhadas.", "ungrammatical": "As frutas são molhada.", "gender": "f", "number": "pl", "id": 503}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os cachorros são bonitos.", "ungrammatical": "Os cachorros são bonito.", "gender": "m", "number": "pl", "id": 504}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os patos são limpos.", "ungrammatical": "Os patos são limpo.", "gender": "m", "number": "pl", "id": 505}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As caixas são gordas.", "ungrammatical": "As caixas são gorda.", "gender": "f", "number": "pl", "id": 506}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os quartos são novos.", "ungrammatical": "Os quartos são novo.", "gender": "m", "number": "pl", "id": 507}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As capas são molhadas.", "ungrammatical": "As capas são molhada.", "gender": "f", "number": "pl", "id": 508}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os meninos são velhos.", "ungrammatical": "Os meninos são velho.", "gender": "m", "number": "pl", "id": 509}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As camisas são magras.", "ungrammatical": "As camisas são magra.", "gender": "f", "number": "pl", "id": 510}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As bonecas são bonitas.", "ungrammatical": "As bonecas são bonita.", "gender": "f", "number": "pl", "id": 511}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os sapatos são vermelhos.", "ungrammatical": "Os sapatos são vermelho.", "gender": "m", "number": "pl", "id": 512}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os bolos são bonitos.", "ungrammatical": "Os bolos são bonito.", "gender": "m", "number": "pl", "id": 513}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As amigas são magras.", "ungrammatical": "As amigas são magra.", "gender": "f", "number": "pl", "id": 514}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As portas são molhadas.", "ungrammatical": "As portas são molhada.", "gender": "f", "number": "pl", "id": 515}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As velas são vermelhas.", "ungrammatical": "As velas são vermelha.", "gender": "f", "number": "pl", "id": 516}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os espelhos são gordos.", "ungrammatical": "Os espelhos são gordo.", "gender": "m", "number": "pl", "id": 517}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As casas são velhas.", "ungrammatical": "As casas são velha.", "gender": "f", "number": "pl", "id": 518}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os panos são magros.", "ungrammatical": "Os panos são magro.", "gender": "m", "number": "pl", "id": 519}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os pratos são velhos.", "ungrammatical": "Os pratos são velho.", "gender": "m", "number": "pl", "id": 520}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os livros são velhos.", "ungrammatical": "Os livros são velho.", "gender": "m", "number": "pl", "id": 521}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As sopas são pequenas.", "ungrammatical": "As sopas são pequena.", "gender": "f", "number": "pl", "id": 522}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As canetas são limpas.", "ungrammatical": "As canetas são limpa.", "gender": "f", "number": "pl", "id": 523}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As escolas são altas.", "ungrammatical": "As escolas são alta.", "gender": "f", "number": "pl", "id": 524}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os dados são velhos.", "ungrammatical": "Os dados são velho.", "gender": "m", "number": "pl", "id": 525}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As uvas são vermelhas.", "ungrammatical": "As uvas são vermelha.", "gender": "f", "number": "pl", "id": 526}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os barcos são altos.", "ungrammatical": "Os barcos são alto.", "gender": "m", "number": "pl", "id": 527}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As meninas são limpas.", "ungrammatical": "As meninas são limpa.", "gender": "f", "number": "pl", "id": 528}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os carros são amarelos.", "ungrammatical": "Os carros são amarelo.", "gender": "m", "number": "pl", "id": 529}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As gatas são molhadas.", "ungrammatical": "As gatas são molhada.", "gender": "f", "number": "pl", "id": 530}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os galos são magros.", "ungrammatical": "Os galos são magro.", "gender": "m", "number": "pl", "id": 531}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As fitas são amarelas.", "ungrammatical": "As fitas são amarela.", "gender": "f", "number": "pl", "id": 532}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As rosas são gordas.", "ungrammatical": "As rosas são gorda.", "gender": "f", "number": "pl", "id": 533}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As cadeiras são magras.", "ungrammatical": "As cadeiras são magra.", "gender": "f", "number": "pl", "id": 534}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As janelas são novas.", "ungrammatical": "As janelas são nova.", "gender": "f", "number": "pl", "id": 535}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As tartarugas são molhadas.", "ungrammatical": "As tartarugas são molhada.", "gender": "f", "number": "pl", "id": 536}
+{"phenomenon": "predicative_adjective_number", "grammatical": "Os tijolos são altos.", "ungrammatical": "Os tijolos são alto.", "gender": "m", "number": "pl", "id": 537}
+{"phenomenon": "predicative_adjective_number", "grammatical": "As bolas são gordas.", "ungrammatical": "As bolas são gorda.", "gender": "f", "number": "pl", "id": 538}
