@@ -10,11 +10,13 @@ cleanup() {
 }
 trap cleanup EXIT
 
-tar \
+COPYFILE_DISABLE=1 tar \
   --exclude='.git/index.lock' \
   --exclude='.venv' \
   --exclude='__pycache__' \
   --exclude='*.pyc' \
+  --exclude='._*' \
+  --exclude='__MACOSX' \
   --exclude='.cache' \
   --exclude='wandb' \
   --exclude='.env.local' \

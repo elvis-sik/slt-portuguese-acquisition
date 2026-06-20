@@ -6,6 +6,7 @@ command -v codex || {
   echo "Codex was installed but is not on PATH. Start a new login shell and check again." >&2
   exit 1
 }
+sudo ln -sf "$HOME/.local/bin/codex" /usr/local/bin/codex
 codex --version
 cat <<'EOF'
 Codex is installed. Authenticate interactively on the remote host if needed:
