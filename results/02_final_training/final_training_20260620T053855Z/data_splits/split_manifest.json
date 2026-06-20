@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-06-20T05:39:00.608315Z",
+  "immutability_note": "Final split artifacts are content-addressed by SHA256 and must not be edited in place.",
+  "source_split_manifest": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/split_manifest.json",
+  "source_split_manifest_sha256": "15eb6f737e0b3310e44c47bcc5ae22159bd6b5821dd6a4a49110f89f811f534d",
+  "source_split_hashes_sha256": {
+    "train.jsonl": "446c0c4db909d352d2b0fa9cc3f048d6532dd91213fa5c4159bcbdbc6cab4dae",
+    "validation.jsonl": "fa93efa4ac0373ca77492a175a7e5e00b86d1c2873aa8a85bbf42f829df44efc",
+    "sampler_reference.jsonl": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f"
+  },
+  "split_sizes": {
+    "train": 96,
+    "validation": 24,
+    "sampler_reference": 16
+  },
+  "split_hashes_sha256": {
+    "train.jsonl": "446c0c4db909d352d2b0fa9cc3f048d6532dd91213fa5c4159bcbdbc6cab4dae",
+    "validation.jsonl": "fa93efa4ac0373ca77492a175a7e5e00b86d1c2873aa8a85bbf42f829df44efc",
+    "sampler_reference.jsonl": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f",
+    "train_shuffled_pt_token_ids.jsonl": "0380c5000efc8a6e5ecde875d21afd19f52df71604ef97b13312a5fc1abc297b",
+    "train_shuffled_pt_mapping.jsonl": "37ed02f705acf1ca28b25365351647afd735f8ce794deba247e8ff4b117cd684"
+  },
+  "grammar_csv": "data/eval/grammar_minimal_pairs.example.csv",
+  "grammar_csv_sha256": "eaed9d7b78c180087c78b0d1e1acbad479af4643f524a44cb7218df3fdbb3782",
+  "leakage_check": {
+    "train_validation_overlap_ids": [],
+    "train_sampler_overlap_ids": [],
+    "validation_sampler_overlap_ids": []
+  },
+  "shuffled_mapping_seed": 20260822,
+  "tokenizer_vocab_sha256": "e35d8b86ebd35ebd260d040aa455e09759f7e675f4dbb7f3d727516f27eca190"
+}

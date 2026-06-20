@@ -1,0 +1,85 @@
+{
+  "project": "slt-portuguese",
+  "mode": "final_behavioral_training",
+  "model": {
+    "id": "roneneldan/TinyStories-8M",
+    "revision": null,
+    "tokenizer_id": "roneneldan/TinyStories-8M",
+    "local_files_only": true,
+    "full_parameter_training": true
+  },
+  "training": {
+    "sequence_length": 128,
+    "global_batch_size": 64,
+    "target_tokens": 100000000,
+    "optimizer": "adamw",
+    "learning_rate": 0.0001,
+    "warmup_fraction": 0.03,
+    "lr_schedule": "cosine",
+    "grad_clip": 1.0,
+    "weight_decay": 0.01,
+    "precision": "fp32",
+    "seed": 202606201,
+    "device": "cuda",
+    "checkpoint_tokens": [
+      0,
+      100000,
+      200000,
+      400000,
+      800000,
+      1500000,
+      2500000,
+      4000000,
+      6000000,
+      8000000,
+      12000000,
+      18000000,
+      27000000,
+      40000000,
+      60000000,
+      80000000,
+      100000000
+    ]
+  },
+  "data": {
+    "source": "wikipedia_pt_chunks_plus_matched_english_wikipedia",
+    "train_corpus_pt": "wikimedia/wikipedia",
+    "train_corpus_pt_config": "20231101.pt",
+    "train_corpus_en": "wikimedia/wikipedia",
+    "train_corpus_en_config": "20231101.en",
+    "max_docs_pt": 250000,
+    "max_docs_en": 250000,
+    "validation_source": "Helsinki-NLP/opus-100",
+    "validation_config": "en-pt",
+    "validation_size": 512,
+    "sampler_reference_size": 128,
+    "validation_skip": 512,
+    "split_manifest": ""
+  },
+  "evaluation": {
+    "grammar_pairs": "data/eval/grammar_minimal_pairs.example.csv",
+    "report_bits_per_byte": true,
+    "evaluate_every_checkpoint": true
+  },
+  "llc_checkpoint_selection": {
+    "fixed_checkpoint_tokens": [
+      0,
+      400000,
+      1500000,
+      8000000,
+      40000000,
+      100000000
+    ],
+    "adaptive_metric": "grammar_mean_margin",
+    "freeze_note": "Use behavior outputs only. Do not inspect final LLC before this rule is written and the selected checkpoint file is frozen."
+  },
+  "cost": {
+    "hourly_rate_usd": 1.0,
+    "starting_cumulative_cost_usd": 0.8729,
+    "expected_incremental_cost_usd": 8.0,
+    "hard_cap_usd": 50.0
+  },
+  "output": {
+    "root": "results/02_final_training"
+  }
+}

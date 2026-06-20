@@ -1,0 +1,27 @@
+{
+  "status": "stale_previous_successful_benchmarks_not_current_gate_pass",
+  "current_run_id": "infra_gate_20260620T050345Z",
+  "current_run_recalculation_status": "blocked_before_fresh_benchmarks_because_nvidia_smi_exit_9",
+  "source_benchmarks_note": "Inputs are top-level infrastructure-gate benchmark JSONs from 2026-06-20T01:43-01:49Z, not this rerun.",
+  "inputs": {
+    "training_steps": 10000,
+    "sampler_chain_steps": 31700,
+    "seconds_per_training_step": 0.07506923971500327,
+    "seconds_per_sampler_chain_step": 0.1410721264,
+    "evaluation_hours": 1.5,
+    "overhead_factor": 1.4,
+    "hourly_rate_usd_planning_assumption": 1.0
+  },
+  "charged_hours": {
+    "low": 2.118625054273674,
+    "median": 3.5310417571227903,
+    "high": 7.062083514245581
+  },
+  "raw_compute_cost_usd": {
+    "low": 2.118625054273674,
+    "median": 3.5310417571227903,
+    "high": 7.062083514245581
+  },
+  "planning_warning": "Engineering sensitivity interval, not a statistical confidence interval or official cloud quote.",
+  "review_required": false
+}

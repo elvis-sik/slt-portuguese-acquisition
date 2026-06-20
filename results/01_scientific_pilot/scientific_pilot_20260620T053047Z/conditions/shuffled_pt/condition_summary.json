@@ -1,0 +1,811 @@
+{
+  "condition": "shuffled_pt",
+  "learning_rate": 0.0003,
+  "checkpoint_steps": [
+    0,
+    12,
+    24,
+    48
+  ],
+  "tokens_per_step": 2048,
+  "train_losses": [
+    {
+      "step": 1,
+      "cumulative_tokens": 2048,
+      "loss": 12.67980670928955
+    },
+    {
+      "step": 2,
+      "cumulative_tokens": 4096,
+      "loss": 11.228397369384766
+    },
+    {
+      "step": 3,
+      "cumulative_tokens": 6144,
+      "loss": 11.51599407196045
+    },
+    {
+      "step": 4,
+      "cumulative_tokens": 8192,
+      "loss": 10.179201126098633
+    },
+    {
+      "step": 5,
+      "cumulative_tokens": 10240,
+      "loss": 9.734283447265625
+    },
+    {
+      "step": 6,
+      "cumulative_tokens": 12288,
+      "loss": 9.852710723876953
+    },
+    {
+      "step": 7,
+      "cumulative_tokens": 14336,
+      "loss": 9.133469581604004
+    },
+    {
+      "step": 8,
+      "cumulative_tokens": 16384,
+      "loss": 9.167884826660156
+    },
+    {
+      "step": 9,
+      "cumulative_tokens": 18432,
+      "loss": 8.978179931640625
+    },
+    {
+      "step": 10,
+      "cumulative_tokens": 20480,
+      "loss": 8.605088233947754
+    },
+    {
+      "step": 11,
+      "cumulative_tokens": 22528,
+      "loss": 8.609848976135254
+    },
+    {
+      "step": 12,
+      "cumulative_tokens": 24576,
+      "loss": 7.864543437957764
+    },
+    {
+      "step": 13,
+      "cumulative_tokens": 26624,
+      "loss": 8.034785270690918
+    },
+    {
+      "step": 14,
+      "cumulative_tokens": 28672,
+      "loss": 8.03502082824707
+    },
+    {
+      "step": 15,
+      "cumulative_tokens": 30720,
+      "loss": 8.281538009643555
+    },
+    {
+      "step": 16,
+      "cumulative_tokens": 32768,
+      "loss": 7.3654608726501465
+    },
+    {
+      "step": 17,
+      "cumulative_tokens": 34816,
+      "loss": 7.52275276184082
+    },
+    {
+      "step": 18,
+      "cumulative_tokens": 36864,
+      "loss": 7.67768669128418
+    },
+    {
+      "step": 19,
+      "cumulative_tokens": 38912,
+      "loss": 7.79563570022583
+    },
+    {
+      "step": 20,
+      "cumulative_tokens": 40960,
+      "loss": 7.055959701538086
+    },
+    {
+      "step": 21,
+      "cumulative_tokens": 43008,
+      "loss": 7.445069313049316
+    },
+    {
+      "step": 22,
+      "cumulative_tokens": 45056,
+      "loss": 7.337165832519531
+    },
+    {
+      "step": 23,
+      "cumulative_tokens": 47104,
+      "loss": 7.007141590118408
+    },
+    {
+      "step": 24,
+      "cumulative_tokens": 49152,
+      "loss": 7.291154384613037
+    },
+    {
+      "step": 25,
+      "cumulative_tokens": 51200,
+      "loss": 6.998454570770264
+    },
+    {
+      "step": 26,
+      "cumulative_tokens": 53248,
+      "loss": 7.1145429611206055
+    },
+    {
+      "step": 27,
+      "cumulative_tokens": 55296,
+      "loss": 7.3407769203186035
+    },
+    {
+      "step": 28,
+      "cumulative_tokens": 57344,
+      "loss": 6.517257213592529
+    },
+    {
+      "step": 29,
+      "cumulative_tokens": 59392,
+      "loss": 6.755233287811279
+    },
+    {
+      "step": 30,
+      "cumulative_tokens": 61440,
+      "loss": 6.911371231079102
+    },
+    {
+      "step": 31,
+      "cumulative_tokens": 63488,
+      "loss": 6.742610931396484
+    },
+    {
+      "step": 32,
+      "cumulative_tokens": 65536,
+      "loss": 6.833688259124756
+    },
+    {
+      "step": 33,
+      "cumulative_tokens": 67584,
+      "loss": 6.850882530212402
+    },
+    {
+      "step": 34,
+      "cumulative_tokens": 69632,
+      "loss": 6.701683521270752
+    },
+    {
+      "step": 35,
+      "cumulative_tokens": 71680,
+      "loss": 6.39060640335083
+    },
+    {
+      "step": 36,
+      "cumulative_tokens": 73728,
+      "loss": 6.197864532470703
+    },
+    {
+      "step": 37,
+      "cumulative_tokens": 75776,
+      "loss": 6.244845867156982
+    },
+    {
+      "step": 38,
+      "cumulative_tokens": 77824,
+      "loss": 6.45353889465332
+    },
+    {
+      "step": 39,
+      "cumulative_tokens": 79872,
+      "loss": 6.452308654785156
+    },
+    {
+      "step": 40,
+      "cumulative_tokens": 81920,
+      "loss": 6.006834030151367
+    },
+    {
+      "step": 41,
+      "cumulative_tokens": 83968,
+      "loss": 6.108608245849609
+    },
+    {
+      "step": 42,
+      "cumulative_tokens": 86016,
+      "loss": 6.578372001647949
+    },
+    {
+      "step": 43,
+      "cumulative_tokens": 88064,
+      "loss": 6.038579940795898
+    },
+    {
+      "step": 44,
+      "cumulative_tokens": 90112,
+      "loss": 6.056471347808838
+    },
+    {
+      "step": 45,
+      "cumulative_tokens": 92160,
+      "loss": 6.520932674407959
+    },
+    {
+      "step": 46,
+      "cumulative_tokens": 94208,
+      "loss": 6.213481903076172
+    },
+    {
+      "step": 47,
+      "cumulative_tokens": 96256,
+      "loss": 6.01088809967041
+    },
+    {
+      "step": 48,
+      "cumulative_tokens": 98304,
+      "loss": 6.066961765289307
+    }
+  ],
+  "evaluations": {
+    "step_000000": {
+      "condition": "shuffled_pt",
+      "step": 0,
+      "cumulative_tokens": 0,
+      "pt_validation": {
+        "examples": 24,
+        "nll_nats": 4799.5343017578125,
+        "scored_tokens": 421,
+        "bytes_utf8": 1073,
+        "bpb": 6.453182046339674,
+        "mean_token_nll": 11.400319006550623
+      },
+      "english_retention": {
+        "examples": 24,
+        "nll_nats": 1908.6856079101562,
+        "scored_tokens": 252,
+        "bytes_utf8": 1022,
+        "bpb": 2.6943750109081397,
+        "mean_token_nll": 7.574149237738715
+      },
+      "grammar_margin": {
+        "examples": 10,
+        "mean_margin": 1.1819507598876953,
+        "median_margin": 0.5834426879882812,
+        "accuracy": 0.5,
+        "margins": [
+          {
+            "id": "1",
+            "phenomenon": "subject_verb_number",
+            "split": "dev",
+            "score_from_token": 5,
+            "grammatical_logprob": -42.064537048339844,
+            "ungrammatical_logprob": -33.9417610168457,
+            "margin": -8.12277603149414,
+            "correct": false
+          },
+          {
+            "id": "2",
+            "phenomenon": "subject_verb_number",
+            "split": "dev",
+            "score_from_token": 5,
+            "grammatical_logprob": -21.14364242553711,
+            "ungrammatical_logprob": -28.670780181884766,
+            "margin": 7.527137756347656,
+            "correct": true
+          },
+          {
+            "id": "3",
+            "phenomenon": "article_noun_gender",
+            "split": "dev",
+            "score_from_token": 0,
+            "grammatical_logprob": -70.02105712890625,
+            "ungrammatical_logprob": -71.55537414550781,
+            "margin": 1.5343170166015625,
+            "correct": true
+          },
+          {
+            "id": "4",
+            "phenomenon": "article_noun_gender",
+            "split": "dev",
+            "score_from_token": 0,
+            "grammatical_logprob": -81.65853881835938,
+            "ungrammatical_logprob": -75.43523406982422,
+            "margin": -6.223304748535156,
+            "correct": false
+          },
+          {
+            "id": "5",
+            "phenomenon": "adjective_number",
+            "split": "dev",
+            "score_from_token": 6,
+            "grammatical_logprob": -56.51746368408203,
+            "ungrammatical_logprob": -55.792022705078125,
+            "margin": -0.7254409790039062,
+            "correct": false
+          },
+          {
+            "id": "6",
+            "phenomenon": "adjective_gender",
+            "split": "dev",
+            "score_from_token": 9,
+            "grammatical_logprob": -16.334705352783203,
+            "ungrammatical_logprob": -25.092044830322266,
+            "margin": 8.757339477539062,
+            "correct": true
+          },
+          {
+            "id": "7",
+            "phenomenon": "determiner_number",
+            "split": "test",
+            "score_from_token": 2,
+            "grammatical_logprob": -81.334716796875,
+            "ungrammatical_logprob": -82.87432098388672,
+            "margin": 1.5396041870117188,
+            "correct": true
+          },
+          {
+            "id": "8",
+            "phenomenon": "subject_verb_number",
+            "split": "test",
+            "score_from_token": 7,
+            "grammatical_logprob": -44.125389099121094,
+            "ungrammatical_logprob": -42.29839324951172,
+            "margin": -1.826995849609375,
+            "correct": false
+          },
+          {
+            "id": "9",
+            "phenomenon": "article_noun_number",
+            "split": "test",
+            "score_from_token": 1,
+            "grammatical_logprob": -88.27275085449219,
+            "ungrammatical_logprob": -97.99980926513672,
+            "margin": 9.727058410644531,
+            "correct": true
+          },
+          {
+            "id": "10",
+            "phenomenon": "adjective_gender",
+            "split": "test",
+            "score_from_token": 8,
+            "grammatical_logprob": -47.09026336669922,
+            "ungrammatical_logprob": -46.72283172607422,
+            "margin": -0.367431640625,
+            "correct": false
+          }
+        ]
+      }
+    },
+    "step_000012": {
+      "condition": "shuffled_pt",
+      "step": 12,
+      "cumulative_tokens": 24576,
+      "pt_validation": {
+        "examples": 24,
+        "nll_nats": 3695.68701171875,
+        "scored_tokens": 421,
+        "bytes_utf8": 1073,
+        "bpb": 4.969011486005958,
+        "mean_token_nll": 8.778353947075416
+      },
+      "english_retention": {
+        "examples": 24,
+        "nll_nats": 2188.1351318359375,
+        "scored_tokens": 252,
+        "bytes_utf8": 1022,
+        "bpb": 3.088856852734467,
+        "mean_token_nll": 8.68307591998388
+      },
+      "grammar_margin": {
+        "examples": 10,
+        "mean_margin": 0.43340110778808594,
+        "median_margin": 0.02666473388671875,
+        "accuracy": 0.5,
+        "margins": [
+          {
+            "id": "1",
+            "phenomenon": "subject_verb_number",
+            "split": "dev",
+            "score_from_token": 5,
+            "grammatical_logprob": -24.25186538696289,
+            "ungrammatical_logprob": -24.208187103271484,
+            "margin": -0.04367828369140625,
+            "correct": false
+          },
+          {
+            "id": "2",
+            "phenomenon": "subject_verb_number",
+            "split": "dev",
+            "score_from_token": 5,
+            "grammatical_logprob": -15.369303703308105,
+            "ungrammatical_logprob": -15.859975814819336,
+            "margin": 0.49067211151123047,
+            "correct": true
+          },
+          {
+            "id": "3",
+            "phenomenon": "article_noun_gender",
+            "split": "dev",
+            "score_from_token": 0,
+            "grammatical_logprob": -48.4768180847168,
+            "ungrammatical_logprob": -48.05035400390625,
+            "margin": -0.4264640808105469,
+            "correct": false
+          },
+          {
+            "id": "4",
+            "phenomenon": "article_noun_gender",
+            "split": "dev",
+            "score_from_token": 0,
+            "grammatical_logprob": -52.64385986328125,
+            "ungrammatical_logprob": -52.57753372192383,
+            "margin": -0.06632614135742188,
+            "correct": false
+          },
+          {
+            "id": "5",
+            "phenomenon": "adjective_number",
+            "split": "dev",
+            "score_from_token": 6,
+            "grammatical_logprob": -34.55078125,
+            "ungrammatical_logprob": -34.76050567626953,
+            "margin": 0.20972442626953125,
+            "correct": true
+          },
+          {
+            "id": "6",
+            "phenomenon": "adjective_gender",
+            "split": "dev",
+            "score_from_token": 9,
+            "grammatical_logprob": -13.225008964538574,
+            "ungrammatical_logprob": -15.54409408569336,
+            "margin": 2.319085121154785,
+            "correct": true
+          },
+          {
+            "id": "7",
+            "phenomenon": "determiner_number",
+            "split": "test",
+            "score_from_token": 2,
+            "grammatical_logprob": -71.13645935058594,
+            "ungrammatical_logprob": -71.19851684570312,
+            "margin": 0.0620574951171875,
+            "correct": true
+          },
+          {
+            "id": "8",
+            "phenomenon": "subject_verb_number",
+            "split": "test",
+            "score_from_token": 7,
+            "grammatical_logprob": -30.350967407226562,
+            "ungrammatical_logprob": -32.61225128173828,
+            "margin": 2.2612838745117188,
+            "correct": true
+          },
+          {
+            "id": "9",
+            "phenomenon": "article_noun_number",
+            "split": "test",
+            "score_from_token": 1,
+            "grammatical_logprob": -67.25949096679688,
+            "ungrammatical_logprob": -67.25076293945312,
+            "margin": -0.00872802734375,
+            "correct": false
+          },
+          {
+            "id": "10",
+            "phenomenon": "adjective_gender",
+            "split": "test",
+            "score_from_token": 8,
+            "grammatical_logprob": -29.25112533569336,
+            "ungrammatical_logprob": -28.78750991821289,
+            "margin": -0.46361541748046875,
+            "correct": false
+          }
+        ]
+      }
+    },
+    "step_000024": {
+      "condition": "shuffled_pt",
+      "step": 24,
+      "cumulative_tokens": 49152,
+      "pt_validation": {
+        "examples": 24,
+        "nll_nats": 3384.21533203125,
+        "scored_tokens": 421,
+        "bytes_utf8": 1073,
+        "bpb": 4.5502243027230955,
+        "mean_token_nll": 8.038516228102731
+      },
+      "english_retention": {
+        "examples": 24,
+        "nll_nats": 2238.5364990234375,
+        "scored_tokens": 252,
+        "bytes_utf8": 1022,
+        "bpb": 3.1600053874658074,
+        "mean_token_nll": 8.883081345331101
+      },
+      "grammar_margin": {
+        "examples": 10,
+        "mean_margin": 0.07918529510498047,
+        "median_margin": 0.02011871337890625,
+        "accuracy": 0.6,
+        "margins": [
+          {
+            "id": "1",
+            "phenomenon": "subject_verb_number",
+            "split": "dev",
+            "score_from_token": 5,
+            "grammatical_logprob": -22.958730697631836,
+            "ungrammatical_logprob": -22.816333770751953,
+            "margin": -0.1423969268798828,
+            "correct": false
+          },
+          {
+            "id": "2",
+            "phenomenon": "subject_verb_number",
+            "split": "dev",
+            "score_from_token": 5,
+            "grammatical_logprob": -15.397197723388672,
+            "ungrammatical_logprob": -15.518542289733887,
+            "margin": 0.12134456634521484,
+            "correct": true
+          },
+          {
+            "id": "3",
+            "phenomenon": "article_noun_gender",
+            "split": "dev",
+            "score_from_token": 0,
+            "grammatical_logprob": -44.62565612792969,
+            "ungrammatical_logprob": -44.34876251220703,
+            "margin": -0.27689361572265625,
+            "correct": false
+          },
+          {
+            "id": "4",
+            "phenomenon": "article_noun_gender",
+            "split": "dev",
+            "score_from_token": 0,
+            "grammatical_logprob": -51.5458984375,
+            "ungrammatical_logprob": -51.33928680419922,
+            "margin": -0.20661163330078125,
+            "correct": false
+          },
+          {
+            "id": "5",
+            "phenomenon": "adjective_number",
+            "split": "dev",
+            "score_from_token": 6,
+            "grammatical_logprob": -31.871444702148438,
+            "ungrammatical_logprob": -31.996807098388672,
+            "margin": 0.12536239624023438,
+            "correct": true
+          },
+          {
+            "id": "6",
+            "phenomenon": "adjective_gender",
+            "split": "dev",
+            "score_from_token": 9,
+            "grammatical_logprob": -13.861377716064453,
+            "ungrammatical_logprob": -15.14339542388916,
+            "margin": 1.282017707824707,
+            "correct": true
+          },
+          {
+            "id": "7",
+            "phenomenon": "determiner_number",
+            "split": "test",
+            "score_from_token": 2,
+            "grammatical_logprob": -65.35948181152344,
+            "ungrammatical_logprob": -65.36497497558594,
+            "margin": 0.0054931640625,
+            "correct": true
+          },
+          {
+            "id": "8",
+            "phenomenon": "subject_verb_number",
+            "split": "test",
+            "score_from_token": 7,
+            "grammatical_logprob": -29.29810905456543,
+            "ungrammatical_logprob": -29.544401168823242,
+            "margin": 0.2462921142578125,
+            "correct": true
+          },
+          {
+            "id": "9",
+            "phenomenon": "article_noun_number",
+            "split": "test",
+            "score_from_token": 1,
+            "grammatical_logprob": -60.2203369140625,
+            "ungrammatical_logprob": -60.25508117675781,
+            "margin": 0.0347442626953125,
+            "correct": true
+          },
+          {
+            "id": "10",
+            "phenomenon": "adjective_gender",
+            "split": "test",
+            "score_from_token": 8,
+            "grammatical_logprob": -27.489517211914062,
+            "ungrammatical_logprob": -27.092018127441406,
+            "margin": -0.39749908447265625,
+            "correct": false
+          }
+        ]
+      }
+    },
+    "step_000048": {
+      "condition": "shuffled_pt",
+      "step": 48,
+      "cumulative_tokens": 98304,
+      "pt_validation": {
+        "examples": 24,
+        "nll_nats": 3236.1248779296875,
+        "scored_tokens": 421,
+        "bytes_utf8": 1073,
+        "bpb": 4.351110263827179,
+        "mean_token_nll": 7.686757429761728
+      },
+      "english_retention": {
+        "examples": 24,
+        "nll_nats": 2322.0667114257812,
+        "scored_tokens": 252,
+        "bytes_utf8": 1022,
+        "bpb": 3.277919891572719,
+        "mean_token_nll": 9.214550442165798
+      },
+      "grammar_margin": {
+        "examples": 10,
+        "mean_margin": -0.0073638916015625,
+        "median_margin": -0.1197671890258789,
+        "accuracy": 0.2,
+        "margins": [
+          {
+            "id": "1",
+            "phenomenon": "subject_verb_number",
+            "split": "dev",
+            "score_from_token": 5,
+            "grammatical_logprob": -23.213834762573242,
+            "ungrammatical_logprob": -23.08832550048828,
+            "margin": -0.12550926208496094,
+            "correct": false
+          },
+          {
+            "id": "2",
+            "phenomenon": "subject_verb_number",
+            "split": "dev",
+            "score_from_token": 5,
+            "grammatical_logprob": -14.574603080749512,
+            "ungrammatical_logprob": -14.3673095703125,
+            "margin": -0.20729351043701172,
+            "correct": false
+          },
+          {
+            "id": "3",
+            "phenomenon": "article_noun_gender",
+            "split": "dev",
+            "score_from_token": 0,
+            "grammatical_logprob": -40.402122497558594,
+            "ungrammatical_logprob": -40.308128356933594,
+            "margin": -0.093994140625,
+            "correct": false
+          },
+          {
+            "id": "4",
+            "phenomenon": "article_noun_gender",
+            "split": "dev",
+            "score_from_token": 0,
+            "grammatical_logprob": -45.51115036010742,
+            "ungrammatical_logprob": -45.33763885498047,
+            "margin": -0.17351150512695312,
+            "correct": false
+          },
+          {
+            "id": "5",
+            "phenomenon": "adjective_number",
+            "split": "dev",
+            "score_from_token": 6,
+            "grammatical_logprob": -30.760684967041016,
+            "ungrammatical_logprob": -30.64665985107422,
+            "margin": -0.11402511596679688,
+            "correct": false
+          },
+          {
+            "id": "6",
+            "phenomenon": "adjective_gender",
+            "split": "dev",
+            "score_from_token": 9,
+            "grammatical_logprob": -14.476593971252441,
+            "ungrammatical_logprob": -15.923887252807617,
+            "margin": 1.4472932815551758,
+            "correct": true
+          },
+          {
+            "id": "7",
+            "phenomenon": "determiner_number",
+            "split": "test",
+            "score_from_token": 2,
+            "grammatical_logprob": -64.93266296386719,
+            "ungrammatical_logprob": -64.96893310546875,
+            "margin": 0.0362701416015625,
+            "correct": true
+          },
+          {
+            "id": "8",
+            "phenomenon": "subject_verb_number",
+            "split": "test",
+            "score_from_token": 7,
+            "grammatical_logprob": -28.461978912353516,
+            "ungrammatical_logprob": -28.072086334228516,
+            "margin": -0.389892578125,
+            "correct": false
+          },
+          {
+            "id": "9",
+            "phenomenon": "article_noun_number",
+            "split": "test",
+            "score_from_token": 1,
+            "grammatical_logprob": -56.711280822753906,
+            "ungrammatical_logprob": -56.61478805541992,
+            "margin": -0.09649276733398438,
+            "correct": false
+          },
+          {
+            "id": "10",
+            "phenomenon": "adjective_gender",
+            "split": "test",
+            "score_from_token": 8,
+            "grammatical_logprob": -27.00545310974121,
+            "ungrammatical_logprob": -26.648969650268555,
+            "margin": -0.35648345947265625,
+            "correct": false
+          }
+        ]
+      }
+    }
+  },
+  "checkpoint_hashes_sha256": {
+    "step_000000": {
+      "checkpoint_metadata.json": "960c67896ac9dd8803a8d78eb4a593aa8affcc4b7919d9562a99780338f9b67d",
+      "config.json": "21f1d88aee118c38916a36ea52ef16c2477348881d3dd802192684057eb4d6b0",
+      "generation_config.json": "c5812f2d17f22e82349a6becdc4c3f8546e052747683384b850bd6583d9cdc94",
+      "model.safetensors": "636073ebcb2587be274941b94a9434a93aaf07b70243e3a0928e0d6a2abe5ae9",
+      "optimizer.pt": "498a4114e05d2661c10fce6ec2dac0d49749c0a3f2544602dc366f276760d4d5",
+      "tokenizer.json": "78b08a1784e213003306481feccd4279953b894f2e8d6f90de9b35a58efad3dd",
+      "tokenizer_config.json": "658b44c91dac0b86f9a6c2cc59ca6aeb094c36f8c80c800b5216b306b782f7d0"
+    },
+    "step_000012": {
+      "checkpoint_metadata.json": "1a80478a2c143dca510dada441a0d880381868511324209a792023efd258b263",
+      "config.json": "21f1d88aee118c38916a36ea52ef16c2477348881d3dd802192684057eb4d6b0",
+      "generation_config.json": "c5812f2d17f22e82349a6becdc4c3f8546e052747683384b850bd6583d9cdc94",
+      "model.safetensors": "d9c6fef29f43987b21c8ceed97688389746b3c422d5c32fffee916af1686fc2a",
+      "optimizer.pt": "9552bf6b061d808816739848d16a96ba21ae049b4abf00f974bf4c6ba7e6a180",
+      "tokenizer.json": "78b08a1784e213003306481feccd4279953b894f2e8d6f90de9b35a58efad3dd",
+      "tokenizer_config.json": "658b44c91dac0b86f9a6c2cc59ca6aeb094c36f8c80c800b5216b306b782f7d0"
+    },
+    "step_000024": {
+      "checkpoint_metadata.json": "748ba5d99dfadced86b1021c8fd6139d5269167c33f78b510d8d2afe2d4c5df7",
+      "config.json": "21f1d88aee118c38916a36ea52ef16c2477348881d3dd802192684057eb4d6b0",
+      "generation_config.json": "c5812f2d17f22e82349a6becdc4c3f8546e052747683384b850bd6583d9cdc94",
+      "model.safetensors": "756b49df521504952d1182b4bbcda595b3518055a1b4957d7d953b22bb6f4031",
+      "optimizer.pt": "9827262314407623d7a53846ff300f69001538f006bad11d0699816ce555f785",
+      "tokenizer.json": "78b08a1784e213003306481feccd4279953b894f2e8d6f90de9b35a58efad3dd",
+      "tokenizer_config.json": "658b44c91dac0b86f9a6c2cc59ca6aeb094c36f8c80c800b5216b306b782f7d0"
+    },
+    "step_000048": {
+      "checkpoint_metadata.json": "ac6c8e13921620830dec364cd9fc86954e0b8478fac0591ae8a88a537162c64c",
+      "config.json": "21f1d88aee118c38916a36ea52ef16c2477348881d3dd802192684057eb4d6b0",
+      "generation_config.json": "c5812f2d17f22e82349a6becdc4c3f8546e052747683384b850bd6583d9cdc94",
+      "model.safetensors": "a6d9fdce84e2d167cb502cb72f1549b8f6ca65f3befc21091d123a962e10259f",
+      "optimizer.pt": "9963fb2caedc03071bbfc86d4824266ea0f50aa4b8544248505c15c84c0cc2e1",
+      "tokenizer.json": "78b08a1784e213003306481feccd4279953b894f2e8d6f90de9b35a58efad3dd",
+      "tokenizer_config.json": "658b44c91dac0b86f9a6c2cc59ca6aeb094c36f8c80c800b5216b306b782f7d0"
+    }
+  },
+  "checkpoint_root": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/conditions/shuffled_pt/checkpoints",
+  "evaluation_dir": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/conditions/shuffled_pt/evaluations"
+}

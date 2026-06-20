@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-06-20T05:10:03.778926+00:00",
+  "python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+  "platform": "Linux-6.8.0-1060-gcp-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "ERROR: No module named 'torch'",
+    "transformers": "ERROR: No module named 'transformers'",
+    "datasets": "ERROR: No module named 'datasets'",
+    "devinterp": "ERROR: No module named 'devinterp'",
+    "numpy": "ERROR: No module named 'numpy'",
+    "pandas": "ERROR: No module named 'pandas'"
+  },
+  "nvidia_smi": "ERROR: Command '['nvidia-smi']' returned non-zero exit status 9.",
+  "nvidia_device_nodes": [
+    "/dev/nvidia-caps"
+  ],
+  "nvidia_driver_proc_version": "NVRM version: NVIDIA UNIX x86_64 Kernel Module  610.43.02  Tue May 19 11:18:18 UTC 2026\nGCC version:  gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) \n",
+  "torch_probe_error": "ModuleNotFoundError(\"No module named 'torch'\")",
+  "cuda_diagnosis": {
+    "status": "python_environment_missing_torch",
+    "root_cause_hypothesis": "The active Python environment does not have PyTorch installed.",
+    "recommended_action": "Activate the intended Python 3.11 experiment environment, or install the required Python stack there, before rerunning the infrastructure gate."
+  }
+}

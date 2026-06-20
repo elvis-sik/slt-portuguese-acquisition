@@ -1,0 +1,12 @@
+target_tokens,checkpoint,selected_for_llc,status,reason,checkpoint_dir,missing_files
+0,tokens_000000000,True,selected_valid,in frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000000000,[]
+25000,tokens_000025000,False,not_selected_rejected,outside frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000025000,[]
+50000,tokens_000050000,False,not_selected_rejected,outside frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000050000,[]
+100000,tokens_000100000,True,selected_valid,in frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000100000,[]
+200000,tokens_000200000,False,not_selected_rejected,outside frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000200000,[]
+400000,tokens_000400000,True,selected_valid,in frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000400000,[]
+800000,tokens_000800000,False,not_selected_rejected,outside frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000800000,[]
+1500000,tokens_001500000,True,selected_valid,in frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_001500000,[]
+3000000,tokens_003000000,False,not_selected_rejected,outside frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_003000000,[]
+5000000,tokens_005000000,True,selected_valid,in frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_005000000,[]
+8000000,tokens_008000000,True,selected_valid,in frozen behavior-only LLC subset,results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_008000000,[]

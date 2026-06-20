@@ -1,0 +1,1 @@
+/home/elvis/slt-portuguese/.venv-bench-py311/bin/python: No module named pip

@@ -1,0 +1,143 @@
+{
+  "run_kind": "tinystories_8m_final_behavioral_training",
+  "scientific_scope": "TinyStories-8M full-parameter continued pretraining; behavior only; no final LLC inspection.",
+  "start_utc": "2026-06-20T05:40:01.203847Z",
+  "git_commit": "98913e931d2dd1ea4453a519b2ff860008cffb69",
+  "git_status_short_at_start": "?? ._AGENTS.md\n?? ._codex\n?? ._infra\n?? codex/._README.md\n?? codex/.___pycache__\n?? codex/._orchestrate.py\n?? codex/._prompts\n?? codex/._run_phase.sh\n?? codex/._schemas\n?? codex/orchestrate.py\n?? codex/prompts/._00_infrastructure_gate.md\n?? codex/prompts/._01_scientific_pilot.md\n?? codex/prompts/._02_final_training.md\n?? codex/prompts/._03_llc_campaign.md\n?? codex/prompts/._04_report.md\n?? codex/prompts/._diagnose_and_fix.md\n?? codex/prompts/._planner.md\n?? codex/prompts/diagnose_and_fix.md\n?? codex/prompts/planner.md\n?? codex/schemas/._plan_directive.schema.json\n?? codex/schemas/._run_decision.schema.json\n?? codex/schemas/plan_directive.schema.json\n?? infra/._gcp\n?? infra/._remote\n?? infra/gcp/._README.md\n?? infra/gcp/._bootstrap_and_sync.sh\n?? infra/gcp/._bootstrap_remote.sh\n?? infra/gcp/._common.sh\n?? infra/gcp/._configure_ssh_for_codex.sh\n?? infra/gcp/._delete_vm.sh\n?? infra/gcp/._download_results.sh\n?? infra/gcp/._env.example\n?? infra/gcp/._install_codex_remote.sh\n?? infra/gcp/._provision_vm.sh\n?? infra/gcp/._push_codex_secret.sh\n?? infra/gcp/._ssh.sh\n?? infra/gcp/._start_orchestrator.sh\n?? infra/gcp/._start_vm.sh\n?? infra/gcp/._startup_install_driver.sh\n?? infra/gcp/._stop_vm.sh\n?? infra/gcp/._wait_for_gpu.sh\n?? infra/gcp/push_codex_secret.sh\n?? infra/gcp/start_orchestrator.sh\n?? infra/remote/._README.md\n?? infra/remote/._dashboard_action.sh\n?? infra/remote/._dashboard_probe.sh\n?? infra/remote/._gpu_watch.sh\n?? infra/remote/._job_status.sh\n?? infra/remote/._run_bounded_job.sh\n?? infra/remote/._stop_job.sh\n?? infra/remote/dashboard_action.sh\n?? infra/remote/dashboard_probe.sh\n?? results/00_infrastructure_gate/\n?? results/01_scientific_pilot/\n?? results/02_final_training/\n?? results/_codex/\n?? results/_jobs/\n?? results/_orchestrator/\n?? tests/__init__.py",
+  "config": {
+    "model": "roneneldan/TinyStories-8M",
+    "sequence_length": 128,
+    "batch_size": 32,
+    "tokens_per_step": 4096,
+    "target_tokens": 8000000,
+    "checkpoint_tokens": [
+      0,
+      25000,
+      50000,
+      100000,
+      200000,
+      400000,
+      800000,
+      1500000,
+      3000000,
+      5000000,
+      8000000
+    ],
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0,
+    "optimizer": "AdamW",
+    "training_precision": "fp32",
+    "seed": 20260620,
+    "device": "cuda",
+    "hourly_rate_usd": 1.0,
+    "hard_cap_usd": 50.0,
+    "starting_cumulative_cost_usd": 0.1044,
+    "split_manifest": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/split_manifest.json",
+    "grammar_csv": "data/eval/grammar_minimal_pairs.example.csv",
+    "local_files_only": true,
+    "conditions_priority_order": [
+      "structured_pt_seed_a",
+      "shuffled_pt",
+      "matched_en",
+      "structured_pt_seed_b"
+    ],
+    "llc_selection_rule": {
+      "fixed_llc_checkpoint_tokens": [
+        0,
+        100000,
+        400000,
+        1500000,
+        8000000
+      ],
+      "adaptive_metric": "grammar_mean_margin",
+      "adaptive_rule": "After all behavior trajectories are written and before any final LLC inspection, select the adjacent structured_pt_seed_a checkpoint pair with the largest positive change in the configured behavior metric per log-token interval; if no positive increase exists, use the largest absolute BPB decrease. Add at most those two bracketing checkpoints to the fixed set."
+    }
+  },
+  "frozen_config": "results/02_final_training/final_training_20260620T053855Z/frozen_config.json",
+  "frozen_config_sha256": "6046581a0ce97c4c58390aea321b81109994cd65145ca31866a0ad955dbe9eac",
+  "package_versions": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.12.0",
+    "datasets": "5.0.0",
+    "devinterp": "unknown",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "zarr": "3.1.6"
+  },
+  "device": "cuda",
+  "gpu": "NVIDIA L4",
+  "torch_cuda_available": true,
+  "parameter_count": 19702528,
+  "tokenizer_vocab_sha256": "e35d8b86ebd35ebd260d040aa455e09759f7e675f4dbb7f3d727516f27eca190",
+  "data_split_manifest": "results/02_final_training/final_training_20260620T053855Z/data_splits/split_manifest.json",
+  "checkpoint_plan": [
+    {
+      "target_tokens": 0,
+      "optimizer_step": 0,
+      "actual_cumulative_tokens": 0
+    },
+    {
+      "target_tokens": 25000,
+      "optimizer_step": 7,
+      "actual_cumulative_tokens": 28672
+    },
+    {
+      "target_tokens": 50000,
+      "optimizer_step": 13,
+      "actual_cumulative_tokens": 53248
+    },
+    {
+      "target_tokens": 100000,
+      "optimizer_step": 25,
+      "actual_cumulative_tokens": 102400
+    },
+    {
+      "target_tokens": 200000,
+      "optimizer_step": 49,
+      "actual_cumulative_tokens": 200704
+    },
+    {
+      "target_tokens": 400000,
+      "optimizer_step": 98,
+      "actual_cumulative_tokens": 401408
+    },
+    {
+      "target_tokens": 800000,
+      "optimizer_step": 196,
+      "actual_cumulative_tokens": 802816
+    },
+    {
+      "target_tokens": 1500000,
+      "optimizer_step": 367,
+      "actual_cumulative_tokens": 1503232
+    },
+    {
+      "target_tokens": 3000000,
+      "optimizer_step": 733,
+      "actual_cumulative_tokens": 3002368
+    },
+    {
+      "target_tokens": 5000000,
+      "optimizer_step": 1221,
+      "actual_cumulative_tokens": 5001216
+    },
+    {
+      "target_tokens": 8000000,
+      "optimizer_step": 1954,
+      "actual_cumulative_tokens": 8003584
+    }
+  ],
+  "end_utc": "2026-06-20T05:48:36.823238Z",
+  "wall_seconds": 515.6193923139995,
+  "estimated_gpu_hours": 0.14322760897611098,
+  "estimated_cost_usd": 0.14322760897611098,
+  "condition_summaries": {
+    "structured_pt_seed_a": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+    "shuffled_pt": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+    "matched_en": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+    "structured_pt_seed_b": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json"
+  },
+  "llc_checkpoint_selection": "results/02_final_training/final_training_20260620T053855Z/llc_checkpoint_selection.json",
+  "output_tree_size_bytes": 9942074384,
+  "exit_status": "completed"
+}

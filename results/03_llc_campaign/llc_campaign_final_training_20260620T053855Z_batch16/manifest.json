@@ -1,0 +1,62 @@
+{
+  "run_kind": "final_llc_campaign",
+  "run_id": "llc_campaign_final_training_20260620T053855Z_batch16",
+  "start_utc": "2026-06-20T05:56:59.639335Z",
+  "end_utc": "2026-06-20T06:33:10.257516Z",
+  "wall_seconds": 2170.6059925610007,
+  "estimated_gpu_hours": 0.6029461090447225,
+  "projected_total_cost_usd": 0.8505737180208335,
+  "hard_cap_usd": 50.0,
+  "git_commit": "67686c00f3e65ac97466338522667bc9c8af1b9c",
+  "git_status_short_at_start": "M state/current_status.json\n M state/decision_log.md\n M state/experiment_registry.csv\n?? ._AGENTS.md\n?? ._codex\n?? ._infra\n?? codex/._README.md\n?? codex/.___pycache__\n?? codex/._orchestrate.py\n?? codex/._prompts\n?? codex/._run_phase.sh\n?? codex/._schemas\n?? codex/orchestrate.py\n?? codex/prompts/._00_infrastructure_gate.md\n?? codex/prompts/._01_scientific_pilot.md\n?? codex/prompts/._02_final_training.md\n?? codex/prompts/._03_llc_campaign.md\n?? codex/prompts/._04_report.md\n?? codex/prompts/._diagnose_and_fix.md\n?? codex/prompts/._planner.md\n?? codex/prompts/diagnose_and_fix.md\n?? codex/prompts/planner.md\n?? codex/schemas/._plan_directive.schema.json\n?? codex/schemas/._run_decision.schema.json\n?? codex/schemas/plan_directive.schema.json\n?? infra/._gcp\n?? infra/._remote\n?? infra/gcp/._README.md\n?? infra/gcp/._bootstrap_and_sync.sh\n?? infra/gcp/._bootstrap_remote.sh\n?? infra/gcp/._common.sh\n?? infra/gcp/._configure_ssh_for_codex.sh\n?? infra/gcp/._delete_vm.sh\n?? infra/gcp/._download_results.sh\n?? infra/gcp/._env.example\n?? infra/gcp/._install_codex_remote.sh\n?? infra/gcp/._provision_vm.sh\n?? infra/gcp/._push_codex_secret.sh\n?? infra/gcp/._ssh.sh\n?? infra/gcp/._start_orchestrator.sh\n?? infra/gcp/._start_vm.sh\n?? infra/gcp/._startup_install_driver.sh\n?? infra/gcp/._stop_vm.sh\n?? infra/gcp/._wait_for_gpu.sh\n?? infra/gcp/push_codex_secret.sh\n?? infra/gcp/start_orchestrator.sh\n?? infra/remote/._README.md\n?? infra/remote/._dashboard_action.sh\n?? infra/remote/._dashboard_probe.sh\n?? infra/remote/._gpu_watch.sh\n?? infra/remote/._job_status.sh\n?? infra/remote/._run_bounded_job.sh\n?? infra/remote/._stop_job.sh\n?? infra/remote/dashboard_action.sh\n?? infra/remote/dashboard_probe.sh\n?? results/00_infrastructure_gate/\n?? results/01_scientific_pilot/\n?? results/02_final_training/\n?? results/03_llc_campaign/\n?? results/_codex/\n?? results/_jobs/\n?? results/_orchestrator/\n?? tests/__init__.py",
+  "package_versions": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.12.0",
+    "datasets": "5.0.0",
+    "devinterp": "unknown",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "zarr": "3.1.6"
+  },
+  "source_final_run_dir": "results/02_final_training/final_training_20260620T053855Z",
+  "source_final_manifest": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+  "source_final_manifest_sha256": "aceafcc4b55cd9bb9e4dd195db6f1d1ec61888ffbeceb27d8cf5d4a53c675db4",
+  "model": "roneneldan/TinyStories-8M",
+  "seed": 20260620,
+  "sequence_length": 128,
+  "selected_checkpoint_tokens": [
+    0,
+    100000,
+    400000,
+    1500000,
+    5000000,
+    8000000
+  ],
+  "sampler_config": {
+    "precision": "fp32",
+    "full_parameter_sampling": true,
+    "sampling_method": "sgmcmc_sgld",
+    "lr": 1e-05,
+    "n_beta": 10.0,
+    "localization": 100.0,
+    "batch_size": 16,
+    "num_chains": 3,
+    "num_burnin_steps": 200,
+    "num_draws": 100,
+    "num_steps_bw_draws": 2,
+    "save_metrics": true,
+    "init_seed": 20260620,
+    "match_sampling_input_ids_across_chains": true,
+    "shuffle": true
+  },
+  "reference_set": {
+    "path": "results/02_final_training/final_training_20260620T053855Z/data_splits/sampler_reference.jsonl",
+    "sha256": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f",
+    "examples": 16
+  },
+  "selection_sha256_before": "069e0cf1407753891c2390cc83e087cb01d687a60260837e668990ac8660632b",
+  "selection_sha256_after": "069e0cf1407753891c2390cc83e087cb01d687a60260837e668990ac8660632b",
+  "reportable_checkpoint_count": 5,
+  "rejected_checkpoint_count": 1,
+  "failed_checkpoint_count": 1
+}

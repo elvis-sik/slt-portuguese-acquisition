@@ -1,0 +1,26 @@
+{
+  "rule_frozen_at_utc": "2026-06-20T05:48:36.822879Z",
+  "no_final_llc_inspected": true,
+  "primary_condition": "structured_pt_seed_a",
+  "fixed_checkpoint_tokens": [
+    0,
+    100000,
+    400000,
+    1500000,
+    8000000
+  ],
+  "adaptive_metric": "grammar_mean_margin",
+  "adaptive_bracket_tokens": [
+    5000000,
+    8000000
+  ],
+  "selected_checkpoint_tokens": [
+    0,
+    100000,
+    400000,
+    1500000,
+    5000000,
+    8000000
+  ],
+  "selection_source": "behavioral metrics only; final LLC traces were not read or optimized"
+}

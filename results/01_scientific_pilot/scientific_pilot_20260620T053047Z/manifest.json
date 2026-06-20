@@ -1,0 +1,71 @@
+{
+  "run_kind": "tinystories_3m_scientific_pilot",
+  "scientific_scope": "TinyStories-3M only; structured Portuguese, token-shuffled Portuguese, matched English; no Spanish or localization.",
+  "start_utc": "2026-06-20T05:30:51.555969Z",
+  "git_commit": "5c3cd8e493b0d9c9a0be0b748e8b66e3eadbed44",
+  "git_status_short_at_start": "?? ._AGENTS.md\n?? ._codex\n?? ._infra\n?? codex/._README.md\n?? codex/.___pycache__\n?? codex/._orchestrate.py\n?? codex/._prompts\n?? codex/._run_phase.sh\n?? codex/._schemas\n?? codex/orchestrate.py\n?? codex/prompts/._00_infrastructure_gate.md\n?? codex/prompts/._01_scientific_pilot.md\n?? codex/prompts/._02_final_training.md\n?? codex/prompts/._03_llc_campaign.md\n?? codex/prompts/._04_report.md\n?? codex/prompts/._diagnose_and_fix.md\n?? codex/prompts/._planner.md\n?? codex/prompts/diagnose_and_fix.md\n?? codex/prompts/planner.md\n?? codex/schemas/._plan_directive.schema.json\n?? codex/schemas/._run_decision.schema.json\n?? codex/schemas/plan_directive.schema.json\n?? infra/._gcp\n?? infra/._remote\n?? infra/gcp/._README.md\n?? infra/gcp/._bootstrap_and_sync.sh\n?? infra/gcp/._bootstrap_remote.sh\n?? infra/gcp/._common.sh\n?? infra/gcp/._configure_ssh_for_codex.sh\n?? infra/gcp/._delete_vm.sh\n?? infra/gcp/._download_results.sh\n?? infra/gcp/._env.example\n?? infra/gcp/._install_codex_remote.sh\n?? infra/gcp/._provision_vm.sh\n?? infra/gcp/._push_codex_secret.sh\n?? infra/gcp/._ssh.sh\n?? infra/gcp/._start_orchestrator.sh\n?? infra/gcp/._start_vm.sh\n?? infra/gcp/._startup_install_driver.sh\n?? infra/gcp/._stop_vm.sh\n?? infra/gcp/._wait_for_gpu.sh\n?? infra/gcp/push_codex_secret.sh\n?? infra/gcp/start_orchestrator.sh\n?? infra/remote/._README.md\n?? infra/remote/._dashboard_action.sh\n?? infra/remote/._dashboard_probe.sh\n?? infra/remote/._gpu_watch.sh\n?? infra/remote/._job_status.sh\n?? infra/remote/._run_bounded_job.sh\n?? infra/remote/._stop_job.sh\n?? infra/remote/dashboard_action.sh\n?? infra/remote/dashboard_probe.sh\n?? results/00_infrastructure_gate/\n?? results/01_scientific_pilot/\n?? results/_codex/\n?? results/_jobs/\n?? results/_orchestrator/\n?? tests/__init__.py",
+  "config": {
+    "model": "roneneldan/TinyStories-3M",
+    "sequence_length": 128,
+    "train_size": 96,
+    "val_size": 24,
+    "sampler_size": 16,
+    "batch_size": 16,
+    "lr_pilot_steps": 20,
+    "condition_steps": 48,
+    "lr_grid": [
+      3e-05,
+      0.0001,
+      0.0003
+    ],
+    "checkpoint_steps": [
+      0,
+      12,
+      24,
+      48
+    ],
+    "tokens_per_step": 2048,
+    "sampler": {
+      "num_chains": 2,
+      "num_burnin_steps": 20,
+      "num_draws": 10,
+      "num_steps_between_draws": 1,
+      "lr": 1e-05,
+      "n_beta": 10.0,
+      "localization": 100.0,
+      "precision": "fp32"
+    },
+    "seed": 20260620,
+    "device": "cuda",
+    "hourly_rate_usd": 1.0
+  },
+  "package_versions": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.12.0",
+    "datasets": "5.0.0",
+    "devinterp": "unknown",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "zarr": "3.1.6"
+  },
+  "device": "cuda",
+  "gpu": "NVIDIA L4",
+  "torch_cuda_available": true,
+  "end_utc": "2026-06-20T05:31:36.544334Z",
+  "wall_seconds": 44.98810018699987,
+  "tokenizer_vocab_sha256": "e35d8b86ebd35ebd260d040aa455e09759f7e675f4dbb7f3d727516f27eca190",
+  "data_split_manifest": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/split_manifest.json",
+  "gate_decision": "proceed",
+  "evidence_paths": {
+    "data_manifest": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/split_manifest.json",
+    "lr_pilot": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/lr_pilot/lr_pilot_summary.json",
+    "structured_summary": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/conditions/structured_pt/condition_summary.json",
+    "shuffled_summary": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/conditions/shuffled_pt/condition_summary.json",
+    "matched_english_summary": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/conditions/matched_en/condition_summary.json",
+    "llc_cross_check": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/llc_cross_check/llc_cross_check_summary.json",
+    "grammar_sanity": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/grammar_sanity_checks.json"
+  },
+  "estimated_gpu_hours": 0.012496694496388853,
+  "estimated_cost_usd": 0.012496694496388853,
+  "exit_status": "completed"
+}

@@ -1,0 +1,39 @@
+Sat Jun 20 04:54:00 UTC 2026
+
+[nvidia-smi]
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+
+
+[torch-cuda]
+/home/elvis/slt-portuguese/.venv-bench-py311/lib/python3.11/site-packages/torch/cuda/__init__.py:1074: UserWarning: Can't initialize NVML
+  raw_cnt = _raw_device_count_nvml()
+{
+  "torch_version": "2.12.0+cu130",
+  "torch_cuda_version": "13.0",
+  "cuda_available": false,
+  "cuda_device_count": 0
+}
+
+[nvidia-device-nodes]
+       16      0 drwxr-xr-x   2 elvis    elvis          40 Jun 20 04:54 /dev/nvidia-caps
+
+[nvidia-kernel-modules]
+nvidia_uvm           1957888  0
+nvidia_drm            147456  0
+nvidia_modeset       1527808  1 nvidia_drm
+nvidia              111640576  7 nvidia_uvm,nvidia_modeset
+video                  77824  1 nvidia_modeset
+
+[nvidia-proc-version]
+NVRM version: NVIDIA UNIX x86_64 Kernel Module  610.43.02  Tue May 19 11:18:18 UTC 2026
+GCC version:  gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) 
+
+[pci-gpu]
+00:03.0 3D controller [0302]: NVIDIA Corporation Device [10de:27b8] (rev a1)
+
+[nvidia-modprobe-attempt]
+nvidia-modprobe exit=1
+
+[nvidia-smi-after-modprobe]
+NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.
+

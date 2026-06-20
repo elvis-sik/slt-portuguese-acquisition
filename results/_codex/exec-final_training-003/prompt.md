@@ -1,0 +1,9 @@
+Read `AGENTS.md` and verify that the scientific pilot passed and explicit human approval is recorded in the decision log. Freeze configs and data hashes. Run final behavioral trajectories in priority order: Portuguese seed A, shuffled Portuguese, matched English, Portuguese seed B. Use bounded jobs and checkpoint by target tokens. Evaluate every checkpoint and update the cost projection after each trajectory.
+
+Do not inspect or optimize final LLC until behavior outputs and checkpoint selection rules are frozen. Stop if the projected total exceeds the hard budget or runtime gate.
+
+
+---
+## Orchestrator directive for this tick
+- Time budget: 6.000 wall-clock hours (launch bounded jobs with --max-hours within this; poll and kill as you judge best).
+- Task: Proceed from the passed TinyStories-3M pilot gate to the TinyStories-8M final full-parameter continued-pretraining run. Before launch, verify the committed state records passed infrastructure and pilot gates, immutable split manifests/hashes are available, cached model/data/tokenizer dependencies are usable without internet, and the manifest records the current git commit. Launch only through `infra/remote/run_bounded_job.sh` with a bounded runtime, status/log/exit-code artifacts, and no cloud lifecycle actions. Run the minimum real final trajectories: structured Portuguese seed 1, structured Portuguese seed 2, token-shuffled Portuguese, and matched English, with behavioral BPB/grammar evaluation at every saved checkpoint and checkpoint hashes recorded. Success criterion: a restartable `results/02_final_training/<run_id>/` contains manifests, logs, exit codes, checkpoint hashes, per-checkpoint behavioral metrics for all required conditions, updated `state/current_status.json`, `state/decision_log.md`, `state/experiment_registry.csv`, and a committed gate decision identifying the checkpoint subset for LLC.

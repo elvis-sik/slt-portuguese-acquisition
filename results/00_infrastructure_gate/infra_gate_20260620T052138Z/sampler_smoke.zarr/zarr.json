@@ -1,0 +1,51 @@
+{
+  "attributes": {
+    "metadata": {
+      "config": {
+        "sampler": {
+          "lr": 1e-05,
+          "n_beta": 10.0,
+          "batch_size": 32,
+          "num_chains": 2,
+          "num_draws": 50,
+          "num_burnin_steps": 100,
+          "num_steps_bw_draws": 2,
+          "gradient_accumulation_steps": 1,
+          "num_init_loss_batches": 32,
+          "init_seed": 100,
+          "localization": 100.0,
+          "noise_level": 1.0,
+          "llc_weight_decay": 0.0,
+          "bounding_box_size": null,
+          "sampling_method": "sgmcmc_sgld",
+          "sampling_method_kwargs": {},
+          "init_noise": null,
+          "save_metrics": false,
+          "shuffle": true,
+          "epoch_mode": "cycle",
+          "match_sampling_input_ids_across_chains": true,
+          "scheduler_type": "constant",
+          "scheduler_kwargs": null,
+          "cores": 1,
+          "online": false
+        },
+        "observables": [
+          {
+            "type": "ObserveDifferentDataset",
+            "obs_id": "random_tokens",
+            "batches_per_draw": 1
+          }
+        ],
+        "chain_buffer_size": 50,
+        "shared_observable_dims": [
+          "token",
+          "token_pos"
+        ],
+        "tokenizer_context_length": 128
+      }
+    },
+    "completed": 1
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}

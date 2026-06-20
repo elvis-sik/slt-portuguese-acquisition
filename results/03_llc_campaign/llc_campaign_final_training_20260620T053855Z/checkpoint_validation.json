@@ -1,0 +1,101 @@
+[
+  {
+    "target_tokens": 0,
+    "checkpoint": "tokens_000000000",
+    "selected_for_llc": true,
+    "status": "selected_valid",
+    "reason": "in frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000000000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 25000,
+    "checkpoint": "tokens_000025000",
+    "selected_for_llc": false,
+    "status": "not_selected_rejected",
+    "reason": "outside frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000025000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 50000,
+    "checkpoint": "tokens_000050000",
+    "selected_for_llc": false,
+    "status": "not_selected_rejected",
+    "reason": "outside frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000050000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 100000,
+    "checkpoint": "tokens_000100000",
+    "selected_for_llc": true,
+    "status": "selected_valid",
+    "reason": "in frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000100000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 200000,
+    "checkpoint": "tokens_000200000",
+    "selected_for_llc": false,
+    "status": "not_selected_rejected",
+    "reason": "outside frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000200000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 400000,
+    "checkpoint": "tokens_000400000",
+    "selected_for_llc": true,
+    "status": "selected_valid",
+    "reason": "in frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000400000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 800000,
+    "checkpoint": "tokens_000800000",
+    "selected_for_llc": false,
+    "status": "not_selected_rejected",
+    "reason": "outside frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000800000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 1500000,
+    "checkpoint": "tokens_001500000",
+    "selected_for_llc": true,
+    "status": "selected_valid",
+    "reason": "in frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_001500000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 3000000,
+    "checkpoint": "tokens_003000000",
+    "selected_for_llc": false,
+    "status": "not_selected_rejected",
+    "reason": "outside frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_003000000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 5000000,
+    "checkpoint": "tokens_005000000",
+    "selected_for_llc": true,
+    "status": "selected_valid",
+    "reason": "in frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_005000000",
+    "missing_files": []
+  },
+  {
+    "target_tokens": 8000000,
+    "checkpoint": "tokens_008000000",
+    "selected_for_llc": true,
+    "status": "selected_valid",
+    "reason": "in frozen behavior-only LLC subset",
+    "checkpoint_dir": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_008000000",
+    "missing_files": []
+  }
+]

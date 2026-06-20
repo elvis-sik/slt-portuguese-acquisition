@@ -1,0 +1,2050 @@
+{
+  "tables": [
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "condition",
+      "value": "structured PT seed A",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "condition",
+      "transform": "label mapping from condition id"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "final_tokens",
+      "value": "8000000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "pt_bpb_initial",
+      "value": "6.7735",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "pt_bpb_final",
+      "value": "6.2615",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "pt_bpb_delta",
+      "value": "-0.5120",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb;evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "final minus initial, 4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "grammar_margin_final",
+      "value": "1.9165",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "grammar_margin_95pct_ci",
+      "value": "[-2.2673, 6.9216]",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.margins.margin",
+      "transform": "fixed-seed bootstrap over 10 item margins"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "grammar_accuracy_final",
+      "value": "0.600",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "english_bpb_final",
+      "value": "4.3922",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.english_retention.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_a",
+      "column": "english_bpb_delta",
+      "value": "1.6746",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.english_retention.bpb;evaluations.tokens_000000000.english_retention.bpb",
+      "transform": "final minus initial, 4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "condition",
+      "value": "structured PT seed B",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "condition",
+      "transform": "label mapping from condition id"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "final_tokens",
+      "value": "8000000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "pt_bpb_initial",
+      "value": "6.7735",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "pt_bpb_final",
+      "value": "6.4980",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "pt_bpb_delta",
+      "value": "-0.2756",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb;evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "final minus initial, 4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "grammar_margin_final",
+      "value": "3.0162",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "grammar_margin_95pct_ci",
+      "value": "[-2.4888, 9.5349]",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.margins.margin",
+      "transform": "fixed-seed bootstrap over 10 item margins"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "grammar_accuracy_final",
+      "value": "0.700",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "english_bpb_final",
+      "value": "4.7117",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.english_retention.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "structured_pt_seed_b",
+      "column": "english_bpb_delta",
+      "value": "1.9941",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.english_retention.bpb;evaluations.tokens_000000000.english_retention.bpb",
+      "transform": "final minus initial, 4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "condition",
+      "value": "token-shuffled PT",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "condition",
+      "transform": "label mapping from condition id"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "final_tokens",
+      "value": "8000000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "pt_bpb_initial",
+      "value": "6.7735",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "pt_bpb_final",
+      "value": "8.0578",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "pt_bpb_delta",
+      "value": "1.2842",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb;evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "final minus initial, 4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "grammar_margin_final",
+      "value": "1.1275",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "grammar_margin_95pct_ci",
+      "value": "[-3.6533, 7.8160]",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.margins.margin",
+      "transform": "fixed-seed bootstrap over 10 item margins"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "grammar_accuracy_final",
+      "value": "0.400",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "english_bpb_final",
+      "value": "5.1454",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.english_retention.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "shuffled_pt",
+      "column": "english_bpb_delta",
+      "value": "2.4279",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.english_retention.bpb;evaluations.tokens_000000000.english_retention.bpb",
+      "transform": "final minus initial, 4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "condition",
+      "value": "matched English",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "condition",
+      "transform": "label mapping from condition id"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "final_tokens",
+      "value": "8000000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "pt_bpb_initial",
+      "value": "6.7735",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "pt_bpb_final",
+      "value": "8.7935",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "pt_bpb_delta",
+      "value": "2.0200",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb;evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "final minus initial, 4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "grammar_margin_final",
+      "value": "-2.6044",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "grammar_margin_95pct_ci",
+      "value": "[-8.4135, 2.5691]",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.margins.margin",
+      "transform": "fixed-seed bootstrap over 10 item margins"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "grammar_accuracy_final",
+      "value": "0.400",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "english_bpb_final",
+      "value": "3.8660",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.english_retention.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "endpoint_summary.csv",
+      "row_id": "matched_en",
+      "column": "english_bpb_delta",
+      "value": "1.1484",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.english_retention.bpb;evaluations.tokens_000000000.english_retention.bpb",
+      "transform": "final minus initial, 4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "target_tokens",
+      "value": "0",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=0.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "actual_tokens",
+      "value": "0",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=0.actual_cumulative_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "pt_bpb",
+      "value": "6.7735",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "grammar_margin",
+      "value": "0.4555",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000000000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "grammar_accuracy",
+      "value": "0.400",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000000000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "llc_scalar",
+      "value": "-71.3304",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=0.llc_scalar",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "llc_std",
+      "value": "0.8505",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=0.llc_std",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "llc_status",
+      "value": "rejected",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=0.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "0",
+      "column": "rejection_reason",
+      "value": "persistent_downhill_movement_below_center",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=0.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "target_tokens",
+      "value": "100000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=100000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "actual_tokens",
+      "value": "102400",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=100000.actual_cumulative_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "pt_bpb",
+      "value": "4.2141",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000100000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "grammar_margin",
+      "value": "0.5383",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000100000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "grammar_accuracy",
+      "value": "0.700",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000100000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "llc_scalar",
+      "value": "4.7676",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=100000.llc_scalar",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "llc_std",
+      "value": "0.5079",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=100000.llc_std",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "llc_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=100000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "100000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=100000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "target_tokens",
+      "value": "400000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=400000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "actual_tokens",
+      "value": "401408",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=400000.actual_cumulative_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "pt_bpb",
+      "value": "5.6123",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000400000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "grammar_margin",
+      "value": "1.2533",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000400000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "grammar_accuracy",
+      "value": "0.500",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_000400000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "llc_scalar",
+      "value": "-2.9916",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=400000.llc_scalar",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "llc_std",
+      "value": "0.6158",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=400000.llc_std",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "llc_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=400000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "400000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=400000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "target_tokens",
+      "value": "1500000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=1500000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "actual_tokens",
+      "value": "1503232",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=1500000.actual_cumulative_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "pt_bpb",
+      "value": "5.9696",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_001500000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "grammar_margin",
+      "value": "1.1091",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_001500000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "grammar_accuracy",
+      "value": "0.500",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_001500000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "llc_scalar",
+      "value": "-25.7766",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=1500000.llc_scalar",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "llc_std",
+      "value": "0.5921",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=1500000.llc_std",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "llc_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=1500000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "1500000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=1500000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "target_tokens",
+      "value": "5000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=5000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "actual_tokens",
+      "value": "5001216",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=5000000.actual_cumulative_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "pt_bpb",
+      "value": "6.2501",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_005000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "grammar_margin",
+      "value": "0.2961",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_005000000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "grammar_accuracy",
+      "value": "0.600",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_005000000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "llc_scalar",
+      "value": "-36.5764",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=5000000.llc_scalar",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "llc_std",
+      "value": "0.5695",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=5000000.llc_std",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "llc_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=5000000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "5000000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=5000000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "target_tokens",
+      "value": "8000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=8000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "actual_tokens",
+      "value": "8003584",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=8000000.actual_cumulative_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "pt_bpb",
+      "value": "6.2615",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.pt_validation.bpb",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "grammar_margin",
+      "value": "1.9165",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.mean_margin",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "grammar_accuracy",
+      "value": "0.600",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json",
+      "source_keys": "evaluations.tokens_008000000.grammar_margin.accuracy",
+      "transform": "3-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "llc_scalar",
+      "value": "-12.5067",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=8000000.llc_scalar",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "llc_std",
+      "value": "0.9708",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=8000000.llc_std",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "llc_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=8000000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "llc_behavior_alignment.csv",
+      "row_id": "8000000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row target_tokens=8000000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "checkpoint",
+      "value": "tokens_000000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000000000.checkpoint",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "target_tokens",
+      "value": "0",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "init_loss",
+      "value": "9.2486",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000000000.init_loss",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "early_mean_loss",
+      "value": "2.1652",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000000000.early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "late_mean_loss",
+      "value": "2.0217",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000000000.late_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "late_minus_early",
+      "value": "-0.1435",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000000000.late_minus_early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "between_chain_range",
+      "value": "2.0815",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000000000.between_chain_range",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "distance_max",
+      "value": "254.67",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000000000.distance_max",
+      "transform": "2-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "status",
+      "value": "rejected",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000000000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000000000",
+      "column": "rejection_reason",
+      "value": "persistent_downhill_movement_below_center",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000000000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "checkpoint",
+      "value": "tokens_000100000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000100000.checkpoint",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "target_tokens",
+      "value": "100000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000100000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "init_loss",
+      "value": "1.6667",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000100000.init_loss",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "early_mean_loss",
+      "value": "2.0671",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000100000.early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "late_mean_loss",
+      "value": "2.3498",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000100000.late_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "late_minus_early",
+      "value": "0.2827",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000100000.late_minus_early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "between_chain_range",
+      "value": "1.1118",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000100000.between_chain_range",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "distance_max",
+      "value": "254.67",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000100000.distance_max",
+      "transform": "2-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000100000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000100000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000100000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "checkpoint",
+      "value": "tokens_000400000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000400000.checkpoint",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "target_tokens",
+      "value": "400000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000400000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "init_loss",
+      "value": "2.5393",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000400000.init_loss",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "early_mean_loss",
+      "value": "2.2502",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000400000.early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "late_mean_loss",
+      "value": "2.3209",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000400000.late_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "late_minus_early",
+      "value": "0.0708",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000400000.late_minus_early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "between_chain_range",
+      "value": "1.3667",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000400000.between_chain_range",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "distance_max",
+      "value": "254.67",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_000400000.distance_max",
+      "transform": "2-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000400000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_000400000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000400000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "checkpoint",
+      "value": "tokens_001500000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_001500000.checkpoint",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "target_tokens",
+      "value": "1500000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_001500000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "init_loss",
+      "value": "4.8257",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_001500000.init_loss",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "early_mean_loss",
+      "value": "2.2512",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_001500000.early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "late_mean_loss",
+      "value": "2.3227",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_001500000.late_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "late_minus_early",
+      "value": "0.0715",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_001500000.late_minus_early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "between_chain_range",
+      "value": "1.3266",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_001500000.between_chain_range",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "distance_max",
+      "value": "254.67",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_001500000.distance_max",
+      "transform": "2-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_001500000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_001500000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_001500000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "checkpoint",
+      "value": "tokens_005000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_005000000.checkpoint",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "target_tokens",
+      "value": "5000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_005000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "init_loss",
+      "value": "5.9021",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_005000000.init_loss",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "early_mean_loss",
+      "value": "2.2356",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_005000000.early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "late_mean_loss",
+      "value": "2.3313",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_005000000.late_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "late_minus_early",
+      "value": "0.0957",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_005000000.late_minus_early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "between_chain_range",
+      "value": "1.2082",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_005000000.between_chain_range",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "distance_max",
+      "value": "254.67",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_005000000.distance_max",
+      "transform": "2-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_005000000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_005000000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_005000000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "checkpoint",
+      "value": "tokens_008000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_008000000.checkpoint",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "target_tokens",
+      "value": "8000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_008000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "init_loss",
+      "value": "3.2526",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_008000000.init_loss",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "early_mean_loss",
+      "value": "1.9704",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_008000000.early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "late_mean_loss",
+      "value": "2.0512",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_008000000.late_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "late_minus_early",
+      "value": "0.0808",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_008000000.late_minus_early_mean",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "between_chain_range",
+      "value": "2.2225",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_008000000.between_chain_range",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "distance_max",
+      "value": "254.67",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv",
+      "source_keys": "row checkpoint=tokens_008000000.distance_max",
+      "transform": "2-decimal formatting"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_008000000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "sampler_diagnostics.csv",
+      "row_id": "tokens_008000000",
+      "column": "rejection_reason",
+      "value": "",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_008000000.rejection_reasons",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "final_behavior_training",
+      "column": "phase",
+      "value": "final_behavior_training",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "run_kind",
+      "transform": "label from phase"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "final_behavior_training",
+      "column": "run_id",
+      "value": "final_training_20260620T053855Z",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "path.name",
+      "transform": "copied run directory name"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "final_behavior_training",
+      "column": "gate_decision",
+      "value": "proceed_to_llc",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/phase_report.md",
+      "source_keys": "Gate Decision",
+      "transform": "copied phase decision"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "final_behavior_training",
+      "column": "wall_minutes",
+      "value": "8.59",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "wall_seconds",
+      "transform": "seconds / 60"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "final_behavior_training",
+      "column": "gpu_hours",
+      "value": "0.1432",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "estimated_gpu_hours",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "final_behavior_training",
+      "column": "estimated_cost_usd",
+      "value": "$0.1432",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "estimated_cost_usd",
+      "transform": "USD formatting"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "final_behavior_training",
+      "column": "projected_total_cost_usd",
+      "value": "$0.2469",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/cost_projection.json",
+      "source_keys": "projected_total_cost_usd",
+      "transform": "USD formatting"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "llc_campaign",
+      "column": "phase",
+      "value": "llc_campaign",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "run_kind",
+      "transform": "label from phase"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "llc_campaign",
+      "column": "run_id",
+      "value": "llc_campaign_final_training_20260620T053855Z_batch16",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "run_id",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "llc_campaign",
+      "column": "gate_decision",
+      "value": "llc_complete_with_rejections",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/phase_report.md",
+      "source_keys": "Gate Decision",
+      "transform": "copied phase decision"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "llc_campaign",
+      "column": "wall_minutes",
+      "value": "36.18",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "wall_seconds",
+      "transform": "seconds / 60"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "llc_campaign",
+      "column": "gpu_hours",
+      "value": "0.6029",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "estimated_gpu_hours",
+      "transform": "4-decimal formatting"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "llc_campaign",
+      "column": "estimated_cost_usd",
+      "value": "$0.6029",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "estimated_gpu_hours",
+      "transform": "hourly-rate USD formatting"
+    },
+    {
+      "table": "runtime_cost_gates.csv",
+      "row_id": "llc_campaign",
+      "column": "projected_total_cost_usd",
+      "value": "$0.8506",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "projected_total_cost_usd",
+      "transform": "USD formatting"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "model",
+      "column": "item",
+      "value": "model",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "config.model",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "model",
+      "column": "value",
+      "value": "roneneldan/TinyStories-8M",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "config.model",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "model",
+      "column": "evidence",
+      "value": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "final_training_source_commit",
+      "column": "item",
+      "value": "final_training_source_commit",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "git_commit",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "final_training_source_commit",
+      "column": "value",
+      "value": "98913e931d2dd1ea4453a519b2ff860008cffb69",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "git_commit",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "final_training_source_commit",
+      "column": "evidence",
+      "value": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "llc_campaign_source_commit",
+      "column": "item",
+      "value": "llc_campaign_source_commit",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "git_commit",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "llc_campaign_source_commit",
+      "column": "value",
+      "value": "67686c00f3e65ac97466338522667bc9c8af1b9c",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "git_commit",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "llc_campaign_source_commit",
+      "column": "evidence",
+      "value": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "tokenizer_vocab_sha256",
+      "column": "item",
+      "value": "tokenizer_vocab_sha256",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "tokenizer_vocab_sha256",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "tokenizer_vocab_sha256",
+      "column": "value",
+      "value": "e35d8b86ebd35ebd260d040aa455e09759f7e675f4dbb7f3d727516f27eca190",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "tokenizer_vocab_sha256",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "tokenizer_vocab_sha256",
+      "column": "evidence",
+      "value": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/manifest.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "frozen_config_sha256",
+      "column": "item",
+      "value": "frozen_config_sha256",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/frozen_config.json",
+      "source_keys": "file bytes",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "frozen_config_sha256",
+      "column": "value",
+      "value": "6046581a0ce97c4c58390aea321b81109994cd65145ca31866a0ad955dbe9eac",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/frozen_config.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "frozen_config_sha256",
+      "column": "evidence",
+      "value": "results/02_final_training/final_training_20260620T053855Z/frozen_config.json",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/frozen_config.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "split_manifest_sha256",
+      "column": "item",
+      "value": "split_manifest_sha256",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/data_splits/split_manifest.json",
+      "source_keys": "file bytes",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "split_manifest_sha256",
+      "column": "value",
+      "value": "d437524bb70b6bf4a7e3a912c71c613a678572410d1aacbb8b6ccfa7dd5e7af6",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/data_splits/split_manifest.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "split_manifest_sha256",
+      "column": "evidence",
+      "value": "results/02_final_training/final_training_20260620T053855Z/data_splits/split_manifest.json",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/data_splits/split_manifest.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "sampler_reference_sha256",
+      "column": "item",
+      "value": "sampler_reference_sha256",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "reference_set.sha256",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "sampler_reference_sha256",
+      "column": "value",
+      "value": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "reference_set.sha256",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "sampler_reference_sha256",
+      "column": "evidence",
+      "value": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "sampler_config_sha256",
+      "column": "item",
+      "value": "sampler_config_sha256",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/sampler_config.json",
+      "source_keys": "file bytes",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "sampler_config_sha256",
+      "column": "value",
+      "value": "e091991be4d20e215b8a9937eea9ade19dc371bee758ccffad1c7f76638218cd",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/sampler_config.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "sampler_config_sha256",
+      "column": "evidence",
+      "value": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/sampler_config.json",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/sampler_config.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "selected_llc_tokens",
+      "column": "item",
+      "value": "selected_llc_tokens",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "selected_checkpoint_tokens",
+      "transform": "label"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "selected_llc_tokens",
+      "column": "value",
+      "value": "0,100000,400000,1500000,5000000,8000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "selected_checkpoint_tokens",
+      "transform": "comma-joined list"
+    },
+    {
+      "table": "reproducibility.csv",
+      "row_id": "selected_llc_tokens",
+      "column": "evidence",
+      "value": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json",
+      "source_keys": "path",
+      "transform": "source path"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000000000",
+      "column": "checkpoint",
+      "value": "tokens_000000000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000000000",
+      "source_keys": "path.name",
+      "transform": "copied checkpoint directory name"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000000000",
+      "column": "target_tokens",
+      "value": "0",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000000000",
+      "column": "model_safetensors_sha256",
+      "value": "a4ec8b5ca09fdf833cb8c2868e6aee3310bfaddbe96f27fbe9a3beb98f5541b8",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000000000/model.safetensors",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000000000",
+      "column": "checkpoint_metadata_sha256",
+      "value": "1d3ec2caab2de0acbd887a0e3f6c0f54afadfe6512f166065dc84bb1ba7a2382",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000000000/checkpoint_metadata.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000000000",
+      "column": "report_status",
+      "value": "rejected",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000000000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000100000",
+      "column": "checkpoint",
+      "value": "tokens_000100000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000100000",
+      "source_keys": "path.name",
+      "transform": "copied checkpoint directory name"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000100000",
+      "column": "target_tokens",
+      "value": "100000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000100000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000100000",
+      "column": "model_safetensors_sha256",
+      "value": "60fbd1998e9eb9a65e56e6185755e4a8932325b5b4083e751750f9d2612006b4",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000100000/model.safetensors",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000100000",
+      "column": "checkpoint_metadata_sha256",
+      "value": "53ac1018aa04969ee2a04aff9ba5dbdc4a154f27bd5a2aaf6c214b84f3a73865",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000100000/checkpoint_metadata.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000100000",
+      "column": "report_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000100000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000400000",
+      "column": "checkpoint",
+      "value": "tokens_000400000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000400000",
+      "source_keys": "path.name",
+      "transform": "copied checkpoint directory name"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000400000",
+      "column": "target_tokens",
+      "value": "400000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000400000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000400000",
+      "column": "model_safetensors_sha256",
+      "value": "6917ab9131a99959390e9e2f0f9019668c7d0798d98e6f05034ac5a6b62639e8",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000400000/model.safetensors",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000400000",
+      "column": "checkpoint_metadata_sha256",
+      "value": "cd68c219dc4b211c9c61c87c6216b8253275e639aa098f4351d125f58b673897",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_000400000/checkpoint_metadata.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_000400000",
+      "column": "report_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_000400000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_001500000",
+      "column": "checkpoint",
+      "value": "tokens_001500000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_001500000",
+      "source_keys": "path.name",
+      "transform": "copied checkpoint directory name"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_001500000",
+      "column": "target_tokens",
+      "value": "1500000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_001500000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_001500000",
+      "column": "model_safetensors_sha256",
+      "value": "492b000ba9f422088bc88aed0e5c8d027150a4407548e291d1db4ccef7ce1ec4",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_001500000/model.safetensors",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_001500000",
+      "column": "checkpoint_metadata_sha256",
+      "value": "7b6156df1f0cdfed0e7f2d06dc3f18c8b916262d6dc3c6e469e5f057534944c4",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_001500000/checkpoint_metadata.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_001500000",
+      "column": "report_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_001500000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_005000000",
+      "column": "checkpoint",
+      "value": "tokens_005000000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_005000000",
+      "source_keys": "path.name",
+      "transform": "copied checkpoint directory name"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_005000000",
+      "column": "target_tokens",
+      "value": "5000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_005000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_005000000",
+      "column": "model_safetensors_sha256",
+      "value": "4274e422c0e4a08e388c47e39749d7832536a6a4baa982c2f628425923fa5590",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_005000000/model.safetensors",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_005000000",
+      "column": "checkpoint_metadata_sha256",
+      "value": "d6ac36b54c1469470bcfa1e6e3d2e2ff49e9d21e907c363ca84986a51a2b8658",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_005000000/checkpoint_metadata.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_005000000",
+      "column": "report_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_005000000.report_status",
+      "transform": "copied verbatim"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_008000000",
+      "column": "checkpoint",
+      "value": "tokens_008000000",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_008000000",
+      "source_keys": "path.name",
+      "transform": "copied checkpoint directory name"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_008000000",
+      "column": "target_tokens",
+      "value": "8000000",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_008000000.target_tokens",
+      "transform": "integer formatting"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_008000000",
+      "column": "model_safetensors_sha256",
+      "value": "f312b10fa96c9aede3fc31b28a50c06ae19aaf37002a6196f4cc6e53ca8d7698",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_008000000/model.safetensors",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_008000000",
+      "column": "checkpoint_metadata_sha256",
+      "value": "2dcff7367b62b611a99dec09bb6b998956516ee573df7029f97b027dfcf02af9",
+      "source_paths": "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/checkpoints/tokens_008000000/checkpoint_metadata.json",
+      "source_keys": "file bytes",
+      "transform": "sha256(file)"
+    },
+    {
+      "table": "selected_checkpoint_hashes.csv",
+      "row_id": "tokens_008000000",
+      "column": "report_status",
+      "value": "reportable_with_diagnostics",
+      "source_paths": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv",
+      "source_keys": "row checkpoint=tokens_008000000.report_status",
+      "transform": "copied verbatim"
+    }
+  ],
+  "figures": {
+    "behavior_trajectories.png": {
+      "path": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/figures/behavior_trajectories.png",
+      "source_data": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/source_tables/behavior_trajectory_source.csv"
+    },
+    "llc_trajectory.png": {
+      "path": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/figures/llc_trajectory.png",
+      "source_data": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv"
+    },
+    "sampler_diagnostics.png": {
+      "path": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/figures/sampler_diagnostics.png",
+      "source_data": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv"
+    },
+    "chain_loss_traces_token0_vs_100k.png": {
+      "path": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/figures/chain_loss_traces_token0_vs_100k.png",
+      "source_data": [
+        "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/diagnostics/tokens_000000000.json",
+        "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/diagnostics/tokens_000100000.json"
+      ]
+    }
+  }
+}

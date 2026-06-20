@@ -1,0 +1,96 @@
+{
+  "passed": false,
+  "checks": [
+    {
+      "id": "1",
+      "phenomenon": "subject_verb_number",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": true,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "2",
+      "phenomenon": "subject_verb_number",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": true,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "3",
+      "phenomenon": "article_noun_gender",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": false,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "4",
+      "phenomenon": "article_noun_gender",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": false,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "5",
+      "phenomenon": "adjective_number",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": true,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "6",
+      "phenomenon": "adjective_gender",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": true,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "7",
+      "phenomenon": "determiner_number",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": true,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "8",
+      "phenomenon": "subject_verb_number",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": true,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "9",
+      "phenomenon": "article_noun_number",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": true,
+      "has_differing_continuation": true
+    },
+    {
+      "id": "10",
+      "phenomenon": "adjective_gender",
+      "grammatical_nonempty": true,
+      "ungrammatical_nonempty": true,
+      "not_identical": true,
+      "has_shared_prefix": true,
+      "has_differing_continuation": true
+    }
+  ],
+  "note": "Constructed sanity checks validate minimal-pair integrity; they are not empirical grammar accuracy."
+}

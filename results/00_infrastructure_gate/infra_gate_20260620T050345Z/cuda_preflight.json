@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "2026-06-20T05:04:19.507006+00:00",
+  "python_executable": "/usr/bin/python3",
+  "python_version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+  "nvidia_smi_error": "CalledProcessError(9, ['nvidia-smi', '--query-gpu=name,driver_version,memory.total,memory.used,memory.free', '--format=csv,noheader,nounits'])",
+  "nvidia_smi_stdout": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.\n\n",
+  "nvidia_smi_stderr": "",
+  "torch_error": "ModuleNotFoundError(\"No module named 'torch'\")"
+}

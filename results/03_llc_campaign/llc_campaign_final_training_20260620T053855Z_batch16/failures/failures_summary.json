@@ -1,0 +1,11 @@
+[
+  {
+    "checkpoint": "tokens_000000000",
+    "target_tokens": 0,
+    "failure_type": "diagnostic_rejection",
+    "rejection_reasons": [
+      "persistent_downhill_movement_below_center"
+    ],
+    "diagnostics_path": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/diagnostics/tokens_000000000.json"
+  }
+]

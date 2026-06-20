@@ -1,0 +1,34 @@
+{
+  "run_kind": "tinystories_3m_train_save_reload_evaluate_sample_loop",
+  "scientific_validity": "infrastructure smoke only; synthetic fixed text, not an empirical result",
+  "timestamp_utc": "2026-06-20T05:22:11.032497+00:00",
+  "start_utc": "2026-06-20T05:22:08.142732+00:00",
+  "wall_seconds": 2.8897904059999746,
+  "model": "roneneldan/TinyStories-3M",
+  "seed": 20260620,
+  "device": "cuda",
+  "parameter_count": 8278400,
+  "trainable_parameter_count": 8278400,
+  "sequence_length": 64,
+  "batch_size": 4,
+  "train_steps": 2,
+  "learning_rate": 1e-05,
+  "train_losses": [
+    10.878381729125977,
+    6.866668224334717
+  ],
+  "eval_loss_after_reload": 3.7231061458587646,
+  "checkpoint_dir": "results/00_infrastructure_gate/infra_gate_20260620T052138Z/tinystories_loop/checkpoint",
+  "checkpoint_hashes_sha256": {
+    "config.json": "21f1d88aee118c38916a36ea52ef16c2477348881d3dd802192684057eb4d6b0",
+    "generation_config.json": "c5812f2d17f22e82349a6becdc4c3f8546e052747683384b850bd6583d9cdc94",
+    "model.safetensors": "378b676fab0b720b495e4337605216da4879235a1c75cbdf10883da5084f170e",
+    "tokenizer.json": "64120ab885a9859d59831bbab8bd2c70890c30c6873ff2360631b77c67911c41",
+    "tokenizer_config.json": "658b44c91dac0b86f9a6c2cc59ca6aeb094c36f8c80c800b5216b306b782f7d0"
+  },
+  "generated_sample_path": "results/00_infrastructure_gate/infra_gate_20260620T052138Z/tinystories_loop/generated_sample.txt",
+  "generated_sample_chars": 111,
+  "peak_memory_bytes": 398670848,
+  "cuda_total_memory_bytes": 23689363456,
+  "vram_headroom_fraction": 0.9831708923399111
+}

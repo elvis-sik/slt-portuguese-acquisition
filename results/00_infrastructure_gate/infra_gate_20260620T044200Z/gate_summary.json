@@ -1,0 +1,69 @@
+{
+  "run_id": "infra_gate_20260620T044200Z",
+  "phase": "00_infrastructure_gate",
+  "timestamp_utc": "2026-06-20T04:49:17.807452+00:00",
+  "gate_decision": "pivot",
+  "pass": false,
+  "primary_failure": "GPU driver/CUDA unavailable: nvidia-smi exit status 9; torch.cuda.is_available() false; cuda_device_count 0.",
+  "tiny_stories_3m_model_check": {
+    "status": "failed_environment_gate",
+    "model_loaded_from_cache": true,
+    "parameter_count": 8278400,
+    "trainable_parameter_count": 8278400,
+    "forward_backward_device": "cpu",
+    "forward_backward_loss": 16.127817153930664,
+    "torch_cuda_available": false,
+    "cuda_device_count": 0,
+    "nvidia_smi": "ERROR: Command '['nvidia-smi']' returned non-zero exit status 9."
+  },
+  "commands": {
+    "check_env": {
+      "status": "failed",
+      "exit_code": 1,
+      "log": "results/00_infrastructure_gate/infra_gate_20260620T044200Z/jobs/check-env-offline/stdout_stderr.log"
+    },
+    "train_seq64": {
+      "status": "failed",
+      "exit_code": 1,
+      "log": "results/00_infrastructure_gate/infra_gate_20260620T044200Z/jobs/train-seq64/stdout_stderr.log",
+      "reason": "CUDA is required for the intended cloud benchmark"
+    },
+    "train_seq128": {
+      "status": "failed",
+      "exit_code": 1,
+      "log": "results/00_infrastructure_gate/infra_gate_20260620T044200Z/jobs/train-seq128/stdout_stderr.log",
+      "reason": "CUDA is required for the intended cloud benchmark"
+    },
+    "sampler_smoke": {
+      "status": "failed",
+      "exit_code": 1,
+      "log": "results/00_infrastructure_gate/infra_gate_20260620T044200Z/jobs/sampler-smoke/stdout_stderr.log",
+      "reason": "CUDA is required for the intended cloud sampler benchmark"
+    },
+    "train_save_reload_evaluate_sample_loop": {
+      "status": "not_launched",
+      "reason": "Blocked by failed live GPU environment before starting a training loop."
+    }
+  },
+  "vram_headroom": {
+    "status": "not_measurable_current_run",
+    "required_headroom_fraction": 0.25,
+    "reason": "No CUDA device visible in current run.",
+    "prior_seq128_peak_memory_bytes": 4189641216,
+    "prior_total_memory_bytes": 23689363456,
+    "prior_headroom_fraction": 0.8231425161008767,
+    "prior_evidence_path": "results/00_infrastructure_gate/train_seq128.json"
+  },
+  "project_estimate": {
+    "status": "computed_from_previous_successful_benchmarks_not_current_pass",
+    "median_charged_hours": 3.5310417571227903,
+    "median_cost_usd": 3.5310417571227903,
+    "high_charged_hours": 7.062083514245581,
+    "review_required_by_estimate": false,
+    "evidence_path": "results/00_infrastructure_gate/infra_gate_20260620T044200Z/project_estimate_from_previous_success.json"
+  },
+  "applicable_pivot": "docs/11_FAILURE_MODES_AND_PIVOTS.md#gpu-driver-or-pytorch-cuda-failure: rerun the official Google driver installer after reboot, verify driver before reinstalling Python packages, and preserve the environment log.",
+  "next_bounded_action": "Operator-side stop/restart or driver repair; then rerun the infrastructure gate only. Do not launch pilot/final scientific runs until live CUDA benchmark and loop pass.",
+  "requires_human_approval": false,
+  "approval_reason": "Unattended orchestrator pre-authorization applies within cap; no provisioning/resizing/deleting requested."
+}

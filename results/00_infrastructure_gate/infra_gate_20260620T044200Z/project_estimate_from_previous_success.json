@@ -1,0 +1,23 @@
+{
+  "inputs": {
+    "training_steps": 10000,
+    "sampler_chain_steps": 31700,
+    "seconds_per_training_step": 0.07506923971500327,
+    "seconds_per_sampler_chain_step": 0.1410721264,
+    "evaluation_hours": 1.5,
+    "overhead_factor": 1.4,
+    "hourly_rate_usd_planning_assumption": 1.0
+  },
+  "charged_hours": {
+    "low": 2.118625054273674,
+    "median": 3.5310417571227903,
+    "high": 7.062083514245581
+  },
+  "raw_compute_cost_usd": {
+    "low": 2.118625054273674,
+    "median": 3.5310417571227903,
+    "high": 7.062083514245581
+  },
+  "planning_warning": "Engineering sensitivity interval, not a statistical confidence interval or official cloud quote.",
+  "review_required": false
+}

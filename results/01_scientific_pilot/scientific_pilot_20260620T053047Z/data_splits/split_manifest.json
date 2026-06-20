@@ -1,0 +1,110 @@
+{
+  "created_utc": "2026-06-20T05:30:54.670731Z",
+  "immutability_note": "Pilot split artifacts are content-addressed by SHA256 and must not be edited in place.",
+  "source_metadata": {
+    "source": "Helsinki-NLP/opus-100",
+    "config": "en-pt",
+    "split": "train",
+    "streaming": true,
+    "requested_limit": 136,
+    "filtering": {
+      "min_chars": 12,
+      "max_chars": 220,
+      "max_length_ratio": 2.8,
+      "reject_markup_chars": [
+        "<",
+        ">",
+        "{",
+        "}"
+      ]
+    },
+    "counts": {
+      "seen": 201,
+      "missing": 0,
+      "markup_heavy": 0,
+      "length_rejected": 65,
+      "duplicate_pairs": 0,
+      "accepted": 136
+    },
+    "selection_seed": 20260620
+  },
+  "split_sizes": {
+    "train": 96,
+    "validation": 24,
+    "sampler_reference": 16
+  },
+  "split_hashes_sha256": {
+    "train.jsonl": "446c0c4db909d352d2b0fa9cc3f048d6532dd91213fa5c4159bcbdbc6cab4dae",
+    "validation.jsonl": "fa93efa4ac0373ca77492a175a7e5e00b86d1c2873aa8a85bbf42f829df44efc",
+    "sampler_reference.jsonl": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f",
+    "train_shuffled_pt_token_ids.jsonl": "ad00cdefc2210873b815ea84d8356fc29f3f2c1cbad39fd7d1dc3e6457b76f25",
+    "train_shuffled_pt_mapping.jsonl": "4c3f7a65540b5c4d8623ccc78e1f5aaaa4d00145f6eb1ca9b67196f77021a16c"
+  },
+  "leakage_check": {
+    "train_validation_overlap_ids": [],
+    "train_sampler_overlap_ids": [],
+    "validation_sampler_overlap_ids": []
+  },
+  "filtering_record": {
+    "train": {
+      "pt": {
+        "examples": 96,
+        "bytes_utf8": 4000,
+        "whitespace_words": 657,
+        "tokens": 1560,
+        "max_tokens": 78,
+        "tokens_per_utf8_byte": 0.39,
+        "tokens_per_whitespace_word": 2.374429223744292
+      },
+      "en": {
+        "examples": 96,
+        "bytes_utf8": 3862,
+        "whitespace_words": 701,
+        "tokens": 991,
+        "max_tokens": 72,
+        "tokens_per_utf8_byte": 0.25660279647850853,
+        "tokens_per_whitespace_word": 1.413694721825963
+      }
+    },
+    "validation": {
+      "pt": {
+        "examples": 24,
+        "bytes_utf8": 1073,
+        "whitespace_words": 177,
+        "tokens": 421,
+        "max_tokens": 53,
+        "tokens_per_utf8_byte": 0.3923578751164958,
+        "tokens_per_whitespace_word": 2.378531073446328
+      },
+      "en": {
+        "examples": 24,
+        "bytes_utf8": 1022,
+        "whitespace_words": 188,
+        "tokens": 252,
+        "max_tokens": 23,
+        "tokens_per_utf8_byte": 0.2465753424657534,
+        "tokens_per_whitespace_word": 1.3404255319148937
+      }
+    },
+    "sampler_reference": {
+      "pt": {
+        "examples": 16,
+        "bytes_utf8": 658,
+        "whitespace_words": 114,
+        "tokens": 250,
+        "max_tokens": 62,
+        "tokens_per_utf8_byte": 0.3799392097264438,
+        "tokens_per_whitespace_word": 2.192982456140351
+      },
+      "en": {
+        "examples": 16,
+        "bytes_utf8": 567,
+        "whitespace_words": 104,
+        "tokens": 135,
+        "max_tokens": 26,
+        "tokens_per_utf8_byte": 0.23809523809523808,
+        "tokens_per_whitespace_word": 1.2980769230769231
+      }
+    }
+  }
+}

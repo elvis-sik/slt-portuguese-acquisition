@@ -1,0 +1,1 @@
+env HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv-bench-py311/bin/python scripts/final_training.py --config configs/final_tinystories8m_20260620.json --output-dir results/02_final_training/final_training_20260620T053855Z 

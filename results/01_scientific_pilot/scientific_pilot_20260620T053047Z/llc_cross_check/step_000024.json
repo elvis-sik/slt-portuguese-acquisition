@@ -1,0 +1,123 @@
+{
+  "condition": "structured_pt",
+  "checkpoint": "step_000024",
+  "step": 24,
+  "cumulative_tokens": 49152,
+  "sampler_config": {
+    "num_chains": 2,
+    "num_burnin_steps": 20,
+    "num_draws": 10,
+    "num_steps_between_draws": 1,
+    "lr": 1e-05,
+    "n_beta": 10.0,
+    "localization": 100.0,
+    "precision": "fp32"
+  },
+  "observables": {
+    "fixed_portuguese_sampler_reference": {
+      "examples": 16,
+      "split": "sampler_reference",
+      "split_hash": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f"
+    }
+  },
+  "devinterp_llc_signature": "(model: 'torch.nn.Module', dataset: 'Dataset', observables: 'dict[str, ObservableSpec]', *, lr: 'float', n_beta: 'float', param_masks: 'ParamMasks | None' = None, loss_fn: 'LossFn | None' = None, **kwargs) -> 'xr.Dataset'",
+  "result_summary": {
+    "dims": {
+      "chain": 2,
+      "step": 30
+    },
+    "attrs": {},
+    "data_vars": {
+      "llc_mean": {
+        "dims": [],
+        "attrs": {},
+        "data_summary": {
+          "count": 1,
+          "finite_count": 1,
+          "min": -33.01996994018555,
+          "max": -33.01996994018555,
+          "mean": -33.01996994018555,
+          "first": -33.01996994018555,
+          "last": -33.01996994018555
+        }
+      },
+      "llc_std": {
+        "dims": [],
+        "attrs": {},
+        "data_summary": {
+          "count": 1,
+          "finite_count": 1,
+          "min": 0.817596435546875,
+          "max": 0.817596435546875,
+          "mean": 0.817596435546875,
+          "first": 0.817596435546875,
+          "last": 0.817596435546875
+        }
+      },
+      "llc_per_chain": {
+        "dims": [
+          "chain"
+        ],
+        "attrs": {},
+        "data_summary": {
+          "count": 2,
+          "finite_count": 2,
+          "min": -33.83756637573242,
+          "max": -32.20237350463867,
+          "mean": -33.01996994018555,
+          "first": -33.83756637573242,
+          "last": -32.20237350463867
+        }
+      },
+      "llc_scalar": {
+        "dims": [],
+        "attrs": {},
+        "data_summary": {
+          "count": 1,
+          "finite_count": 1,
+          "min": -33.0199670791626,
+          "max": -33.0199670791626,
+          "mean": -33.0199670791626,
+          "first": -33.0199670791626,
+          "last": -33.0199670791626
+        }
+      },
+      "loss_trace": {
+        "dims": [
+          "chain",
+          "step"
+        ],
+        "attrs": {},
+        "data_summary": {
+          "count": 60,
+          "finite_count": 60,
+          "min": 0.9414970874786377,
+          "max": 4.826076507568359,
+          "mean": 1.5240796854098637,
+          "first": 4.826076507568359,
+          "last": 1.729954719543457
+        }
+      },
+      "init_loss": {
+        "dims": [],
+        "attrs": {},
+        "data_summary": {
+          "count": 1,
+          "finite_count": 1,
+          "min": 4.826076507568359,
+          "max": 4.826076507568359,
+          "mean": 4.826076507568359,
+          "first": 4.826076507568359,
+          "last": 4.826076507568359
+        }
+      }
+    }
+  },
+  "diagnostics": {
+    "finite_result": true,
+    "trace_output_size_bytes": 754629,
+    "trace_output_path": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/llc_cross_check/step_000024.zarr",
+    "wall_seconds": 7.4277274840001155,
+    "peak_memory_bytes": 1790939136
+  }
+}

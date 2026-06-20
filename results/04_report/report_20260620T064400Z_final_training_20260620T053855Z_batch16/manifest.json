@@ -1,0 +1,43 @@
+{
+  "run_kind": "empirical_report",
+  "run_id": "report_20260620T064400Z_final_training_20260620T053855Z_batch16",
+  "generated_utc": "2026-06-20T06:46:41Z",
+  "report_builder_git_commit": "8cd5ec8e90ce16c342410ba57db386b63d449317",
+  "source_final_run_dir": "results/02_final_training/final_training_20260620T053855Z",
+  "source_llc_run_dir": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16",
+  "source_files_sha256": {
+    "results/02_final_training/final_training_20260620T053855Z/manifest.json": "aceafcc4b55cd9bb9e4dd195db6f1d1ec61888ffbeceb27d8cf5d4a53c675db4",
+    "results/02_final_training/final_training_20260620T053855Z/frozen_config.json": "6046581a0ce97c4c58390aea321b81109994cd65145ca31866a0ad955dbe9eac",
+    "results/02_final_training/final_training_20260620T053855Z/grammar_sanity_checks.json": "6634d76c1a25d57e24f1cae306dff140ee2f93fe1a6c743d58053ee6d129f31d",
+    "results/02_final_training/final_training_20260620T053855Z/llc_checkpoint_selection.json": "069e0cf1407753891c2390cc83e087cb01d687a60260837e668990ac8660632b",
+    "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/manifest.json": "e5ed5af96dce4f9e39ebf45a2cc5bb30e9a12e09dcc2776af559b898e59ac0e6",
+    "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/llc_campaign_summary.json": "26eaaea22f4645221e55ebeb29911abaf067ed482d2b9e905ff34427608d5787",
+    "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/failures/failures_summary.json": "404b2fde3c73510949e9487f09eec4635851a971a83bcd27535b0de6a149f8cb",
+    "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/llc_summary.csv": "cc6d3b78a4161a75f9649e1a290469d4bc4ff3c677f97fdafb475d78d490fa65",
+    "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/sampler_diagnostics.csv": "2931603f9bfeeba2ee3d7a36ec98ce188c29fa5d99c278bedb46eaf9722c429e",
+    "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z_batch16/report_source_tables/checkpoint_selection.csv": "f5f59ddec8965a019d386df178f4bb286f729e930e4264ea8c76855f32dbbf38",
+    "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_a/condition_summary.json": "ff3044a73bddce4f569a90028cbfb2c7a8031d5f340e0af6f31d8868a1a58529",
+    "results/02_final_training/final_training_20260620T053855Z/conditions/structured_pt_seed_b/condition_summary.json": "c6685b6c3839a699a5236dc5865935a7d06fecac60cc7bac019b6900511a9f08",
+    "results/02_final_training/final_training_20260620T053855Z/conditions/shuffled_pt/condition_summary.json": "bd6fb638fb13e207f209deaa7cfec03016a86c0af79b7f96e0a364fb296e98f7",
+    "results/02_final_training/final_training_20260620T053855Z/conditions/matched_en/condition_summary.json": "97f6dfb332a194c1473d66fb70338a19401f5cd0aa4084942501eb823fbf92d6"
+  },
+  "outputs": {
+    "report_markdown": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/report.md",
+    "report_pdf": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/report.pdf",
+    "phase_report": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/phase_report.md",
+    "source_tables": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/source_tables",
+    "figures": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/figures",
+    "validation": "results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/validation"
+  },
+  "gate_decision": "report_complete_with_limitations",
+  "incremental_gpu_hours": 0.0,
+  "incremental_cost_usd": 0.0,
+  "validation": {
+    "status": "passed",
+    "errors": [],
+    "verified_cell_count": 225,
+    "table_count": 6,
+    "mock_reference_count": 0,
+    "validated_at_utc": "2026-06-20T06:46:44Z"
+  }
+}

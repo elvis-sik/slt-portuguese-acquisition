@@ -1,0 +1,16 @@
+{
+  "job_name": "check_environment",
+  "phase": "00_infrastructure_gate",
+  "run_dir": "results/00_infrastructure_gate/infra_gate_20260620T052138Z",
+  "git_commit": "e2dc7f13d27a3eccdc9311d060d6741b4e697399",
+  "model": "roneneldan/TinyStories-3M",
+  "max_hours": 0.2,
+  "command": [
+    ".venv-bench-py311/bin/python",
+    "scripts/check_environment.py",
+    "--model",
+    "roneneldan/TinyStories-3M",
+    "--output",
+    "results/00_infrastructure_gate/infra_gate_20260620T052138Z/check_environment.json"
+  ]
+}

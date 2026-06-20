@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2026-06-20T05:21:53.905685+00:00",
+  "python": "3.11.15 (main, Jun 11 2026, 04:03:40) [Clang 22.1.3 ]",
+  "platform": "Linux-6.8.0-1060-gcp-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.12.0",
+    "datasets": "5.0.0",
+    "devinterp": "installed",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3"
+  },
+  "nvidia_smi": "Sat Jun 20 05:21:56 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA L4                      On  |   00000000:00:03.0 Off |                    0 |\n| N/A   43C    P8             16W /   72W |       0MiB /  23034MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+\n",
+  "nvidia_device_nodes": [
+    "/dev/nvidia-caps",
+    "/dev/nvidia-modeset",
+    "/dev/nvidia-uvm",
+    "/dev/nvidia-uvm-tools",
+    "/dev/nvidia0",
+    "/dev/nvidiactl"
+  ],
+  "nvidia_driver_proc_version": "NVRM version: NVIDIA UNIX x86_64 Kernel Module  610.43.02  Tue May 19 11:18:18 UTC 2026\nGCC version:  gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04.3) \n",
+  "torch_cuda_available": true,
+  "torch_cuda_version": "13.0",
+  "cuda_device_count": 1,
+  "cuda_device_name": "NVIDIA L4",
+  "cuda_total_memory_bytes": 23689363456,
+  "model_id": "roneneldan/TinyStories-3M",
+  "parameter_count": 8278400,
+  "trainable_parameter_count": 8278400,
+  "tokenizer_vocab_size": 50257,
+  "forward_backward_loss": 16.04204750061035,
+  "forward_backward_device": "cuda",
+  "cuda_diagnosis": {
+    "status": "cuda_available",
+    "root_cause_hypothesis": "CUDA is visible to both nvidia-smi and PyTorch.",
+    "recommended_action": "Proceed with the infrastructure gate."
+  }
+}

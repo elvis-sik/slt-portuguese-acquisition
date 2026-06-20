@@ -1,0 +1,140 @@
+{
+  "run_kind": "tinystories_8m_recipe_search_attempt",
+  "scientific_scope": "Short training-recipe search only; not a final result.",
+  "start_utc": "2026-06-20T17:18:44.369547Z",
+  "git_commit": "8888d5e19fb3d7d241b54b09d2f1c53eefb67c10",
+  "git_status_short_at_start": "M AGENTS.md\n M codex/prompts/02_final_training.md\n M codex/prompts/03_llc_campaign.md\n M infra/gcp/download_results.sh\n M state/current_status.json\n M state/decision_log.md\n?? ._AGENTS.md\n?? ._codex\n?? ._infra\n?? codex/._README.md\n?? codex/.___pycache__\n?? codex/._orchestrate.py\n?? codex/._prompts\n?? codex/._run_phase.sh\n?? codex/._schemas\n?? codex/orchestrate.py\n?? codex/prompts/._00_infrastructure_gate.md\n?? codex/prompts/._01_scientific_pilot.md\n?? codex/prompts/._02_final_training.md\n?? codex/prompts/._03_llc_campaign.md\n?? codex/prompts/._04_report.md\n?? codex/prompts/._diagnose_and_fix.md\n?? codex/prompts/._planner.md\n?? codex/prompts/diagnose_and_fix.md\n?? codex/prompts/planner.md\n?? codex/prompts/recipe_search.md\n?? codex/schemas/._plan_directive.schema.json\n?? codex/schemas/._run_decision.schema.json\n?? codex/schemas/plan_directive.schema.json\n?? configs/recipe_search.example.yaml\n?? infra/._gcp\n?? infra/._remote\n?? infra/gcp/._README.md\n?? infra/gcp/._bootstrap_and_sync.sh\n?? infra/gcp/._bootstrap_remote.sh\n?? infra/gcp/._common.sh\n?? infra/gcp/._configure_ssh_for_codex.sh\n?? infra/gcp/._delete_vm.sh\n?? infra/gcp/._download_results.sh\n?? infra/gcp/._env.example\n?? infra/gcp/._install_codex_remote.sh\n?? infra/gcp/._provision_vm.sh\n?? infra/gcp/._push_codex_secret.sh\n?? infra/gcp/._ssh.sh\n?? infra/gcp/._start_orchestrator.sh\n?? infra/gcp/._start_vm.sh\n?? infra/gcp/._startup_install_driver.sh\n?? infra/gcp/._stop_vm.sh\n?? infra/gcp/._wait_for_gpu.sh\n?? infra/gcp/push_codex_secret.sh\n?? infra/gcp/start_orchestrator.sh\n?? infra/remote/._README.md\n?? infra/remote/._dashboard_action.sh\n?? infra/remote/._dashboard_probe.sh\n?? infra/remote/._gpu_watch.sh\n?? infra/remote/._job_status.sh\n?? infra/remote/._run_bounded_job.sh\n?? infra/remote/._stop_job.sh\n?? infra/remote/completion_watchdog.sh\n?? infra/remote/dashboard_action.sh\n?? infra/remote/dashboard_probe.sh\n?? results/00_infrastructure_gate/\n?? results/01_scientific_pilot/\n?? results/02_final_training/\n?? results/03_llc_campaign/\n?? results/_codex/\n?? results/_jobs/\n?? results/_orchestrator/\n?? results/recipe_search/\n?? scripts/recipe_search.py\n?? tests/__init__.py\n?? tests/test_recipe_search.py",
+  "config": {
+    "model": "roneneldan/TinyStories-8M",
+    "sequence_length": 128,
+    "batch_size": 64,
+    "tokens_per_step": 8192,
+    "target_tokens": 1000000,
+    "target_steps": 123,
+    "actual_target_tokens": 1007616,
+    "train_chunks_needed": 7872,
+    "checkpoint_tokens": [
+      0,
+      100000,
+      250000,
+      500000,
+      1000000
+    ],
+    "learning_rate": 0.0001,
+    "warmup_fraction": 0.03,
+    "lr_schedule": "cosine",
+    "grad_clip": 1.0,
+    "weight_decay": 0.01,
+    "optimizer": "AdamW",
+    "training_precision": "fp32",
+    "seed": 202606201,
+    "device": "cuda",
+    "hourly_rate_usd": 1.0,
+    "validation_jsonl": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/validation.jsonl",
+    "grammar_csv": "data/eval/grammar_minimal_pairs.example.csv",
+    "local_files_only": true,
+    "train_corpus": "wikimedia/wikipedia",
+    "train_corpus_config": "20231101.pt",
+    "max_docs": 2048,
+    "conditions": [
+      "structured_pt",
+      "shuffled_pt"
+    ]
+  },
+  "config_for_rehydrate": {
+    "model": "roneneldan/TinyStories-8M",
+    "sequence_length": 128,
+    "batch_size": 64,
+    "target_tokens": 1000000,
+    "checkpoint_tokens": [
+      0,
+      100000,
+      250000,
+      500000,
+      1000000
+    ],
+    "learning_rate": 0.0001,
+    "warmup_fraction": 0.03,
+    "lr_schedule": "cosine",
+    "grad_clip": 1.0,
+    "weight_decay": 0.01,
+    "seed": 202606201,
+    "device": "cuda",
+    "hourly_rate_usd": 1.0,
+    "validation_jsonl": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/validation.jsonl",
+    "grammar_csv": "data/eval/grammar_minimal_pairs.example.csv",
+    "local_files_only": true,
+    "train_corpus": "wikimedia/wikipedia",
+    "train_corpus_config": "20231101.pt",
+    "max_docs": 2048
+  },
+  "package_versions": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.12.0",
+    "datasets": "5.0.0",
+    "devinterp": "unknown",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "zarr": "3.1.6"
+  },
+  "device": "cuda",
+  "gpu": "NVIDIA L4",
+  "torch_cuda_available": true,
+  "parameter_count": 19702528,
+  "tokenizer_vocab_sha256": "e35d8b86ebd35ebd260d040aa455e09759f7e675f4dbb7f3d727516f27eca190",
+  "data_split_manifest": "results/recipe_search/recipe_search_20260620T171838Z_lr1e-4_wiki1m/data_splits/split_manifest.json",
+  "checkpoint_plan": [
+    {
+      "target_tokens": 0,
+      "optimizer_step": 0,
+      "actual_cumulative_tokens": 0
+    },
+    {
+      "target_tokens": 100000,
+      "optimizer_step": 13,
+      "actual_cumulative_tokens": 106496
+    },
+    {
+      "target_tokens": 250000,
+      "optimizer_step": 31,
+      "actual_cumulative_tokens": 253952
+    },
+    {
+      "target_tokens": 500000,
+      "optimizer_step": 62,
+      "actual_cumulative_tokens": 507904
+    },
+    {
+      "target_tokens": 1000000,
+      "optimizer_step": 123,
+      "actual_cumulative_tokens": 1007616
+    }
+  ],
+  "end_utc": "2026-06-20T17:20:00.448799Z",
+  "wall_seconds": 76.07925378799996,
+  "estimated_gpu_hours": 0.02113312605222221,
+  "estimated_cost_usd": 0.02113312605222221,
+  "condition_summaries": {
+    "structured_pt": "results/recipe_search/recipe_search_20260620T171838Z_lr1e-4_wiki1m/conditions/structured_pt/condition_summary.json",
+    "shuffled_pt": "results/recipe_search/recipe_search_20260620T171838Z_lr1e-4_wiki1m/conditions/shuffled_pt/condition_summary.json"
+  },
+  "decision": {
+    "status": "completed",
+    "gate_decision": "proceed",
+    "stable": true,
+    "structured_pt_initial_bpb": 6.77354166271754,
+    "structured_pt_final_bpb": 3.806601217484482,
+    "structured_pt_bpb_delta": -2.966940445233058,
+    "shuffled_pt_final_bpb": 4.214079596129523,
+    "structured_vs_shuffled_pt_bpb_gap": 0.40747837864504133,
+    "criteria": {
+      "structured_pt_bpb_decreasing": true,
+      "beats_shuffled_control": true,
+      "stable_no_nan_or_divergence": true
+    },
+    "winning_checkpoint_path": "conditions/structured_pt/checkpoints/tokens_001000000",
+    "next_bounded_action": "Stop for operator greenlight; continue this recipe from the structured checkpoint to a larger token budget."
+  },
+  "output_tree_size_bytes": 495751298,
+  "exit_status": "completed"
+}

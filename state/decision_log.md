@@ -10,6 +10,14 @@ Scientific scope: two structured Portuguese seeds, one shuffled Portuguese contr
 
 Evidence status: no empirical runs have been completed. The included report is synthetic.
 
+## 2026-06-20 — Codex remote authentication (OpenAI API key via 1Password)
+
+Decision: authenticate the remote Codex CLI with an OpenAI API key delivered from 1Password, rather than interactive `codex login`. The operator generates the key, stores it in a 1Password item, and records only an `op://vault/item/field` reference in the gitignored `.env.local` (`OPENAI_API_KEY_OP_REF`). `infra/gcp/push_codex_secret.sh` resolves it with `op read`, holds the plaintext in memory only, transmits it to the VM over SSH stdin (never as an argument), and stores it at `~/.config/slt-portuguese/codex.env` (mode 600, outside the repo tree). Interactive login shells source it via `~/.bashrc`; `codex/run_phase.sh` sources it for non-interactive `codex exec`. `bootstrap_and_sync.sh` runs the push automatically when the reference is set and `op` is present.
+
+Rationale: the key never touches local disk or a committed file, never appears in process listings, and never enters the repo tarball or results downloads. Rotation is re-running the script after updating 1Password.
+
+Status: infrastructure implemented and syntax-checked. Pending operator action — generate the API key, store it in 1Password, and set `OPENAI_API_KEY_OP_REF` in `.env.local` — before the next bootstrap/sync.
+
 ## 2026-06-20 — infrastructure gate completed
 
 Decision: proceed with modifications. The GCP L4 environment can run the TinyStories-3M CUDA check, random-token training throughput benchmarks, and a `devinterp` 2.0.1 sampler smoke test. Do not start the final campaign yet; next bounded action is the real train-save-reload-evaluate-sample loop with a CPU smoke test and immutable toy data fixture.

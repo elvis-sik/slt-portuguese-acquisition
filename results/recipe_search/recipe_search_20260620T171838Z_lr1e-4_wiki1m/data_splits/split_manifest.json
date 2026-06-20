@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-06-20T17:18:53.528259Z",
+  "immutability_note": "Recipe-search data artifacts are per-attempt, content-addressed, and must not be overwritten.",
+  "fixed_validation_source": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/validation.jsonl",
+  "fixed_validation_source_sha256": "fa93efa4ac0373ca77492a175a7e5e00b86d1c2873aa8a85bbf42f829df44efc",
+  "grammar_csv": "data/eval/grammar_minimal_pairs.example.csv",
+  "grammar_csv_sha256": "eaed9d7b78c180087c78b0d1e1acbad479af4643f524a44cb7218df3fdbb3782",
+  "training_corpus": {
+    "source": "wikimedia/wikipedia",
+    "config": "20231101.pt",
+    "split": "train",
+    "streaming": true,
+    "counts": {
+      "seen": 2081,
+      "accepted": 2048,
+      "too_short": 33,
+      "empty": 0
+    }
+  },
+  "split_sizes": {
+    "validation": 24,
+    "train_chunks": 7872,
+    "train_tokens": 1007616,
+    "documents_used": 2048
+  },
+  "split_hashes_sha256": {
+    "validation.jsonl": "fa93efa4ac0373ca77492a175a7e5e00b86d1c2873aa8a85bbf42f829df44efc",
+    "train_structured_pt_token_ids.jsonl": "02d1424cf9d4321e38cb09393466673db79f5c766b2a14fb1ecc518d929f163a",
+    "train_shuffled_pt_token_ids.jsonl": "ed5f216dfdc8d78264f943cf7018a515cdd05790db85084d7f7a1dd9e0e6e2fb",
+    "train_documents_manifest.jsonl": "5c282ebe792baf95e9cf70a0549b346ef34d227dc9bd19acf6b8666ecf415080"
+  },
+  "tokenizer_vocab_sha256": "e35d8b86ebd35ebd260d040aa455e09759f7e675f4dbb7f3d727516f27eca190"
+}

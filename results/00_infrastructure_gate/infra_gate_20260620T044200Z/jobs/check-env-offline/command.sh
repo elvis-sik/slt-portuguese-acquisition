@@ -1,0 +1,1 @@
+env HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv-bench-py311/bin/python scripts/check_environment.py --model roneneldan/TinyStories-3M --output results/00_infrastructure_gate/infra_gate_20260620T044200Z/environment.json 

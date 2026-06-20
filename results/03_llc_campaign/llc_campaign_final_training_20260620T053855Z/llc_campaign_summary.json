@@ -1,0 +1,95 @@
+{
+  "run_kind": "final_llc_campaign",
+  "status": "completed",
+  "source_final_run_dir": "results/02_final_training/final_training_20260620T053855Z",
+  "primary_condition": "structured_pt_seed_a",
+  "selection_frozen_confirmed": true,
+  "selection_sha256_before": "069e0cf1407753891c2390cc83e087cb01d687a60260837e668990ac8660632b",
+  "selection_sha256_after": "069e0cf1407753891c2390cc83e087cb01d687a60260837e668990ac8660632b",
+  "selected_checkpoint_tokens": [
+    0,
+    100000,
+    400000,
+    1500000,
+    5000000,
+    8000000
+  ],
+  "sampler_config": {
+    "precision": "fp32",
+    "full_parameter_sampling": true,
+    "sampling_method": "sgmcmc_sgld",
+    "lr": 1e-05,
+    "n_beta": 10.0,
+    "localization": 100.0,
+    "batch_size": 32,
+    "num_chains": 3,
+    "num_burnin_steps": 200,
+    "num_draws": 100,
+    "num_steps_bw_draws": 2,
+    "save_metrics": true,
+    "init_seed": 20260620,
+    "match_sampling_input_ids_across_chains": true,
+    "shuffle": true
+  },
+  "reference_set": {
+    "path": "results/02_final_training/final_training_20260620T053855Z/data_splits/sampler_reference.jsonl",
+    "sha256": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f",
+    "examples": 16
+  },
+  "reportable_checkpoint_count": 0,
+  "rejected_checkpoint_count": 0,
+  "failed_checkpoint_count": 6,
+  "invalid_selected_checkpoint_count": 0,
+  "checkpoint_results": [],
+  "failures": [
+    {
+      "checkpoint": "tokens_000000000",
+      "target_tokens": 0,
+      "failure_type": "AssertionError",
+      "message": "Dataset size (16) must be >= num_samples (32)",
+      "trace_output_path": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z/raw_traces/tokens_000000000.zarr",
+      "trace_output_size_bytes": 0
+    },
+    {
+      "checkpoint": "tokens_000100000",
+      "target_tokens": 100000,
+      "failure_type": "AssertionError",
+      "message": "Dataset size (16) must be >= num_samples (32)",
+      "trace_output_path": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z/raw_traces/tokens_000100000.zarr",
+      "trace_output_size_bytes": 0
+    },
+    {
+      "checkpoint": "tokens_000400000",
+      "target_tokens": 400000,
+      "failure_type": "AssertionError",
+      "message": "Dataset size (16) must be >= num_samples (32)",
+      "trace_output_path": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z/raw_traces/tokens_000400000.zarr",
+      "trace_output_size_bytes": 0
+    },
+    {
+      "checkpoint": "tokens_001500000",
+      "target_tokens": 1500000,
+      "failure_type": "AssertionError",
+      "message": "Dataset size (16) must be >= num_samples (32)",
+      "trace_output_path": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z/raw_traces/tokens_001500000.zarr",
+      "trace_output_size_bytes": 0
+    },
+    {
+      "checkpoint": "tokens_005000000",
+      "target_tokens": 5000000,
+      "failure_type": "AssertionError",
+      "message": "Dataset size (16) must be >= num_samples (32)",
+      "trace_output_path": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z/raw_traces/tokens_005000000.zarr",
+      "trace_output_size_bytes": 0
+    },
+    {
+      "checkpoint": "tokens_008000000",
+      "target_tokens": 8000000,
+      "failure_type": "AssertionError",
+      "message": "Dataset size (16) must be >= num_samples (32)",
+      "trace_output_path": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z/raw_traces/tokens_008000000.zarr",
+      "trace_output_size_bytes": 0
+    }
+  ],
+  "claim_language_guardrail": "Do not call this a formal SLT phase transition."
+}

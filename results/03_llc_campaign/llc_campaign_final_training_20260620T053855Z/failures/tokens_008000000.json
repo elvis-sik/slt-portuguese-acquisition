@@ -1,0 +1,8 @@
+{
+  "checkpoint": "tokens_008000000",
+  "target_tokens": 8000000,
+  "failure_type": "AssertionError",
+  "message": "Dataset size (16) must be >= num_samples (32)",
+  "trace_output_path": "results/03_llc_campaign/llc_campaign_final_training_20260620T053855Z/raw_traces/tokens_008000000.zarr",
+  "trace_output_size_bytes": 0
+}

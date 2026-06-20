@@ -1,0 +1,387 @@
+{
+  "selection": "Predeclared early/middle/late structured Portuguese checkpoints from the pilot schedule.",
+  "fixed_sampler_config": {
+    "num_chains": 2,
+    "num_burnin_steps": 20,
+    "num_draws": 10,
+    "num_steps_between_draws": 1,
+    "lr": 1e-05,
+    "n_beta": 10.0,
+    "localization": 100.0,
+    "precision": "fp32"
+  },
+  "fixed_reference_set": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/sampler_reference.jsonl",
+  "results": [
+    {
+      "condition": "structured_pt",
+      "checkpoint": "step_000000",
+      "step": 0,
+      "cumulative_tokens": 0,
+      "sampler_config": {
+        "num_chains": 2,
+        "num_burnin_steps": 20,
+        "num_draws": 10,
+        "num_steps_between_draws": 1,
+        "lr": 1e-05,
+        "n_beta": 10.0,
+        "localization": 100.0,
+        "precision": "fp32"
+      },
+      "observables": {
+        "fixed_portuguese_sampler_reference": {
+          "examples": 16,
+          "split": "sampler_reference",
+          "split_hash": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f"
+        }
+      },
+      "devinterp_llc_signature": "(model: 'torch.nn.Module', dataset: 'Dataset', observables: 'dict[str, ObservableSpec]', *, lr: 'float', n_beta: 'float', param_masks: 'ParamMasks | None' = None, loss_fn: 'LossFn | None' = None, **kwargs) -> 'xr.Dataset'",
+      "result_summary": {
+        "dims": {
+          "chain": 2,
+          "step": 30
+        },
+        "attrs": {},
+        "data_vars": {
+          "llc_mean": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": -71.40867614746094,
+              "max": -71.40867614746094,
+              "mean": -71.40867614746094,
+              "first": -71.40867614746094,
+              "last": -71.40867614746094
+            }
+          },
+          "llc_std": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": 0.9694099426269531,
+              "max": 0.9694099426269531,
+              "mean": 0.9694099426269531,
+              "first": 0.9694099426269531,
+              "last": 0.9694099426269531
+            }
+          },
+          "llc_per_chain": {
+            "dims": [
+              "chain"
+            ],
+            "attrs": {},
+            "data_summary": {
+              "count": 2,
+              "finite_count": 2,
+              "min": -72.37808227539062,
+              "max": -70.43926239013672,
+              "mean": -71.40867233276367,
+              "first": -72.37808227539062,
+              "last": -70.43926239013672
+            }
+          },
+          "llc_scalar": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": -71.40867233276367,
+              "max": -71.40867233276367,
+              "mean": -71.40867233276367,
+              "first": -71.40867233276367,
+              "last": -71.40867233276367
+            }
+          },
+          "loss_trace": {
+            "dims": [
+              "chain",
+              "step"
+            ],
+            "attrs": {},
+            "data_summary": {
+              "count": 60,
+              "finite_count": 60,
+              "min": 1.6096508502960205,
+              "max": 9.426712036132812,
+              "mean": 2.2858445823192595,
+              "first": 9.426712036132812,
+              "last": 2.734619617462158
+            }
+          },
+          "init_loss": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": 9.426712036132812,
+              "max": 9.426712036132812,
+              "mean": 9.426712036132812,
+              "first": 9.426712036132812,
+              "last": 9.426712036132812
+            }
+          }
+        }
+      },
+      "diagnostics": {
+        "finite_result": true,
+        "trace_output_size_bytes": 752783,
+        "trace_output_path": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/llc_cross_check/step_000000.zarr",
+        "wall_seconds": 7.604952736000087,
+        "peak_memory_bytes": 1790939136
+      }
+    },
+    {
+      "condition": "structured_pt",
+      "checkpoint": "step_000024",
+      "step": 24,
+      "cumulative_tokens": 49152,
+      "sampler_config": {
+        "num_chains": 2,
+        "num_burnin_steps": 20,
+        "num_draws": 10,
+        "num_steps_between_draws": 1,
+        "lr": 1e-05,
+        "n_beta": 10.0,
+        "localization": 100.0,
+        "precision": "fp32"
+      },
+      "observables": {
+        "fixed_portuguese_sampler_reference": {
+          "examples": 16,
+          "split": "sampler_reference",
+          "split_hash": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f"
+        }
+      },
+      "devinterp_llc_signature": "(model: 'torch.nn.Module', dataset: 'Dataset', observables: 'dict[str, ObservableSpec]', *, lr: 'float', n_beta: 'float', param_masks: 'ParamMasks | None' = None, loss_fn: 'LossFn | None' = None, **kwargs) -> 'xr.Dataset'",
+      "result_summary": {
+        "dims": {
+          "chain": 2,
+          "step": 30
+        },
+        "attrs": {},
+        "data_vars": {
+          "llc_mean": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": -33.01996994018555,
+              "max": -33.01996994018555,
+              "mean": -33.01996994018555,
+              "first": -33.01996994018555,
+              "last": -33.01996994018555
+            }
+          },
+          "llc_std": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": 0.817596435546875,
+              "max": 0.817596435546875,
+              "mean": 0.817596435546875,
+              "first": 0.817596435546875,
+              "last": 0.817596435546875
+            }
+          },
+          "llc_per_chain": {
+            "dims": [
+              "chain"
+            ],
+            "attrs": {},
+            "data_summary": {
+              "count": 2,
+              "finite_count": 2,
+              "min": -33.83756637573242,
+              "max": -32.20237350463867,
+              "mean": -33.01996994018555,
+              "first": -33.83756637573242,
+              "last": -32.20237350463867
+            }
+          },
+          "llc_scalar": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": -33.0199670791626,
+              "max": -33.0199670791626,
+              "mean": -33.0199670791626,
+              "first": -33.0199670791626,
+              "last": -33.0199670791626
+            }
+          },
+          "loss_trace": {
+            "dims": [
+              "chain",
+              "step"
+            ],
+            "attrs": {},
+            "data_summary": {
+              "count": 60,
+              "finite_count": 60,
+              "min": 0.9414970874786377,
+              "max": 4.826076507568359,
+              "mean": 1.5240796854098637,
+              "first": 4.826076507568359,
+              "last": 1.729954719543457
+            }
+          },
+          "init_loss": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": 4.826076507568359,
+              "max": 4.826076507568359,
+              "mean": 4.826076507568359,
+              "first": 4.826076507568359,
+              "last": 4.826076507568359
+            }
+          }
+        }
+      },
+      "diagnostics": {
+        "finite_result": true,
+        "trace_output_size_bytes": 754629,
+        "trace_output_path": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/llc_cross_check/step_000024.zarr",
+        "wall_seconds": 7.4277274840001155,
+        "peak_memory_bytes": 1790939136
+      }
+    },
+    {
+      "condition": "structured_pt",
+      "checkpoint": "step_000048",
+      "step": 48,
+      "cumulative_tokens": 98304,
+      "sampler_config": {
+        "num_chains": 2,
+        "num_burnin_steps": 20,
+        "num_draws": 10,
+        "num_steps_between_draws": 1,
+        "lr": 1e-05,
+        "n_beta": 10.0,
+        "localization": 100.0,
+        "precision": "fp32"
+      },
+      "observables": {
+        "fixed_portuguese_sampler_reference": {
+          "examples": 16,
+          "split": "sampler_reference",
+          "split_hash": "b9a366d668658bb1d8fda5143aeae70c3c08b439ac10bb34fc33966fc5e4752f"
+        }
+      },
+      "devinterp_llc_signature": "(model: 'torch.nn.Module', dataset: 'Dataset', observables: 'dict[str, ObservableSpec]', *, lr: 'float', n_beta: 'float', param_masks: 'ParamMasks | None' = None, loss_fn: 'LossFn | None' = None, **kwargs) -> 'xr.Dataset'",
+      "result_summary": {
+        "dims": {
+          "chain": 2,
+          "step": 30
+        },
+        "attrs": {},
+        "data_vars": {
+          "llc_mean": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": -31.77579116821289,
+              "max": -31.77579116821289,
+              "mean": -31.77579116821289,
+              "first": -31.77579116821289,
+              "last": -31.77579116821289
+            }
+          },
+          "llc_std": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": 1.0051755905151367,
+              "max": 1.0051755905151367,
+              "mean": 1.0051755905151367,
+              "first": 1.0051755905151367,
+              "last": 1.0051755905151367
+            }
+          },
+          "llc_per_chain": {
+            "dims": [
+              "chain"
+            ],
+            "attrs": {},
+            "data_summary": {
+              "count": 2,
+              "finite_count": 2,
+              "min": -32.780967712402344,
+              "max": -30.77061653137207,
+              "mean": -31.775792121887207,
+              "first": -32.780967712402344,
+              "last": -30.77061653137207
+            }
+          },
+          "llc_scalar": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": -31.775795221328735,
+              "max": -31.775795221328735,
+              "mean": -31.775795221328735,
+              "first": -31.775795221328735,
+              "last": -31.775795221328735
+            }
+          },
+          "loss_trace": {
+            "dims": [
+              "chain",
+              "step"
+            ],
+            "attrs": {},
+            "data_summary": {
+              "count": 60,
+              "finite_count": 60,
+              "min": 0.9045819044113159,
+              "max": 4.710484981536865,
+              "mean": 1.5329051196575165,
+              "first": 4.710484981536865,
+              "last": 1.6937161684036255
+            }
+          },
+          "init_loss": {
+            "dims": [],
+            "attrs": {},
+            "data_summary": {
+              "count": 1,
+              "finite_count": 1,
+              "min": 4.710484504699707,
+              "max": 4.710484504699707,
+              "mean": 4.710484504699707,
+              "first": 4.710484504699707,
+              "last": 4.710484504699707
+            }
+          }
+        }
+      },
+      "diagnostics": {
+        "finite_result": true,
+        "trace_output_size_bytes": 757722,
+        "trace_output_path": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/llc_cross_check/step_000048.zarr",
+        "wall_seconds": 7.42666533900001,
+        "peak_memory_bytes": 1790939136
+      }
+    }
+  ],
+  "interpretable": true,
+  "warning": "Pilot LLC cross-check is diagnostic only; it is not a reportable final SLT phase-transition claim."
+}

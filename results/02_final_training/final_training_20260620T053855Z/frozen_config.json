@@ -1,0 +1,65 @@
+{
+  "project": "slt-portuguese",
+  "mode": "final_behavioral_training",
+  "model": {
+    "id": "roneneldan/TinyStories-8M",
+    "revision": null,
+    "tokenizer_id": "roneneldan/TinyStories-8M",
+    "local_files_only": true,
+    "full_parameter_training": true
+  },
+  "training": {
+    "sequence_length": 128,
+    "global_batch_size": 32,
+    "target_tokens": 8000000,
+    "optimizer": "adamw",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0,
+    "precision": "fp32",
+    "seed": 20260620,
+    "device": "cuda",
+    "checkpoint_tokens": [
+      0,
+      25000,
+      50000,
+      100000,
+      200000,
+      400000,
+      800000,
+      1500000,
+      3000000,
+      5000000,
+      8000000
+    ]
+  },
+  "data": {
+    "source": "frozen_pilot_split",
+    "source_model_note": "OPUS-100 en-pt stream prefix frozen by the TinyStories-3M scientific pilot.",
+    "split_manifest": "results/01_scientific_pilot/scientific_pilot_20260620T053047Z/data_splits/split_manifest.json"
+  },
+  "evaluation": {
+    "grammar_pairs": "data/eval/grammar_minimal_pairs.example.csv",
+    "report_bits_per_byte": true,
+    "evaluate_every_checkpoint": true
+  },
+  "llc_checkpoint_selection": {
+    "fixed_checkpoint_tokens": [
+      0,
+      100000,
+      400000,
+      1500000,
+      8000000
+    ],
+    "adaptive_metric": "grammar_mean_margin",
+    "freeze_note": "Use behavior outputs only. Do not inspect final LLC before this rule is written and the selected checkpoint file is frozen."
+  },
+  "cost": {
+    "hourly_rate_usd": 1.0,
+    "starting_cumulative_cost_usd": 0.1044,
+    "expected_incremental_cost_usd": 4.5,
+    "hard_cap_usd": 50.0
+  },
+  "output": {
+    "root": "results/02_final_training"
+  }
+}

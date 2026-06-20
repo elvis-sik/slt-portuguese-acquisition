@@ -1,0 +1,71 @@
+run_id=infra_gate_20260620T044200Z
+start_utc=2026-06-20T04:42:19Z
+git_head=18cd0ebe6529a6b5fddcecad42eef2e6805cb0e5
+git_status_short_begin
+ M AGENTS.md
+ M codex/prompts/00_infrastructure_gate.md
+ M codex/prompts/01_scientific_pilot.md
+ M codex/run_phase.sh
+ M infra/gcp/README.md
+ M infra/gcp/bootstrap_and_sync.sh
+ M infra/gcp/common.sh
+ M infra/gcp/install_codex_remote.sh
+ M scripts/benchmark_sampler.py
+ M state/decision_log.md
+?? ._AGENTS.md
+?? ._codex
+?? ._infra
+?? codex/._README.md
+?? codex/.___pycache__
+?? codex/._orchestrate.py
+?? codex/._prompts
+?? codex/._run_phase.sh
+?? codex/._schemas
+?? codex/orchestrate.py
+?? codex/prompts/._00_infrastructure_gate.md
+?? codex/prompts/._01_scientific_pilot.md
+?? codex/prompts/._02_final_training.md
+?? codex/prompts/._03_llc_campaign.md
+?? codex/prompts/._04_report.md
+?? codex/prompts/._diagnose_and_fix.md
+?? codex/prompts/._planner.md
+?? codex/prompts/diagnose_and_fix.md
+?? codex/prompts/planner.md
+?? codex/schemas/._plan_directive.schema.json
+?? codex/schemas/._run_decision.schema.json
+?? codex/schemas/plan_directive.schema.json
+?? infra/._gcp
+?? infra/._remote
+?? infra/gcp/._README.md
+?? infra/gcp/._bootstrap_and_sync.sh
+?? infra/gcp/._bootstrap_remote.sh
+?? infra/gcp/._common.sh
+?? infra/gcp/._configure_ssh_for_codex.sh
+?? infra/gcp/._delete_vm.sh
+?? infra/gcp/._download_results.sh
+?? infra/gcp/._env.example
+?? infra/gcp/._install_codex_remote.sh
+?? infra/gcp/._provision_vm.sh
+?? infra/gcp/._push_codex_secret.sh
+?? infra/gcp/._ssh.sh
+?? infra/gcp/._start_orchestrator.sh
+?? infra/gcp/._start_vm.sh
+?? infra/gcp/._startup_install_driver.sh
+?? infra/gcp/._stop_vm.sh
+?? infra/gcp/._wait_for_gpu.sh
+?? infra/gcp/push_codex_secret.sh
+?? infra/gcp/start_orchestrator.sh
+?? infra/remote/._README.md
+?? infra/remote/._dashboard_action.sh
+?? infra/remote/._dashboard_probe.sh
+?? infra/remote/._gpu_watch.sh
+?? infra/remote/._job_status.sh
+?? infra/remote/._run_bounded_job.sh
+?? infra/remote/._stop_job.sh
+?? infra/remote/dashboard_action.sh
+?? infra/remote/dashboard_probe.sh
+?? results/00_infrastructure_gate/
+?? results/_codex/
+?? results/_jobs/
+?? results/_orchestrator/
+git_status_short_end
