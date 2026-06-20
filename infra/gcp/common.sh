@@ -3,7 +3,13 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ENV_FILE="${ENV_FILE:-$SCRIPT_DIR/.env}"
 if [[ ! -f "$ENV_FILE" ]]; then
-  echo "Missing $ENV_FILE. Copy env.example to .env and edit it." >&2
+  # Single source of truth: fall back to the repo-root .env.local (the same file the dashboard
+  # uses) instead of requiring a duplicate infra/gcp/.env.
+  ROOT_ENV="$(cd "$SCRIPT_DIR/../.." && pwd)/.env.local"
+  [[ -f "$ROOT_ENV" ]] && ENV_FILE="$ROOT_ENV"
+fi
+if [[ ! -f "$ENV_FILE" ]]; then
+  echo "Missing $ENV_FILE. Copy env.example to .env (or create repo-root .env.local)." >&2
   exit 2
 fi
 # shellcheck disable=SC1090

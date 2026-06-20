@@ -9,7 +9,10 @@ command -v codex || {
 sudo ln -sf "$HOME/.local/bin/codex" /usr/local/bin/codex
 codex --version
 cat <<'EOF'
-Codex is installed. Authenticate interactively on the remote host if needed:
-  codex login
+Codex is installed. Authenticate using one of:
+  - API key (headless): from the operator workstation run
+      infra/gcp/push_codex_secret.sh
+    which resolves the key from 1Password and installs OPENAI_API_KEY on this VM.
+  - ChatGPT account (interactive): run `codex login` on this host.
 Then confirm `codex` is available in a fresh login shell, because the Codex App uses it over SSH.
 EOF
