@@ -31,6 +31,29 @@ Before the final 8M experiment, all conditions below must pass:
 
 If a gate fails, execute the relevant pivot in `docs/11_FAILURE_MODES_AND_PIVOTS.md` rather than silently weakening the standard.
 
+## Scientific validity gate (a broken pipeline is not a null result)
+
+Rule 9 (a null or smooth result is acceptable) applies ONLY after the pipeline is demonstrably working.
+A broken or degenerate run is a bug to fix or escalate — never report it as a scientific finding.
+Before recording any phase as passed or writing a report, verify:
+
+- **The model actually learns the target.** The structured-Portuguese condition's validation loss/BPB
+  must DECREASE over training. If structured-PT BPB *increases* over training (the model gets worse at
+  the very thing it is trained on), or English degrades with no Portuguese gain, the run is a
+  training/pipeline failure. Diagnose learning rate and schedule, warmup, gradient clipping, token
+  budget, model scale, tokenization, data, and evaluation — do not freeze and report degradation.
+- **LLC estimates are physically valid.** The LLC must be positive, with the sampler not drifting
+  persistently below the checkpoint center. Negative or non-physical LLC means the checkpoints are not
+  near local optima (usually because training never converged). Fix the training first; never report
+  negative LLC as a geometric result.
+- **Pilot/final consistency.** A pilot that improves but a final run that degrades is a red flag —
+  investigate the config/scale discrepancy rather than proceeding.
+
+Only classify a result as a genuine null/smooth finding when the model demonstrably learned Portuguese
+and the LLC values are valid but show no aligned changepoint. Otherwise the executor returns status
+`blocked`/`failed` with `gate_decision: pivot` (or escalates), and the planner must NOT declare the
+project `complete`.
+
 ## Cloud and spending rules
 
 - Cloud lifecycle is controlled from `infra/gcp/` on the operator machine. Do not provision, resize, stop, or delete instances from the GPU worker.
@@ -39,6 +62,27 @@ If a gate fails, execute the relevant pivot in `docs/11_FAILURE_MODES_AND_PIVOTS
 - Every GPU job writes a manifest, log, status file, and final exit code.
 - Do not start an incremental action estimated above two GPU-hours or $5 without recording a gate decision. Do not exceed the repository hard budget without explicit human approval.
 - Do not run final jobs on Spot/preemptible capacity unless the operator explicitly changes the plan.
+
+## Unattended autonomous operation
+
+When the orchestrator (`codex/orchestrate.py`) is running, the operator has **pre-authorized**
+autonomous progression through the full gate sequence — including the paid final training and LLC
+campaign — without per-run human approval. This pre-authorization is bounded and enforced in code by
+the harness, not by agent discretion:
+
+- A **hard spend cap** (default $50; the $35 soft line still logs a review entry). The harness refuses
+  any step whose projected cumulative spend would cross the hard cap.
+- A **wall-clock deadline** (set at launch, e.g. 8 hours). The harness halts at the deadline regardless
+  of in-progress work.
+- A **cooperative operator stop-file** (`results/_control/_orchestrator/stop`), checked at the top of
+  every tick; the dashboard "Stop Orchestrator" control writes it.
+
+Within those bounds the planner agent sets each step's time budget and the executor proceeds. The
+per-run "human approval" language elsewhere in this file is satisfied by this standing
+pre-authorization while the orchestrator is running. Everything outside the envelope still requires a
+human: provisioning/resizing/deleting cloud, raising the hard cap, changing the hypothesis or scientific
+scope, running on preemptible capacity, or publishing. On any terminal halt the harness requests a VM
+**stop (never delete)**, issued operator-side by the dashboard worker.
 
 ## Engineering rules
 
