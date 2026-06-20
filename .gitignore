@@ -10,5 +10,6 @@ results/**/cache/
 .cache/
 wandb/
 *.log
+!results/_jobs/**/stdout_stderr.log
 .DS_Store
 reference/mock_report/build/

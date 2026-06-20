@@ -1,10 +1,21 @@
 {
-  "phase": "handoff_received",
-  "gate": "infrastructure_not_run",
+  "phase": "infrastructure_gate",
+  "gate": "passed_with_modifications",
   "last_updated": "2026-06-20",
-  "gpu_hours_used": 0.0,
-  "estimated_cost_usd": 0.0,
-  "next_action": "Run infrastructure gate on TinyStories-3M",
-  "requires_human_approval": true,
-  "reason": "Provisioning a paid GCP VM"
+  "gpu_hours_used": 0.064,
+  "estimated_cost_usd": 0.064,
+  "projected_charged_hours": {
+    "low": 2.119,
+    "median": 3.531,
+    "high": 7.062
+  },
+  "projected_cost_usd": {
+    "low": 2.119,
+    "median": 3.531,
+    "high": 7.062
+  },
+  "requires_human_approval": false,
+  "next_action": "Implement the real TinyStories-3M train-save-reload-evaluate-sample loop with a CPU smoke test before any final campaign.",
+  "reason": "GCP L4 CUDA check, TinyStories-3M training benchmarks, and devinterp sampler smoke test completed. Python 3.11 and sampler API/tensor-format fixes were required; failed attempts are retained under results/_jobs.",
+  "cost_note": "gpu_hours_used and estimated_cost_usd are bounded-job wall time at the $1.00/h planning rate, excluding VM boot, bootstrap, idle time, disk, and any official GCP pricing variance."
 }

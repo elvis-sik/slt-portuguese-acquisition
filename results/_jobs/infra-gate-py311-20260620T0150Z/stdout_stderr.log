@@ -1,0 +1,235 @@
+Using CPython 3.11.15
+Creating virtual environment at: .venv-bench-py311
+Activate with: source .venv-bench-py311/bin/activate
+Using Python 3.11.15 environment at: .venv-bench-py311
+Resolved 29 packages in 11ms
+Installed 29 packages in 196ms
+ + cuda-bindings==13.3.1
+ + cuda-pathfinder==1.5.5
+ + cuda-toolkit==13.0.2
+ + filelock==3.29.3
+ + fsspec==2026.4.0
+ + jinja2==3.1.6
+ + markupsafe==3.0.3
+ + mpmath==1.3.0
+ + networkx==3.6.1
+ + nvidia-cublas==13.1.1.3
+ + nvidia-cuda-cupti==13.0.85
+ + nvidia-cuda-nvrtc==13.0.88
+ + nvidia-cuda-runtime==13.0.96
+ + nvidia-cudnn-cu13==9.20.0.48
+ + nvidia-cufft==12.0.0.61
+ + nvidia-cufile==1.15.1.6
+ + nvidia-curand==10.4.0.35
+ + nvidia-cusolver==12.0.4.66
+ + nvidia-cusparse==12.6.3.3
+ + nvidia-cusparselt-cu13==0.8.1
+ + nvidia-nccl-cu13==2.29.7
+ + nvidia-nvjitlink==13.0.88
+ + nvidia-nvshmem-cu13==3.4.5
+ + nvidia-nvtx==13.0.85
+ + setuptools==81.0.0
+ + sympy==1.14.0
+ + torch==2.12.0
+ + triton==3.7.0
+ + typing-extensions==4.15.0
+Using Python 3.11.15 environment at: .venv-bench-py311
+Resolved 92 packages in 113ms
+Installed 63 packages in 132ms
+ + accelerate==1.14.0
+ + aiohappyeyeballs==2.6.2
+ + aiohttp==3.14.1
+ + aiosignal==1.4.0
+ + annotated-doc==0.0.4
+ + annotated-types==0.7.0
+ + anyio==4.13.0
+ + attrs==26.1.0
+ + certifi==2026.5.20
+ + charset-normalizer==3.4.7
+ + click==8.4.1
+ + contourpy==1.3.3
+ + cycler==0.12.1
+ + datasets==5.0.0
+ + devinterp==2.0.1
+ + dill==0.4.1
+ + donfig==0.8.1.post1
+ + fonttools==4.63.0
+ + frozenlist==1.8.0
+ + google-crc32c==1.8.0
+ + h11==0.16.0
+ + hf-xet==1.5.1
+ + httpcore==1.0.9
+ + httpx==0.28.1
+ + huggingface-hub==1.19.0
+ + idna==3.18
+ + kiwisolver==1.5.0
+ + markdown-it-py==4.2.0
+ + matplotlib==3.11.0
+ + mdurl==0.1.2
+ + multidict==6.7.1
+ + multiprocess==0.70.19
+ + numcodecs==0.16.5
+ + numpy==2.4.6
+ + packaging==26.2
+ + pandas==3.0.3
+ + pillow==12.2.0
+ + propcache==0.5.2
+ + psutil==7.2.2
+ + pyarrow==24.0.0
+ + pydantic==2.13.4
+ + pydantic-core==2.46.4
+ + pygments==2.20.0
+ + pyparsing==3.3.2
+ + python-dateutil==2.9.0.post0
+ + pyyaml==6.0.3
+ + regex==2026.5.9
+ + requests==2.34.2
+ + rich==15.0.0
+ + safetensors==0.8.0
+ + scipy==1.17.1
+ + shellingham==1.5.4
+ + six==1.17.0
+ + tokenizers==0.22.2
+ + tqdm==4.68.2
+ + transformers==5.12.0
+ + typer==0.25.1
+ + typing-inspection==0.4.2
+ + urllib3==2.7.0
+ + xarray==2026.4.0
+ + xxhash==3.7.0
+ + yarl==1.24.2
+ + zarr==3.1.6
+Using Python 3.11.15 environment at: .venv-bench-py311
+.venv-bench-py311/bin/python scripts/validate_handoff.py
+Root: /home/elvis/slt-portuguese
+Required files: 12 present
+Mock PDF size: 963,517 bytes
+Mock PDF SHA256: 1c439a97612b7b5d151c731b61394eeab86df1b700d5dc909784a6778618c6e3
+Validation passed. Synthetic artifacts remain under reference/mock_report/.
+mkdir -p results/00_infrastructure_gate
+.venv-bench-py311/bin/python scripts/check_environment.py --model roneneldan/TinyStories-3M --output results/00_infrastructure_gate/environment.json
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/108 [00:00<?, ?it/s]Loading weights: 100%|██████████| 108/108 [00:00<00:00, 26434.69it/s]
+[transformers] [1mGPTNeoForCausalLM LOAD REPORT[0m from: roneneldan/TinyStories-3M
+Key                                                               | Status     |  | 
+------------------------------------------------------------------+------------+--+-
+transformer.h.{0, 1, 2, 3, 4, 5, 6, 7}.attn.attention.bias        | UNEXPECTED |  | 
+transformer.h.{0, 1, 2, 3, 4, 5, 6, 7}.attn.attention.masked_bias | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+{
+  "timestamp_utc": "2026-06-20T01:43:06.572331+00:00",
+  "python": "3.11.15 (main, Jun 11 2026, 04:03:40) [Clang 22.1.3 ]",
+  "platform": "Linux-6.8.0-1060-gcp-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.12.0",
+    "datasets": "5.0.0",
+    "devinterp": "installed",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3"
+  },
+  "nvidia_smi": "Sat Jun 20 01:43:15 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA L4                      Off |   00000000:00:03.0 Off |                    0 |\n| N/A   38C    P0             31W /   72W |       0MiB /  23034MiB |      4%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|  No running processes found                                                             |\n+-----------------------------------------------------------------------------------------+\n",
+  "torch_cuda_available": true,
+  "torch_cuda_version": "13.0",
+  "cuda_device_count": 1,
+  "cuda_device_name": "NVIDIA L4",
+  "cuda_total_memory_bytes": 23689363456,
+  "model_id": "roneneldan/TinyStories-3M",
+  "parameter_count": 8278400,
+  "trainable_parameter_count": 8278400,
+  "tokenizer_vocab_size": 50257,
+  "forward_backward_loss": 16.457984924316406,
+  "forward_backward_device": "cuda"
+}
+mkdir -p results/00_infrastructure_gate
+.venv-bench-py311/bin/python scripts/benchmark_train.py --model roneneldan/TinyStories-3M --sequence-length 64 --batch-size 32 --warmup-steps 50 --steps 200 --output results/00_infrastructure_gate/train_seq64.json
+Loading weights:   0%|          | 0/108 [00:00<?, ?it/s]Loading weights: 100%|██████████| 108/108 [00:00<00:00, 26498.09it/s]
+[transformers] [1mGPTNeoForCausalLM LOAD REPORT[0m from: roneneldan/TinyStories-3M
+Key                                                               | Status     |  | 
+------------------------------------------------------------------+------------+--+-
+transformer.h.{0, 1, 2, 3, 4, 5, 6, 7}.attn.attention.masked_bias | UNEXPECTED |  | 
+transformer.h.{0, 1, 2, 3, 4, 5, 6, 7}.attn.attention.bias        | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{
+  "benchmark": "training",
+  "timestamp_utc": "2026-06-20T01:43:47.361624+00:00",
+  "model": "roneneldan/TinyStories-3M",
+  "parameter_count": 8278400,
+  "gpu": "NVIDIA L4",
+  "torch_version": "2.12.0+cu130",
+  "torch_cuda_version": "13.0",
+  "precision": "fp32",
+  "sequence_length": 64,
+  "batch_size": 32,
+  "warmup_steps": 50,
+  "measured_steps": 200,
+  "wall_seconds": 7.820680581000033,
+  "seconds_per_step_mean": 0.03910103094000874,
+  "seconds_per_step_median": 0.03915319349994206,
+  "seconds_per_step_p95": 0.03963126899998315,
+  "tokens_per_second": 52373.95847557097,
+  "peak_memory_bytes": 2101139456,
+  "first_loss": 8.593023300170898,
+  "last_loss": 1.2401748895645142,
+  "warning": "Random-token throughput benchmark; repeat through the real data pipeline before final planning."
+}
+.venv-bench-py311/bin/python scripts/benchmark_train.py --model roneneldan/TinyStories-3M --sequence-length 128 --batch-size 32 --warmup-steps 50 --steps 200 --output results/00_infrastructure_gate/train_seq128.json
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/108 [00:00<?, ?it/s]Loading weights: 100%|██████████| 108/108 [00:00<00:00, 26334.80it/s]
+[transformers] [1mGPTNeoForCausalLM LOAD REPORT[0m from: roneneldan/TinyStories-3M
+Key                                                               | Status     |  | 
+------------------------------------------------------------------+------------+--+-
+transformer.h.{0, 1, 2, 3, 4, 5, 6, 7}.attn.attention.bias        | UNEXPECTED |  | 
+transformer.h.{0, 1, 2, 3, 4, 5, 6, 7}.attn.attention.masked_bias | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+{
+  "benchmark": "training",
+  "timestamp_utc": "2026-06-20T01:44:14.693684+00:00",
+  "model": "roneneldan/TinyStories-3M",
+  "parameter_count": 8278400,
+  "gpu": "NVIDIA L4",
+  "torch_version": "2.12.0+cu130",
+  "torch_cuda_version": "13.0",
+  "precision": "fp32",
+  "sequence_length": 128,
+  "batch_size": 32,
+  "warmup_steps": 50,
+  "measured_steps": 200,
+  "wall_seconds": 15.014194667000083,
+  "seconds_per_step_mean": 0.07506923971500327,
+  "seconds_per_step_median": 0.07504273099993952,
+  "seconds_per_step_p95": 0.07565621300000203,
+  "tokens_per_second": 54561.70098823426,
+  "peak_memory_bytes": 4189641216,
+  "first_loss": 9.538053512573242,
+  "last_loss": 1.9807369709014893,
+  "warning": "Random-token throughput benchmark; repeat through the real data pipeline before final planning."
+}
+mkdir -p results/00_infrastructure_gate
+.venv-bench-py311/bin/python scripts/benchmark_sampler.py --model roneneldan/TinyStories-3M --sequence-length 128 --batch-size 32 --num-chains 2 --num-burnin-steps 100 --num-draws 50 --num-steps-between-draws 2 --output results/00_infrastructure_gate/sampler_smoke.json
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/108 [00:00<?, ?it/s]Loading weights: 100%|██████████| 108/108 [00:00<00:00, 27792.19it/s]
+[transformers] [1mGPTNeoForCausalLM LOAD REPORT[0m from: roneneldan/TinyStories-3M
+Key                                                               | Status     |  | 
+------------------------------------------------------------------+------------+--+-
+transformer.h.{0, 1, 2, 3, 4, 5, 6, 7}.attn.attention.masked_bias | UNEXPECTED |  | 
+transformer.h.{0, 1, 2, 3, 4, 5, 6, 7}.attn.attention.bias        | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Traceback (most recent call last):
+  File "/home/elvis/slt-portuguese/scripts/benchmark_sampler.py", line 108, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/elvis/slt-portuguese/scripts/benchmark_sampler.py", line 80, in main
+    result = llc(**kwargs)
+             ^^^^^^^^^^^^^
+TypeError: llc() missing 1 required positional argument: 'observables'
+make: *** [Makefile:21: benchmark-sampler] Error 1

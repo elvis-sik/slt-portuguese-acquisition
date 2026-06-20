@@ -1,0 +1,1 @@
+bash -lc $'set -euo pipefail\nmake PYTHON=.venv-bench-py311/bin/python benchmark-sampler\nmake PYTHON=.venv-bench-py311/bin/python estimate\nnvidia-smi > results/00_infrastructure_gate/nvidia_smi_final.txt\n' 

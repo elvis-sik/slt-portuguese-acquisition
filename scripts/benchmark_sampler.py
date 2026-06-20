@@ -9,6 +9,14 @@ from pathlib import Path
 from typing import Any
 
 
+def path_size_bytes(path: Path) -> int:
+    if path.is_file():
+        return path.stat().st_size
+    if path.is_dir():
+        return sum(p.stat().st_size for p in path.rglob("*") if p.is_file())
+    return 0
+
+
 def jsonable(value: Any) -> Any:
     if value is None or isinstance(value, (str, int, float, bool)):
         return value
@@ -53,10 +61,15 @@ def main() -> int:
     vocab = int(model.config.vocab_size)
     data = rng.integers(0, vocab, size=(args.dataset_size, args.sequence_length), dtype=np.int64)
     dataset = Dataset.from_dict({"input_ids": [row.tolist() for row in data]})
+    dataset.set_format(type="torch", columns=["input_ids"])
+    observables = {"random_tokens": (dataset, 1)}
+    trace_output = args.output.with_suffix(".zarr")
+    args.output.parent.mkdir(parents=True, exist_ok=True)
 
     candidate_kwargs = {
         "model": model,
         "dataset": dataset,
+        "observables": observables,
         "lr": args.lr,
         "n_beta": args.n_beta,
         "localization": args.localization,
@@ -66,6 +79,7 @@ def main() -> int:
         "num_draws": args.num_draws,
         "num_steps_bw_draws": args.num_steps_between_draws,
         "num_steps_between_draws": args.num_steps_between_draws,
+        "output_path": str(trace_output),
     }
     sig = inspect.signature(llc)
     accepts_var_kw = any(p.kind == inspect.Parameter.VAR_KEYWORD for p in sig.parameters.values())
@@ -91,14 +105,26 @@ def main() -> int:
         "parameter_count": sum(p.numel() for p in model.parameters()),
         "gpu": torch.cuda.get_device_name(0),
         "devinterp_llc_signature": str(sig),
-        "kwargs_passed": kwargs,
+        "sampler_config": {
+            k: jsonable(v)
+            for k, v in kwargs.items()
+            if k not in {"model", "dataset", "observables"}
+        },
+        "observables": {
+            name: {
+                "dataset_size": len(spec[0] if isinstance(spec, tuple) else spec),
+                "batches_per_draw": spec[1] if isinstance(spec, tuple) else "default",
+            }
+            for name, spec in observables.items()
+        },
         "wall_seconds": wall,
         "approx_chain_steps": approx_steps,
         "seconds_per_chain_step_estimate": wall / max(1, approx_steps),
         "peak_memory_bytes": torch.cuda.max_memory_allocated(),
+        "trace_output_path": str(trace_output),
+        "trace_output_size_bytes": path_size_bytes(trace_output),
         "result": jsonable(result),
     }
-    args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2, default=str))
     return 0

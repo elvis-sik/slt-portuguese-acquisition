@@ -1,0 +1,23 @@
+{
+  "benchmark": "training",
+  "timestamp_utc": "2026-06-20T01:44:14.693684+00:00",
+  "model": "roneneldan/TinyStories-3M",
+  "parameter_count": 8278400,
+  "gpu": "NVIDIA L4",
+  "torch_version": "2.12.0+cu130",
+  "torch_cuda_version": "13.0",
+  "precision": "fp32",
+  "sequence_length": 128,
+  "batch_size": 32,
+  "warmup_steps": 50,
+  "measured_steps": 200,
+  "wall_seconds": 15.014194667000083,
+  "seconds_per_step_mean": 0.07506923971500327,
+  "seconds_per_step_median": 0.07504273099993952,
+  "seconds_per_step_p95": 0.07565621300000203,
+  "tokens_per_second": 54561.70098823426,
+  "peak_memory_bytes": 4189641216,
+  "first_loss": 9.538053512573242,
+  "last_loss": 1.9807369709014893,
+  "warning": "Random-token throughput benchmark; repeat through the real data pipeline before final planning."
+}

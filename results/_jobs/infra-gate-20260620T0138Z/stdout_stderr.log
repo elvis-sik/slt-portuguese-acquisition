@@ -1,0 +1,118 @@
+Resolved 29 packages in 1.17s
+Downloading nvidia-cublas (403.5MiB)
+Downloading torch (507.5MiB)
+Downloading nvidia-cudnn-cu13 (349.2MiB)
+Downloading nvidia-cufft (204.2MiB)
+Downloading nvidia-nccl-cu13 (196.4MiB)
+Downloading nvidia-cusolver (191.6MiB)
+Downloading nvidia-cusparselt-cu13 (162.3MiB)
+Downloading triton (192.0MiB)
+Downloading nvidia-cusparse (139.2MiB)
+Downloading nvidia-cuda-nvrtc (86.0MiB)
+Downloading nvidia-nvshmem-cu13 (57.6MiB)
+Downloading nvidia-curand (56.8MiB)
+Downloading nvidia-nvjitlink (38.8MiB)
+Downloading nvidia-cuda-cupti (10.2MiB)
+Downloading cuda-bindings (6.4MiB)
+Downloading sympy (6.0MiB)
+Downloading networkx (1.6MiB)
+Downloading nvidia-cufile (1.2MiB)
+Downloading nvidia-cuda-runtime (2.1MiB)
+ Downloaded nvidia-cufile
+ Downloaded nvidia-cuda-runtime
+ Downloaded cuda-bindings
+ Downloaded nvidia-cuda-cupti
+ Downloaded networkx
+ Downloaded nvidia-nvjitlink
+ Downloaded sympy
+ Downloaded nvidia-curand
+ Downloaded nvidia-nvshmem-cu13
+ Downloaded nvidia-cuda-nvrtc
+ Downloaded nvidia-cusparse
+ Downloaded nvidia-cusparselt-cu13
+ Downloaded nvidia-cusolver
+ Downloaded nvidia-nccl-cu13
+ Downloaded triton
+ Downloaded nvidia-cufft
+ Downloaded nvidia-cudnn-cu13
+ Downloaded nvidia-cublas
+ Downloaded torch
+Prepared 28 packages in 37.51s
+Installed 28 packages in 706ms
+ + cuda-bindings==13.3.1
+ + cuda-pathfinder==1.5.5
+ + cuda-toolkit==13.0.2
+ + filelock==3.29.3
+ + fsspec==2026.4.0
+ + jinja2==3.1.6
+ + markupsafe==3.0.3
+ + mpmath==1.3.0
+ + networkx==3.4.2
+ + nvidia-cublas==13.1.1.3
+ + nvidia-cuda-cupti==13.0.85
+ + nvidia-cuda-nvrtc==13.0.88
+ + nvidia-cuda-runtime==13.0.96
+ + nvidia-cudnn-cu13==9.20.0.48
+ + nvidia-cufft==12.0.0.61
+ + nvidia-cufile==1.15.1.6
+ + nvidia-curand==10.4.0.35
+ + nvidia-cusolver==12.0.4.66
+ + nvidia-cusparse==12.6.3.3
+ + nvidia-cusparselt-cu13==0.8.1
+ + nvidia-nccl-cu13==2.29.7
+ + nvidia-nvjitlink==13.0.88
+ + nvidia-nvshmem-cu13==3.4.5
+ + nvidia-nvtx==13.0.85
+ + sympy==1.14.0
+ + torch==2.12.0
+ + triton==3.7.0
+ + typing-extensions==4.15.0
+  × No solution found when resolving dependencies:
+  ╰─▶ Because only the following versions of zarr are available:
+          zarr<=3.0.0
+          zarr==3.0.1
+          zarr==3.0.2
+          zarr==3.0.3
+          zarr==3.0.4
+          zarr==3.0.5
+          zarr==3.0.6
+          zarr==3.0.7
+          zarr==3.0.8
+          zarr==3.0.9
+          zarr==3.0.10
+          zarr==3.1.0
+          zarr==3.1.1
+          zarr==3.1.2
+          zarr==3.1.3
+          zarr==3.1.4
+          zarr==3.1.5
+          zarr==3.1.6
+          zarr==3.2.0
+          zarr==3.2.1
+      and zarr>=3.0.0,<=3.0.2 was yanked (reason: zarr.load() deletes data.
+      See https://github.com/zarr-developers/zarr-python/issues/3061 for more
+      information), we can conclude that zarr>=3.0.0,<=3.0.2 cannot be used.
+      And because zarr==3.0.3 was yanked (reason: broke a certain
+      indexing incantation with our last release. see #2849.
+      This can lead to data corruption) and zarr>=3.0.4,<=3.0.7
+      was yanked (reason: zarr.load() deletes data. See
+      https://github.com/zarr-developers/zarr-python/issues/3061 for more
+      information), we can conclude that zarr>=3.0.4,<=3.0.7 cannot be used.
+      (1)
+
+      Because the current Python version (3.10.12) does not satisfy
+      Python>=3.11 and zarr>=3.0.8,<=3.1.6 depends on Python>=3.11, we can
+      conclude that zarr>=3.0.8,<=3.1.6 cannot be used.
+      And because we know from (1) that zarr>=3.0.4,<=3.0.7 cannot be used, we
+      can conclude that zarr>=3.0.0,<3.2.0 cannot be used. (2)
+
+      Because the current Python version (3.10.12) does not satisfy
+      Python>=3.11 and zarr>=3.2.0 depends on Python>=3.12, we can conclude
+      that zarr>=3.2.0 cannot be used.
+      And because we know from (2) that zarr>=3.0.0,<3.2.0 cannot be used, we
+      can conclude that zarr>=3.0.0 cannot be used.
+      And because devinterp==2.0.1 depends on zarr>=3.0.0 and you require
+      devinterp==2.0.1, we can conclude that your requirements are
+      unsatisfiable.
+
+hint: Pre-releases are available for `zarr` in the requested range (e.g., 3.2.0rc1), but pre-releases weren't enabled (try: `--prerelease=allow`)
