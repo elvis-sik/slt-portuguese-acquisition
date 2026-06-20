@@ -3,6 +3,8 @@ __pycache__/
 *.pyc
 infra/gcp/.env
 .env
+.env.local
+infra/gcp/.env.local
 results/**/checkpoints/
 results/**/cache/
 .cache/
