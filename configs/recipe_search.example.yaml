@@ -1,0 +1,30 @@
+# Search space for the rapid recipe-search phase (codex/prompts/recipe_search.md).
+# The executor proposes/refines recipes within these bounds; each attempt is a SHORT bounded training
+# whose only job is to reveal whether structured-Portuguese BPB is decreasing. Stay on the small model.
+project: slt-portuguese
+mode: recipe_search
+model:
+  id: roneneldan/TinyStories-8M
+  full_parameter_training: true
+  precision: fp32
+data:
+  # OPUS-100 en-pt is small; for real per-attempt tokens pull a streaming slice of a larger PT corpus.
+  candidates: [Helsinki-NLP/opus-100, oscar-corpus/OSCAR-2301, cc100, mc4]
+  language: pt
+  fixed_validation_manifest: data/manifests/portuguese_validation.json   # held fixed across attempts
+attempt:
+  minutes_per_attempt: [5, 15]        # keep attempts short; prefer more attempts over longer ones
+  tokens_per_attempt: [10_000_000, 40_000_000]
+  checkpoint_at_end: true
+search_space:
+  learning_rate: [3.0e-5, 5.0e-5, 1.0e-4, 2.0e-4]
+  warmup_fraction: [0.0, 0.03, 0.1]
+  lr_schedule: [constant, cosine, linear_decay]
+  grad_clip: [0.0, 1.0]
+  weight_decay: [0.0, 0.01, 0.1]
+  global_batch_size: [32, 64]
+success_criteria:
+  structured_pt_bpb_decreasing: true   # the learning signal
+  beats_shuffled_control: true         # structure, not noise memorization
+  stable: true                         # no divergence / NaNs
+on_success: "Stop and recommend continuing the winning recipe from its checkpoint; planner halts for operator greenlight."

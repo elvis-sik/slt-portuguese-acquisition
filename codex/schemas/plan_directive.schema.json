@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "description": "Output of the planner agent. One directive per orchestrator tick. The deterministic harness clamps time_budget_hours to the remaining deadline and refuses any step whose projected spend would cross the hard cap, regardless of these values.",
+  "properties": {
+    "terminal_decision": {
+      "type": "string",
+      "description": "continue = run the execution agent with the directive below; complete = the project goal is genuinely achieved, halt and request shutdown; escalate = a human decision is required, halt and wait.",
+      "enum": ["continue", "complete", "escalate"]
+    },
+    "stage": {
+      "type": "string",
+      "description": "The phase this directive belongs to.",
+      "enum": [
+        "infrastructure_gate",
+        "recipe_search",
+        "scientific_pilot",
+        "final_training",
+        "llc_campaign",
+        "report",
+        "diagnose_and_fix"
+      ]
+    },
+    "executor_prompt": {
+      "type": "string",
+      "description": "Path (repo-relative) to the executor prompt the harness should run for this stage, e.g. codex/prompts/01_scientific_pilot.md or codex/prompts/diagnose_and_fix.md."
+    },
+    "task_instruction": {
+      "type": "string",
+      "description": "Concrete, specific instruction appended to the executor prompt for this tick: what to build/run/fix next and the success criterion."
+    },
+    "time_budget_hours": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Wall-clock budget granted to the execution agent for this tick. Small for early exploration, generous for the final run (e.g. ~6h for a ~3.5h run). The harness clamps this to the time remaining before the overall deadline."
+    },
+    "expected_cost_usd": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Planner estimate of the incremental spend for this tick. Used by the harness to refuse steps that would cross the hard cap."
+    },
+    "rationale": {
+      "type": "string",
+      "description": "Why this is the right next action given elapsed/remaining time, cumulative cost, and the last executor decision."
+    }
+  },
+  "required": [
+    "terminal_decision",
+    "stage",
+    "executor_prompt",
+    "task_instruction",
+    "time_budget_hours",
+    "expected_cost_usd",
+    "rationale"
+  ],
+  "additionalProperties": false
+}
