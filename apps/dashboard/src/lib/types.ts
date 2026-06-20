@@ -1,4 +1,4 @@
-export type HealthState = "ok" | "warn" | "fail" | "unknown";
+export type HealthState = "ok" | "warn" | "fail" | "idle" | "unknown";
 export type ActionStatus = "pending" | "running" | "completed" | "failed";
 
 export interface DashboardConfig {

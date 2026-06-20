@@ -31,7 +31,7 @@ import {
   XAxis,
   YAxis
 } from "recharts";
-import type { ArtifactRecord, JobRecord, MetricPoint, RunRecord, Snapshot } from "@/lib/types";
+import type { ArtifactRecord, HealthRecord, JobRecord, MetricPoint, RunRecord, Snapshot } from "@/lib/types";
 
 const queryClient = new QueryClient();
 
@@ -168,12 +168,16 @@ function StatusStrip({ snapshot }: { snapshot: Snapshot }) {
   const ssh = status("ssh");
   const worker = status("worker");
   const sync = status("sync");
+  const vmStatus = textValue(vm?.data.status);
+  const vmRunning = vmStatus === "RUNNING";
+  const vmKnownStopped = Boolean(vmStatus && !vmRunning);
+  const remoteCommit = textValue(remote?.data.git_commit);
   const items = [
-    { label: "Worker", state: worker?.state ?? "unknown", value: worker?.updatedAt },
-    { label: "VM", state: vm?.state ?? "unknown", value: String(vm?.data.status ?? "unknown") },
-    { label: "SSH", state: ssh?.state ?? "unknown", value: ssh?.data.host ? "connected" : "unknown" },
-    { label: "Remote", state: remote?.state ?? "unknown", value: String(remote?.data.git_commit ?? "none") },
-    { label: "Sync", state: sync?.state ?? "unknown", value: sync?.updatedAt },
+    { label: "Worker", state: worker?.state ?? "unknown", value: worker?.updatedAt ? `heartbeat ${timeOnly(worker.updatedAt)}` : "not seen" },
+    { label: "VM", state: vmRunning ? "ok" : vmKnownStopped ? "idle" : vm?.state ?? "unknown", value: vmStatus || "not checked" },
+    { label: "SSH", state: vmKnownStopped ? "idle" : ssh?.state ?? "unknown", value: sshValue(ssh, vmKnownStopped) },
+    { label: "Remote", state: vmKnownStopped ? "idle" : remote?.state ?? "unknown", value: remoteValue(remote, remoteCommit, vmKnownStopped) },
+    { label: "Sync", state: vmKnownStopped ? "idle" : sync?.state ?? "unknown", value: syncValue(sync, vmKnownStopped) },
     { label: "Spend", state: "ok", value: dollars(snapshot.summary.estimatedCostUsd) }
   ];
   return (
@@ -189,6 +193,36 @@ function StatusStrip({ snapshot }: { snapshot: Snapshot }) {
       ))}
     </section>
   );
+}
+
+function textValue(value: unknown): string {
+  return typeof value === "string" ? value : "";
+}
+
+function timeOnly(value: string): string {
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? value : parsed.toLocaleTimeString();
+}
+
+function sshValue(ssh: HealthRecord | undefined, vmOff: boolean): string {
+  if (vmOff) return "VM off";
+  if (ssh?.state === "ok") return "connected";
+  if (ssh?.state === "warn") return "connect failed";
+  return textValue(ssh?.data.message) || "not checked";
+}
+
+function remoteValue(remote: HealthRecord | undefined, commit: string, vmOff: boolean): string {
+  if (vmOff) return "VM off";
+  if (remote?.state === "ok") return commit ? commit.slice(0, 12) : "connected";
+  if (remote?.state === "warn") return "probe failed";
+  return textValue(remote?.data.message) || "not checked";
+}
+
+function syncValue(sync: HealthRecord | undefined, vmOff: boolean): string {
+  if (vmOff) return "idle";
+  if (sync?.state === "ok") return sync.updatedAt ? `last ${timeOnly(sync.updatedAt)}` : "synced";
+  if (sync?.state === "warn") return "failed";
+  return textValue(sync?.data.message) || "not run";
 }
 
 function HealthDot({ state }: { state: string }) {

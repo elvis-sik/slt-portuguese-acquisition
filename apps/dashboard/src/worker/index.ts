@@ -36,15 +36,28 @@ async function probeVm(): Promise<string | null> {
     timeoutMs: 15000
   });
   const status = result.stdout.trim();
-  setHealth(result.exitCode === 0 ? "vm" : "vm", result.exitCode === 0 ? "ok" : "warn", {
+  const state = result.exitCode !== 0 ? "warn" : status === "RUNNING" ? "ok" : "idle";
+  setHealth("vm", state, {
     status,
     stderr: result.stderr.trim()
   });
   return result.exitCode === 0 ? status : null;
 }
 
-async function probeRemote(): Promise<boolean> {
+function markRemoteIdle(vmStatus: string | null): void {
   const config = getConfig();
+  const message = vmStatus ? `VM is ${vmStatus}` : "VM is not running";
+  setHealth("ssh", "idle", { host: config.sshHost, message });
+  setHealth("remote", "idle", { message });
+  setHealth("sync", "idle", { message: "Waiting for VM to run before syncing" });
+}
+
+async function probeRemote(vmStatus: string | null): Promise<boolean> {
+  const config = getConfig();
+  if (vmStatus !== "RUNNING") {
+    markRemoteIdle(vmStatus);
+    return false;
+  }
   if (!config.sshHost) {
     setHealth("ssh", "unknown", { message: "missing ssh host" });
     return false;
@@ -134,6 +147,7 @@ async function main(): Promise<void> {
   let vmProbeAt = 0;
   let remoteProbeAt = 0;
   let syncAt = 0;
+  let lastVmStatus: string | null = null;
   while (!stopping) {
     const now = Date.now();
     try {
@@ -141,11 +155,11 @@ async function main(): Promise<void> {
       await executePendingActions(1);
       refreshIndex("worker");
       if (now >= vmProbeAt) {
-        await probeVm();
+        lastVmStatus = await probeVm();
         vmProbeAt = now + 15000;
       }
       if (now >= remoteProbeAt) {
-        const remoteOk = await probeRemote();
+        const remoteOk = await probeRemote(lastVmStatus);
         remoteProbeAt = now + (remoteOk ? 5000 : 15000);
         if (remoteOk && now >= syncAt) {
           await syncSmallArtifacts();
