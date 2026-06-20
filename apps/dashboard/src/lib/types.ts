@@ -12,6 +12,10 @@ export interface DashboardConfig {
   sshHost: string | null;
   remoteRepoPath: string;
   hourlyRateUsd: number;
+  codexPlannerModel: string;
+  codexPlannerEffort: string;
+  codexExecModel: string;
+  codexExecEffort: string;
 }
 
 export interface HealthRecord {
@@ -109,6 +113,7 @@ export interface Snapshot {
   artifacts: ArtifactRecord[];
   actions: ActionRecord[];
   currentStatus: Record<string, unknown> | null;
+  orchestrator: Record<string, unknown> | null;
   decisionLogTail: string;
   registryRows: number;
 }

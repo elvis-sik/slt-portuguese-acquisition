@@ -89,6 +89,9 @@ function buildSyncSpec(direction: "pull" | "push-control"): CommandSpec {
     "*.md",
     "*.txt",
     "*.log",
+    "*.png",
+    "*.pdf",
+    "*.svg",
     "*.sh",
     "status",
     "pid",
@@ -168,6 +171,36 @@ function buildSpawnAction(type: ActionType, args: Record<string, unknown>): Comm
       args: [config.sshHost, `${config.remoteRepoPath}/infra/remote/stop_job.sh`, String(args.jobName)],
       timeoutMs: 30000
     };
+  }
+  if (type === "startOrchestrator") {
+    const orchArgs = [
+      config.sshHost,
+      `${config.remoteRepoPath}/infra/remote/dashboard_action.sh`,
+      "start-orchestrator",
+      "--deadline-hours",
+      String(args.deadlineHours ?? 8),
+      "--soft",
+      String(args.soft ?? 35),
+      "--hard",
+      String(args.hard ?? 50)
+    ];
+    if (args.autoStop === false) orchArgs.push("--no-auto-stop");
+    orchArgs.push(
+      "--planner-model", config.codexPlannerModel,
+      "--planner-effort", config.codexPlannerEffort,
+      "--exec-model", config.codexExecModel,
+      "--exec-effort", config.codexExecEffort
+    );
+    return { command: "ssh", args: orchArgs, timeoutMs: 30000 };
+  }
+  if (type === "stopOrchestrator") {
+    const stopArgs = [
+      config.sshHost,
+      `${config.remoteRepoPath}/infra/remote/dashboard_action.sh`,
+      "stop-orchestrator"
+    ];
+    if (args.kill === true) stopArgs.push("--kill");
+    return { command: "ssh", args: stopArgs, timeoutMs: 30000 };
   }
   return null;
 }

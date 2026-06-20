@@ -1,8 +1,37 @@
-import { setHealth } from "@/lib/db";
+import { getMeta, setHealth, setMeta } from "@/lib/db";
 import { refreshIndex } from "@/lib/indexer";
-import { executePendingActions } from "@/lib/actions";
-import { getConfig } from "@/lib/paths";
+import { enqueueAction, executePendingActions } from "@/lib/actions";
+import { getConfig, repoPath } from "@/lib/paths";
+import { safeReadJson } from "@/lib/files";
 import { runCommand } from "@/lib/commands";
+
+const SHUTDOWN_STATUSES = new Set([
+  "complete",
+  "halted_deadline",
+  "halted_budget",
+  "halted_operator"
+]);
+
+// When the orchestrator reaches a terminal state with request_shutdown, do one final sync and
+// stop (never delete) the VM — operator-side, so cloud lifecycle stays off the worker per AGENTS.md.
+async function maybeAutoStopOnComplete(vmStatus: string | null): Promise<void> {
+  if (vmStatus !== "RUNNING") return;
+  const state = safeReadJson(repoPath("results", "_orchestrator", "state.json")) as
+    | Record<string, unknown>
+    | null;
+  if (!state) return;
+  const status = String(state.status ?? "");
+  const requestShutdown = state.request_shutdown === true;
+  const autoStop = state.auto_stop_on_complete === true;
+  if (!requestShutdown || !autoStop || !SHUTDOWN_STATUSES.has(status)) return;
+  const token = `${state.started_at ?? ""}:${status}`;
+  if (getMeta<string | null>("orchestrator_autostop", null) === token) return; // already handled
+  await syncSmallArtifacts(); // final reconciling sync before powering down
+  enqueueAction("stopVm", {});
+  setMeta("orchestrator_autostop", token);
+  setHealth("orchestrator", "ok", { message: `auto-stopping VM after ${status}`, token });
+  console.log(`[dashboard-worker] orchestrator ${status}; enqueued stopVm`);
+}
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -111,6 +140,12 @@ async function syncSmallArtifacts(): Promise<void> {
       "--include",
       "*.log",
       "--include",
+      "*.png",
+      "--include",
+      "*.pdf",
+      "--include",
+      "*.svg",
+      "--include",
       "*.sh",
       "--include",
       "status",
@@ -167,6 +202,9 @@ async function main(): Promise<void> {
           refreshIndex("sync");
         }
       }
+      // Checked every loop (not gated behind the sync cadence) so it fires promptly after the laptop
+      // resumes from sleep. Self-guards on VM status + a one-shot meta token.
+      await maybeAutoStopOnComplete(lastVmStatus);
     } catch (error) {
       setHealth("worker", "warn", { error: error instanceof Error ? error.message : String(error) });
     }

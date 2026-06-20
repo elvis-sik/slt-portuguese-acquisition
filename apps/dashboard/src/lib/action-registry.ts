@@ -11,12 +11,23 @@ export const syncNowSchema = z.object({
 export const startBoundedJobSchema = z.object({
   jobName: safeName,
   templateId: z.enum(["harmless-status", "remote-probe"]),
-  maxHours: z.coerce.number().positive().max(2).default(0.25),
+  // Per-step budgets now come from the orchestrator planner and legitimately exceed 2h
+  // (the final run is ~6h). Keep an upper guard so a typo can't request a runaway window.
+  maxHours: z.coerce.number().positive().max(12).default(0.25),
   maxEpochs: z.coerce.number().int().positive().max(1000).optional(),
   maxSteps: z.coerce.number().int().positive().max(10_000_000).optional(),
   maxTokens: z.coerce.number().int().positive().max(1_000_000_000).optional()
 });
 export const stopJobSchema = z.object({ jobName: safeName });
+export const startOrchestratorSchema = z.object({
+  deadlineHours: z.coerce.number().positive().max(24).default(8),
+  soft: z.coerce.number().positive().max(1000).default(35),
+  hard: z.coerce.number().positive().max(1000).default(50),
+  autoStop: z.coerce.boolean().default(true)
+});
+export const stopOrchestratorSchema = z.object({
+  kill: z.coerce.boolean().default(false)
+});
 export const runControlSchema = z.object({
   runId: safeName,
   note: z.string().max(500).optional().default("")
@@ -36,7 +47,9 @@ export const actionSchemas = {
   checkpointNow: runControlSchema,
   pauseRun: runControlSchema,
   resumeRun: runControlSchema,
-  forkFromCheckpoint: forkFromCheckpointSchema
+  forkFromCheckpoint: forkFromCheckpointSchema,
+  startOrchestrator: startOrchestratorSchema,
+  stopOrchestrator: stopOrchestratorSchema
 };
 
 export type ActionType = keyof typeof actionSchemas;
@@ -143,6 +156,24 @@ export const actionDefinitions: ActionDefinition[] = [
       { name: "checkpointId", label: "Checkpoint id", type: "text", required: true },
       { name: "newRunId", label: "New run id", type: "text" }
     ]
+  },
+  {
+    type: "startOrchestrator",
+    label: "Start Orchestrator",
+    description: "Launch the unattended planner+executor orchestrator on the remote VM.",
+    dangerous: true,
+    fields: [
+      { name: "deadlineHours", label: "Deadline (hours)", type: "number", required: true, placeholder: "8" },
+      { name: "soft", label: "Soft cap (USD)", type: "number", placeholder: "35" },
+      { name: "hard", label: "Hard cap (USD)", type: "number", placeholder: "50" }
+    ]
+  },
+  {
+    type: "stopOrchestrator",
+    label: "Stop Orchestrator",
+    description: "Cooperatively halt the orchestrator at its next tick (optionally TERM the process).",
+    dangerous: true,
+    fields: []
   }
 ];
 

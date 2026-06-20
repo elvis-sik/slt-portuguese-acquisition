@@ -31,4 +31,25 @@ describe("action registry", () => {
   it("rejects unknown actions", () => {
     expect(() => validateAction("shell", {})).toThrow(/Unknown action/);
   });
+
+  it("coerces orchestrator launch args and defaults", () => {
+    const action = validateAction("startOrchestrator", { deadlineHours: "8", soft: "35", hard: "50" });
+    expect(action.args.deadlineHours).toBe(8);
+    expect(action.args.soft).toBe(35);
+    expect(action.args.hard).toBe(50);
+    expect(action.args.autoStop).toBe(true);
+  });
+
+  it("accepts a bare stop-orchestrator action", () => {
+    const action = validateAction("stopOrchestrator", {});
+    expect(action.type).toBe("stopOrchestrator");
+    expect(action.args.kill).toBe(false);
+  });
+
+  it("allows bounded-job budgets above the old 2h cap but guards runaway windows", () => {
+    expect(validateAction("startBoundedJob", { jobName: "final", templateId: "harmless-status", maxHours: "6" }).args.maxHours).toBe(6);
+    expect(() =>
+      validateAction("startBoundedJob", { jobName: "final", templateId: "harmless-status", maxHours: "99" })
+    ).toThrow();
+  });
 });

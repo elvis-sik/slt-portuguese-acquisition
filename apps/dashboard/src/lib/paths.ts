@@ -52,7 +52,11 @@ export function getConfig(): DashboardConfig {
     vmName,
     sshHost,
     remoteRepoPath: env.DASHBOARD_REMOTE_REPO_PATH || `~/${remoteRepoDir}`,
-    hourlyRateUsd: Number(env.HOURLY_RATE_USD || "1")
+    hourlyRateUsd: Number(env.HOURLY_RATE_USD || "1"),
+    codexPlannerModel: env.CODEX_PLANNER_MODEL || "gpt-5.5",
+    codexPlannerEffort: env.CODEX_PLANNER_EFFORT || "xhigh",
+    codexExecModel: env.CODEX_EXEC_MODEL || "gpt-5.5",
+    codexExecEffort: env.CODEX_EXEC_EFFORT || "high"
   };
   return cachedConfig;
 }

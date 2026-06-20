@@ -102,7 +102,8 @@ export function getSnapshot(options: { refresh?: boolean } = {}): Snapshot {
     })
   );
   const artifacts = all<Record<string, unknown>>(
-    "SELECT * FROM artifacts ORDER BY mtime_ms DESC LIMIT 600"
+    // High enough that a full completed run's artifacts stay visible (a run produces ~800+ files).
+    "SELECT * FROM artifacts ORDER BY mtime_ms DESC LIMIT 2000"
   ).map(
     (row): ArtifactRecord => ({
       path: String(row.path),
@@ -137,6 +138,7 @@ export function getSnapshot(options: { refresh?: boolean } = {}): Snapshot {
     })
   );
   const currentStatus = safeReadJson(repoPath("state", "current_status.json"));
+  const orchestrator = safeReadJson(repoPath("results", "_orchestrator", "state.json"));
   const estimate = safeReadJson(repoPath("results", "00_infrastructure_gate", "project_estimate.json"));
   const projectedMedianHours =
     typeof estimate?.charged_hours === "object" && estimate.charged_hours !== null
@@ -165,6 +167,7 @@ export function getSnapshot(options: { refresh?: boolean } = {}): Snapshot {
     artifacts,
     actions,
     currentStatus,
+    orchestrator,
     decisionLogTail: logTail(repoPath("state", "decision_log.md"), 80),
     registryRows
   };

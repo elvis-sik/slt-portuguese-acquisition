@@ -5,6 +5,7 @@ import * as Tooltip from "@radix-ui/react-tooltip";
 import {
   Activity,
   AlertTriangle,
+  Bot,
   Box,
   ChartSpline,
   CheckCircle2,
@@ -108,15 +109,27 @@ function Dashboard() {
       <div className="mx-auto grid max-w-[1800px] gap-4 px-4 py-4 lg:grid-cols-[minmax(0,1fr)_420px]">
         <section className="space-y-4">
           <StatusStrip snapshot={data} />
-          <Tabs.Root defaultValue="runs" className="rounded-md border border-line bg-white">
-            <Tabs.List className="flex border-b border-line bg-panel">
-              <Tab value="runs" icon={<Workflow className="h-4 w-4" />} label="Runs" />
+          <Tabs.Root defaultValue="orchestrator" className="rounded-md border border-line bg-white">
+            <Tabs.List className="flex flex-wrap border-b border-line bg-panel">
+              <Tab value="orchestrator" icon={<Workflow className="h-4 w-4" />} label="Orchestrator" />
+              <Tab value="runs" icon={<History className="h-4 w-4" />} label="Experiment runs" />
               <Tab value="figures" icon={<ChartSpline className="h-4 w-4" />} label="Figures" />
               <Tab value="metrics" icon={<Activity className="h-4 w-4" />} label="Metrics" />
-              <Tab value="logs" icon={<Terminal className="h-4 w-4" />} label="Logs" />
+              <Tab value="logs" icon={<Terminal className="h-4 w-4" />} label="Jobs" />
+              <Tab value="agent" icon={<Bot className="h-4 w-4" />} label="Agent log" />
               <Tab value="artifacts" icon={<Box className="h-4 w-4" />} label="Artifacts" />
             </Tabs.List>
+            <Tabs.Content value="orchestrator" className="p-4">
+              <p className="mb-3 text-xs text-moss">
+                The overnight control loop — the spine of this run. Each <span className="text-ink">tick</span>, the planner picks the next action and the
+                executor carries it out, producing the <span className="text-ink">experiment runs</span> and <span className="text-ink">agent logs</span> in the other tabs.
+              </p>
+              <OrchestratorView snapshot={data} />
+            </Tabs.Content>
             <Tabs.Content value="runs" className="p-4">
+              <p className="mb-3 text-xs text-moss">
+                Training, sampler, and evaluation runs the executor recorded in the registry, produced during orchestrator ticks. <span className="text-ink">Phase</span> is the orchestrator stage that produced each one.
+              </p>
               <RunTable runs={data.runs} selected={selectedRun?.id ?? null} onSelect={setSelectedRunId} />
               {selectedRun ? <RunDetail run={selectedRun} snapshot={data} /> : null}
             </Tabs.Content>
@@ -127,7 +140,14 @@ function Dashboard() {
               <MetricGrid metrics={data.metrics} selectedRun={selectedRun} />
             </Tabs.Content>
             <Tabs.Content value="logs" className="p-4">
+              <p className="mb-3 text-xs text-moss">Bounded job processes (the detached runners under results/_jobs) that experiment runs execute through.</p>
               <JobTable jobs={data.jobs} />
+            </Tabs.Content>
+            <Tabs.Content value="agent" className="p-4">
+              <p className="mb-3 text-xs text-moss">
+                Raw transcript of each agent call (planner + executor), one per orchestrator tick. The readable view shows the agent&apos;s messages, commands, and structured decision.
+              </p>
+              <AgentLogPanel />
             </Tabs.Content>
             <Tabs.Content value="artifacts" className="p-4">
               <ArtifactTable artifacts={data.artifacts} />
@@ -693,6 +713,346 @@ function JobTable({ jobs }: { jobs: JobRecord[] }) {
   );
 }
 
+type AgentRun = {
+  run: string;
+  kind: "planner" | "executor";
+  mtimeMs: number;
+  sizeBytes: number;
+  hasEvents: boolean;
+  eventsPath: string;
+  decision: { status?: string | null; gateDecision?: string | null; summary?: string } | null;
+};
+
+type AgentEntry =
+  | { kind: "message"; text: string; meta?: string }
+  | { kind: "reasoning"; text: string }
+  | { kind: "command"; command: string; output?: string; exitCode?: number | null }
+  | { kind: "files"; files: string[]; summary?: string }
+  | { kind: "tool"; name: string; detail?: string }
+  | { kind: "error"; text: string }
+  | { kind: "decision"; status?: string; gate?: string; summary?: string; next?: string }
+  | { kind: "todo"; todos: { text: string; done: boolean }[] }
+  | { kind: "other"; label: string; text: string };
+
+function asText(v: unknown): string {
+  if (typeof v === "string") return v;
+  if (Array.isArray(v)) {
+    return v
+      .map((p) => (typeof p === "string" ? p : p && typeof (p as Record<string, unknown>).text === "string" ? String((p as Record<string, unknown>).text) : ""))
+      .join("");
+  }
+  return "";
+}
+
+function cleanCommand(cmd: unknown): string {
+  let c = Array.isArray(cmd) ? cmd.join(" ") : typeof cmd === "string" ? cmd : "";
+  c = c.trim();
+  const m = c.match(/^(?:\/bin\/)?bash\s+-l?c\s+([\s\S]*)$/);
+  if (m) {
+    let inner = m[1].trim();
+    if ((inner.startsWith('"') && inner.endsWith('"')) || (inner.startsWith("'") && inner.endsWith("'"))) inner = inner.slice(1, -1);
+    c = inner;
+  }
+  return c;
+}
+
+// The executor's final answers are emitted as run_decision JSON, so an "assistant message" is often
+// a JSON object whose readable prose is its `summary`. Pull that out and keep the verdict as meta.
+function summaryFromText(text: string): { summary: string; meta?: string } | null {
+  const s = text.trim();
+  if (!s.startsWith("{")) return null;
+  try {
+    const o = JSON.parse(s) as Record<string, unknown>;
+    if (!o.summary || !(o.status || o.gate_decision || o.terminal_decision || o.next_action)) return null;
+    const head = [String(o.status ?? o.terminal_decision ?? "").trim(), o.gate_decision ? String(o.gate_decision) : ""].filter(Boolean).join(" · ");
+    const meta = [head, o.next_action ? `next: ${String(o.next_action)}` : ""].filter(Boolean).join(" · ");
+    return { summary: asText(o.summary), meta: meta || undefined };
+  } catch {
+    return null;
+  }
+}
+
+function itemToEntry(it: Record<string, unknown>): AgentEntry {
+  const t = String(it.type ?? "");
+  if (t === "command_execution" || t === "local_shell_call" || t === "shell") {
+    const ec = it.exit_code ?? it.exitCode;
+    return {
+      kind: "command",
+      command: cleanCommand(it.command ?? it.cmd),
+      output: asText(it.aggregated_output ?? it.output ?? it.stdout) || undefined,
+      exitCode: typeof ec === "number" ? ec : ec === null ? null : undefined
+    };
+  }
+  if (t === "reasoning") return { kind: "reasoning", text: asText(it.text ?? it.summary ?? it.content) };
+  if (t === "agent_message" || t === "assistant_message" || t === "message") {
+    const text = asText(it.text ?? it.content);
+    const d = summaryFromText(text);
+    return d ? { kind: "message", text: d.summary, meta: d.meta } : { kind: "message", text };
+  }
+  if (t === "file_change" || t === "patch" || t === "patch_apply" || t === "file_update") {
+    const changes = (it.changes ?? it.files) as unknown;
+    let files: string[] = [];
+    if (Array.isArray(changes)) files = changes.map((c) => (typeof c === "string" ? c : String((c as Record<string, unknown>)?.path ?? (c as Record<string, unknown>)?.file ?? ""))).filter(Boolean);
+    else if (changes && typeof changes === "object") files = Object.keys(changes as Record<string, unknown>);
+    return { kind: "files", files, summary: asText(it.summary) || undefined };
+  }
+  if (t === "mcp_tool_call" || t === "function_call" || t === "web_search" || t === "tool_call") {
+    return { kind: "tool", name: String(it.tool ?? it.name ?? it.server ?? t), detail: asText(it.query ?? it.arguments ?? it.command) || undefined };
+  }
+  if (t === "error") return { kind: "error", text: asText(it.message ?? it.text) || JSON.stringify(it) };
+  if (t === "todo_list") {
+    const raw = (it.items ?? it.todos) as unknown;
+    const todos = Array.isArray(raw)
+      ? raw.map((x) => {
+          const o = (x ?? {}) as Record<string, unknown>;
+          return { text: asText(o.text ?? o.title ?? o.content) || String(x), done: Boolean(o.completed ?? o.done ?? o.status === "completed") };
+        })
+      : [];
+    return { kind: "todo", todos };
+  }
+  const text = asText(it.text ?? it.summary ?? it.content);
+  return { kind: "other", label: t || "item", text: text || JSON.stringify(it) };
+}
+
+// Parse Codex's `exec --json` event stream into human-readable entries. item.started/item.completed
+// pairs collapse to one entry per item id (completed wins), and noisy lifecycle events are dropped.
+function parseAgentEvents(content: string): AgentEntry[] {
+  const byId = new Map<string, number>();
+  const entries: AgentEntry[] = [];
+  let i = 0;
+  for (const line of content.split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    i += 1;
+    let ev: Record<string, unknown>;
+    try {
+      ev = JSON.parse(line) as Record<string, unknown>;
+    } catch {
+      entries.push({ kind: "other", label: "raw", text: line });
+      continue;
+    }
+    const type = String(ev.type ?? "");
+    if (type.startsWith("item.") && ev.item && typeof ev.item === "object") {
+      const it = ev.item as Record<string, unknown>;
+      const entry = itemToEntry(it);
+      const id = String(it.id ?? `i${i}`);
+      const at = byId.get(id);
+      if (at !== undefined) entries[at] = entry;
+      else {
+        byId.set(id, entries.length);
+        entries.push(entry);
+      }
+      continue;
+    }
+    if (type === "error" || ev.error) {
+      entries.push({ kind: "error", text: asText(ev.message ?? ev.error) || JSON.stringify(ev) });
+      continue;
+    }
+    if (ev.summary && (ev.status || ev.gate_decision || ev.terminal_decision || ev.next_action)) {
+      entries.push({
+        kind: "decision",
+        status: String(ev.status ?? ev.terminal_decision ?? ""),
+        gate: ev.gate_decision ? String(ev.gate_decision) : undefined,
+        summary: asText(ev.summary),
+        next: ev.next_action ? String(ev.next_action) : undefined
+      });
+      continue;
+    }
+    // thread.*/turn.* lifecycle events are intentionally dropped from the readable view.
+  }
+  return entries;
+}
+
+function AgentEntryView({ e }: { e: AgentEntry }) {
+  if (e.kind === "message")
+    return (
+      <div className="rounded border border-line bg-white px-2 py-1.5">
+        <div className="mb-0.5 flex items-center justify-between gap-2 text-[10px] uppercase tracking-wide text-moss">
+          <span>assistant</span>
+          {e.meta ? <span className="shrink-0 font-mono normal-case">{e.meta}</span> : null}
+        </div>
+        <div className="whitespace-pre-wrap break-words text-[12px] text-ink">{e.text}</div>
+      </div>
+    );
+  if (e.kind === "reasoning")
+    return (
+      <div className="px-2 py-1">
+        <div className="mb-0.5 text-[10px] uppercase tracking-wide text-moss">thinking</div>
+        <div className="whitespace-pre-wrap break-words text-[12px] italic text-moss">{e.text}</div>
+      </div>
+    );
+  if (e.kind === "command") {
+    const pending = e.exitCode === undefined || e.exitCode === null;
+    const ok = !pending && e.exitCode === 0;
+    const badge = pending ? "$" : ok ? "✓" : `✗ ${e.exitCode}`;
+    return (
+      <div className="rounded border border-line bg-panel px-2 py-1.5">
+        <div className="flex items-start gap-2">
+          <span className={`shrink-0 font-mono text-[11px] ${pending ? "text-moss" : ok ? "text-ink" : "text-danger"}`}>{badge}</span>
+          <code className="min-w-0 whitespace-pre-wrap break-words font-mono text-[11px] text-ink">{e.command}</code>
+        </div>
+        {e.output ? (
+          <details className="mt-1">
+            <summary className="cursor-pointer text-[10px] text-moss">output</summary>
+            <pre className="mt-1 max-h-64 overflow-auto whitespace-pre-wrap break-words rounded bg-white p-2 font-mono text-[10px] text-ink">{e.output}</pre>
+          </details>
+        ) : null}
+      </div>
+    );
+  }
+  if (e.kind === "files")
+    return (
+      <div className="rounded border border-line bg-white px-2 py-1.5 text-[11px]">
+        <span className="text-moss">edited:</span> <span className="break-words font-mono text-ink">{e.files.join(", ") || e.summary || "(files)"}</span>
+      </div>
+    );
+  if (e.kind === "tool")
+    return (
+      <div className="rounded border border-line bg-white px-2 py-1.5 text-[11px]">
+        <span className="text-moss">tool</span> <span className="font-mono text-ink">{e.name}</span>
+        {e.detail ? <div className="mt-0.5 whitespace-pre-wrap break-words text-moss">{e.detail}</div> : null}
+      </div>
+    );
+  if (e.kind === "error")
+    return <div className="whitespace-pre-wrap break-words rounded border border-danger/30 bg-white px-2 py-1.5 text-[11px] text-danger">{e.text}</div>;
+  if (e.kind === "decision")
+    return (
+      <div className="rounded border border-ink/30 bg-panel px-2 py-1.5">
+        <div className="text-[10px] uppercase tracking-wide text-moss">final · {e.status}{e.gate ? ` · ${e.gate}` : ""}</div>
+        {e.summary ? <div className="mt-0.5 whitespace-pre-wrap break-words text-[12px] text-ink">{e.summary}</div> : null}
+        {e.next ? <div className="mt-1 text-[11px] text-moss">next: {e.next}</div> : null}
+      </div>
+    );
+  if (e.kind === "todo")
+    return (
+      <div className="rounded border border-line bg-white px-2 py-1.5 text-[11px]">
+        <div className="mb-0.5 text-[10px] uppercase tracking-wide text-moss">plan</div>
+        <ul className="grid gap-0.5">
+          {e.todos.map((td, i) => (
+            <li key={i} className={`break-words ${td.done ? "text-moss line-through" : "text-ink"}`}>{td.done ? "☑" : "☐"} {td.text}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  return (
+    <div className="px-2 py-1 text-[11px]">
+      <div className="text-[10px] uppercase tracking-wide text-moss">{e.label}</div>
+      <div className="whitespace-pre-wrap break-words text-moss">{e.text}</div>
+    </div>
+  );
+}
+
+// The agent's full Codex event stream — reasoning, messages, tool calls — loaded on request.
+// Mounts only when the Agent tab is open (Radix unmounts inactive tab content), and each run's
+// heavy events.jsonl is fetched only when that run is selected.
+function AgentLogPanel() {
+  const [runs, setRuns] = useState<AgentRun[] | null>(null);
+  const [error, setError] = useState("");
+  const [selected, setSelected] = useState<string | null>(null);
+  const [content, setContent] = useState<string>("");
+  const [loadingContent, setLoadingContent] = useState(false);
+  const [showRaw, setShowRaw] = useState(false);
+
+  const loadRuns = async () => {
+    setError("");
+    try {
+      const data = await fetchJson<{ runs: AgentRun[] }>("/api/agent-logs");
+      setRuns(data.runs);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    }
+  };
+  useEffect(() => {
+    void loadRuns();
+  }, []);
+
+  const openRun = async (run: AgentRun) => {
+    setSelected(run.run);
+    setContent("");
+    setLoadingContent(true);
+    try {
+      const res = await fetch(`/api/artifacts/${run.eventsPath}`);
+      setContent(res.ok ? await res.text() : `failed to load (${res.status})`);
+    } catch (e) {
+      setContent(e instanceof Error ? e.message : String(e));
+    } finally {
+      setLoadingContent(false);
+    }
+  };
+
+  const lines = useMemo(() => content.split(/\r?\n/).filter((l) => l.trim()), [content]);
+  const entries = useMemo(() => parseAgentEvents(content), [content]);
+  const selectedRun = runs?.find((r) => r.run === selected) ?? null;
+
+  return (
+    <div className="grid gap-4 lg:grid-cols-[260px_minmax(0,1fr)]">
+      <div className="space-y-2">
+        <div className="flex items-center justify-between">
+          <h3 className="text-xs font-semibold uppercase text-moss">Agent runs</h3>
+          <button onClick={() => void loadRuns()} className="focus-ring rounded border border-line px-2 py-0.5 text-xs text-moss">Refresh</button>
+        </div>
+        {error ? <div className="rounded border border-danger/30 bg-white p-2 text-xs text-danger">{error}</div> : null}
+        {runs === null ? (
+          <div className="flex items-center gap-2 text-xs text-moss"><Loader2 className="h-3 w-3 animate-spin" /> loading</div>
+        ) : runs.length === 0 ? (
+          <p className="text-xs text-moss">No agent runs yet. They appear once the orchestrator runs a planner or executor tick.</p>
+        ) : (
+          <ul className="grid max-h-[560px] gap-1 overflow-y-auto">
+            {runs.map((run) => (
+              <li key={run.run}>
+                <button
+                  onClick={() => void openRun(run)}
+                  className={`focus-ring w-full rounded border px-2 py-1.5 text-left ${selected === run.run ? "border-ink bg-panel" : "border-line bg-white"}`}
+                >
+                  <div className="flex items-center justify-between font-mono text-[11px]">
+                    <span className="truncate">{run.run}</span>
+                    <span className={run.kind === "planner" ? "text-ink" : "text-moss"}>{run.kind}</span>
+                  </div>
+                  {run.decision ? (
+                    <div className="mt-0.5 truncate text-[10px] text-moss">{run.decision.status ?? "?"}{run.decision.gateDecision ? ` · ${run.decision.gateDecision}` : ""}</div>
+                  ) : (
+                    <div className="mt-0.5 text-[10px] text-moss">{run.hasEvents ? "running…" : "no events"}</div>
+                  )}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="min-w-0">
+        {selectedRun === null ? (
+          <div className="grid h-full min-h-[200px] place-items-center rounded border border-line bg-white text-xs text-moss">Select a run to inspect the agent's output.</div>
+        ) : (
+          <div className="rounded border border-line bg-white">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-3 py-2">
+              <div className="font-mono text-xs text-ink">{selectedRun.run}</div>
+              <div className="flex items-center gap-2 text-xs">
+                <button onClick={() => setShowRaw((v) => !v)} className="focus-ring rounded border border-line px-2 py-0.5 text-moss">{showRaw ? "Pretty" : "Raw"}</button>
+                <a href={`/api/artifacts/${selectedRun.eventsPath}`} className="focus-ring rounded border border-line px-2 py-0.5 text-moss">Download</a>
+              </div>
+            </div>
+            <div className="max-h-[560px] overflow-y-auto p-3">
+              {loadingContent ? (
+                <div className="flex items-center gap-2 text-xs text-moss"><Loader2 className="h-3 w-3 animate-spin" /> loading events</div>
+              ) : lines.length === 0 ? (
+                <div className="text-xs text-moss">No events captured yet.</div>
+              ) : showRaw ? (
+                <pre className="whitespace-pre-wrap break-words font-mono text-[11px] text-ink">{content}</pre>
+              ) : (
+                <div className="grid gap-2">
+                  {entries.map((e, i) => (
+                    <AgentEntryView key={i} e={e} />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function ArtifactTable({ artifacts }: { artifacts: ArtifactRecord[] }) {
   return (
     <div className="overflow-x-auto">
@@ -716,6 +1076,206 @@ function ArtifactTable({ artifacts }: { artifacts: ArtifactRecord[] }) {
           ))}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+type OrchestratorState = {
+  status?: string;
+  stage?: string;
+  tick?: number;
+  elapsed_hours?: number;
+  remaining_hours?: number;
+  cumulative_cost_usd?: number;
+  soft_cap_usd?: number;
+  hard_cap_usd?: number;
+  consecutive_failures?: number;
+  request_shutdown?: boolean;
+  dry_run?: boolean;
+  launch_id?: string;
+  models?: { planner?: string; executor?: string };
+  sandbox?: { planner?: string; executor?: string };
+  updated_at?: string;
+  last_plan_directive?: { time_budget_hours?: number; rationale?: string; terminal_decision?: string } | null;
+  last_executor_decision?: { status?: string; gate_decision?: string; summary?: string } | null;
+  history?: Array<{ tick?: number; stage?: string; exec_status?: string; gate_decision?: string; summary?: string; cumulative_cost_usd?: number }>;
+};
+
+const ORCH_TERMINAL = new Set(["complete", "halted_deadline", "halted_budget", "halted_operator", "escalate"]);
+
+function Bar({ pct, tone, marker }: { pct: number; tone: string; marker?: number }) {
+  const clamped = Math.max(0, Math.min(100, pct));
+  return (
+    <div className="relative h-2 w-full overflow-hidden rounded bg-panel">
+      <div className={`h-full ${tone}`} style={{ width: `${clamped}%` }} />
+      {marker !== undefined ? (
+        <div className="absolute top-0 h-full w-px bg-ink/50" style={{ left: `${Math.max(0, Math.min(100, marker))}%` }} />
+      ) : null}
+    </div>
+  );
+}
+
+function OrchestratorView({ snapshot }: { snapshot: Snapshot }) {
+  const [pending, setPending] = useState<string | null>(null);
+  const [message, setMessage] = useState("");
+  const submit = async (type: string, args: Record<string, unknown> = {}) => {
+    setPending(type);
+    setMessage("");
+    try {
+      const result = await fetchJson<{ id: string }>("/api/actions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type, args })
+      });
+      setMessage(result.id);
+      queryClient.invalidateQueries({ queryKey: ["snapshot"] });
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : String(error));
+    } finally {
+      setPending(null);
+    }
+  };
+
+  const orch = snapshot.orchestrator as OrchestratorState | null;
+  const status = orch?.status ?? "idle";
+  const running = orch !== null && !ORCH_TERMINAL.has(status);
+  const elapsed = orch?.elapsed_hours ?? 0;
+  const remaining = Math.max(0, orch?.remaining_hours ?? 0);
+  const total = elapsed + remaining;
+  const timePct = total > 0 ? (elapsed / total) * 100 : 0;
+  const cost = orch?.cumulative_cost_usd ?? 0;
+  const hard = orch?.hard_cap_usd ?? 50;
+  const soft = orch?.soft_cap_usd ?? 35;
+  const costPct = hard > 0 ? (cost / hard) * 100 : 0;
+  const plan = orch?.last_plan_directive ?? null;
+  const exec = orch?.last_executor_decision ?? null;
+  const history = (orch?.history ?? []).slice().reverse();
+
+  return (
+    <div className="grid gap-5 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)]">
+      {/* Left: live status + controls */}
+      <div className="grid content-start gap-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 text-sm font-semibold">
+            session{orch?.dry_run ? <span className="rounded bg-panel px-1.5 py-0.5 text-[10px] text-moss">DRY RUN</span> : null}
+          </div>
+          <StatusBadge status={status} />
+        </div>
+
+        {orch === null ? (
+          <p className="text-xs text-moss">No orchestrator state yet. Start it to run unattended.</p>
+        ) : (
+          <>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-moss">
+              <span>stage <span className="text-ink">{orch.stage ?? "?"}</span></span>
+              <span>tick {orch.tick ?? 0}</span>
+              {orch.launch_id ? <span className="truncate">{orch.launch_id}</span> : null}
+              {typeof orch.consecutive_failures === "number" && orch.consecutive_failures > 0 ? (
+                <span className="text-danger">{orch.consecutive_failures} fail</span>
+              ) : null}
+            </div>
+
+            <div>
+              <div className="mb-1 flex justify-between text-[11px] text-moss">
+                <span>time</span>
+                <span className="font-mono">{elapsed.toFixed(2)}h elapsed · {remaining.toFixed(2)}h left</span>
+              </div>
+              <Bar pct={timePct} tone="bg-moss" />
+            </div>
+            <div>
+              <div className="mb-1 flex justify-between text-[11px] text-moss">
+                <span>spend</span>
+                <span className="font-mono">${cost.toFixed(2)} / ${hard.toFixed(0)} (soft ${soft.toFixed(0)})</span>
+              </div>
+              <Bar pct={costPct} tone={cost >= soft ? "bg-danger" : "bg-ink"} marker={hard > 0 ? (soft / hard) * 100 : undefined} />
+            </div>
+
+            {plan ? (
+              <div className="min-w-0 rounded border border-line bg-panel px-2 py-1.5 text-[11px]">
+                <div className="break-words text-moss">planner → <span className="text-ink">{plan.terminal_decision ?? "continue"}</span>, budget {Number(plan.time_budget_hours ?? 0).toFixed(2)}h</div>
+                {plan.rationale ? <div className="mt-0.5 max-h-32 overflow-y-auto whitespace-pre-wrap break-words text-moss">{plan.rationale}</div> : null}
+              </div>
+            ) : null}
+            {exec ? (
+              <div className="min-w-0 rounded border border-line bg-panel px-2 py-1.5 text-[11px]">
+                <div className="break-words text-moss">executor → <span className="text-ink">{exec.status ?? "?"}</span> / {exec.gate_decision ?? "?"}</div>
+                {exec.summary ? <div className="mt-0.5 max-h-32 overflow-y-auto whitespace-pre-wrap break-words text-moss">{exec.summary}</div> : null}
+              </div>
+            ) : null}
+
+            <div className="break-words font-mono text-[10px] text-moss">
+              {orch.models ? <span>planner {orch.models.planner} · exec {orch.models.executor}</span> : null}
+              {orch.sandbox ? <span> · sandbox exec={orch.sandbox.executor}</span> : null}
+            </div>
+            {orch.request_shutdown ? (
+              <div className="rounded border border-line bg-panel px-2 py-1 text-[11px] text-moss">VM shutdown requested — worker will sync and stop (not delete) the VM.</div>
+            ) : null}
+          </>
+        )}
+
+        {running ? (
+          <button
+            type="button"
+            onClick={() => submit("stopOrchestrator")}
+            disabled={pending !== null}
+            className="focus-ring flex w-full items-center justify-center gap-2 rounded-md border border-danger/40 bg-white px-3 py-2 text-sm font-medium text-danger hover:bg-danger/5 disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <Square className="h-4 w-4" /> Stop Orchestrator
+          </button>
+        ) : (
+          <ActionForm
+            title="Start orchestrator"
+            description="Unattended planner+executor. Hard caps and deadline are enforced by the harness."
+            fields={[
+              { name: "deadlineHours", label: "Deadline (hours)", type: "number", required: true, placeholder: "8", defaultValue: "8" },
+              { name: "soft", label: "Soft cap (USD)", type: "number", placeholder: "35", defaultValue: "35" },
+              { name: "hard", label: "Hard cap (USD)", type: "number", placeholder: "50", defaultValue: "50" }
+            ]}
+            icon={<Play className="h-4 w-4" />}
+            disabled={pending !== null}
+            onSubmit={(args) => submit("startOrchestrator", args)}
+          />
+        )}
+        {message ? <div className="truncate rounded border border-line bg-panel px-2 py-1 font-mono text-xs">{message}</div> : null}
+      </div>
+
+      {/* Right: full tick timeline */}
+      <div className="min-w-0">
+        <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-moss">Tick history</h3>
+        {history.length === 0 ? (
+          <p className="text-xs text-moss">No ticks yet. Each tick = one planner decision + one executor action.</p>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs">
+              <thead className="border-b border-line text-[10px] uppercase text-moss">
+                <tr>
+                  <th className="py-1.5 pr-2">#</th>
+                  <th className="py-1.5 pr-2">Stage</th>
+                  <th className="py-1.5 pr-2">Executor</th>
+                  <th className="py-1.5 pr-2">Gate</th>
+                  <th className="py-1.5 pr-2">Cost</th>
+                  <th className="py-1.5">Summary</th>
+                </tr>
+              </thead>
+              <tbody>
+                {history.map((h, i) => {
+                  const bad = h.exec_status === "failed" || h.exec_status === "blocked";
+                  return (
+                    <tr key={i} className="border-b border-line/60 align-top">
+                      <td className="py-1.5 pr-2 font-mono text-moss">{h.tick}</td>
+                      <td className="py-1.5 pr-2 font-mono">{h.stage}</td>
+                      <td className={`py-1.5 pr-2 ${bad ? "text-danger" : "text-ink"}`}>{h.exec_status ?? "—"}</td>
+                      <td className="py-1.5 pr-2 text-moss">{h.gate_decision ?? "—"}</td>
+                      <td className="py-1.5 pr-2 font-mono text-moss">${Number(h.cumulative_cost_usd ?? 0).toFixed(2)}</td>
+                      <td className="py-1.5 text-moss">{h.summary || ""}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -99,6 +99,16 @@ export function setMeta(key: string, value: unknown): void {
     .run(key, JSON.stringify(value), nowIso());
 }
 
+export function getMeta<T>(key: string, fallback: T): T {
+  const row = getDb().prepare("SELECT value FROM meta WHERE key = ?").get(key) as { value?: string } | undefined;
+  if (!row || typeof row.value !== "string") return fallback;
+  try {
+    return JSON.parse(row.value) as T;
+  } catch {
+    return fallback;
+  }
+}
+
 export function setHealth(key: string, state: string, value: unknown): void {
   getDb()
     .prepare(
