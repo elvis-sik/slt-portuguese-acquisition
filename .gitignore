@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+infra/gcp/.env
+.env
+results/**/checkpoints/
+results/**/cache/
+.cache/
+wandb/
+*.log
+.DS_Store
+reference/mock_report/build/

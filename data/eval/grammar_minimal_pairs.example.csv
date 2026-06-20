@@ -1,0 +1,11 @@
+id,phenomenon,grammatical,ungrammatical,split,notes
+1,subject_verb_number,Os meninos correm no parque.,Os meninos corre no parque.,dev,plural subject
+2,subject_verb_number,A menina canta bem.,A menina cantam bem.,dev,singular subject
+3,article_noun_gender,A casa é antiga.,O casa é antiga.,dev,feminine noun
+4,article_noun_gender,O livro é novo.,A livro é novo.,dev,masculine noun
+5,adjective_number,As flores vermelhas cresceram.,As flores vermelha cresceram.,dev,plural agreement
+6,adjective_gender,A camisa azul ficou limpa.,A camisa azul ficou limpo.,dev,predicate adjective
+7,determiner_number,Estas crianças brincam.,Esta crianças brincam.,test,plural determiner
+8,subject_verb_number,Meus amigos chegaram cedo.,Meus amigos chegou cedo.,test,plural subject
+9,article_noun_number,Os carros estão parados.,O carros estão parados.,test,number agreement
+10,adjective_gender,O cachorro pequeno dormiu.,O cachorro pequena dormiu.,test,gender agreement

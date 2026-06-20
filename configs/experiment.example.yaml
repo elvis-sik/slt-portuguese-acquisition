@@ -1,0 +1,29 @@
+project: slt-portuguese
+mode: pilot
+model:
+  id: roneneldan/TinyStories-3M
+  revision: null
+  full_parameter_training: true
+  tokenizer_id: roneneldan/TinyStories-3M
+training:
+  sequence_length: 128
+  global_batch_size: 32
+  target_tokens: 1000000
+  optimizer: adamw
+  learning_rate: 0.0001
+  weight_decay: 0.0
+  precision: fp32
+  seed: 1
+  checkpoint_tokens: [0, 25000, 50000, 100000, 200000, 400000, 800000, 1000000]
+data:
+  source: Helsinki-NLP/opus-100
+  config: en-pt
+  language: pt
+  split_manifest: data/manifests/pilot.json
+  condition: structured_portuguese
+evaluation:
+  grammar_pairs: data/eval/grammar_minimal_pairs.csv
+  english_validation_manifest: data/manifests/english_validation.json
+  report_bits_per_byte: true
+output:
+  root: results/01_scientific_pilot

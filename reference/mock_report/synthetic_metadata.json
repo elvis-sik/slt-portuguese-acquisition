@@ -1,0 +1,14 @@
+{
+  "disclaimer": "All data and results in this package are synthetic and illustrative. They are not measurements from an actual model run.",
+  "model": "Illustrative 8M-parameter, 4-block English-only decoder transformer",
+  "training_budget": "2,500 steps x 4,096 target-language tokens = 10.24M tokens per run",
+  "conditions": [
+    "Structured Portuguese",
+    "Shuffled Portuguese",
+    "Matched English control"
+  ],
+  "seeds": 3,
+  "grammar_eval_pairs": 1200,
+  "llc_checkpoints": 9,
+  "llc_sampler": "Illustrative: 4 chains, 120 post-burn-in draws, devinterp-style localized SGLD"
+}

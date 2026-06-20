@@ -1,0 +1,1 @@
+run_id,phase,status,condition,model,seed,git_commit,config_path,start_utc,end_utc,gpu_hours,estimated_cost_usd,output_dir,notes

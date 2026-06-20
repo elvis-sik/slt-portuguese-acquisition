@@ -1,0 +1,35 @@
+{
+  "run_id": "REPLACE_ME",
+  "phase": "pilot",
+  "status": "planned",
+  "synthetic": false,
+  "git_commit": "",
+  "command": "",
+  "config_sha256": "",
+  "model_id": "",
+  "model_revision": "",
+  "tokenizer_id": "",
+  "parameter_count": null,
+  "seed": null,
+  "data_manifest_sha256": "",
+  "hardware": {
+    "gpu": "",
+    "driver": "",
+    "system_ram_gb": null
+  },
+  "software": {
+    "python": "",
+    "torch": "",
+    "transformers": "",
+    "devinterp": ""
+  },
+  "precision": "fp32",
+  "start_utc": "",
+  "end_utc": "",
+  "wall_seconds": null,
+  "gpu_hours": null,
+  "estimated_cost_usd": null,
+  "checkpoint_sha256": {},
+  "exit_code": null,
+  "notes": ""
+}

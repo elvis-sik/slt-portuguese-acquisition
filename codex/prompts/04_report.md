@@ -1,0 +1,1 @@
+Read `AGENTS.md`, the hackathon submission guide, and fake-report walkthrough. Build a 4–8 page empirical report from real run IDs only. Never copy synthetic numbers. Include controls, chain diagnostics, uncertainty sources, runtime/cost, limitations, and reproducibility. Use cautious claim language. Verify every table cell against machine-readable real result files.

@@ -1,0 +1,4 @@
+intervention,grammar_transition_step,final_grammar_accuracy_percent,final_portuguese_bpb,english_bpb_change_percent
+No freeze,824,87.2,1.24,5.4
+Freeze B3 MLP at step 600,1242,79.0,1.28,4.2
+Freeze matched B1 attention,914,85.1,1.25,4.8

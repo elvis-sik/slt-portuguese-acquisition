@@ -1,0 +1,12 @@
+{
+  "training_steps": 10000,
+  "sampler_chain_steps": 31700,
+  "evaluation_hours": 1.5,
+  "overhead_factor": 1.4,
+  "hourly_rate_usd": 1.0,
+  "low_multiplier": 0.6,
+  "high_multiplier": 2.0,
+  "soft_review_cost_usd": 35.0,
+  "hard_cap_usd": 50.0,
+  "soft_review_hours": 10.0
+}

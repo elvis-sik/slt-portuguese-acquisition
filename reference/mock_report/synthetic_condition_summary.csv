@@ -1,0 +1,4 @@
+condition,final_target_bpb_mean,final_target_bpb_sd,final_lexical_accuracy_mean_percent,final_grammar_accuracy_mean_percent,english_bpb_relative_change_percent,final_llc_ratio_mean
+Structured Portuguese,1.2367,0.0102,86.9680,87.1668,5.3783,1.1042
+Shuffled Portuguese,1.4604,0.0142,82.6549,52.9948,3.3051,1.1812
+Matched English control,2.5196,0.0050,14.3146,49.9606,-5.8274,1.0746

@@ -1,0 +1,26 @@
+[project]
+name = "slt-portuguese-handoff"
+version = "0.1.0"
+description = "Planning and benchmark utilities for an SLT-informed Portuguese adaptation experiment"
+requires-python = ">=3.11"
+dependencies = [
+  "accelerate>=1.0",
+  "datasets>=3.0",
+  "devinterp==2.0.1",
+  "matplotlib>=3.8",
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "psutil>=5.9",
+  "pyyaml>=6.0",
+  "scipy>=1.12",
+  "transformers>=4.45",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.uv]
+exclude-newer = "7 days"
+
+[tool.uv.pip]
+exclude-newer = "7 days"

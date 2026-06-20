@@ -1,0 +1,12 @@
+# Install a CUDA-enabled PyTorch build appropriate for the VM first if `pip install torch`
+# does not expose CUDA. Then install this file.
+accelerate>=1.0
+datasets>=3.0
+devinterp==2.0.1
+matplotlib>=3.8
+numpy>=1.26
+pandas>=2.2
+psutil>=5.9
+pyyaml>=6.0
+scipy>=1.12
+transformers>=4.45

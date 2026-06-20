@@ -1,0 +1,7 @@
+language,seed,llc_break_step,grammar_break_step,lag_steps_grammar_minus_llc,llc_delta_bic,grammar_delta_bic
+Portuguese,1,764.000,852.000,88.000,21.825,26.704
+Portuguese,2,765.000,769.000,4.000,20.274,19.730
+Portuguese,3,844.000,850.000,6.000,18.014,20.374
+Spanish,1,655.000,741.000,86.000,19.841,28.502
+Spanish,2,661.000,656.000,-5.000,19.647,24.254
+Spanish,3,668.000,743.000,75.000,18.018,26.758

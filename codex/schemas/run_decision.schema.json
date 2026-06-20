@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "partial",
+        "blocked",
+        "failed"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "files_changed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commands_run": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gate_decision": {
+      "type": "string",
+      "enum": [
+        "proceed",
+        "modify",
+        "pivot",
+        "stop",
+        "await_job"
+      ]
+    },
+    "requires_human_approval": {
+      "type": "boolean"
+    },
+    "approval_reason": {
+      "type": "string"
+    },
+    "estimated_incremental_gpu_hours": {
+      "type": "number",
+      "minimum": 0
+    },
+    "estimated_incremental_cost_usd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "status",
+    "summary",
+    "files_changed",
+    "commands_run",
+    "gate_decision",
+    "requires_human_approval",
+    "approval_reason",
+    "estimated_incremental_gpu_hours",
+    "estimated_incremental_cost_usd",
+    "next_action",
+    "evidence_paths"
+  ],
+  "additionalProperties": false
+}
