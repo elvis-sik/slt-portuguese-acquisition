@@ -1,0 +1,19 @@
+{
+  "status": "partial",
+  "gate_decision": "continue",
+  "criteria": {
+    "stable_no_nan_or_divergence": true,
+    "structured_pt_seed_a_bpb_decreases": true,
+    "no_english_degrade_without_portuguese_gain": true,
+    "structured_pt_seed_a_beats_shuffled": true
+  },
+  "metrics": {
+    "structured_pt_seed_a_pt_bpb_delta": -4.144674278977315,
+    "structured_pt_seed_a_english_bpb_delta": 0.3573344804567613,
+    "structured_pt_seed_a_final_bpb": 2.541423913307013,
+    "shuffled_pt_final_bpb": 3.7867039884693168,
+    "structured_vs_shuffled_pt_bpb_gap": 1.2452800751623037
+  },
+  "reasons": [],
+  "next_bounded_action": "Route to diagnosis: learning rate/schedule, warmup, gradient clipping, token budget, model scale, tokenization, and data/evaluation."
+}

@@ -1,0 +1,184 @@
+{
+  "run_kind": "tinystories_8m_final_behavioral_training",
+  "scientific_scope": "TinyStories-8M full-parameter continued pretraining; behavior only; no final LLC inspection.",
+  "start_utc": "2026-06-20T17:52:38.196341Z",
+  "git_commit": "5b9fc17227ef276c0128be158123de618a4c25db",
+  "git_status_short_at_start": "M codex/prompts/02_final_training.md\n M codex/prompts/03_llc_campaign.md\n M infra/gcp/download_results.sh\n?? ._AGENTS.md\n?? ._codex\n?? ._infra\n?? codex/._README.md\n?? codex/.___pycache__\n?? codex/._orchestrate.py\n?? codex/._prompts\n?? codex/._run_phase.sh\n?? codex/._schemas\n?? codex/orchestrate.py\n?? codex/prompts/._00_infrastructure_gate.md\n?? codex/prompts/._01_scientific_pilot.md\n?? codex/prompts/._02_final_training.md\n?? codex/prompts/._03_llc_campaign.md\n?? codex/prompts/._04_report.md\n?? codex/prompts/._diagnose_and_fix.md\n?? codex/prompts/._planner.md\n?? codex/prompts/diagnose_and_fix.md\n?? codex/prompts/planner.md\n?? codex/prompts/recipe_search.md\n?? codex/schemas/._plan_directive.schema.json\n?? codex/schemas/._run_decision.schema.json\n?? codex/schemas/plan_directive.schema.json\n?? configs/recipe_search.example.yaml\n?? infra/._gcp\n?? infra/._remote\n?? infra/gcp/._README.md\n?? infra/gcp/._bootstrap_and_sync.sh\n?? infra/gcp/._bootstrap_remote.sh\n?? infra/gcp/._common.sh\n?? infra/gcp/._configure_ssh_for_codex.sh\n?? infra/gcp/._delete_vm.sh\n?? infra/gcp/._download_results.sh\n?? infra/gcp/._env.example\n?? infra/gcp/._install_codex_remote.sh\n?? infra/gcp/._provision_vm.sh\n?? infra/gcp/._push_codex_secret.sh\n?? infra/gcp/._ssh.sh\n?? infra/gcp/._start_orchestrator.sh\n?? infra/gcp/._start_vm.sh\n?? infra/gcp/._startup_install_driver.sh\n?? infra/gcp/._stop_vm.sh\n?? infra/gcp/._wait_for_gpu.sh\n?? infra/gcp/push_codex_secret.sh\n?? infra/gcp/start_orchestrator.sh\n?? infra/remote/._README.md\n?? infra/remote/._dashboard_action.sh\n?? infra/remote/._dashboard_probe.sh\n?? infra/remote/._gpu_watch.sh\n?? infra/remote/._job_status.sh\n?? infra/remote/._run_bounded_job.sh\n?? infra/remote/._stop_job.sh\n?? infra/remote/completion_watchdog.sh\n?? infra/remote/dashboard_action.sh\n?? infra/remote/dashboard_probe.sh\n?? results/00_infrastructure_gate/\n?? results/01_scientific_pilot/\n?? results/02_final_training/\n?? results/03_llc_campaign/\n?? results/_codex/\n?? results/_jobs/\n?? results/_orchestrator/\n?? results/recipe_search/",
+  "config": {
+    "model": "roneneldan/TinyStories-8M",
+    "sequence_length": 128,
+    "batch_size": 64,
+    "tokens_per_step": 8192,
+    "target_tokens": 100000000,
+    "target_steps": 12208,
+    "actual_target_tokens": 100007936,
+    "train_chunks_needed": 781312,
+    "checkpoint_tokens": [
+      0,
+      100000,
+      200000,
+      400000,
+      800000,
+      1500000,
+      2500000,
+      4000000,
+      6000000,
+      8000000,
+      12000000,
+      18000000,
+      27000000,
+      40000000,
+      60000000,
+      80000000,
+      100000000
+    ],
+    "learning_rate": 0.0001,
+    "warmup_fraction": 0.03,
+    "lr_schedule": "cosine",
+    "grad_clip": 1.0,
+    "weight_decay": 0.01,
+    "optimizer": "AdamW",
+    "training_precision": "fp32",
+    "seed": 202606201,
+    "device": "cuda",
+    "hourly_rate_usd": 1.0,
+    "hard_cap_usd": 50.0,
+    "starting_cumulative_cost_usd": 0.8729,
+    "split_manifest": ".",
+    "grammar_csv": "data/eval/grammar_minimal_pairs.example.csv",
+    "local_files_only": true,
+    "validation_source": "Helsinki-NLP/opus-100",
+    "validation_config": "en-pt",
+    "validation_size": 512,
+    "sampler_reference_size": 128,
+    "validation_skip": 512,
+    "train_corpus_pt": "wikimedia/wikipedia",
+    "train_corpus_pt_config": "20231101.pt",
+    "train_corpus_en": "wikimedia/wikipedia",
+    "train_corpus_en_config": "20231101.en",
+    "max_docs_pt": 250000,
+    "max_docs_en": 250000,
+    "conditions_priority_order": [
+      "structured_pt_seed_a",
+      "shuffled_pt",
+      "matched_en",
+      "structured_pt_seed_b"
+    ],
+    "llc_selection_rule": {
+      "fixed_llc_checkpoint_tokens": [
+        0,
+        400000,
+        1500000,
+        8000000,
+        40000000,
+        100000000
+      ],
+      "adaptive_metric": "grammar_mean_margin",
+      "adaptive_rule": "After all behavior trajectories are written and before any final LLC inspection, select the adjacent structured_pt_seed_a checkpoint pair with the largest positive change in the configured behavior metric per log-token interval; if no positive increase exists, use the largest absolute BPB decrease. Add at most those two bracketing checkpoints to the fixed set."
+    }
+  },
+  "frozen_config": "results/02_final_training/final_training_20260620T175233Z_wiki100m/frozen_config.json",
+  "frozen_config_sha256": "f6835402bb7591c3510cc53e6dac885ccf8d9a8763dc93146863b8b28fc1f967",
+  "package_versions": {
+    "torch": "2.12.0+cu130",
+    "transformers": "5.12.0",
+    "datasets": "5.0.0",
+    "devinterp": "unknown",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "zarr": "3.1.6"
+  },
+  "device": "cuda",
+  "gpu": "NVIDIA L4",
+  "torch_cuda_available": true,
+  "parameter_count": 19702528,
+  "tokenizer_vocab_sha256": "e35d8b86ebd35ebd260d040aa455e09759f7e675f4dbb7f3d727516f27eca190",
+  "data_split_manifest": "results/02_final_training/final_training_20260620T175233Z_wiki100m/data_splits/split_manifest.json",
+  "checkpoint_plan": [
+    {
+      "target_tokens": 0,
+      "optimizer_step": 0,
+      "actual_cumulative_tokens": 0
+    },
+    {
+      "target_tokens": 100000,
+      "optimizer_step": 13,
+      "actual_cumulative_tokens": 106496
+    },
+    {
+      "target_tokens": 200000,
+      "optimizer_step": 25,
+      "actual_cumulative_tokens": 204800
+    },
+    {
+      "target_tokens": 400000,
+      "optimizer_step": 49,
+      "actual_cumulative_tokens": 401408
+    },
+    {
+      "target_tokens": 800000,
+      "optimizer_step": 98,
+      "actual_cumulative_tokens": 802816
+    },
+    {
+      "target_tokens": 1500000,
+      "optimizer_step": 184,
+      "actual_cumulative_tokens": 1507328
+    },
+    {
+      "target_tokens": 2500000,
+      "optimizer_step": 306,
+      "actual_cumulative_tokens": 2506752
+    },
+    {
+      "target_tokens": 4000000,
+      "optimizer_step": 489,
+      "actual_cumulative_tokens": 4005888
+    },
+    {
+      "target_tokens": 6000000,
+      "optimizer_step": 733,
+      "actual_cumulative_tokens": 6004736
+    },
+    {
+      "target_tokens": 8000000,
+      "optimizer_step": 977,
+      "actual_cumulative_tokens": 8003584
+    },
+    {
+      "target_tokens": 12000000,
+      "optimizer_step": 1465,
+      "actual_cumulative_tokens": 12001280
+    },
+    {
+      "target_tokens": 18000000,
+      "optimizer_step": 2198,
+      "actual_cumulative_tokens": 18006016
+    },
+    {
+      "target_tokens": 27000000,
+      "optimizer_step": 3296,
+      "actual_cumulative_tokens": 27000832
+    },
+    {
+      "target_tokens": 40000000,
+      "optimizer_step": 4883,
+      "actual_cumulative_tokens": 40001536
+    },
+    {
+      "target_tokens": 60000000,
+      "optimizer_step": 7325,
+      "actual_cumulative_tokens": 60006400
+    },
+    {
+      "target_tokens": 80000000,
+      "optimizer_step": 9766,
+      "actual_cumulative_tokens": 80003072
+    },
+    {
+      "target_tokens": 100000000,
+      "optimizer_step": 12208,
+      "actual_cumulative_tokens": 100007936
+    }
+  ]
+}

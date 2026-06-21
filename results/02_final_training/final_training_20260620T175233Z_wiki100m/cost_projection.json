@@ -1,0 +1,19 @@
+{
+  "updated_utc": "2026-06-20T21:20:11.099250Z",
+  "status": "before_structured_pt_seed_b",
+  "completed_conditions": [
+    "structured_pt_seed_a",
+    "shuffled_pt",
+    "matched_en"
+  ],
+  "remaining_conditions": [
+    "structured_pt_seed_b"
+  ],
+  "observed_phase_gpu_hours": 3.2077065748388893,
+  "projected_phase_gpu_hours": 4.2769420997851855,
+  "hourly_rate_usd": 1.0,
+  "starting_cumulative_cost_usd": 0.8729,
+  "projected_total_cost_usd": 5.149842099785186,
+  "hard_cap_usd": 50.0,
+  "under_hard_cap": true
+}

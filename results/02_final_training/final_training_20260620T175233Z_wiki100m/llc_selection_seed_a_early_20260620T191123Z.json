@@ -1,0 +1,10 @@
+{
+  "rule_frozen_at_utc": "20260620T191123Z",
+  "no_final_llc_inspected": true,
+  "primary_condition": "structured_pt_seed_a",
+  "fixed_checkpoint_tokens": [0,100000,400000,800000,1500000,2500000,4000000,6000000,8000000,27000000,100000000],
+  "adaptive_metric": "grammar_minimal_pair_accuracy_538",
+  "adaptive_bracket_tokens": [1500000,2500000],
+  "selected_checkpoint_tokens": [0,100000,400000,800000,1500000,2500000,4000000,6000000,8000000,27000000,100000000],
+  "selection_source": "operator early de-risk pass; 538-pair grammar transition ~1.5-2.5M; no LLC inspected"
+}

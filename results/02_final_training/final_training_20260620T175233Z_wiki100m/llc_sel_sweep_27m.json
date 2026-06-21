@@ -1,0 +1,1 @@
+{"rule_frozen_at_utc":"sweep","no_final_llc_inspected":true,"primary_condition":"structured_pt_seed_a","fixed_checkpoint_tokens":[27000000],"selected_checkpoint_tokens":[27000000],"selection_source":"sampler re-tune sweep on converged 27M checkpoint"}

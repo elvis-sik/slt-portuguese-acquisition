@@ -1153,7 +1153,22 @@ def main() -> int:
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--prepare-only", action="store_true")
+    parser.add_argument(
+        "--only-conditions",
+        default="",
+        help="Comma-separated subset of FINAL_CONDITIONS to train (e.g. structured_pt_seed_b). Reuses "
+        "existing prepared data splits, writes only those conditions, and skips the full-run behavioral "
+        "gate / LLC-selection finalization (and does not overwrite the original manifest.json). Use for "
+        "adding a replication seed to an existing run without retraining or clobbering the other conditions.",
+    )
     args = parser.parse_args()
+
+    only_set = [c.strip() for c in args.only_conditions.split(",") if c.strip()]
+    bad = [c for c in only_set if c not in FINAL_CONDITIONS]
+    if bad:
+        raise SystemExit(f"--only-conditions has unknown conditions {bad}; valid: {list(FINAL_CONDITIONS)}")
+    targets = [c for c in FINAL_CONDITIONS if (not only_set) or c in only_set]
+    subset_run = bool(only_set)
 
     import torch
     from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -1200,16 +1215,20 @@ def main() -> int:
         "data_split_manifest": str(args.output_dir / "data_splits" / "split_manifest.json"),
         "checkpoint_plan": checkpoint_plan(cfg),
     }
-    write_json(args.output_dir / "manifest.json", manifest)
+    # A subset run (replication seed added to an existing run) must not clobber the original manifest.
+    manifest_path = args.output_dir / (
+        "manifest.json" if not subset_run else "manifest_only_" + "_".join(targets) + ".json"
+    )
+    write_json(manifest_path, manifest)
     update_cost_projection(args.output_dir, cfg, {}, "prepared")
     if args.prepare_only:
         manifest.update({"end_utc": utc_now(), "exit_status": "prepared_only"})
-        write_json(args.output_dir / "manifest.json", manifest)
+        write_json(manifest_path, manifest)
         print(json.dumps({"prepared": True, "manifest": str(args.output_dir / "manifest.json")}, indent=2))
         return 0
 
     condition_summaries: dict[str, Any] = {}
-    for condition in FINAL_CONDITIONS:
+    for condition in targets:
         projection = update_cost_projection(args.output_dir, cfg, condition_summaries, f"before_{condition}")
         if not projection["under_hard_cap"]:
             manifest.update({"end_utc": utc_now(), "exit_status": "stopped_hard_budget_projection"})
@@ -1237,6 +1256,8 @@ def main() -> int:
             manifest.update({"end_utc": utc_now(), "exit_status": "stopped_hard_budget_projection"})
             write_json(args.output_dir / "manifest.json", manifest)
             raise RuntimeError("Projected total cost exceeds hard cap after trajectory")
+        if subset_run:
+            continue  # subset run: skip the full-run behavioral gate (it assumes all conditions present)
         decision = decide_final_behavior(cfg, condition_summaries)
         write_json(args.output_dir / "scientific_validity_gate.json", decision)
         if decision["gate_decision"] == "pivot":
@@ -1262,6 +1283,30 @@ def main() -> int:
             write_blocked_state_files(args.output_dir, args.output_dir.name, manifest, condition_summaries, decision, cost_projection)
             print(json.dumps({"status": "blocked", "gate_decision": "pivot", "decision": decision}, indent=2))
             return 2
+
+    if subset_run:
+        # Minimal finalization for a subset (e.g. replication-seed) run: the per-condition
+        # condition_summary.json files (what the LLC campaign reads) are already written by run_condition.
+        # We deliberately skip the full-run gate / LLC-selection that assumes all four conditions.
+        wall_seconds = time.perf_counter() - run_start
+        manifest.update(
+            {
+                "end_utc": utc_now(),
+                "wall_seconds": wall_seconds,
+                "estimated_gpu_hours": wall_seconds / 3600.0,
+                "estimated_cost_usd": wall_seconds / 3600.0 * cfg.hourly_rate_usd,
+                "only_conditions": targets,
+                "condition_summaries": {
+                    name: str(args.output_dir / "conditions" / name / "condition_summary.json")
+                    for name in condition_summaries
+                },
+                "exit_status": "completed_subset",
+            }
+        )
+        write_json(manifest_path, manifest)
+        print(json.dumps({"status": "completed_subset", "conditions": list(condition_summaries),
+                          "manifest": str(manifest_path)}, indent=2))
+        return 0
 
     decision = decide_final_behavior(cfg, condition_summaries)
     write_json(args.output_dir / "scientific_validity_gate.json", decision)

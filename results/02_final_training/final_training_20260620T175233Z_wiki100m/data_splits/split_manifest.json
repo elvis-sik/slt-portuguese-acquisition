@@ -1,0 +1,69 @@
+{
+  "created_utc": "2026-06-20T18:07:41.041788Z",
+  "immutability_note": "Final data artifacts are content-addressed by SHA256 and must not be edited in place.",
+  "validation_metadata": {
+    "source": "Helsinki-NLP/opus-100",
+    "config": "en-pt",
+    "split": "train",
+    "streaming": true,
+    "validation_skip_after_filter": 512,
+    "counts": {
+      "seen": 1704,
+      "accepted": 640,
+      "skipped_after_filter": 512,
+      "missing": 0,
+      "markup_heavy": 1,
+      "length_rejected": 545,
+      "duplicate_pairs": 6
+    }
+  },
+  "training_corpus_pt": {
+    "source": "wikimedia/wikipedia",
+    "config": "20231101.pt",
+    "split": "train",
+    "streaming": true,
+    "max_docs": 250000,
+    "counts": {
+      "seen": 46742,
+      "accepted": 44910,
+      "too_short": 1832,
+      "empty": 0
+    }
+  },
+  "training_corpus_en": {
+    "source": "wikimedia/wikipedia",
+    "config": "20231101.en",
+    "split": "train",
+    "streaming": true,
+    "max_docs": 250000,
+    "counts": {
+      "seen": 104380,
+      "accepted": 102350,
+      "too_short": 2030,
+      "empty": 0
+    }
+  },
+  "split_sizes": {
+    "validation": 512,
+    "sampler_reference": 128,
+    "structured_pt_chunks": 781312,
+    "shuffled_pt_chunks": 781312,
+    "matched_en_chunks": 781312,
+    "tokens_per_condition": 100007936,
+    "documents_pt": 44910,
+    "documents_en": 102350
+  },
+  "split_hashes_sha256": {
+    "validation.jsonl": "540e63113d2261675f47799e12b0bff54203f9a101b240c354bc9a183cf76e86",
+    "sampler_reference.jsonl": "56d8553b1af5bc59911febdb353b036bfddf88d41a66c85cab55f3cac996e431",
+    "train_structured_pt_token_ids.jsonl": "50b8d405a0cdbb169fb18f573024d1b00e5a86ef706bcaa6aa91a898ff1a0ee9",
+    "train_shuffled_pt_token_ids.jsonl": "2cb9762104a6c671b76d6715597d2a43d8c63cea2b7dfb4aa5d830ca3f35bfe1",
+    "train_matched_en_token_ids.jsonl": "5098c7c15f353f655b5e159acda349aea48bb8ef0d405368bbb5b6c793a0a28f",
+    "train_documents_manifest_pt.jsonl": "375a9ea109f2a591b665361eec456e9a2bacdc5da665935cf5af24b3da85b88b",
+    "train_documents_manifest_en.jsonl": "5cf25e6f8e8577d325e49eba7562fde25ed8898df4c43cfeadcea7dd2776ea77"
+  },
+  "grammar_csv": "data/eval/grammar_minimal_pairs.example.csv",
+  "grammar_csv_sha256": "eaed9d7b78c180087c78b0d1e1acbad479af4643f524a44cb7218df3fdbb3782",
+  "shuffled_mapping_seed": 202606403,
+  "tokenizer_vocab_sha256": "e35d8b86ebd35ebd260d040aa455e09759f7e675f4dbb7f3d727516f27eca190"
+}

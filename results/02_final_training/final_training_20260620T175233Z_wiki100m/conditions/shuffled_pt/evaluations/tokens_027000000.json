@@ -1,0 +1,131 @@
+{
+  "condition": "shuffled_pt",
+  "checkpoint": "tokens_027000000",
+  "target_tokens": 27000000,
+  "optimizer_step": 3296,
+  "actual_cumulative_tokens": 27000832,
+  "pt_validation": {
+    "examples": 512,
+    "nll_nats": 60465.96337890625,
+    "scored_tokens": 8663,
+    "bytes_utf8": 22706,
+    "bpb": 3.841889611086132,
+    "mean_token_nll": 6.979794918493161
+  },
+  "english_retention": {
+    "examples": 512,
+    "nll_nats": 54945.4931640625,
+    "scored_tokens": 5243,
+    "bytes_utf8": 21527,
+    "bpb": 3.6823333723691833,
+    "mean_token_nll": 10.479781263410738
+  },
+  "grammar_margin": {
+    "examples": 10,
+    "mean_margin": 0.004145240783691407,
+    "median_margin": 0.061888694763183594,
+    "accuracy": 0.6,
+    "margins": [
+      {
+        "id": "1",
+        "phenomenon": "subject_verb_number",
+        "split": "dev",
+        "score_from_token": 5,
+        "grammatical_logprob": -25.96752166748047,
+        "ungrammatical_logprob": -25.867572784423828,
+        "margin": -0.09994888305664062,
+        "correct": false
+      },
+      {
+        "id": "2",
+        "phenomenon": "subject_verb_number",
+        "split": "dev",
+        "score_from_token": 5,
+        "grammatical_logprob": -17.652328491210938,
+        "ungrammatical_logprob": -17.085590362548828,
+        "margin": -0.5667381286621094,
+        "correct": false
+      },
+      {
+        "id": "3",
+        "phenomenon": "article_noun_gender",
+        "split": "dev",
+        "score_from_token": 0,
+        "grammatical_logprob": -37.37138748168945,
+        "ungrammatical_logprob": -37.4674072265625,
+        "margin": 0.09601974487304688,
+        "correct": true
+      },
+      {
+        "id": "4",
+        "phenomenon": "article_noun_gender",
+        "split": "dev",
+        "score_from_token": 0,
+        "grammatical_logprob": -38.36662292480469,
+        "ungrammatical_logprob": -38.75279998779297,
+        "margin": 0.38617706298828125,
+        "correct": true
+      },
+      {
+        "id": "5",
+        "phenomenon": "adjective_number",
+        "split": "dev",
+        "score_from_token": 6,
+        "grammatical_logprob": -29.9133358001709,
+        "ungrammatical_logprob": -29.94109344482422,
+        "margin": 0.027757644653320312,
+        "correct": true
+      },
+      {
+        "id": "6",
+        "phenomenon": "adjective_gender",
+        "split": "dev",
+        "score_from_token": 9,
+        "grammatical_logprob": -13.203948974609375,
+        "ungrammatical_logprob": -11.483592987060547,
+        "margin": -1.7203559875488281,
+        "correct": false
+      },
+      {
+        "id": "7",
+        "phenomenon": "determiner_number",
+        "split": "test",
+        "score_from_token": 2,
+        "grammatical_logprob": -50.07614517211914,
+        "ungrammatical_logprob": -50.77268981933594,
+        "margin": 0.6965446472167969,
+        "correct": true
+      },
+      {
+        "id": "8",
+        "phenomenon": "subject_verb_number",
+        "split": "test",
+        "score_from_token": 7,
+        "grammatical_logprob": -26.442245483398438,
+        "ungrammatical_logprob": -26.657024383544922,
+        "margin": 0.21477890014648438,
+        "correct": true
+      },
+      {
+        "id": "9",
+        "phenomenon": "article_noun_number",
+        "split": "test",
+        "score_from_token": 1,
+        "grammatical_logprob": -42.87335205078125,
+        "ungrammatical_logprob": -44.027923583984375,
+        "margin": 1.154571533203125,
+        "correct": true
+      },
+      {
+        "id": "10",
+        "phenomenon": "adjective_gender",
+        "split": "test",
+        "score_from_token": 8,
+        "grammatical_logprob": -24.64899253845215,
+        "ungrammatical_logprob": -24.501638412475586,
+        "margin": -0.1473541259765625,
+        "correct": false
+      }
+    ]
+  }
+}
