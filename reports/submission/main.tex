@@ -22,8 +22,9 @@
 % references in the bibliography (marked indicative) before submitting.
 \title{\textbf{A Local--Geometry Changepoint Aligned with the Onset of\\
 Portuguese Grammatical Competence in a Small Language Model}}
-\author{Elvis Sikora \quad\textit{[co-author TBA]}\\[2pt]
-\small Apart Research Sprint --- June 2026}
+\author{Elvis Sikora \quad\textit{[co-author name TBA]}\\[2pt]
+\small Affiliation(s) TBA \quad\textbar\quad Global South AI Safety Hackathon (Apart Research), June 2026\\
+\small \textbf{Track:} Latin America (regional) \quad\textbar\quad \textbf{Sub-track:} interpretability / safety evaluations}
 \date{\today}
 
 \begin{document}
@@ -31,38 +32,49 @@ Portuguese Grammatical Competence in a Small Language Model}}
 
 \begin{abstract}
 \noindent
-We ask whether a quantity from singular learning theory (SLT) --- the
-\emph{local learning coefficient} (LLC, $\lhat$), estimated by stochastic-gradient
-Langevin dynamics (SGLD) --- changes in a way that is \emph{aligned with a
-behavioral developmental transition} as a small English-trained language model
-acquires a second language. We adapt \texttt{TinyStories-8M} to Portuguese by
-full-parameter continued pretraining and track, at every checkpoint, both
-behavior (validation bits-per-byte and a 538-item grammatical minimal-pair
-benchmark) and the LLC. The model's modeling loss falls smoothly, but
-grammatical competence emerges \emph{abruptly} (minimal-pair accuracy
-chance~$\rightarrow$~$89\%$, with the preference margin flipping sign at
-$\approx\!2.5$M tokens). Over exactly this window the LLC \emph{rises steeply}
-($+52\rightarrow+87$) and then plateaus --- an aligned-changepoint signature.
-Two controls confirm specificity: a token-shuffled-Portuguese model (no word
-order to learn) and a matched-English model (generic adaptation) \emph{do not}
-reproduce the rise-then-plateau, and the structured model is cleanly separated
-from both at $100$M tokens ($+87$ vs.\ $+28$ vs.\ $+70$). The trajectory shape is
-robust to the SGLD localization strength. We frame this, following standard
-caution, as a changepoint in an SLT-derived local geometric estimate aligned
-with a behavioral transition --- not a formal phase transition --- and we are
-explicit about the present single-seed scope (a second-seed replication is in
-progress).
+Capabilities can emerge abruptly during training and be missed by smooth loss
+curves and behavioral evaluations --- a core AI-safety concern. We ask whether a
+structural signal from singular learning theory (SLT), the \emph{local learning
+coefficient} (LLC, $\lhat$, estimated by SGLD), tracks capability emergence in a
+small, fully controlled setting. Adapting \texttt{TinyStories-8M} to Portuguese
+by continued pretraining, we measure at every checkpoint both behavior
+(bits-per-byte; a 538-item grammar benchmark) and the LLC. Modeling loss falls
+smoothly, but grammatical competence emerges \emph{abruptly}
+(chance~$\rightarrow$~$89\%$, the preference margin flipping at $\approx\!2.5$M
+tokens); over exactly this window the LLC rises steeply ($+52\rightarrow+87$)
+then plateaus, slightly \emph{leading} behavior. Two controls
+(shuffled-Portuguese, matched-English) do not reproduce this, establishing
+specificity, and the shape is robust to the SGLD localization. We frame this
+cautiously as a changepoint in an SLT-derived geometric estimate aligned with a
+behavioral transition --- a proof-of-concept for behavior-independent,
+training-time signals of capability acquisition.
 \end{abstract}
 
+\paragraph{New work statement.} Every result, figure, control, and the supporting
+code in this report were produced during the hackathon (2026-06-19 to 06-21). We
+build on existing SLT/developmental-interpretability ideas and the open-source
+\texttt{devinterp} LLC estimator (Section~\ref{sec:related}); the experimental
+design, the Portuguese-acquisition study, the controls, and all measurements are
+new.
+
 \section{Introduction}
-Developmental interpretability asks whether internal, structural quantities of a
-neural network change at the moments its behavior changes. Singular learning
-theory provides one such quantity: the \emph{local learning coefficient}
-(LLC, also called the local RLCT), a measure of the effective dimensionality /
-degeneracy of the loss landscape around a parameter
+\paragraph{Why this matters for AI safety.} A central difficulty in monitoring
+advanced models is that capabilities can appear \emph{suddenly} during training
+or scaling, and a smooth training-loss curve gives little warning. Behavioral
+evaluations are our main detector, but they are reactive --- they can only find a
+capability once it is expressible and once someone thinks to elicit it, and they
+can miss latent or sandbagged abilities. A complementary goal is a
+\emph{behavior-independent, training-time} signal that an internal capability is
+forming: a structural ``early-warning'' read on the model itself. Developmental
+interpretability pursues exactly this --- tracking internal, structural quantities
+across training to see whether they change when capabilities do.
+
+Singular learning theory (SLT) provides one such quantity: the \emph{local
+learning coefficient} (LLC, also called the local RLCT), a measure of the
+effective dimensionality / degeneracy of the loss landscape around a parameter
 \cite{watanabe2009,lau2024}. If the geometry reorganizes precisely as a
-capability appears, the LLC should exhibit a changepoint aligned with the
-behavioral one.
+capability appears, the LLC should exhibit a changepoint aligned with --- or even
+ahead of --- the behavioral one.
 
 We study this in a deliberately small, controllable setting: second-language
 acquisition by continued pretraining. We take an English-trained model
@@ -83,7 +95,38 @@ controls that make it specific. Our findings:
   (Section~\ref{sec:robust}).
 \end{itemize}
 
-\section{Setup}\label{sec:setup}
+\paragraph{Theory of change.} If a structural quantity reliably exhibits a
+changepoint when --- and slightly before --- a capability emerges, and if that
+signal is specific (controls do not trigger it), then SLT-derived measurements
+could become a component of \emph{developmental monitoring}: watching training for
+the formation of capabilities before they are behaviorally elicited, complementing
+behavioral evals. This report is a controlled proof-of-concept of the core link
+(an LLC changepoint aligned with, and leading, a behavioral one), not a deployable
+monitor; we are explicit about that gap in Section~\ref{sec:limits}. We also note
+a practical angle relevant to a Global-South research context: the entire study
+runs on a single small GPU at trivial cost (an 8M-parameter model, ${\sim}\$15$ of
+compute), so this line of work is accessible without frontier-scale resources.
+
+\section{Related Work}\label{sec:related}
+\textbf{Singular learning theory and the LLC.} SLT characterizes the loss
+landscape of singular (non-identifiable) models such as neural networks
+\cite{watanabe2009}; the (local) learning coefficient quantifies local degeneracy.
+Recent work makes the LLC estimable at scale via SGLD \cite{lau2024}, which we use
+through the open-source \texttt{devinterp} library. \textbf{Developmental
+interpretability.} The closest line tracks the LLC and related quantities across
+training to identify developmental stages and structure formation --- e.g.\ the
+developmental landscape of in-context learning \cite{hoogland2024} and
+dynamical/Bayesian transitions in toy models \cite{chen2023}. \textbf{What is new
+here.} Prior LLC-during-training studies focus on in-context learning or
+toy/algorithmic tasks; we instead study \emph{second-language acquisition} by
+continued pretraining, pair the LLC trajectory with a dense behavioral
+grammar-acquisition curve, and --- crucially --- add \emph{content-matched controls}
+(shuffled-Portuguese, matched-English) and a localization-robustness check that
+together establish the changepoint is specific to genuine structure acquisition.
+To our knowledge this specific alignment-with-controls in a language-acquisition
+setting is new.
+
+\section{Methodology}\label{sec:setup}
 \paragraph{Model and training.} We adapt \texttt{roneneldan/TinyStories-8M} by
 full-parameter, FP32 next-token continued pretraining (AdamW, learning rate
 $10^{-4}$, $3\%$ warmup, cosine decay, gradient clipping $1.0$, weight decay
@@ -280,21 +323,48 @@ improve together). The slight \emph{lead} of the LLC over behavior is suggestive
 of the geometry reorganizing before the capability is fully expressed, but we do
 not over-read a single trajectory.
 
-\section{Limitations}
+\section{Limitations and Dual-Use Considerations}\label{sec:limits}
+\paragraph{Limitations.}
 \begin{itemize}\itemsep2pt
   \item \textbf{Single Portuguese seed.} The controls establish specificity but
   vary data \emph{content}, not the random seed; they do not rule out that the
   exact trajectory is idiosyncratic to one initialization / data order. A genuine
   second-seed replication (independent data ordering) is \emph{in progress} and
   will be folded in.
+  \item \textbf{Scale and transfer.} This is one 8M-parameter model on one
+  language pair. Whether the alignment holds --- and whether the LLC remains
+  estimable and informative --- at frontier scale, where the safety stakes lie, is
+  untested and is the central open question for the monitoring application.
   \item \textbf{No formal changepoint test.} ``The rise brackets the transition''
   and ``the lead'' are read from the trajectories, not from a fitted changepoint
   model with a significance statement.
-  \item \textbf{Localization sweep is two points} ($\gamma\in\{100,300\}$);
-  shape-invariance over a wider range would strengthen the robustness claim.
-  \item \textbf{Templated benchmark.} The 538-item grammar set is generated from
-  agreement templates, not a validated broad-coverage suite.
+  \item \textbf{LLC estimation is fragile and costly.} It is hyperparameter- and
+  reference-sensitive (Section~\ref{sec:setup}), has no ground truth, and each
+  trajectory is an MCMC procedure; a deployable monitor would need cheaper, more
+  robust estimation.
+  \item \textbf{Localization sweep is two points} ($\gamma\in\{100,300\}$) and the
+  538-item grammar set is template-generated, not a validated broad-coverage suite.
 \end{itemize}
+
+\paragraph{Dual-use considerations.} The method is a measurement / monitoring tool
+and is primarily \emph{defensive}: its intended use is to help detect capability
+formation, which supports oversight rather than capability creation. The misuse
+surface is limited but not zero: a reliable training-time signal that a capability
+is ``forming'' could in principle be used to guide or accelerate the development of
+a targeted (including undesirable) capability, or to probe for capabilities an
+actor wishes to elicit. We judge this risk low for a fragile, compute-heavy
+measurement on tiny models, and outweighed by the defensive value of structural
+early-warning signals. A more immediate risk is \emph{epistemic}: a
+plausible-looking but mis-estimated LLC (e.g.\ the unmasked-padding bug we hit, or
+reading an ``accepted'' label instead of the value) could create false confidence;
+we therefore stress reading the value, sign, and chain agreement, and validating
+against controls. Nothing here lowers a misuse barrier at the frontier.
+
+\paragraph{Future improvements.} (i) Finish the second-seed replication and add
+more seeds; (ii) a formal statistical changepoint/alignment test; (iii) more
+capabilities and language pairs, and a wider localization sweep; (iv) cheaper,
+more robust LLC estimation; (v) the key step for the safety case --- testing
+whether the alignment holds at larger scale.
 
 \section{Conclusion}
 In a small, fully controlled language-acquisition setting, an SLT-derived local
