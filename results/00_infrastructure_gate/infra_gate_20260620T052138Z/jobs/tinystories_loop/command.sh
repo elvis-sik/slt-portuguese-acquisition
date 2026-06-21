@@ -1,1 +1,0 @@
-.venv-bench-py311/bin/python scripts/tinystories_gate_loop.py --model roneneldan/TinyStories-3M --output-dir results/00_infrastructure_gate/infra_gate_20260620T052138Z/tinystories_loop --sequence-length 64 --batch-size 4 --train-steps 2 --device cuda 

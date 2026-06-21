@@ -1,1 +1,0 @@
-.venv-bench-py311/bin/python scripts/benchmark_train.py --model roneneldan/TinyStories-3M --sequence-length 64 --batch-size 32 --warmup-steps 50 --steps 200 --output results/00_infrastructure_gate/infra_gate_20260620T052138Z/train_seq64.json 

@@ -1,7 +1,0 @@
-target_tokens,actual_tokens,pt_bpb,grammar_margin,grammar_accuracy,llc_scalar,llc_std,llc_status,rejection_reason
-0,0,6.7735,0.4555,0.400,-71.3304,0.8505,rejected,persistent_downhill_movement_below_center
-100000,102400,4.2141,0.5383,0.700,4.7676,0.5079,reportable_with_diagnostics,
-400000,401408,5.6123,1.2533,0.500,-2.9916,0.6158,reportable_with_diagnostics,
-1500000,1503232,5.9696,1.1091,0.500,-25.7766,0.5921,reportable_with_diagnostics,
-5000000,5001216,6.2501,0.2961,0.600,-36.5764,0.5695,reportable_with_diagnostics,
-8000000,8003584,6.2615,1.9165,0.600,-12.5067,0.9708,reportable_with_diagnostics,

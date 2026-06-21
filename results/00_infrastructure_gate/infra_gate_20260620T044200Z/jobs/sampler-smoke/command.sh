@@ -1,1 +1,0 @@
-env HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 .venv-bench-py311/bin/python scripts/benchmark_sampler.py --model roneneldan/TinyStories-3M --sequence-length 128 --batch-size 32 --num-chains 2 --num-burnin-steps 100 --num-draws 50 --num-steps-between-draws 2 --output results/00_infrastructure_gate/infra_gate_20260620T044200Z/sampler_smoke.json 

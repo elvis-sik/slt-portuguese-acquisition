@@ -14,14 +14,26 @@ infra/gcp/.env
 infra/gcp/.env.local
 results/**/checkpoints/
 results/**/cache/
+results/**/jobs/
+results/_codex/
+results/_jobs/
+results/04_report/
 .cache/
 wandb/
 *.log
-!results/_jobs/**/stdout_stderr.log
 .DS_Store
 reference/mock_report/build/
+reports/submission/*.docx
+reports/submission/build_template_docx.py
+reports/submission/template/
+reports/submission/*.pdf
+reports/submission/figures/
 
 # Large per-run training data (regenerable; hundreds of MB) — keep out of git
 results/**/data_splits/*token_ids*.jsonl
 results/**/data_splits/.*.jsonl.*
 results/**/*.zarr/
+
+# refusal-eval raw model completions (contain harmful content; keep local only)
+results/alignment/gens_*.jsonl
+results/alignment/run.log

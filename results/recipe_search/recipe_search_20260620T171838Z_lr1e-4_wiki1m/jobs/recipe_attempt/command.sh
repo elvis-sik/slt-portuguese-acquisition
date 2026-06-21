@@ -1,1 +1,0 @@
-.venv-bench-py311/bin/python scripts/recipe_search.py --output-dir results/recipe_search/recipe_search_20260620T171838Z_lr1e-4_wiki1m --learning-rate 1e-4 --warmup-fraction 0.03 --lr-schedule cosine --grad-clip 1.0 --weight-decay 0.01 --batch-size 64 --target-tokens 1000000 --checkpoint-tokens 0\,100000\,250000\,500000\,1000000 --max-docs 2048 --device cuda --local-files-only 

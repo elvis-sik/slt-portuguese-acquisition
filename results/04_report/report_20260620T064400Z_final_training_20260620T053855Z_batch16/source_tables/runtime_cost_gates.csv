@@ -1,3 +1,0 @@
-phase,run_id,gate_decision,wall_minutes,gpu_hours,estimated_cost_usd,projected_total_cost_usd
-final_behavior_training,final_training_20260620T053855Z,proceed_to_llc,8.59,0.1432,$0.1432,$0.2469
-llc_campaign,llc_campaign_final_training_20260620T053855Z_batch16,llc_complete_with_rejections,36.18,0.6029,$0.6029,$0.8506
