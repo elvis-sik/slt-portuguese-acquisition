@@ -1,21 +1,8 @@
 {
-  "phase": "infrastructure_gate",
-  "gate": "passed_with_modifications",
+  "phase": "02_final_training",
+  "gate": "greenlit_scale_up",
   "last_updated": "2026-06-20",
-  "gpu_hours_used": 0.064,
-  "estimated_cost_usd": 0.064,
-  "projected_charged_hours": {
-    "low": 2.119,
-    "median": 3.531,
-    "high": 7.062
-  },
-  "projected_cost_usd": {
-    "low": 2.119,
-    "median": 3.531,
-    "high": 7.062
-  },
   "requires_human_approval": false,
-  "next_action": "Implement the real TinyStories-3M train-save-reload-evaluate-sample loop with a CPU smoke test before any final campaign.",
-  "reason": "GCP L4 CUDA check, TinyStories-3M training benchmarks, and devinterp sampler smoke test completed. Python 3.11 and sampler API/tensor-format fixes were required; failed attempts are retained under results/_jobs.",
-  "cost_note": "gpu_hours_used and estimated_cost_usd are bounded-job wall time at the $1.00/h planning rate, excluding VM boot, bootstrap, idle time, disk, and any official GCP pricing variance."
+  "next_action": "Operator greenlit the scale-up. Run final_training with the FROZEN verified recipe (TinyStories-8M, FP32 AdamW, lr 1e-4, 3pct warmup, cosine decay, grad-clip 1.0, weight_decay 0.01, batch 64, Wikipedia-PT corpus) to ~100,000,000 tokens per condition. Conditions in priority: structured PT seed A, shuffled PT, matched English, structured PT seed B. Use a LARGER fixed Portuguese validation set (>=500 examples, not the 24-example recipe-search set) and DENSE log-spaced checkpoints (>=15) for a resolvable behavioral + LLC trajectory. Then run the LLC campaign and the report. Apply the scientific validity gate throughout: structured-PT BPB must keep decreasing and beat shuffled; LLC must be positive. If it degrades at scale, diagnose - do not report a broken run.",
+  "reason": "recipe_search verified the recipe (structured PT BPB 6.77->3.81, beat shuffled 4.21); operator greenlit scaling to 100M tokens."
 }

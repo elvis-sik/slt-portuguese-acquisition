@@ -1,62 +1,97 @@
 # SLT Portuguese — Project Status
 
-_Generated 2026-06-20 ~17:46 UTC. Snapshot of the project state for tracking/submission prep._
+_Updated 2026-06-21 ~01:00 UTC. The current, authoritative summary of the project for collaborators and
+their coding agents. For the blow-by-blow, see `state/decision_log.md`._
 
-## Goal
-Test whether an SLT-derived measure (local learning coefficient, LLC) changes when a small
-English-trained LM acquires Portuguese via full-parameter continued pretraining, with token-shuffled
-Portuguese and matched-English controls.
+## The research question (this is the whole point)
+Does an **SLT-derived geometric quantity — the Local Learning Coefficient (LLC)** — change in a way that
+**aligns with a behavioral/developmental transition** as a small English-trained language model acquires
+Portuguese via full-parameter continued pretraining?
 
-## Engineering (built this session, working)
-- **Autonomous orchestrator** (`codex/orchestrate.py`): planner agent (GPT-5.5/xhigh) + executor agent
-  (GPT-5.5/high, `danger-full-access` for GPU) + deterministic harness enforcing hard backstops
-  ($50→adjustable hard cap, wall-clock deadline, operator stop-file). Per-tick state in
-  `results/_orchestrator/state.json`.
-- **Scientific validity gate** (AGENTS.md + phase/planner prompts): a degrading model or negative LLC
-  is treated as a pipeline bug to fix/escalate, never reported as a "null". Planner cannot declare
-  `complete` on a broken run.
-- **recipe_search autoresearch** (`codex/prompts/recipe_search.md`): many SHORT training attempts to
-  find a recipe that demonstrably learns Portuguese, then halt for operator greenlight before scaling.
-- **Two-layer self-stop**: dashboard auto-stop on completion + VM-side `completion_watchdog.sh`
-  (30-min grace, `sudo shutdown`) so a fast finish can't idle-bill. GPU preflight in the launcher.
-- **Dashboard** (`apps/dashboard`): Orchestrator tab (tick timeline, deadline/cost bars), Experiment
-  runs, Agent-log tab (readable Codex transcripts), figures/metrics. Syncs from the VM (png/pdf/svg
-  included).
+**A model learning Portuguese is not itself a result** — it's the scaffolding that makes the geometric
+question well-posed. The contribution is the LLC↔behavior alignment. If there is no valid LLC trajectory,
+there is no result.
 
-## Infrastructure
-- Active VM: **`slt-portuguese-l4-mig`** (g2-standard-4 / L4) in **`us-central1-b`**, RUNNING.
-- Migrated from `us-central1-a` after an L4 **stockout**; boot disk snapshot
-  **`slt-pt-migrate-snap`** retained as backup; old VM + disk deleted.
-- Codex auth (`~/.codex/auth.json`) persisted via the snapshot. Key sourced from 1Password.
+## Headline result (as of now — strong, still being completed)
+After a hard debugging arc, we have a **valid, positive LLC trajectory for the primary condition** that
+shows a **steep rise in geometric complexity during acquisition, then a plateau** — with the steepest
+rise bracketing the behavioral grammar-acquisition transition. This is an aligned-changepoint signature,
+the thing we came for. It still needs the controls, a sensitivity check, and replication before any claim.
 
-## Scientific status
-- **Night 1 (8M tokens): honest NULL / broken pipeline.** The 8M model did NOT learn Portuguese
-  (PT BPB rose) and LLC came out negative (non-physical). Root causes: token budget far too small +
-  unstable LR (3e-4 flat). The agent initially mis-reported this as a "null" — fixed by the validity
-  gate. Report: `results/04_report/report_20260620T064400Z_final_training_20260620T053855Z_batch16/`
-  (figures show flat/degrading behavior and negative LLC; **stale** w.r.t. current direction).
-- **Recipe verified (recipe_search, 1M tokens).** Frozen recipe: TinyStories-8M, FP32 AdamW, **lr 1e-4,
-  3% warmup, cosine decay, grad-clip 1.0, weight_decay 0.01, batch 64, Wikipedia-PT corpus**.
-  Structured-PT BPB **6.77 → 4.81 → 4.33 → 4.08 → 3.81** (monotonic), beating the shuffled control
-  (4.21). English retention degraded as expected. Caveat: tiny 24-example validation set.
-- **Scale-up IN PROGRESS (~100M tokens/condition).** Running now under the frozen recipe with a larger
-  validation set + dense checkpoints; deadline ~01:40 UTC 2026-06-21. Open question: does the clean
-  BPB descent **hold at 100M tokens**? Then LLC campaign + report. A 20-min follow-up check is
-  scheduled.
+```
+LLC (structured PT seed A, fixed reference, loc=100, 3 chains):
+ 400k +52.3 | 800k +61.5 | 1.5M +75.5 | 2.5M +80.7 | 4M +84.3 | 6M +84.8 | 8M +86.0 | (18M/27M/60M/100M finishing)
+                                  ^^^^^^^^^^^^ behavioral transition ~1.5–2.5M ^^^^^^^^^^^^
+```
 
-## Key artifacts
-- Running project log: `state/decision_log.md` (current through the scale-up greenlight).
-- Live orchestrator state: `results/_orchestrator/state.json` (on the VM; syncs to dashboard).
-- Stale science report: `results/04_report/.../report.md` (night-1 failed run).
-- Implementation plan: `~/.claude/plans/okay-this-does-make-purring-waffle.md`.
+## Scientific state in detail
+- **Training (frozen recipe):** TinyStories-8M, full-parameter FP32 AdamW, **lr 1e-4, 3% warmup, cosine
+  decay, grad-clip 1.0, weight_decay 0.01, batch 64, Wikipedia-PT corpus**, sequence length 128. This recipe
+  was found by a short autoresearch loop after an initial run (8M tokens, lr 3e-4 flat) failed to learn.
+  - structured PT seed A: trained to **100M tokens**, PT BPB **6.7 → 2.5** (clean, monotonic).
+  - shuffled PT control: **100M** done. matched-English control: ~**80M** (paused). structured PT seed B: **not started**.
+- **Behavioral benchmarks (every checkpoint):** PT validation BPB, English-retention BPB, and a
+  **538-item templated Portuguese grammatical minimal-pair benchmark** (`data/eval/pt_minimal_pairs.jsonl`,
+  10 agreement phenomena, frozen+hashed; generator `scripts/gen_pt_minimal_pairs.py`, scorer
+  `scripts/score_minimal_pairs.py`). Grammar accuracy rises **chance → ~89%** with a clean transition at
+  **~1.5–2.5M tokens** (margin flips negative→positive there). The original 10-item probe was too noisy; this
+  replaced it.
+- **LLC (the hard part):** see below.
 
-## Git
-- Remote: `github.com/elvis-sik/slt-portuguese-handoff`. **45 files uncommitted, nothing pushed** this
-  session (the whole orchestrator system + synced results). Recommend committing + pushing before
-  submission.
+## The LLC debugging arc (important context — read before touching LLC)
+1. The first LLC runs were **negative at every checkpoint, even the deepest 100M minimum.** We initially
+   (wrongly) treated the campaign's accept/reject *label* as validity — but "accepted" only means "not
+   severely downhill," NOT "positive." Always read the **actual value, sign, and chain agreement.**
+2. Sweeping lr and localization could not fix it (lr→0 ⇒ LLC→0 from below; batch-size invariant) — the
+   fingerprint of "the checkpoint is not a minimum of the loss being measured."
+3. **Root cause (a real code/data bug):** `scripts/llc_campaign.py` builds its sampler reference from short
+   OPUS sentences (~30 chars) **padded to 128 tokens with eos and never masked** — so ~90% of every scored
+   sequence was unmasked eos-prediction. The checkpoint minimizes the *training* loss, not that padded loss.
+4. **Fix:** rebuilt the reference from full-length **non-padded** Wikipedia-PT training chunks
+   (`scripts/build_packed_reference.py`; the buggy original is saved as
+   `…/data_splits/sampler_reference.jsonl.orig`). With it, LLC is **positive and accepted everywhere**
+   (100M: +77.9 at loc=100). The original `loc=100` config was fine all along — the reference was the bug.
+   - **TODO (open):** also mask padding *in the loss* inside `llc_campaign.py` (proper labels / ignore_index)
+     so the fix is robust to any reference, not only via the repacked reference.
 
-## Next steps
-1. Read the scale-up verdict (follow-up check fires ~18:04 UTC): did the recipe hold at 100M tokens?
-2. If yes → LLC campaign on the trajectory → fresh empirical report (replaces the stale one).
-3. Commit + push the orchestrator system and results.
-4. If the recipe degrades at scale → diagnose (the validity gate forces this) rather than report.
+## What's done / running / pending
+- ✅ Orchestrator + dashboard + recipe + behavioral benchmarks + behavioral transition found.
+- ✅ LLC bug found & fixed; valid positive LLC trajectory for seed A (finishing the last 4 checkpoints).
+- ⏳ **Localization-sensitivity check** — show the LLC trajectory shape is stable across valid localizations.
+- ⏳ **Control LLC trajectories** — shuffled-PT (should show NO/weaker changepoint) and matched-English.
+- ⏳ **seed B replication** — train to 100M + LLC; show the changepoint replicates.
+- ⏳ **Report + figures** — BPB curve, 538-grammar curve, LLC trajectory, the alignment, with honest caveats.
+- ⏳ **Statistical changepoint analysis** + literature framing (novelty vs known LLC-during-learning work).
+
+## Infrastructure reality (important for a new collaborator)
+- Experiments run on a **GCP L4 GPU VM** (`slt-portuguese-l4-mig`, zone `us-central1-b`, project
+  `elvis-launchpad`). Cloud lifecycle, the OpenAI/Codex key (1Password), and `.env.local` are **operator-side
+  and not in the repo.**
+- **Cloning the repo gives you all the code + docs, but NOT the ability to run experiments**: the trained
+  checkpoints (hundreds of MB), the large tokenized corpora, and the GPU VM are not in git. To actually run
+  LLC/training you need GPU access (our VM, or your own GCP + re-training) — coordinate with the operator.
+- Heavy artifacts are gitignored (checkpoints, `*.zarr`, `*token_ids*.jsonl`). The repo holds code, prompts,
+  docs, the benchmark, and small result summaries.
+
+## Where things live
+- Autonomous research harness: `codex/orchestrate.py` (+ `codex/prompts/`, `codex/schemas/`); rules in `AGENTS.md`.
+- Local control dashboard: `apps/dashboard/` (`pnpm dashboard:dev`).
+- LLC: `scripts/llc_campaign.py` (run), `scripts/llc_curve.py` (read values from `running_estimates/`),
+  `scripts/build_packed_reference.py` (the reference fix).
+- Grammar benchmark: `data/eval/pt_minimal_pairs.jsonl`, `scripts/gen_pt_minimal_pairs.py`, `scripts/score_minimal_pairs.py`.
+- Results on the VM under `results/02_final_training/...` (training) and `results/03_llc_campaign/...` (LLC).
+- Running narrative & decisions: `state/decision_log.md`.
+
+## For a new collaborator / coding agent — suggested read order
+1. This file, then `state/decision_log.md` (the full arc, esp. the LLC fix).
+2. `AGENTS.md` (the scientific rules — incl. the validity gate and "don't manufacture a changepoint").
+3. `scripts/llc_campaign.py` + `scripts/build_packed_reference.py` (the LLC machinery and the fix).
+4. `data/eval/pt_minimal_pairs.jsonl` (the behavioral benchmark).
+
+**Good delegatable tasks** (✱ = needs GPU/VM access; others are code/analysis/writing):
+- Harden the LLC code: mask padding in `llc_campaign.py` and re-validate. (code; ✱ to verify)
+- ✱ Localization-sensitivity analysis of the LLC trajectory (rigor check).
+- ✱ Control LLC trajectories (shuffled-PT, English) for contrast; ✱ seed-B replication.
+- Statistical changepoint analysis: quantify the LLC changepoint and its alignment with the ~1.5–2.5M behavioral transition.
+- Expand the grammar benchmark toward a larger BLiMP-PT-scale set (extend the templated generator). (code)
+- Draft the report/figures from the result tables; literature framing vs developmental-interpretability/SLT work.

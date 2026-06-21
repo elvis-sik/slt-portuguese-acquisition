@@ -20,3 +20,8 @@ wandb/
 !results/_jobs/**/stdout_stderr.log
 .DS_Store
 reference/mock_report/build/
+
+# Large per-run training data (regenerable; hundreds of MB) — keep out of git
+results/**/data_splits/*token_ids*.jsonl
+results/**/data_splits/.*.jsonl.*
+results/**/*.zarr/
