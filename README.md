@@ -17,8 +17,14 @@ A developmental-interpretability experiment. We take a small English-trained lan
   benchmark (chance → ~89%).
 - After fixing a real LLC-measurement bug (an unmasked-padding loss-definition error — see PROJECT_STATUS
   and `state/decision_log.md`), we obtain a **valid, positive LLC trajectory** that **rises steeply through
-  the acquisition phase and then plateaus** — an aligned-changepoint signature. Controls, a sensitivity
-  check, and replication are in progress.
+  the acquisition phase and then plateaus** — an aligned-changepoint signature.
+- **Both controls now confirm specificity:** token-shuffled PT rises then *declines* to ~28, and matched
+  English rises only smoothly to ~70 — neither reproduces the rise-then-plateau (~85). The shape is also
+  **robust to localization** (loc=100 vs 300 identical). So the changepoint is specific to genuine
+  Portuguese acquisition, not training length or generic adaptation —
+  [`reports/control_comparison/REPORT.md`](reports/control_comparison/REPORT.md).
+- **seed-B replication is running** (a second, independently-seeded structured-PT trajectory) — the last
+  piece before a robustness claim.
 
 This repo was originally a *planning handoff*; it is now a project that has been built and run. Several
 files under `docs/`, plus `START_HERE_FOR_CODEX.md` and `reference/mock_report/`, are **historical

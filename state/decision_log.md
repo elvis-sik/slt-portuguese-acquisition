@@ -398,3 +398,43 @@ non-padded train_structured_pt chunks (256 examples; original saved as sampler_r
 With the fixed reference, 100M LLC is POSITIVE and accepted: +77.9 (loc=100), +71.1 (loc=1000),
 +30.2 (loc=10000). Original loc=100 config was fine all along. TODO: also mask padding in
 llc_campaign.py for robustness. Running the full seed-A trajectory campaign with the fixed reference.
+
+## 2026-06-21T02:51:18Z — GATE: shuffled-PT control LLC trajectory (launch)
+- **Action:** LLC campaign on the token-shuffled-PT control, same frozen 11-checkpoint subset and sampler
+  config as structured seed-A (loc=100, 3 chains, lr 1e-5, n_beta 10, batch 64, 200 burnin + 100 draws).
+- **Why:** the contrast the whole claim rests on. Structured seed-A shows a steep LLC rise bracketing the
+  grammar transition; the control removes learnable word-order structure, so we predict NO / much weaker
+  aligned changepoint. Without it the seed-A result is not a result.
+- **Method note (validity):** LLC must be measured at a minimum of the loss the model actually minimised,
+  so the control uses a **condition-matched, non-padded** sampler reference built from shuffled-PT's OWN
+  training chunks (scripts/build_packed_reference.py, 256 chunks, re-encode to full 128 tokens). Using the
+  structured-PT reference would measure a loss the shuffled model never minimised -> invalid lambda-hat.
+- **Code:** generalized scripts/llc_campaign.py with backward-compatible --condition / --reference-path
+  (sets PRIMARY_CONDITION). Selection: results/02_final_training/final_training_20260620T175233Z_wiki100m/llc_selection_shuffled_pt.json (no_final_llc_inspected=true).
+- **Cost/runtime estimate:** ~2-3 GPU-hours, ~$2-3 (seed-A took 2h03m). Bounded at 3h. Under the $5 soft
+  line; within the planned-controls scope. **Decision: proceed.**
+- **Output:** results/03_llc_campaign/shuffled_pt_FINAL_20260621T025118Z
+
+## 2026-06-21T03:58:27Z — Overnight FULL pipeline (laptop-independent, deadline-bounded)
+- Launched infra/remote/overnight_full_pipeline.sh (pid-detached) to run the remaining LLC science to
+  completion and HALT the VM before the operator wakes. Deadline 2026-06-21T10:30Z; EXIT-trap halts the
+  VM even on stage error (cannot idle-bill).
+- Priority stages, each gated on >140min remaining: (1) shuffled-PT control [running] ->
+  (2) matched-English control LLC -> (3) seed-A localization-sensitivity loc=300 -> (4) loc=30 ->
+  (5) figures + OVERNIGHT_DATA.md, then halt. Realistic fit: 1-3 (+maybe 4) before deadline.
+- Each control uses a condition-matched non-padded reference (own training chunks); loc-sensitivity
+  reuses the seed-A selection + structured reference, varying only localization (rigor: shape robustness).
+- seed-B replication intentionally EXCLUDED: re-running final_training.py iterates all FINAL_CONDITIONS
+  and would clobber the checkpoints these LLC jobs read. Needs a clean dedicated run next session.
+- VM has no gh and a stale git remote, so the PR is opened operator-side; the VM produces figures +
+  summaries + data tables under results/03_llc_campaign/_overnight_summary/.
+
+## 2026-06-21T16:12:24Z — seed-B replication launched (after data-hash fix)
+- Added final_training.py --only-conditions so seed-B trains into the EXISTING run dir (reuses identical
+  data splits, distinct seed offset 404), touching no other condition.
+- First launch crashed at startup: load_prepared_data integrity check failed because sampler_reference.jsonl
+  was legitimately rebuilt NON-PADDED during the LLC fix (build_packed_reference.py), so its recorded hash
+  in split_manifest.json was stale. Train token-id hashes all still matched. Patched only the
+  sampler_reference.jsonl hash to its current value (honest bookkeeping; training does not use that file).
+- Relaunched via infra/remote/seedb_pipeline.sh (deadline 20:00Z, EXIT-trap self-halt). Training healthy,
+  GPU 99%. Pipeline: train seed-B -> LLC (condition-matched = structured reference) -> summarize -> halt.

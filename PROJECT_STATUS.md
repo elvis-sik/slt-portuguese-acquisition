@@ -19,7 +19,7 @@ acquisition, then a plateau** — with the steepest rise bracketing the behavior
 transition. **Both controls now confirm specificity:** token-shuffled PT rises to ~60 then *declines* to
 ~28, and matched-English rises only smoothly to ~70 — neither reproduces the rise-then-plateau. The shape
 is also robust to localization (loc=100 vs loc=300 identical in shape). The remaining piece before a claim
-is **seed-B replication**.
+is **seed-B replication**, which is **running now** (2026-06-21).
 
 **→ Write-ups with figures: [`reports/seed_a_llc_trajectory/REPORT.md`](reports/seed_a_llc_trajectory/REPORT.md)
 (primary) and [`reports/control_comparison/REPORT.md`](reports/control_comparison/REPORT.md) (controls + robustness).**
@@ -73,8 +73,11 @@ finished — no scientific output affected.)
 - ✅ **Localization-sensitivity check** — structured-PT shape is identical at loc=100 vs loc=300 (~4 units
   apart, same rise+plateau). Controls + robustness written up in
   [`reports/control_comparison/REPORT.md`](reports/control_comparison/REPORT.md).
-- ⏳ **seed B replication** — train to 100M + LLC; show the changepoint replicates. **Top remaining piece**
-  (needs a clean training run — re-running training in place would clobber existing checkpoints).
+- 🔄 **seed B replication — RUNNING (2026-06-21).** A second, independently-seeded structured-PT trajectory
+  (seed offset 404, identical data). Enabled by `final_training.py --only-conditions structured_pt_seed_b`,
+  which trains *only* seed-B into the existing run dir (reuses the immutable data splits, touches no other
+  condition), then LLC against the same structured reference. Pipeline `infra/remote/seedb_pipeline.sh`
+  (self-halting). Report + figure to follow when it completes.
 - ⏳ **Statistical changepoint analysis** + literature framing (novelty vs known LLC-during-learning work).
 - ⏳ **Code hygiene** — fix the cosmetic `KeyError: 'estimated_cost_usd'` (llc_campaign.py:652) and add
   in-loss padding masking.
