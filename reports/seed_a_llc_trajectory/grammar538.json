@@ -1,0 +1,240 @@
+{
+  "condition": "structured_pt_seed_a",
+  "benchmark_n": 538,
+  "checkpoints": [
+    {
+      "accuracy": 0.4461,
+      "mean_margin": -0.2768,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.483,
+        "adjective_noun_number": 0.367,
+        "article_noun_gender": 0.5,
+        "article_noun_number": 0.354,
+        "demonstrative_gender": 0.417,
+        "demonstrative_number": 0.208,
+        "indefinite_article_gender": 0.458,
+        "predicative_adjective_gender": 0.39,
+        "predicative_adjective_number": 0.65,
+        "subject_verb_number": 0.576
+      },
+      "tokens": 0
+    },
+    {
+      "accuracy": 0.461,
+      "mean_margin": -0.4619,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.45,
+        "adjective_noun_number": 0.433,
+        "article_noun_gender": 0.521,
+        "article_noun_number": 0.292,
+        "demonstrative_gender": 0.5,
+        "demonstrative_number": 0.312,
+        "indefinite_article_gender": 0.438,
+        "predicative_adjective_gender": 0.424,
+        "predicative_adjective_number": 0.667,
+        "subject_verb_number": 0.525
+      },
+      "tokens": 100000
+    },
+    {
+      "accuracy": 0.4257,
+      "mean_margin": -0.6685,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.45,
+        "adjective_noun_number": 0.417,
+        "article_noun_gender": 0.5,
+        "article_noun_number": 0.083,
+        "demonstrative_gender": 0.5,
+        "demonstrative_number": 0.292,
+        "indefinite_article_gender": 0.438,
+        "predicative_adjective_gender": 0.458,
+        "predicative_adjective_number": 0.55,
+        "subject_verb_number": 0.508
+      },
+      "tokens": 200000
+    },
+    {
+      "accuracy": 0.4907,
+      "mean_margin": -0.5119,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.4,
+        "adjective_noun_number": 0.533,
+        "article_noun_gender": 0.646,
+        "article_noun_number": 0.0,
+        "demonstrative_gender": 0.5,
+        "demonstrative_number": 0.688,
+        "indefinite_article_gender": 0.542,
+        "predicative_adjective_gender": 0.441,
+        "predicative_adjective_number": 0.65,
+        "subject_verb_number": 0.492
+      },
+      "tokens": 400000
+    },
+    {
+      "accuracy": 0.4572,
+      "mean_margin": -0.7045,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.433,
+        "adjective_noun_number": 0.483,
+        "article_noun_gender": 0.625,
+        "article_noun_number": 0.0,
+        "demonstrative_gender": 0.5,
+        "demonstrative_number": 0.333,
+        "indefinite_article_gender": 0.646,
+        "predicative_adjective_gender": 0.508,
+        "predicative_adjective_number": 0.567,
+        "subject_verb_number": 0.441
+      },
+      "tokens": 800000
+    },
+    {
+      "accuracy": 0.4647,
+      "mean_margin": -0.3941,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.567,
+        "adjective_noun_number": 0.467,
+        "article_noun_gender": 0.604,
+        "article_noun_number": 0.188,
+        "demonstrative_gender": 0.5,
+        "demonstrative_number": 0.229,
+        "indefinite_article_gender": 0.625,
+        "predicative_adjective_gender": 0.424,
+        "predicative_adjective_number": 0.5,
+        "subject_verb_number": 0.508
+      },
+      "tokens": 1500000
+    },
+    {
+      "accuracy": 0.5967,
+      "mean_margin": 0.4607,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.583,
+        "adjective_noun_number": 0.483,
+        "article_noun_gender": 0.75,
+        "article_noun_number": 0.708,
+        "demonstrative_gender": 0.562,
+        "demonstrative_number": 0.479,
+        "indefinite_article_gender": 0.771,
+        "predicative_adjective_gender": 0.525,
+        "predicative_adjective_number": 0.633,
+        "subject_verb_number": 0.525
+      },
+      "tokens": 2500000
+    },
+    {
+      "accuracy": 0.6097,
+      "mean_margin": 0.568,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.683,
+        "adjective_noun_number": 0.6,
+        "article_noun_gender": 0.75,
+        "article_noun_number": 0.854,
+        "demonstrative_gender": 0.458,
+        "demonstrative_number": 0.25,
+        "indefinite_article_gender": 0.75,
+        "predicative_adjective_gender": 0.593,
+        "predicative_adjective_number": 0.65,
+        "subject_verb_number": 0.508
+      },
+      "tokens": 4000000
+    },
+    {
+      "accuracy": 0.6487,
+      "mean_margin": 1.0957,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.517,
+        "adjective_noun_number": 0.65,
+        "article_noun_gender": 0.771,
+        "article_noun_number": 0.833,
+        "demonstrative_gender": 0.562,
+        "demonstrative_number": 0.562,
+        "indefinite_article_gender": 0.833,
+        "predicative_adjective_gender": 0.576,
+        "predicative_adjective_number": 0.75,
+        "subject_verb_number": 0.492
+      },
+      "tokens": 6000000
+    },
+    {
+      "accuracy": 0.7546,
+      "mean_margin": 1.5397,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.683,
+        "adjective_noun_number": 0.8,
+        "article_noun_gender": 0.875,
+        "article_noun_number": 0.875,
+        "demonstrative_gender": 0.729,
+        "demonstrative_number": 0.25,
+        "indefinite_article_gender": 0.833,
+        "predicative_adjective_gender": 0.797,
+        "predicative_adjective_number": 0.917,
+        "subject_verb_number": 0.746
+      },
+      "tokens": 8000000
+    },
+    {
+      "accuracy": 0.7602,
+      "mean_margin": 1.6165,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.65,
+        "adjective_noun_number": 0.85,
+        "article_noun_gender": 0.833,
+        "article_noun_number": 0.792,
+        "demonstrative_gender": 0.854,
+        "demonstrative_number": 0.854,
+        "indefinite_article_gender": 0.812,
+        "predicative_adjective_gender": 0.627,
+        "predicative_adjective_number": 0.6,
+        "subject_verb_number": 0.797
+      },
+      "tokens": 12000000
+    },
+    {
+      "accuracy": 0.7509,
+      "mean_margin": 1.5083,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.7,
+        "adjective_noun_number": 0.783,
+        "article_noun_gender": 0.875,
+        "article_noun_number": 0.771,
+        "demonstrative_gender": 0.625,
+        "demonstrative_number": 0.438,
+        "indefinite_article_gender": 0.979,
+        "predicative_adjective_gender": 0.61,
+        "predicative_adjective_number": 0.917,
+        "subject_verb_number": 0.797
+      },
+      "tokens": 18000000
+    },
+    {
+      "accuracy": 0.8922,
+      "mean_margin": 2.403,
+      "n": 538,
+      "per_phenomenon": {
+        "adjective_noun_gender": 0.817,
+        "adjective_noun_number": 0.8,
+        "article_noun_gender": 0.979,
+        "article_noun_number": 0.896,
+        "demonstrative_gender": 0.896,
+        "demonstrative_number": 0.917,
+        "indefinite_article_gender": 0.938,
+        "predicative_adjective_gender": 0.847,
+        "predicative_adjective_number": 0.983,
+        "subject_verb_number": 0.881
+      },
+      "tokens": 27000000
+    }
+  ]
+}
