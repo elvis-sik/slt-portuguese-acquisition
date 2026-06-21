@@ -598,6 +598,13 @@ def run_condition(
     order_dir.mkdir(parents=True, exist_ok=True)
 
     torch.manual_seed(cfg.seed + CONDITION_SEED_OFFSETS[condition])
+    # Genuine per-seed variation. batch_indices() walks `sequences` sequentially (seed-independent), and
+    # the model has no active dropout, so without this every condition produced byte-IDENTICAL weights —
+    # i.e. "seed B" was a duplicate of "seed A", not a replication (see decision_log 2026-06-21). Shuffling
+    # the data ORDER with the condition seed makes the optimization trajectory genuinely seed-dependent.
+    order_rng = random.Random(cfg.seed + CONDITION_SEED_OFFSETS[condition])
+    sequences = list(sequences)
+    order_rng.shuffle(sequences)
     model, optimizer, scheduler = make_model_optimizer_scheduler(cfg)
     plan = checkpoint_plan(cfg)
     checkpoint_hashes: dict[str, dict[str, str]] = {}

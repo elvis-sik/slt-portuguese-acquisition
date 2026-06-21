@@ -79,12 +79,26 @@ bash infra/remote/run_bounded_job.sh --name train_seed_b --max-hours 2 --auto-st
 wait_job train_seed_b
 summarize_bpb "$R/conditions/structured_pt_seed_b" "$SUMD/seed_b_bpb.json"
 
-NB="$(ls results/02_final_training/final_training_20260620T175233Z_wiki100m/conditions/structured_pt_seed_b/checkpoints/ 2>/dev/null | wc -l)"
+NB="$(ls $R/conditions/structured_pt_seed_b/checkpoints/ 2>/dev/null | wc -l)"
 echo "[seedb] seed-B checkpoints present: $NB"
 if (( NB < 11 )); then
   echo "[seedb] WARNING: seed-B training looks incomplete ($NB checkpoints); skipping LLC."
   exit 0  # trap halts
 fi
+
+# GUARANTEE seed-B is a genuine replication, not a duplicate of seed-A: the data-order-seed bug
+# (fixed 2026-06-21) previously produced byte-identical weights. Refuse the LLC if they match.
+identical=0
+for t in tokens_000400000 tokens_002500000 tokens_100000000; do
+  HA="$(sha256sum "$R/conditions/structured_pt_seed_a/checkpoints/$t/model.safetensors" 2>/dev/null | cut -d" " -f1)"
+  HB="$(sha256sum "$R/conditions/structured_pt_seed_b/checkpoints/$t/model.safetensors" 2>/dev/null | cut -d" " -f1)"
+  if [ -n "$HA" ] && [ "$HA" = "$HB" ]; then echo "[seedb] $t IDENTICAL to seed-A"; identical=$((identical+1)); else echo "[seedb] $t differs (A=${HA:0:12} B=${HB:0:12})"; fi
+done
+if (( identical > 0 )); then
+  echo "[seedb] ABORT: seed-B is NOT independent of seed-A ($identical/3 checkpoints identical). Not a replication; skipping LLC. Investigate the seed/data-order fix."
+  exit 0  # trap halts
+fi
+echo "[seedb] VERIFIED: seed-B genuinely differs from seed-A at all sampled checkpoints -> valid replication."
 
 # 2) seed-B LLC (condition-matched reference = the structured non-padded reference)
 cat > "$R/llc_selection_seed_b.json" <<JSON

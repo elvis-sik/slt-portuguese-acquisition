@@ -438,3 +438,16 @@ llc_campaign.py for robustness. Running the full seed-A trajectory campaign with
   sampler_reference.jsonl hash to its current value (honest bookkeeping; training does not use that file).
 - Relaunched via infra/remote/seedb_pipeline.sh (deadline 20:00Z, EXIT-trap self-halt). Training healthy,
   GPU 99%. Pipeline: train seed-B -> LLC (condition-matched = structured reference) -> summarize -> halt.
+
+## 2026-06-21T17:41:13Z — seed-B was a DUPLICATE (bug found on status check); fixed + re-running
+- The first seed-B run produced model weights BYTE-IDENTICAL to seed-A at every checkpoint (verified via
+  model.safetensors sha256 at 400k/800k/100M). Its LLC matched seed-A to 4 sig figs because the checkpoints
+  were literally the same model -> NOT a replication.
+- Root cause: batch_indices() walks the training data SEQUENTIALLY (range(step*B, ...)), seed-independent,
+  and the model has no active dropout, so torch.manual_seed(seed+offset) never changed the weights. The
+  CONDITION_SEED_OFFSETS were cosmetic. (Existing results stand: controls differ in data CONTENT, so they
+  are valid contrasts; only the seed-B replication was degenerate.)
+- Fix: run_condition now shuffles the data ORDER with random.Random(seed+offset) so the optimization
+  trajectory is genuinely seed-dependent. seedb_pipeline.sh now ABORTS the LLC if seed-B weights still
+  match seed-A (guard against silently reporting a duplicate again).
+- Re-running seed-B only (operator chose: rerun seed-B ensuring it is different). seed-A unchanged.
