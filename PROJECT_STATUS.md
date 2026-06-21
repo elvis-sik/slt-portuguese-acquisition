@@ -12,14 +12,17 @@ Portuguese via full-parameter continued pretraining?
 question well-posed. The contribution is the LLC↔behavior alignment. If there is no valid LLC trajectory,
 there is no result.
 
-## Headline result (as of now — strong, single-seed, controls pending)
+## Headline result (as of now — strong, single-seed; controls + robustness done)
 After a hard debugging arc, we have a **complete, valid, positive LLC trajectory for the primary
 condition (seed A, all 11 checkpoints to 100M)** that shows a **steep rise in geometric complexity during
 acquisition, then a plateau** — with the steepest rise bracketing the behavioral grammar-acquisition
-transition. This is the aligned-changepoint signature we came for. It still needs the **control LLC
-trajectories, a localization-sensitivity check, and seed-B replication** before any claim.
+transition. **Both controls now confirm specificity:** token-shuffled PT rises to ~60 then *declines* to
+~28, and matched-English rises only smoothly to ~70 — neither reproduces the rise-then-plateau. The shape
+is also robust to localization (loc=100 vs loc=300 identical in shape). The remaining piece before a claim
+is **seed-B replication**.
 
-**→ Full write-up with figures: [`reports/seed_a_llc_trajectory/REPORT.md`](reports/seed_a_llc_trajectory/REPORT.md).**
+**→ Write-ups with figures: [`reports/seed_a_llc_trajectory/REPORT.md`](reports/seed_a_llc_trajectory/REPORT.md)
+(primary) and [`reports/control_comparison/REPORT.md`](reports/control_comparison/REPORT.md) (controls + robustness).**
 
 ```
 LLC (structured PT seed A, fixed non-padded reference, loc=100, 3 chains) — COMPLETE:
@@ -64,11 +67,17 @@ finished — no scientific output affected.)
 - ✅ Orchestrator + dashboard + recipe + behavioral benchmarks + behavioral transition found.
 - ✅ LLC bug found & fixed; **complete** valid positive LLC trajectory for seed A (all 11 checkpoints to
   100M) — written up in [`reports/seed_a_llc_trajectory/REPORT.md`](reports/seed_a_llc_trajectory/REPORT.md).
-- ⏳ **Localization-sensitivity check** — show the LLC trajectory shape is stable across valid localizations.
-- ⏳ **Control LLC trajectories** — shuffled-PT (should show NO/weaker changepoint) and matched-English.
-- ⏳ **seed B replication** — train to 100M + LLC; show the changepoint replicates.
-- ⏳ **Report + figures** — BPB curve, 538-grammar curve, LLC trajectory, the alignment, with honest caveats.
+- ✅ **Control LLC trajectories** — shuffled-PT (rises to ~60 then **declines to ~28**) and matched-English
+  (smooth gentle rise to ~70, no changepoint). Neither reproduces the structured rise-then-plateau →
+  the changepoint is **specific to PT acquisition**. All three AGENTS.md-minimum conditions now done.
+- ✅ **Localization-sensitivity check** — structured-PT shape is identical at loc=100 vs loc=300 (~4 units
+  apart, same rise+plateau). Controls + robustness written up in
+  [`reports/control_comparison/REPORT.md`](reports/control_comparison/REPORT.md).
+- ⏳ **seed B replication** — train to 100M + LLC; show the changepoint replicates. **Top remaining piece**
+  (needs a clean training run — re-running training in place would clobber existing checkpoints).
 - ⏳ **Statistical changepoint analysis** + literature framing (novelty vs known LLC-during-learning work).
+- ⏳ **Code hygiene** — fix the cosmetic `KeyError: 'estimated_cost_usd'` (llc_campaign.py:652) and add
+  in-loss padding masking.
 
 ## Infrastructure reality (important for a new collaborator)
 - Experiments run on a **GCP L4 GPU VM** (`slt-portuguese-l4-mig`, zone `us-central1-b`, project
