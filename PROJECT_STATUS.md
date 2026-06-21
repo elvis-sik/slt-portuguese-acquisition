@@ -12,17 +12,23 @@ Portuguese via full-parameter continued pretraining?
 question well-posed. The contribution is the LLC↔behavior alignment. If there is no valid LLC trajectory,
 there is no result.
 
-## Headline result (as of now — strong, still being completed)
-After a hard debugging arc, we have a **valid, positive LLC trajectory for the primary condition** that
-shows a **steep rise in geometric complexity during acquisition, then a plateau** — with the steepest
-rise bracketing the behavioral grammar-acquisition transition. This is an aligned-changepoint signature,
-the thing we came for. It still needs the controls, a sensitivity check, and replication before any claim.
+## Headline result (as of now — strong, single-seed, controls pending)
+After a hard debugging arc, we have a **complete, valid, positive LLC trajectory for the primary
+condition (seed A, all 11 checkpoints to 100M)** that shows a **steep rise in geometric complexity during
+acquisition, then a plateau** — with the steepest rise bracketing the behavioral grammar-acquisition
+transition. This is the aligned-changepoint signature we came for. It still needs the **control LLC
+trajectories, a localization-sensitivity check, and seed-B replication** before any claim.
+
+**→ Full write-up with figures: [`reports/seed_a_llc_trajectory/REPORT.md`](reports/seed_a_llc_trajectory/REPORT.md).**
 
 ```
-LLC (structured PT seed A, fixed reference, loc=100, 3 chains):
- 400k +52.3 | 800k +61.5 | 1.5M +75.5 | 2.5M +80.7 | 4M +84.3 | 6M +84.8 | 8M +86.0 | (18M/27M/60M/100M finishing)
+LLC (structured PT seed A, fixed non-padded reference, loc=100, 3 chains) — COMPLETE:
+ 400k +52.3 | 800k +61.5 | 1.5M +75.5 | 2.5M +80.7 | 4M +84.3 | 6M +84.8 | 8M +86.0 | 18M +85.3 | 27M +85.3 | 60M +85.8 | 100M +86.7
                                   ^^^^^^^^^^^^ behavioral transition ~1.5–2.5M ^^^^^^^^^^^^
 ```
+All 11 checkpoints positive, tight chain agreement, zero rejected chains. (The LLC job exited non-zero on
+a cosmetic `KeyError: 'estimated_cost_usd'` in the final-manifest writeout, *after* all sampling
+finished — no scientific output affected.)
 
 ## Scientific state in detail
 - **Training (frozen recipe):** TinyStories-8M, full-parameter FP32 AdamW, **lr 1e-4, 3% warmup, cosine
@@ -56,7 +62,8 @@ LLC (structured PT seed A, fixed reference, loc=100, 3 chains):
 
 ## What's done / running / pending
 - ✅ Orchestrator + dashboard + recipe + behavioral benchmarks + behavioral transition found.
-- ✅ LLC bug found & fixed; valid positive LLC trajectory for seed A (finishing the last 4 checkpoints).
+- ✅ LLC bug found & fixed; **complete** valid positive LLC trajectory for seed A (all 11 checkpoints to
+  100M) — written up in [`reports/seed_a_llc_trajectory/REPORT.md`](reports/seed_a_llc_trajectory/REPORT.md).
 - ⏳ **Localization-sensitivity check** — show the LLC trajectory shape is stable across valid localizations.
 - ⏳ **Control LLC trajectories** — shuffled-PT (should show NO/weaker changepoint) and matched-English.
 - ⏳ **seed B replication** — train to 100M + LLC; show the changepoint replicates.
