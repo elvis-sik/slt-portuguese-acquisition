@@ -1,80 +1,90 @@
-# SLT Portuguese adaptation: Codex handoff
+# SLT Portuguese: does a model's local geometry change as it acquires a language?
 
-This repository is a practical handoff for a three-day research sprint studying whether an SLT-derived measure changes when a small English-trained language model acquires Portuguese.
+A developmental-interpretability experiment. We take a small English-trained language model
+(TinyStories-8M), adapt it to Portuguese by full-parameter continued pretraining, and ask whether an
+**SLT-derived geometric quantity — the Local Learning Coefficient (LLC)** — changes in a way that
+**aligns with a behavioral transition** (the onset of Portuguese grammatical competence).
 
-**The report under `reference/mock_report/` is synthetic. Every result, model run, effect size, confidence interval, changepoint, and intervention in it was fabricated for planning. Never mix those files with empirical results.**
+> The model learning Portuguese is *not* the result — it's the scaffolding. The contribution is the
+> **LLC ↔ behavior alignment.**
 
-## Recommended operating model
+## Current status — there is a real result
 
-Use a dedicated GCP GPU VM as the worker. Install Codex CLI on that VM, place this repository there, and connect the desktop Codex App through its SSH remote-project feature. Provisioning, stopping, and deleting the VM stay on the local operator side and require explicit confirmation. Long model jobs are launched with a bounded detached runner, so loss of an SSH or Codex session does not terminate them.
+**→ See [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for the authoritative, current state.** Headline:
 
-```text
-local workstation                         GCP GPU VM
------------------                         ----------
-Codex App  -- SSH remote project ------>  Codex CLI + repository
-local gcloud scripts ------------------->  start/stop/provision only
-human approval gates                      bounded training/SGLD jobs
-                                           logs + checkpoints + manifests
+- The model genuinely acquires Portuguese (PT bits-per-byte 6.7 → 2.5), with a clean **behavioral
+  grammar-acquisition transition at ~1.5–2.5M tokens** measured on a 538-item Portuguese minimal-pair
+  benchmark (chance → ~89%).
+- After fixing a real LLC-measurement bug (an unmasked-padding loss-definition error — see PROJECT_STATUS
+  and `state/decision_log.md`), we obtain a **valid, positive LLC trajectory** that **rises steeply through
+  the acquisition phase and then plateaus** — an aligned-changepoint signature. Controls, a sensitivity
+  check, and replication are in progress.
+
+This repo was originally a *planning handoff*; it is now a project that has been built and run. Several
+files under `docs/`, plus `START_HERE_FOR_CODEX.md` and `reference/mock_report/`, are **historical
+planning artifacts** — see the note at the bottom. `PROJECT_STATUS.md` and `state/decision_log.md` are the
+authoritative, current sources.
+
+## How it works
+
+The experiment is driven by an **autonomous research harness** on a GCP GPU VM, watched from a local
+dashboard:
+
+```
+local workstation                          GCP L4 GPU VM
+-----------------                          -------------
+dashboard (apps/dashboard, pnpm)  <—sync—  orchestrator: planner + executor agents (codex/orchestrate.py)
+gcloud lifecycle (infra/gcp)      ——————>  bounded training / LLC (SGLD) jobs
+                                           checkpoints, traces, decision log, results/
 ```
 
-This is preferable to asking a local agent to issue many one-off `gcloud compute ssh --command ...` calls. It preserves remote state, makes logs and files directly visible to Codex, and follows OpenAI's documented remote-connection workflow.
+- **`codex/orchestrate.py`** — a deterministic harness that loops a **planner** agent (chooses the next
+  step + budget) and an **executor** agent (does the work), with hard backstops (cost cap, wall-clock
+  deadline, stop-file) and a two-layer self-stop. Scientific rules live in **`AGENTS.md`**.
+- **`apps/dashboard/`** — a local Next.js dashboard (`pnpm dashboard:dev`) showing the orchestrator
+  timeline, experiment runs, and readable agent transcripts; it syncs results from the VM.
+- **Experiment scripts** — training, the LLC/SGLD campaign, and a templated Portuguese grammar benchmark
+  (see "Where things live").
 
-## Start here
+## Getting oriented (read order)
 
-1. Read `START_HERE_FOR_CODEX.md` and `AGENTS.md`.
-2. Read `docs/00_EXECUTIVE_PLAN.md` and `docs/03_THREE_DAY_EXECUTION_PLAN.md`.
-3. Copy `infra/gcp/env.example` to `infra/gcp/.env` and fill in the GCP project ID.
-4. Validate the local bundle:
+1. [`PROJECT_STATUS.md`](PROJECT_STATUS.md) — current state, results, and the LLC debugging arc.
+2. [`state/decision_log.md`](state/decision_log.md) — the full running narrative of decisions.
+3. [`AGENTS.md`](AGENTS.md) — the scientific rules (validity gate; never manufacture a changepoint).
+4. `scripts/llc_campaign.py` + `scripts/build_packed_reference.py` — the LLC machinery and the reference fix.
+5. `data/eval/pt_minimal_pairs.jsonl` — the behavioral benchmark (generator/scorer in `scripts/`).
 
-   ```bash
-   python scripts/validate_handoff.py
-   ```
+## Running it
 
-5. Dry-run VM creation:
+Cloning gives you **all the code, docs, and the full narrative — enough to read the project and generate
+ideas.** It does **not** let you run experiments: the trained checkpoints (hundreds of MB), tokenized
+corpora, the GPU VM, and the OpenAI/Codex key (1Password) and `.env.local` are operator-side and not in
+git. To actually run training/LLC you need GPU access — coordinate with the operator (the simplest path is
+a VM created from the existing boot-disk snapshot, which carries the full preconfigured environment).
 
-   ```bash
-   DRY_RUN=1 ./infra/gcp/provision_vm.sh
-   ```
+The dashboard runs locally with `pnpm dashboard:dev`, but only does live work when pointed at a running VM.
 
-6. Create the VM only after inspecting the command:
+## Where things live
 
-   ```bash
-   CONFIRM_SPEND=YES DRY_RUN=0 ./infra/gcp/provision_vm.sh
-   ```
+| What | Where |
+| --- | --- |
+| Autonomous harness + agent prompts/schemas | `codex/orchestrate.py`, `codex/prompts/`, `codex/schemas/` |
+| Scientific rules | `AGENTS.md` |
+| Local control dashboard | `apps/dashboard/` |
+| LLC campaign / read values / reference fix | `scripts/llc_campaign.py`, `scripts/llc_curve.py`, `scripts/build_packed_reference.py` |
+| Portuguese grammar benchmark | `data/eval/pt_minimal_pairs.jsonl`, `scripts/gen_pt_minimal_pairs.py`, `scripts/score_minimal_pairs.py` |
+| VM lifecycle / launcher / watchdog | `infra/gcp/`, `infra/remote/` |
+| Results (training, LLC) | `results/02_final_training/`, `results/03_llc_campaign/` (heavy artifacts gitignored) |
+| Running narrative & decisions | `state/decision_log.md` |
 
-7. Wait for the startup driver installation and possible reboot, then verify and bootstrap:
+## ⚠️ Synthetic reference report
 
-   ```bash
-   ./infra/gcp/wait_for_gpu.sh
-   ./infra/gcp/bootstrap_and_sync.sh
-   ./infra/gcp/configure_ssh_for_codex.sh
-   ```
+Everything under **`reference/mock_report/` is fabricated** — a synthetic report used only for planning.
+Every number, figure, effect size, and changepoint in it is fake. Now that real results exist, **never mix
+the mock report with empirical results.** Real outputs live under `results/`.
 
-8. In the Codex App, add the concrete SSH host printed by the last command and choose the remote repository folder.
-9. On the remote VM, run the infrastructure gate before any scientific run:
+## Historical planning artifacts
 
-   ```bash
-   make check-env
-   make benchmark-train
-   make benchmark-sampler
-   ```
-
-The exact experiment implementation is intentionally not falsely presented as complete. The repository contains protocols, benchmark utilities, safety rails, prompts, templates, and a synthetic reference report. Codex should implement and test the real data/training/evaluation pipeline under the gates in `AGENTS.md`.
-
-## Key documents
-
-- `docs/01_RESEARCH_PROTOCOL.md`: scientific design and claims.
-- `docs/02_SLT_BAYESIAN_COMPLICATIONS.md`: why LLC estimation is not merely a callback.
-- `docs/04_BENCHMARKS_AND_FERMI_ESTIMATES.md`: time and dollar model.
-- `docs/05_CODEX_GCP_OPERATIONS.md`: remote Codex architecture and autonomy.
-- `docs/07_ADAPTION_AUTOSCIENTIST_ASSESSMENT.md`: qualification test for Adaption.
-- `docs/09_FAKE_REPORT_WALKTHROUGH.md`: page-by-page reading of the mock report.
-- `reference/mock_report/README_BUILD.md`: reproduce the synthetic figures and rebuild the static report template.
-
-## Current planning envelope
-
-Before a real benchmark, the planning estimate is approximately 7 charged GPU-hours, with a subjective 80% interval of 4–14 hours. At a user-supplied planning rate of $1.00 per VM-hour, the raw compute midpoint is about $7. Including setup, failed sampler settings, idle time, storage, and one partial rerun, reserve $20 and impose a $50 hard project budget. These are engineering estimates, not statistical confidence intervals and not an official GCP quote.
-
-## Repository status
-
-This handoff was assembled on 2026-06-20. External services, package APIs, GPU availability, and prices can change. Verify them at execution time. See `docs/SOURCES.md`.
+`START_HERE_FOR_CODEX.md`, much of `docs/` (the executive plan, three-day plan, Fermi estimates, etc.), and
+`reference/mock_report/` date from the original pre-implementation handoff and may not reflect what was
+actually built or found. Treat `PROJECT_STATUS.md` + `state/decision_log.md` as the source of truth.
