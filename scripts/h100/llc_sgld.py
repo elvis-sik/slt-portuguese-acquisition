@@ -102,6 +102,7 @@ def main():
     w_star = [p.detach().clone() for p in model.parameters()]
     import random
     chain_llcs = []
+    chain_meanLs = []
     for c in range(args.chains):
         rng = random.Random(20260620 + c)
         for p, w0 in zip(model.parameters(), w_star):
@@ -126,11 +127,14 @@ def main():
         mean_L = sum(sampled) / len(sampled)
         llc = args.nbeta * (mean_L - L0)
         chain_llcs.append(llc)
-        print(f"  chain {c}: lambda_hat = {llc:+.3f}  (mean_sampled_L={mean_L:.5f})")
+        chain_meanLs.append(mean_L)
+        # escape diagnostic: mean_sampled_L should be slightly ABOVE L0 (lambda>0). If it's far
+        # BELOW L0, the sampler is wandering downhill (lr too high / gamma too low) -> invalid.
+        print(f"  chain {c}: lambda_hat = {llc:+.3f}  mean_sampled_L={mean_L:.5f}  (L0={L0:.5f})")
     for p, w0 in zip(model.parameters(), w_star):
         p.data.copy_(w0)
 
-    res = {"adapter": args.adapter, "L0": L0, "chains": chain_llcs,
+    res = {"adapter": args.adapter, "L0": L0, "chains": chain_llcs, "chain_meanLs": chain_meanLs,
            "llc_mean": sum(chain_llcs) / len(chain_llcs),
            "config": {"chains": args.chains, "draws": args.draws, "burnin": args.burnin,
                       "lr": args.lr, "gamma": args.gamma, "nbeta": args.nbeta, "batch": args.batch}}
