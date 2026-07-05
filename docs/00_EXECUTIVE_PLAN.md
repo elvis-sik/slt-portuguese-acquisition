@@ -1,5 +1,8 @@
 # Executive plan
 
+> Status, 2026-06-21: historical planning document. For the current judge-facing state, read
+> `README.md`, `PROJECT_STATUS.md`, and `reports/control_comparison/REPORT.md`.
+
 ## Decision
 
 Proceed, but treat this as an SLT sampling project with a language-training component, not as ordinary fine-tuning plus one callback.

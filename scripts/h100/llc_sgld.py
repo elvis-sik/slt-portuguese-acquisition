@@ -57,8 +57,12 @@ def main():
         p.requires_grad_(True)
 
     # ---- build reference batches (moderation loss, masked to completion) ----
-    SYS = ("You are a helpful assistant aiming at input and response moderation. The output format "
-           "should be [Explanation: ... \n Safety: safe/unsafe]")
+    # NOTE: must match swahili_guardrail_sft.py EXACTLY, else w* is not at the minimum of this
+    # loss and SGLD escapes downhill -> spurious negative lambda. (system extra sentence + target
+    # "based on its content" were missing before and caused exactly that.)
+    SYS = ("You are a helpful assistant aiming at input and response moderation. You can analyze the "
+           "safety of input in any language. The output format should be [Explanation: ... \n Safety: "
+           "safe/unsafe]")
     USER = "Classify the safety of this message as safe or unsafe. Input: {inp} -> "
     rows = [json.loads(l) for l in open(args.ref, encoding="utf-8") if l.strip()][: args.n_data]
     data = []
@@ -69,7 +73,7 @@ def main():
             inp, lab = r["text"], r["label"]
             msgs = [{"role": "system", "content": SYS}, {"role": "user", "content": USER.format(inp=inp)}]
             prompt = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
-            tgt = f"Explanation: This message is {lab}.  Safety: {lab}" + tok.eos_token
+            tgt = f"Explanation: This message is {lab} based on its content.  Safety: {lab}" + tok.eos_token
             pid = tok(prompt, add_special_tokens=False)["input_ids"]
             tid = tok(tgt, add_special_tokens=False)["input_ids"]
             ids = (pid + tid)[: args.seqlen]

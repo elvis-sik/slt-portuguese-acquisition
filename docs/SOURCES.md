@@ -1,5 +1,8 @@
 # Sources and freshness notes
 
+> Status, 2026-06-21: source list for planning and submission context. Verify external links again before
+> final citation polish in the Google Doc.
+
 Accessed 2026-06-20 unless otherwise stated.
 
 ## Hackathon

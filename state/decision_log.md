@@ -1,5 +1,10 @@
 # Decision log
 
+> Status, 2026-06-21: this is an audit log. Older entries intentionally describe artifacts that have
+> since been retired from the GitHub-facing tree, including the temporary 8M `results/04_report` package
+> and operational Codex/job traces. Current submission summaries live in `PROJECT_STATUS.md` and
+> `reports/`.
+
 ## 2026-06-20 — initial handoff
 
 Decision: use GCP as the primary worker; install Codex on the remote VM; keep cloud lifecycle local; run TinyStories-3M infrastructure/scientific gates before TinyStories-8M.
@@ -396,8 +401,8 @@ padded loss, so SGLD always finds lower loss -> negative LLC. Evidence: lr->0 ga
 batch-size invariant (not minibatch noise). FIX: rebuilt sampler_reference.jsonl from full-length
 non-padded train_structured_pt chunks (256 examples; original saved as sampler_reference.jsonl.orig).
 With the fixed reference, 100M LLC is POSITIVE and accepted: +77.9 (loc=100), +71.1 (loc=1000),
-+30.2 (loc=10000). Original loc=100 config was fine all along. TODO: also mask padding in
-llc_campaign.py for robustness. Running the full seed-A trajectory campaign with the fixed reference.
++30.2 (loc=10000). Original loc=100 config was fine all along. Open robustness item: also mask padding
+in `llc_campaign.py`. Running the full seed-A trajectory campaign with the fixed reference.
 
 ## 2026-06-21T02:51:18Z — GATE: shuffled-PT control LLC trajectory (launch)
 - **Action:** LLC campaign on the token-shuffled-PT control, same frozen 11-checkpoint subset and sampler
@@ -451,3 +456,21 @@ llc_campaign.py for robustness. Running the full seed-A trajectory campaign with
   trajectory is genuinely seed-dependent. seedb_pipeline.sh now ABORTS the LLC if seed-B weights still
   match seed-A (guard against silently reporting a duplicate again).
 - Re-running seed-B only (operator chose: rerun seed-B ensuring it is different). seed-A unchanged.
+
+## 2026-07-05 — repository archived after hackathon
+
+Decision: archive the GitHub-facing repository state and stop treating any VM-side continuation as live.
+The hackathon has been over for some time, and the GCP/remote VMs used for the sprint have been removed.
+
+Evidence preserved in Git: `PROJECT_STATUS.md`, `README.md`, `REPRODUCE.md`,
+`reports/seed_a_llc_trajectory/REPORT.md`, `reports/control_comparison/REPORT.md`, compact JSON/CSV
+summaries under `results/02_final_training/` and `results/03_llc_campaign/`, the Portuguese grammar
+benchmark, and exploratory low-resource guardrail scripts/results.
+
+Submission claim: keep the result scoped to one structured-Portuguese seed plus controls and localization
+robustness. The seed-B attempt did not produce an archived usable replication before teardown, and the
+earlier duplicate-weight run is explicitly non-evidence.
+
+Future work: centralized in `FUTURE_WORK.md`: clean seed-B replication, formal changepoint/alignment
+analysis, LLC code hardening, grammar-benchmark expansion, literature framing, and a separate
+low-resource guardrail/LLC extension. No additional GPU job is pending from this repository state.

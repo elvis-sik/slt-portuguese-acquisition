@@ -1,5 +1,8 @@
 # Walkthrough of the synthetic report
 
+> Status, 2026-06-21: historical explanation of the fabricated mock report. It documents a planning
+> visualization only; current empirical results are in `PROJECT_STATUS.md` and `reports/`.
+
 The report at `reference/mock_report/slt_portuguese_synthetic_mock_submission.pdf` is a visualization of a moderately successful outcome. It is not a forecast and not evidence.
 
 ## Page 1: the project in one minute

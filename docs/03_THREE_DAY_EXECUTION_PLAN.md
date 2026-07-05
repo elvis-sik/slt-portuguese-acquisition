@@ -1,5 +1,8 @@
 # Three-day execution plan
 
+> Status, 2026-06-21: historical execution plan. The project has run; current outputs are summarized in
+> `PROJECT_STATUS.md` and the reports under `reports/`.
+
 The schedule is organized around scientific gates rather than calendar optimism. Stop adding scope when a gate is not secure.
 
 ## Phase 0: infrastructure gate

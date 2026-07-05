@@ -1,5 +1,8 @@
 # Adaption AutoScientist assessment
 
+> Status, 2026-06-21: historical planning assessment. It was not the execution path for the current
+> submission result.
+
 ## Publicly stated capability
 
 Adaption's public AutoScientist page says the user specifies an outcome and the system co-optimizes data and training recipes until performance converges, then deploys the adapted model.

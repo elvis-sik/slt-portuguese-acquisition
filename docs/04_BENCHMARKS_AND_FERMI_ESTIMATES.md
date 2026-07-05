@@ -1,5 +1,8 @@
 # Benchmarks and Fermi estimates
 
+> Status, 2026-06-21: historical estimates. Current runtime/cost context is summarized in
+> `PROJECT_STATUS.md`; old Fermi numbers below are retained for provenance.
+
 ## Why benchmark first
 
 Tiny models do not necessarily achieve high hardware utilization. Python overhead, data loading, checkpoint writes, observer evaluations, and many small kernels can dominate. FLOP-only estimates are therefore less trustworthy than two short end-to-end measurements.

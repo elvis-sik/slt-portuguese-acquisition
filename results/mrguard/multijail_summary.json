@@ -1,0 +1,16 @@
+{
+  "base": "unsloth/Llama-3.2-3B-Instruct",
+  "adapter": "yangy96/mrguard-3B",
+  "dataset": "MultiJail (all-harmful)",
+  "n_per_lang": 150,
+  "en_unsafe_recall": 0.967,
+  "en_n": 150,
+  "ar_unsafe_recall": 0.9,
+  "ar_n": 150,
+  "sw_unsafe_recall": 0.72,
+  "sw_n": 150,
+  "jv_unsafe_recall": 0.88,
+  "jv_n": 150,
+  "bn_unsafe_recall": 0.613,
+  "bn_n": 150
+}

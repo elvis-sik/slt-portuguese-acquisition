@@ -1,5 +1,8 @@
 # SLT and Bayesian complications
 
+> Status, 2026-06-21: historical planning document. It explains why LLC measurement is delicate; current
+> results and limitations are summarized in `PROJECT_STATUS.md` and `reports/`.
+
 ## What changes and what does not
 
 The continued-pretraining optimizer remains ordinary AdamW. SLT enters through a second procedure that samples a localized posterior around selected checkpoints. In schematic form:

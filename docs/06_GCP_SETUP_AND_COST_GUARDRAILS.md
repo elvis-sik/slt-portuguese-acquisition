@@ -1,5 +1,8 @@
 # GCP setup and cost guardrails
 
+> Status, 2026-06-21: operator reference, not judge-facing evidence. Current submission summaries live in
+> `README.md`, `PROJECT_STATUS.md`, and `reports/`.
+
 ## Recommended instance
 
 ```text

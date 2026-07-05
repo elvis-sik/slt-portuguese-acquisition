@@ -1,0 +1,20 @@
+{
+  "adapter": "runs/sw_guardrail/step_00600",
+  "L0": 1.035174936056137,
+  "chains": [
+    -1.3052367915709817
+  ],
+  "chain_meanLs": [
+    0.9046512568990389
+  ],
+  "llc_mean": -1.3052367915709817,
+  "config": {
+    "chains": 1,
+    "draws": 8,
+    "burnin": 8,
+    "lr": 1e-08,
+    "gamma": 10000.0,
+    "nbeta": 10.0,
+    "batch": 8
+  }
+}

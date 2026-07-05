@@ -1,5 +1,8 @@
 # Failure modes and pivots
 
+> Status, 2026-06-21: historical planning document. It remains useful context for why the report is
+> cautious, but current findings are summarized in `PROJECT_STATUS.md` and `reports/`.
+
 ## GCP quota or no G2 capacity
 
 Try two additional documented G2 zones. If not solved quickly, use another 24 GB GPU provider. Keep the same repository and benchmark protocol. Do not spend the research window debugging billing/quota.

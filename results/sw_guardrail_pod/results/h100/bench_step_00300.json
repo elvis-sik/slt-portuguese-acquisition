@@ -1,0 +1,9 @@
+{
+  "sw_acc": 0.887,
+  "sw_unsafe_recall": 0.652,
+  "sw_n": 150,
+  "en_acc": 0.88,
+  "en_unsafe_recall": 0.652,
+  "en_n": 150,
+  "adapter": "runs/sw_guardrail/step_00300"
+}

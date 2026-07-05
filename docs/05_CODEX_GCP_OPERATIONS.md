@@ -1,5 +1,8 @@
 # Codex and GCP operations
 
+> Status, 2026-06-21: operator reference, not judge-facing evidence. Secrets and local operator config are
+> intentionally outside Git.
+
 ## Direct answer
 
 Yes. Codex can work on the GCP instance over SSH. The most robust arrangement is to install Codex CLI on the GPU VM and connect the desktop Codex App to that SSH host as a remote project. OpenAI documents that remote project threads run commands and read/write files on the remote host, and that the remote host must have the `codex` command on its login-shell `PATH`.

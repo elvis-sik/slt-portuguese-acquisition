@@ -1,5 +1,8 @@
 # Go/no-go checklist
 
+> Status, 2026-06-21: historical checklist from the execution phase. The current submission state is
+> summarized in `PROJECT_STATUS.md` and `reports/`.
+
 ## Infrastructure gate
 
 - [ ] `nvidia-smi` shows the expected GPU.

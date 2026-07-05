@@ -24,8 +24,9 @@ positive LLC trajectories, and adds a robustness check. The structured-PT geomet
 brackets the grammar-acquisition transition is **specific to genuine Portuguese structure being acquired**
 — not an artifact of training length, token statistics, generic adaptation, or sampler localization.
 
-> Caveat carried forward: this is still **one Portuguese seed**. Replication (seed B) needs a clean
-> training run and is the next step — see [Limitations](#limitations).
+> Caveat carried forward: this is still **one Portuguese seed**. The current submission claim is therefore
+> scoped as a controlled proof of concept rather than a seed-robust phenomenon — see
+> [Limitations](#limitations).
 
 ## 1. Three-condition contrast
 
@@ -87,8 +88,8 @@ share the one global sampler config; all checkpoints are positive with no reject
 ## Limitations
 
 1. **Single Portuguese seed.** The controls strengthen specificity, but replication (a second PT seed) is
-   not yet done — it needs a clean training run (re-running training in place would clobber the checkpoints
-   these LLC jobs read). This is the top next step.
+   not included in the current submission result. That makes this a controlled proof of concept rather
+   than a seed-robust claim.
 2. **No formal statistical changepoint/alignment test yet** — the "rise brackets the transition" and
    "controls are flat/declining" reads are from the trajectories, not a fitted changepoint model.
 3. **Localization sensitivity is one alternate point (loc=300).** loc=30 was skipped at the overnight
@@ -99,13 +100,15 @@ share the one global sampler config; all checkpoints are positive with no reject
 5. **Bookkeeping:** all three overnight LLC jobs exited non-zero on the same cosmetic
    `KeyError: 'estimated_cost_usd'` (`llc_campaign.py:652`) *after* sampling all 11 checkpoints — no
    scientific output affected (the summaries confirm 11/11). The one-line fix is still open, as is the
-   in-loss padding-mask TODO.
+   in-loss padding-mask hardening item.
 
 ## What this completes / next
 
 - ✅ All three AGENTS.md-minimum conditions now have valid LLC trajectories with a clean contrast.
 - ✅ Localization-shape robustness (loc 100 vs 300).
-- ⏭ **seed-B replication** (clean training run + LLC) — the main remaining piece for a claim.
+- See `../../FUTURE_WORK.md` for the archived follow-up list.
+- ⏭ **seed-B replication** (clean training run + LLC) — the main remaining piece for a stronger robustness
+  claim.
 - ⏭ Statistical changepoint/alignment test; loc=30 (and maybe loc=1000) to round out the sensitivity sweep.
 - ⏭ Fix the cosmetic cost-manifest `KeyError` and add in-loss padding masking.
 

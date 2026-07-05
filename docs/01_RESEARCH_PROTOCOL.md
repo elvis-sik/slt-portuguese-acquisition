@@ -1,5 +1,8 @@
 # Research protocol
 
+> Status, 2026-06-21: historical protocol and claim-boundary document. For the current empirical result,
+> read `PROJECT_STATUS.md` and the reports under `reports/`.
+
 ## 1. Research question and operational definitions
 
 The target phenomenon is a change from early lexical/distributional adaptation to held-out compositional grammatical generalization during Portuguese continued pretraining.

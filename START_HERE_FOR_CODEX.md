@@ -1,5 +1,8 @@
 # Start here for Codex
 
+> Status, 2026-06-21: historical handoff document. The project has already run; use `README.md`,
+> `PROJECT_STATUS.md`, and the reports under `reports/` for the current submission state.
+
 You are taking over a time-constrained experimental research project. Read `AGENTS.md` in full before changing files or launching jobs.
 
 ## Mission

@@ -4,6 +4,11 @@ _Primary condition (structured PT, seed A), 100M-token continued-pretraining run
 _Run dirs: `results/02_final_training/final_training_20260620T175233Z_wiki100m` (training/behavior),_
 _`results/03_llc_campaign/seed_a_FINAL_20260621T001501Z` (LLC). Generated 2026-06-21._
 
+_Status update for submission: this remains the primary seed-A trajectory report. The missing-control and
+localization caveats from the first draft are now addressed in
+`reports/control_comparison/REPORT.md`; the remaining major robustness limitation is second-seed
+replication._
+
 ## TL;DR
 
 As TinyStories-8M is adapted to Portuguese by full-parameter continued pretraining, an **SLT-derived
@@ -14,9 +19,9 @@ with the margin flipping negative→positive at ~2.5M tokens), even though the r
 bits-per-byte) falls **smoothly and monotonically** with no kink. This is the aligned-changepoint
 signature we set out to look for.
 
-> **This is a single-seed, no-control-LLC-yet result.** The model learning Portuguese is scaffolding;
-> the contribution is the LLC↔behavior alignment, and that claim is **not** established until the
-> shuffled-PT / English LLC controls and a second seed are in. See [Limitations](#limitations).
+> **This is the primary single-seed trajectory.** Read it together with
+> `reports/control_comparison/REPORT.md`, which adds the shuffled-Portuguese and matched-English LLC
+> controls plus localization robustness. The remaining major robustness gap is second-seed replication.
 
 ## Research question
 
@@ -137,36 +142,32 @@ epistemic lesson and a reviewer will (rightly) ask.
 
 ## Limitations
 
-These bound the claim; none are yet resolved.
+These bound the claim.
 
-1. **Single seed, and the key controls' LLC trajectories are not computed yet.** The contrast that makes
-   this a *result* — shuffled-PT (should show no/weaker geometric changepoint) and matched-English — has
-   trained checkpoints but **no LLC trajectory computed**. Seed-B replication is not done. Until those
-   are in, this is one suggestive trajectory, not an established alignment.
-2. **Localization sensitivity not yet characterized for the trajectory.** A mini-sweep at 100M shows the
-   LLC *value* is loc-dependent (loc=100→77.9, 1000→71.1, 10000→30.2) though positive across the valid
-   range. We have **not** yet shown the *trajectory shape* (rise-then-plateau) is stable across loc — a
-   required rigor check before any claim.
-3. **In-loss padding masking is still a TODO.** The fix works via the repacked non-padded reference, but
-   `llc_campaign.py` does not yet mask padding *in the loss* (proper labels / ignore_index). The result
-   is correct for this reference; the code is not yet robust to an arbitrary one.
+1. **Single Portuguese seed.** The shuffled-PT and matched-English controls now establish specificity, and
+   the localization check supports trajectory-shape robustness, but a second independently seeded
+   structured-Portuguese trajectory is still needed for a stronger replication claim.
+2. **No formal statistical changepoint/alignment test yet.** The "rise brackets the transition" reading is
+   from the trajectories, not a fitted changepoint model with a significance statement.
+3. **In-loss padding masking is still open code hygiene.** The fix works via the repacked non-padded
+   reference, but `llc_campaign.py` does not yet mask padding *in the loss* (proper labels /
+   ignore_index). The result is correct for this reference; the code is not yet robust to an arbitrary
+   one.
 4. **Grammar benchmark scored to 27M, not 100M** (the transition is well before, so this doesn't affect
    the changepoint, but the late curve is BPB-only). The benchmark is templated, not a validated BLiMP-PT.
-5. **"Leads" vs "coincides" is eyeballed, not a statistical changepoint test.** No formal changepoint
-   estimator or alignment significance has been computed yet.
-6. **Bookkeeping:** the LLC job exited non-zero on a cosmetic `KeyError: 'estimated_cost_usd'` in the
+5. **Bookkeeping:** the LLC job exited non-zero on a cosmetic `KeyError: 'estimated_cost_usd'` in the
    final-manifest writeout (`llc_campaign.py:652`), *after* all 11 checkpoints were sampled and accepted.
    No scientific output is affected; the manifest cost field is missing. Worth a one-line fix.
 
 ## Next steps (in priority order)
 
-1. **Control + replication LLC trajectories:** shuffled-PT and matched-English (the contrast), then seed-B
-   (replication). This is what turns the figure into a claim.
-2. **Localization-sensitivity** of the trajectory shape (rigor check).
-3. **Statistical changepoint analysis** quantifying the LLC changepoint and its alignment with the
+See the current archived follow-up list in `../../FUTURE_WORK.md`. In short:
+
+1. **Seed-B replication** (clean second structured-Portuguese training run + LLC).
+2. **Statistical changepoint analysis** quantifying the LLC changepoint and its alignment with the
    ~1.5–2.5M behavioral transition.
-4. Harden `llc_campaign.py` (mask padding in-loss; fix the cost-manifest KeyError).
-5. Literature framing vs prior LLC-during-training / developmental-interpretability work (novelty).
+3. Harden `llc_campaign.py` (mask padding in-loss; fix the cost-manifest KeyError).
+4. Literature framing vs prior LLC-during-training / developmental-interpretability work (novelty).
 
 ## Reproducing the numbers/figures
 

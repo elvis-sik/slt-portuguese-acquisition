@@ -1,6 +1,12 @@
 # Hackathon submission guide
 
-The public Apart event page asks for a PDF research report documenting approach, results, and implications. The event welcomes technical-safety work on Portuguese- and Spanish-language models. The mock report uses six pages, within the previously identified 4–8 page target from an official hub page.
+_Status, 2026-07-05: historical submission guide. The hackathon is over; the GitHub repository is the
+archived supporting code/data-summary link._
+
+The public Apart event page asks for a research report documenting approach, results, and implications.
+The event welcomes technical-safety work on Portuguese- and Spanish-language models. The current
+submission should point reviewers to the Google Doc for the polished report and to this repository for
+code, benchmark construction, compact result summaries, and provenance.
 
 ## Recommended six-page structure
 
@@ -25,16 +31,21 @@ The public Apart event page asks for a PDF research report documenting approach,
 - a concrete Portuguese-language safety or evaluation implication;
 - limitations prominent enough that a reviewer can trust the positive claim.
 
-## Minimum result package
+## Current result package
 
-- report PDF;
-- code repository/commit;
-- machine-readable run registry;
-- all real figures and source CSVs;
-- sampler traces;
-- exact evaluation items or generation procedure;
-- environment and checkpoint hashes;
-- a `REPRODUCE.md` with one command per phase.
+- shared Google Doc report;
+- GitHub repository/commit;
+- exact evaluation items and generator/scorer under `data/eval/` and `scripts/`;
+- current narrative summaries in `PROJECT_STATUS.md`, `reports/seed_a_llc_trajectory/REPORT.md`, and
+  `reports/control_comparison/REPORT.md`;
+- compact machine-readable summaries under `results/02_final_training/` and `results/03_llc_campaign/`;
+- hashes, frozen configs, and manifests where they are small enough to keep in Git;
+- `REPRODUCE.md`, which separates Git-only checks from full GPU/checkpoint reruns;
+- `FUTURE_WORK.md`, which collects the remaining research ideas;
+- clear limitations: one Portuguese seed, controls and localization check done, seed replication future work.
+
+Do not submit or link stale local exports as if they are final. The old TeX/PDF draft and the earlier 8M
+diagnostic report package were removed from the tracked tree.
 
 ## Reporting language
 

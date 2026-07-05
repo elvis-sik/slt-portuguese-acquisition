@@ -1,17 +1,20 @@
 {
-  "phase": "03_llc_campaign",
-  "gate": "controls_and_robustness_complete__replication_running",
-  "last_updated": "2026-06-21",
+  "phase": "archive",
+  "gate": "submission_complete__future_work_documented__vms_removed",
+  "last_updated": "2026-07-05",
   "requires_human_approval": false,
-  "next_action": "seed-B replication is running (infra/remote/seedb_pipeline.sh, self-halting): train structured_pt_seed_b to 100M via final_training.py --only-conditions (distinct seed 404, identical data), then LLC against the structured non-padded reference. When it completes, build the seed-A vs seed-B replication figure + report and commit. Remaining after that: statistical changepoint/alignment test (CPU), loc=30 to round out the localization sweep, and code hygiene (fix the cosmetic KeyError 'estimated_cost_usd' at llc_campaign.py:652 and add in-loss padding masking).",
-  "reason": "Primary structured-PT seed-A LLC trajectory is complete and valid (rise-then-plateau bracketing the ~1.5-2.5M grammar transition). Both controls confirm specificity: token-shuffled PT rises then declines to ~28; matched-English rises only smoothly to ~70; neither reproduces the rise-then-plateau (~85). Trajectory shape is robust to localization (loc=100 vs 300 identical). All three AGENTS.md-minimum conditions done. seed-B replication is the last piece before a robustness claim.",
+  "next_action": "No live continuation job exists. Future work should start from FUTURE_WORK.md: clean seed-B replication on fresh GPU capacity or an external snapshot, formal changepoint/alignment analysis, LLC code hardening, grammar benchmark expansion, and the low-resource guardrail extension.",
+  "reason": "Primary structured-PT seed-A LLC trajectory is complete and valid (rise-then-plateau bracketing the ~1.5-2.5M grammar transition). Both controls confirm specificity: token-shuffled PT rises then declines to ~28; matched-English rises only smoothly to ~70; neither reproduces the rise-then-plateau (~85). Trajectory shape is robust to localization (loc=100 vs 300 identical). All three AGENTS.md-minimum conditions are complete. The attempted seed-B continuation did not produce an archived usable replication before the VMs were removed, so seed-B is future work.",
   "completed": {
     "structured_pt_seed_a_llc": "complete (loc=100, 11 ckpts, +52 -> +87, rise-then-plateau)",
     "shuffled_pt_control_llc": "complete (rises to ~60 then declines to ~28)",
     "matched_en_control_llc": "complete (smooth gentle rise to ~70, no changepoint)",
-    "localization_sensitivity": "complete (loc=300 identical shape to loc=100)"
+    "localization_sensitivity": "complete (loc=300 identical shape to loc=100)",
+    "documentation_archive": "complete (README, PROJECT_STATUS, REPRODUCE, FUTURE_WORK, decision log)"
   },
   "reports": [
+    "PROJECT_STATUS.md",
+    "FUTURE_WORK.md",
     "reports/seed_a_llc_trajectory/REPORT.md",
     "reports/control_comparison/REPORT.md"
   ]
